@@ -86,12 +86,13 @@ highlight default link vimshellUserPromptHidden Ignore
 
 " MPlayer
 syntax match vimshellCompilername '^MPlayer \d*\.\d*.*2000.*$'
-syntax match mplayerPlaying '^Playing.*$'
-syntax match mplayerTag '\( *Title:\| *Artist:\| *Album:\| *Year:\| *Comment:\| *Track:\| *Genre:\| *Opening audio decoder:\| *AUDIO:\| *Selected audio codec:\| *AO:\| *Video:\)\@<=\(.*\)$'
-syntax match mplayerTagName '^\( *Title\| *Artist\| *Album\| *Year\| *Comment\| *Track\| *Genre\| *Opening audio decoder\| *AUDIO\| *Selected audio codec\| *AO\| *Video\)'
+syntax match mplayerPlaying '^Playing '
+syntax match mplayerTag '\( *Title:\| *Artist:\| *Album:\| *Year:\| *Comment:\| *Track:\| *Genre:\| *Opening audio decoder:\| *AUDIO:\| *Selected audio codec:\| *AO:\| *Video:\| *Clip info:\)\@<=\(.*\)$'
+syntax match mplayerTagName '^\( *Title\| *Artist\| *Album\| *Year\| *Comment\| *Track\| *Genre\| *Opening audio decoder\| *AUDIO\| *Selected audio codec\| *AO\| *Video\| *Clip info\)'
 syntax match mplayerTitle '\( *Title:\)\@<=\(.*\)$'
 syntax match mplayerStarting '^Starting playback\.\.\.$'
 highlight default link mplayerPlaying PreProc
+highlight default link mplayerPlayingFileName Special
 highlight default link mplayerTag Constant
 highlight default link mplayerTagName Function
 highlight default link mplayerStarting Number
@@ -260,5 +261,8 @@ highlight default link diffSubname PreProc
 highlight default link diffComment Comment
 
 syntax match vimshellPyPrompt '>>>'
+
+" MPlayer
+syntax match mplayerPlayingFileName '\(Playing \)\@<=.*\(\.\)\@='
 
 let b:current_syntax = 'vimshell'
