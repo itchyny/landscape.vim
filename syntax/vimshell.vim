@@ -84,6 +84,19 @@ highlight default link vimshellError Error
 highlight default link vimshellErrorHidden Ignore
 highlight default link vimshellUserPromptHidden Ignore
 
+" MPlayer
+syntax match vimshellCompilername '^MPlayer \d*\.\d*.*2000.*$'
+syntax match mplayerPlaying '^Playing.*$'
+syntax match mplayerTag '\( *Title:\| *Artist:\| *Album:\| *Year:\| *Comment:\| *Track:\| *Genre:\| *Opening audio decoder:\| *AUDIO:\| *Selected audio codec:\| *AO:\| *Video:\)\@<=\(.*\)$'
+syntax match mplayerTagName '^\( *Title\| *Artist\| *Album\| *Year\| *Comment\| *Track\| *Genre\| *Opening audio decoder\| *AUDIO\| *Selected audio codec\| *AO\| *Video\)'
+syntax match mplayerTitle '\( *Title:\)\@<=\(.*\)$'
+syntax match mplayerStarting '^Starting playback\.\.\.$'
+highlight default link mplayerPlaying PreProc
+highlight default link mplayerTag Constant
+highlight default link mplayerTagName Function
+highlight default link mplayerStarting Number
+highlight default link mplayerTitle Special
+
 " Haskell
 let s:hsprompt='Prelude[^>]*>'
 execute "syntax match vimshellHsPrompt '".s:hsprompt."'"
@@ -156,7 +169,7 @@ highlight default link vimShellPrompt_ vimshellPrompt
 highlight default link vimshellTypeArchive Archive
 
 syntax keyword vimshellStatement do case of let in
-syntax keyword vimshellConditional if then else
+syntax keyword vimshellConditional if then else at
 syntax keyword vimshellStatement lambda
 syntax region vimshellString start=+"+ skip=+\\\\\|\\"+ end=+"+ oneline
 syntax region vimshellString start=+'+ end=+'+ oneline
@@ -164,7 +177,7 @@ syntax region vimshellString start=+`+ end=+"+ oneline
 syntax region vimshellString start=+`+ end=+`+ oneline
 syntax region vimshellString start=+`+ end=+'+ oneline
 syntax match vimshellCharacter '\'.\''
-syntax keyword vimshellType Bool Bounded Char Double Either Enum Eq FilePath Float Floating Fractional Functor IO IOError Int Integer Integral Maybe Monad Num Ord Ordering Rational Read ReadS Real RealFloat RealFrac Show ShowS String
+syntax keyword vimshellType Bool Bounded Char Double Either Enum Eq FilePath Float Floating Fractional Functor IO IOError Int Integer Integral Maybe Monad Num Ord Ordering Rational Read ReadS Real RealFloat RealFrac Show ShowS String function
 syntax keyword vimshellBoolean True False true false
 syntax keyword vimshellFunction abs acos acosh all and any appendFile asTypeOf asin asinh atan atan2 atanh break catch ceiling compare concat concatMap const cos cosh curry cycle decodeFloat div divMod drop dropWhile either elem encodeFloat enumFrom enumFromThen enumFromThenTo enumFromTo error even exp exponent fail filter flip floatDigits floatRadix floatRange floor fmap foldl foldl1 foldr foldr1 fromEnum fromInteger fromIntegral fromRational fst gcd getChar getContents getLine head id init interact ioError isDenormalized isIEEE isInfinite isNaN isNegativeZero iterate last lcm length lex lines log logBase lookup map mapM mapM_ max maxBound maximum maybe min minBound minimum mod negate not notElem null odd or otherwise pi pred print product properFraction putChar putStr putStrLn quot quotRem read readFile readIO readList readLn readParen reads readsPrec realToFrac recip rem repeat replicate return reverse round scaleFloat scanl scanl1 scanr scanr1 seq sequence sequence_ show showChar showList showParen showString shows showsPrec significand signum sin sinh snd span splitAt sqrt subtract succ sum tail take takeWhile tan tanh toEnum toInteger toRational truncate uncurry undefined unlines until unwords unzip unzip3 userError words writeFile zip zip3 zipWith zipWith3
 syntax match vimshellOperator '\(\(+\|-\|/\|*\|!\|&\||\|>\|<\|=\|::\|\^\|\$\)\+\|()\)'
@@ -207,5 +220,45 @@ syntax match vimshellDate '\<\d\+-\d\+-\d\+\>'
 
 syntax match vimshellURL /\(https\?\|ftp\):\/\/[0-9A-Za-z][&:()\[\]{}#@~%_\-=?/.0-9A-Za-z]*[0-9A-Za-z]\(:\d\d*\/\?\)\?\/?/
 highlight default link vimshellURL Underlined
+
+" diff
+" /opt/local/share/vim/vim73/syntax
+syntax match diffRemoved "^-.*"
+syntax match diffRemoved "^<.*"
+syntax match diffAdded "^+.*"
+syntax match diffAdded "^>.*"
+syntax match diffChanged "^! .*"
+syntax match diffSubname " @@..*"ms=s+3 contained
+syntax match diffLine "^@.*" contains=diffSubname
+syntax match diffLine "^\<\d\+\>.*"
+syntax match diffLine "^\*\*\*\*.*"
+syntax match diffLine "^---$"
+"Some versions of diff have lines like "#c#" and "#d#" (where # is a number)
+syntax match diffLine "^\d\+\(,\d\+\)\=[cda]\d\+\>.*"
+syntax match diffFile "^diff.*"
+syntax match diffFile "^+++ .*"
+syntax match diffFile "^Index: .*$"
+syntax match diffFile "^==== .*$"
+syntax match diffOldFile "^\*\*\* .*"
+syntax match diffNewFile "^--- .*"
+syntax match diffComment "^#.*"
+highlight default link diffOldFile diffFile
+highlight default link diffNewFile diffFile
+highlight default link diffFile Type
+highlight default link diffOnly Constant
+highlight default link diffIdentical Constant
+highlight default link diffDiffer Constant
+highlight default link diffBDiffer Constant
+highlight default link diffIsA Constant
+highlight default link diffNoEOL Constant
+highlight default link diffCommon Constant
+highlight default link diffRemoved Special
+highlight default link diffChanged PreProc
+highlight default link diffAdded Constant
+highlight default link diffLine Statement
+highlight default link diffSubname PreProc
+highlight default link diffComment Comment
+
+syntax match vimshellPyPrompt '>>>'
 
 let b:current_syntax = 'vimshell'

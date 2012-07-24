@@ -36,7 +36,7 @@ highlight Character ctermfg=100 ctermbg=none guifg=100 guibg=none
 highlight Number ctermfg=85 ctermbg=none guifg=85 guibg=none
 highlight Boolean ctermfg=11 ctermbg=none guifg=11 guibg=none
 highlight link Float Number
-highlight Identifier term=none cterm=none ctermfg=114 ctermbg=none guifg=114 guibg=none
+highlight Identifier term=none cterm=none ctermfg=104 ctermbg=none guifg=104 guibg=none
 highlight Function ctermfg=46 ctermbg=none guifg=46 guibg=none
 
 highlight Statement ctermfg=47 ctermbg=none guifg=47 guibg=none
