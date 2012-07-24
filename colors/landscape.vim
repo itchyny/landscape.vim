@@ -40,7 +40,7 @@ highlight Identifier term=none cterm=none ctermfg=104 ctermbg=none guifg=104 gui
 highlight Function ctermfg=46 ctermbg=none guifg=46 guibg=none
 
 highlight Statement ctermfg=47 ctermbg=none guifg=47 guibg=none
-highlight default link Conditional Statement
+highlight Conditional ctermfg=205 ctermbg=none guifg=205 guibg=none
 highlight default link Repeat Statement
 highlight default link Label Statement
 highlight Operator ctermfg=220 ctermbg=none guifg=220 guibg=none

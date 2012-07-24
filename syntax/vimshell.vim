@@ -85,10 +85,8 @@ highlight default link vimshellErrorHidden Ignore
 highlight default link vimshellUserPromptHidden Ignore
 
 " MPlayer
-syntax match vimshellCompilername '^MPlayer \d*\.\d*.*2000.*$'
+syntax match vimshellCompilername '^!*MPlayer .*2000.*Team.*$'
 syntax match mplayerPlaying '^Playing '
-syntax match mplayerTag '\( *Title:\| *Artist:\| *Album:\| *Year:\| *Comment:\| *Track:\| *Genre:\| *Opening audio decoder:\| *AUDIO:\| *Selected audio codec:\| *AO:\| *Video:\| *Clip info:\)\@<=\(.*\)$'
-syntax match mplayerTagName '^\( *Title\| *Artist\| *Album\| *Year\| *Comment\| *Track\| *Genre\| *Opening audio decoder\| *AUDIO\| *Selected audio codec\| *AO\| *Video\| *Clip info\)'
 syntax match mplayerTitle '\( *Title:\)\@<=\(.*\)$'
 syntax match mplayerStarting '^Starting playback\.\.\.$'
 highlight default link mplayerPlaying PreProc
@@ -122,6 +120,10 @@ syntax match vimshellHsLoadingPackage '^Loading package .*' contains=vimshellHsL
 highlight default link vimshellHsLoadingPackage Special
 syntax match vimshellCompilername '^GHCi, version \d*\.\d*\.\d*.*$' contains=vimshellURL
 syntax match vimshellCompilername '^The Glorious Glasgow Haskell Compilation System, .*$'
+" syntax keyword vimshellStatement do case of let in
+syntax match vimshellStatement '\(\(\<let\>\s\s*[^=][^=]*.*=.*\)\@<=\<in\>\|\<let\>\(\s\s*[^=][^=]*.*=.*\<in\>\)\@=\|\<let\>\(\s\s*[^=][^=]*=.*$\)\@=\)'
+" syntax keyword vimshellConditional if then else at
+syntax match vimshellConditional '\(\<if\>\(.*\<then\>.*\<else\>.*\)\@=\|\(\<if\>.*\)\@<=\<then\>\(.*\<else\>\)\@=\|\(\<if\>.*\<then\>.*\)\@<=\<else\>\)'
 
 " Python
 syntax match vimshellPyPrompt '>>>'
@@ -130,6 +132,8 @@ syntax match vimshellError '^SyntaxError.*$'
 syntax match vimshellCompilername '^Python \d*\.\d*\.\d* ([^)]*) *$'
 syntax match vimshellCompilername '^Python \d*\.\d*\.\d*$'
 syntax match vimshellCompilerdescription '^Python \d*.\d*.\d* ([^)]*).*\n\(.*\n\)*.*for more information.$' contains=vimshellCompilername
+syntax match vimshellStatement '\<lambda\>\(\s\s*\w\w*:\)\@='
+syntax match vimshellConditional '\(\<if\>\(.*\<else\>\)\@=\|\(\<if\>.*\)\@<=\<else\>\)'
 
 " Perl
 syntax match vimshellCompilername '^This is perl.*built for.*$'
@@ -169,9 +173,6 @@ highlight default link vimShellUserPrompt Function
 highlight default link vimShellPrompt_ vimshellPrompt
 highlight default link vimshellTypeArchive Archive
 
-syntax keyword vimshellStatement do case of let in
-syntax keyword vimshellConditional if then else at
-syntax keyword vimshellStatement lambda
 syntax region vimshellString start=+"+ skip=+\\\\\|\\"+ end=+"+ oneline
 syntax region vimshellString start=+'+ end=+'+ oneline
 syntax region vimshellString start=+`+ end=+"+ oneline
@@ -180,7 +181,8 @@ syntax region vimshellString start=+`+ end=+'+ oneline
 syntax match vimshellCharacter '\'.\''
 syntax keyword vimshellType Bool Bounded Char Double Either Enum Eq FilePath Float Floating Fractional Functor IO IOError Int Integer Integral Maybe Monad Num Ord Ordering Rational Read ReadS Real RealFloat RealFrac Show ShowS String function
 syntax keyword vimshellBoolean True False true false
-syntax keyword vimshellFunction abs acos acosh all and any appendFile asTypeOf asin asinh atan atan2 atanh break catch ceiling compare concat concatMap const cos cosh curry cycle decodeFloat div divMod drop dropWhile either elem encodeFloat enumFrom enumFromThen enumFromThenTo enumFromTo error even exp exponent fail filter flip floatDigits floatRadix floatRange floor fmap foldl foldl1 foldr foldr1 fromEnum fromInteger fromIntegral fromRational fst gcd getChar getContents getLine head id init interact ioError isDenormalized isIEEE isInfinite isNaN isNegativeZero iterate last lcm length lex lines log logBase lookup map mapM mapM_ max maxBound maximum maybe min minBound minimum mod negate not notElem null odd or otherwise pi pred print product properFraction putChar putStr putStrLn quot quotRem read readFile readIO readList readLn readParen reads readsPrec realToFrac recip rem repeat replicate return reverse round scaleFloat scanl scanl1 scanr scanr1 seq sequence sequence_ show showChar showList showParen showString shows showsPrec significand signum sin sinh snd span splitAt sqrt subtract succ sum tail take takeWhile tan tanh toEnum toInteger toRational truncate uncurry undefined unlines until unwords unzip unzip3 userError words writeFile zip zip3 zipWith zipWith3
+execute "syntax match vimshellFunction '\\(".s:hsprompt.".*\\)\\@<=\\(\\<abs\\>\\|\\<acos\\>\\|\\<acosh\\>\\|\\<all\\>\\|\\<and\\>\\|\\<any\\>\\|\\<appendFile\\>\\|\\<asTypeOf\\>\\|\\<asin\\>\\|\\<asinh\\>\\|\\<atan\\>\\|\\<atan2\\>\\|\\<atanh\\>\\|\\<break\\>\\|\\<catch\\>\\|\\<ceiling\\>\\|\\<compare\\>\\|\\<concat\\>\\|\\<concatMap\\>\\|\\<const\\>\\|\\<cos\\>\\|\\<cosh\\>\\|\\<curry\\>\\|\\<cycle\\>\\|\\<decodeFloat\\>\\|\\<div\\>\\|\\<divMod\\>\\|\\<drop\\>\\|\\<dropWhile\\>\\|\\<either\\>\\|\\<elem\\>\\|\\<encodeFloat\\>\\|\\<enumFrom\\>\\|\\<enumFromThen\\>\\|\\<enumFromThenTo\\>\\|\\<enumFromTo\\>\\|\\<error\\>\\|\\<even\\>\\|\\<exp\\>\\|\\<exponent\\>\\|\\<fail\\>\\|\\<filter\\>\\|\\<flip\\>\\|\\<floatDigits\\>\\|\\<floatRadix\\>\\|\\<floatRange\\>\\|\\<floor\\>\\|\\<fmap\\>\\|\\<foldl\\>\\|\\<foldl1\\>\\|\\<foldr\\>\\|\\<foldr1\\>\\|\\<fromEnum\\>\\|\\<fromInteger\\>\\|\\<fromIntegral\\>\\|\\<fromRational\\>\\|\\<fst\\>\\|\\<gcd\\>\\|\\<getChar\\>\\|\\<getContents\\>\\|\\<getLine\\>\\|\\<head\\>\\|\\<id\\>\\|\\<init\\>\\|\\<interact\\>\\|\\<ioError\\>\\|\\<isDenormalized\\>\\|\\<isIEEE\\>\\|\\<isInfinite\\>\\|\\<isNaN\\>\\|\\<isNegativeZero\\>\\|\\<iterate\\>\\|\\<last\\>\\|\\<lcm\\>\\|\\<length\\>\\|\\<lex\\>\\|\\<lines\\>\\|\\<log\\>\\|\\<logBase\\>\\|\\<lookup\\>\\|\\<map\\>\\|\\<mapM\\>\\|\\<mapM_\\>\\|\\<max\\>\\|\\<maxBound\\>\\|\\<maximum\\>\\|\\<maybe\\>\\|\\<min\\>\\|\\<minBound\\>\\|\\<minimum\\>\\|\\<mod\\>\\|\\<negate\\>\\|\\<not\\>\\|\\<notElem\\>\\|\\<null\\>\\|\\<odd\\>\\|\\<or\\>\\|\\<otherwise\\>\\|\\<pi\\>\\|\\<pred\\>\\|\\<print\\>\\|\\<product\\>\\|\\<properFraction\\>\\|\\<putChar\\>\\|\\<putStr\\>\\|\\<putStrLn\\>\\|\\<quot\\>\\|\\<quotRem\\>\\|\\<read\\>\\|\\<readFile\\>\\|\\<readIO\\>\\|\\<readList\\>\\|\\<readLn\\>\\|\\<readParen\\>\\|\\<reads\\>\\|\\<readsPrec\\>\\|\\<realToFrac\\>\\|\\<recip\\>\\|\\<rem\\>\\|\\<repeat\\>\\|\\<replicate\\>\\|\\<return\\>\\|\\<reverse\\>\\|\\<round\\>\\|\\<scaleFloat\\>\\|\\<scanl\\>\\|\\<scanl1\\>\\|\\<scanr\\>\\|\\<scanr1\\>\\|\\<seq\\>\\|\\<sequence\\>\\|\\<sequence_\\>\\|\\<show\\>\\|\\<showChar\\>\\|\\<showList\\>\\|\\<showParen\\>\\|\\<showString\\>\\|\\<shows\\>\\|\\<showsPrec\\>\\|\\<significand\\>\\|\\<signum\\>\\|\\<sin\\>\\|\\<sinh\\>\\|\\<snd\\>\\|\\<span\\>\\|\\<splitAt\\>\\|\\<sqrt\\>\\|\\<subtract\\>\\|\\<succ\\>\\|\\<sum\\>\\|\\<tail\\>\\|\\<take\\>\\|\\<takeWhile\\>\\|\\<tan\\>\\|\\<tanh\\>\\|\\<toEnum\\>\\|\\<toInteger\\>\\|\\<toRational\\>\\|\\<truncate\\>\\|\\<uncurry\\>\\|\\<undefined\\>\\|\\<unlines\\>\\|\\<until\\>\\|\\<unwords\\>\\|\\<unzip\\>\\|\\<unzip3\\>\\|\\<userError\\>\\|\\<words\\>\\|\\<writeFile\\>\\|\\<zip\\>\\|\\<zip3\\>\\|\\<zipWith\\>\\|\\<zipWith3\\>\\)'"
+execute "syntax match vimshellFunction '\\(".s:hsprompt.".*\\)\\@<=\\(\\<foldl1\\>\\|\\<foldr1\\>\\|\\<mapM\\>\\|\\<mapM_\\>\\|\\<sequence_\\>\\|\\<showChar\\>\\|\\<showList\\>\\|\\<showParen\\>\\|\\<showString\\>\\|\\<shows\\>\\|\\<showsPrec\\>\\|\\<sinh\\>\\|\\<tanh\\>\\|\\<cosh\\>\\|\\<concatMap\\>\\|\\<divMod\\>\\|\\<atan2\\>\\|\\<atanh\\>\\|\\<acosh\\>\\|\\<zip3\\>\\|\\<zipWith\\>\\|\\<zipWith3\\>\\|\\<dropWhile\\>\\|\\<takeWhile\\>\\)'"
 syntax match vimshellOperator '\(\(+\|-\|/\|*\|!\|&\||\|>\|<\|=\|::\|\^\|\$\)\+\|()\)'
 syntax match vimshellComment '-- .*$'
 syntax match vimshellLambda '\\'
@@ -260,9 +262,14 @@ highlight default link diffLine Statement
 highlight default link diffSubname PreProc
 highlight default link diffComment Comment
 
-syntax match vimshellPyPrompt '>>>'
-
 " MPlayer
 syntax match mplayerPlayingFileName '\(Playing \)\@<=.*\(\.\)\@='
+syntax match mplayerTag '\( *Title:\| *Artist:\| *Album:\| *Year:\| *Comment:\| *Track:\| *Genre:\| *Opening audio decoder:\| *AUDIO:\| *Selected audio codec:\| *AO:\| *Video:\| *Clip info:\| *Opening video decoder:\| *Selected video codec:\| *VIDEO:\|\[lavf\] stream \d*:\|VO:\|Opening video filter:\|Movie-Aspect is [^:]*:\| *major_brand:\| *minor_version:\| *compatible_brands:\| *creation_time:\| *copyright:\| *copyright-eng:\|Audio:\)\@<=\(.*\)$'
+syntax match mplayerTagName '^!*\( *Title\| *Artist\| *Album\| *Year\| *Comment\| *Track\| *Genre\| *Opening audio decoder\| *AUDIO\| *Selected audio codec\| *AO\| *Video\| *Clip info\| *Opening video decoder\| *Selected video codec\| *VIDEO\|\[lavf\] stream \d*\|VO\|Opening video filter:\|Movie-Aspect is [^:]*\| *major_brand\| *minor_version\| *compatible_brands\| *creation_time\| *copyright\| *copyright-eng\|Audio\)'
+
+
+" Python
+syntax match vimshellPyPrompt '>>>'
+
 
 let b:current_syntax = 'vimshell'
