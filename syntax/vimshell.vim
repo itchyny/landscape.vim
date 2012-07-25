@@ -14,9 +14,7 @@ syntax match vimshellUserPrompt '^\[%\] .*$' contains=vimshellUserPromptHidden
 execute 'syntax match vimshellPrompt' string('^' . vimshell#escape_match(vimshell#get_prompt()))
 execute 'syntax match vimshellSecondPrompt' string('^' . vimshell#escape_match(vimshell#get_secondary_prompt()))
 syntax region vimshellError start=+!!!+ end=+!!!+ contains=vimshellErrorHidden oneline
-
 if has('conceal')
- " Supported conceal features.
   syntax match vimshellErrorHidden '!!!' contained conceal
   syntax match vimshellUserPromptHidden '^\[%\] ' contained conceal
 else
@@ -41,11 +39,10 @@ highlight default link vimshellString String
 " number
 syntax match vimshellNumber '[+-]\=\<\d\+\>\|[+-]\=\<0[xX]\x\+\>\|[+-]\=\<0[oO]\o\+\>'
 syntax match vimshellFloat '\<[+-]\=\%(\d\+\|\d\+\.\d\+\|\d\+\.\|\.\d\+\)\%([eE][+-]\=\d\+\)\?\>'
-
 highlight default link vimshellNumber Number
 highlight default link vimshellFloat Float
 
-" special (command line)
+" special
 syntax match vimshellSpecial '[|<>;&;]' contained
 highlight default link vimshellSpecial Special
 
@@ -63,11 +60,11 @@ syntax region vimshellVariable start=+${+ end=+}+ contained
 highlight default link vimshellVariable Identifier
 
 " Programming language
+syntax keyword vimshellBoolean True False true false
 highlight default link vimshellConditional Conditional
 highlight default link vimshellCompilername Type
 highlight default link vimshellCompilerdescription Constant
 highlight default link vimshellStatement Statement
-syntax keyword vimshellBoolean True False true false
 highlight default link vimshellBoolean Boolean
 highlight default link vimshellStatement Statement
 highlight default link vimshellPyStatement Statement
@@ -81,17 +78,23 @@ highlight default link vimshellType Type
 let s:hsprompt='^Prelude[^>]*>'
 execute "syntax match vimshellHsPrompt '".s:hsprompt."'"
 highlight default link vimshellHsPrompt vimshellPrompt
-execute "syntax match vimshellHsCommand '".s:hsprompt." *:$' contains=vimshellHsPrompt oneline"
-execute "syntax match vimshellHsCommand '".s:hsprompt." *:\\<\\(a\\|b\\|c\\|d\\|e\\|f\\|h\\|i\\|k\\|l\\|m\\|p\\|q\\|r\\|s\\|t\\|u\\|?\\)\\>' contains=vimshellHsPrompt oneline"
-execute "syntax match vimshellHsCommand '".s:hsprompt." *:\\<\\(ab\\|ad\\|ba\\|br\\|cd\\|cm\\|co\\|ct\\|de\\|ed\\|et\\|fo\\|he\\|hi\\|in\\|ki\\|li\\|lo\\|ma\\|mo\\|pr\\|qu\\|re\\|ru\\|se\\|sh\\|sp\\|st\\|tr\\|ty\\|un\\)\\>' contains=vimshellHsPrompt oneline"
-execute "syntax match vimshellHsCommand '".s:hsprompt." *:\\<\\(aba\\|add\\|bac\\|bre\\|bro\\|cmd\\|con\\|cta\\|def\\|del\\|edi\\|eta\\|for\\|hel\\|his\\|inf\\|kin\\|lis\\|loa\\|mai\\|mod\\|pri\\|qui\\|rel\\|run\\|set\\|sho\\|spr\\|ste\\|tra\\|typ\\|und\\|uns\\)\\>' contains=vimshellHsPrompt oneline"
-execute "syntax match vimshellHsCommand '".s:hsprompt." *:\\<\\(back\\|brea\\|brow\\|cont\\|ctag\\|dele\\|edit\\|etag\\|forc\\|forw\\|help\\|hist\\|info\\|kind\\|list\\|load\\|main\\|modu\\|prin\\|quit\\|relo\\|show\\|spri\\|step\\|trac\\|type\\|unde\\|unse\\)\\>' contains=vimshellHsPrompt oneline"
-execute "syntax match vimshellHsCommand '".s:hsprompt." *:\\<\\(break\\|brows\\|conti\\|ctags\\|delet\\|etags\\|force\\|forwa\\|histo\\|modul\\|print\\|reloa\\|sprin\\|stepl\\|stepm\\|trace\\|undef\\|unset\\)\\>' contains=vimshellHsPrompt oneline"
-execute "syntax match vimshellHsCommand '".s:hsprompt." *:\\<\\(browse\\|contin\\|delete\\|forwar\\|histor\\|module\\|reload\\|sprint\\|steplo\\|stepmo\\)\\>' contains=vimshellHsPrompt oneline"
-execute "syntax match vimshellHsCommand '".s:hsprompt." *:\\<\\(abandon\\|continu\\|forward\\|history\\|steploc\\|stepmod\\)\\>' contains=vimshellHsPrompt oneline"
-execute "syntax match vimshellHsCommand '".s:hsprompt." *:\\<\\(continue\\|steploca\\|stepmodu\\)\\>' contains=vimshellHsPrompt oneline"
-execute "syntax match vimshellHsCommand '".s:hsprompt." *:\\<\\(steplocal\\|stepmodul\\)\\>' contains=vimshellHsPrompt oneline"
-execute "syntax match vimshellHsCommand '".s:hsprompt." *:\\<\\(stepmodule\\)\\>' contains=vimshellHsPrompt oneline"
+command -nargs=1 HsCommand execute 'syntax match vimshellHsCommand ' string(s:hsprompt.' *:'.<args>) ' contains=vimshellHsPrompt oneline'
+HsCommand ' *$'
+HsCommand '\<\(a\|b\|c\|d\|e\|f\|h\|i\|k\|l\|m\|p\|q\|r\|s\|t\|u\|?\)\>'
+HsCommand '\<\(ab\|ad\|ba\|br\|cd\|cm\|co\|ct\|de\|ed\|et\|fo\|he\|hi\|in\|ki\|'
+      \ .'li\|lo\|ma\|mo\|pr\|qu\|re\|ru\|se\|sh\|sp\|st\|tr\|ty\|un\)\>'
+HsCommand '\<\(aba\|add\|bac\|bre\|bro\|cmd\|con\|cta\|def\|del\|edi\|eta\|for\|hel\|his\|inf\|'
+      \ .'kin\|lis\|loa\|mai\|mod\|pri\|qui\|rel\|run\|set\|sho\|spr\|ste\|tra\|typ\|und\|uns\)\>'
+HsCommand '\<\(aban\|back\|brea\|brow\|cont\|ctag\|dele\|edit\|etag\|forc\|forw\|help\|hist\|info\|'
+      \ .'kind\|list\|load\|main\|modu\|prin\|quit\|relo\|show\|spri\|step\|trac\|type\|unde\|unse\)\>'
+HsCommand '\<\(aband\|break\|brows\|conti\|ctags\|delet\|etags\|force\|forwa\|histo\|modul\|print\|'
+      \ .'reloa\|sprin\|stepl\|stepm\|trace\|undef\|unset\)\>'
+HsCommand '\<\(abando\|browse\|contin\|delete\|forwar\|histor\|module\|reload\|sprint\|steplo\|stepmo\)\>'
+HsCommand '\<\(abandon\|continu\|forward\|history\|steploc\|stepmod\)\>'
+HsCommand '\<\(continue\|steploca\|stepmodu\)\>'
+HsCommand '\<\(steplocal\|stepmodul\)\>'
+HsCommand '\<\(stepmodule\)\>'
+delcommand HsCommand
 highlight default link vimshellHsCommand vimshellExe
 syntax match vimshellHsLoading '^Loading package '
 highlight default link vimshellHsLoading Constant
@@ -104,10 +107,11 @@ execute 'syntax match vimshellError ' string('\('.s:hsprompt.'.*\)\@<=\<let\>\(.
 execute 'syntax match vimshellStatement ' string('\('.s:hsprompt.'.*\<let\>\s\+[^=]\+=\s\+.\+\)\@<=\<in\>\|\('.s:hsprompt.'.*\)\@<=\<let\>\(\s\+[^=]\+=\s\+.\+\)\@=') 'contains=vimshellNumber,vimshellString'
 syntax match vimshellError '\(\<if\>\(.*\<then\>.*\<else\>\)\@!\|\(\<if\>.*\)\@<=\<then\>\(.*\<else\>\)\@!\|\(\<if\>.*\)\@<!\<then\>\(.*\<else\>\)\@=\|\(\<if\>.*\<then\>.*\)\@<!\<else\>\)'
 syntax match vimshellConditional '\(\<if\>\(.*\<then\>.*\<else\>\)\@=\|\(\<if\>.*\)\@<=\<then\>\(.*\<else\>\)\@=\|\(\<if\>.*\<then\>.*\)\@<=\<else\>\)'
-execute 'syntax match vimshellError ' string('\('.s:hsprompt.'.*\)\@<=\(\<and\>\|\<any\>\|\<or\>\|\<head\>\|\<last\>\|\<all\>\|\<show\>\|\<print\>\)')
+execute 'syntax match vimshellFunction ' string('\('.s:hsprompt.'.*\)\@<=\(\<and\>\|\<any\>\|\<or\>\|\<head\>\|\<last\>\|\<all\>\|\<show\>\|\<print\>\|\<not\>\|\<break\>\|\<map\>\)')
+execute 'syntax match vimshellFunction ' string('\(\<and\>\|\<any\>\|\<or\>\|\<head\>\|\<last\>\|\<all\>\|\<show\>\|\<print\>\|\<not\>\|\<break\>\|\<map\>\)\s*\(::\)\@=')
 syntax keyword vimshellType Bool Bounded Char Double Either Enum Eq FilePath Float Floating Fractional Functor IO IOError Int Integer Integral Maybe Monad Num Ord Ordering Rational Read ReadS Real RealFloat RealFrac Show ShowS String GHC Classes Base function
-syntax keyword vimshellFunction abs acos appendFile asTypeOf asin asinh atan break catch ceiling compare concat const cos cosh curry cycle decodeFloat div drop either elem encodeFloat enumFrom enumFromThen enumFromThenTo enumFromTo error even exp exponent fail filter flip floatDigits floatRadix floatRange floor fmap foldl foldr fromEnum fromInteger fromIntegral
-syntax keyword vimshellFunction fromRational fst gcd getChar getContents getLine id init interact ioError isDenormalized isIEEE isInfinite isNaN isNegativeZero iterate lcm length lex lines log logBase lookup map max maybe min mod negate not notElem null odd otherwise pi pred product
+syntax keyword vimshellFunction abs acos appendFile asTypeOf asin asinh atan catch ceiling compare concat const cos cosh curry cycle decodeFloat div drop either elem encodeFloat enumFrom enumFromThen enumFromThenTo enumFromTo error even exp exponent fail filter flip floatDigits floatRadix floatRange floor fmap foldl foldr fromEnum fromInteger fromIntegral
+syntax keyword vimshellFunction fromRational fst gcd getChar getContents getLine id init interact ioError isDenormalized isIEEE isInfinite isNaN isNegativeZero iterate lcm length lex lines log logBase lookup max maybe min mod negate notElem null odd otherwise pi pred product
 syntax keyword vimshellFunction properFraction putChar putStr putStrLn quot quotRem read realToFrac recip rem repeat replicate return reverse round scaleFloat scanl scanl1 scanr scanr1 seq sequence significand signum sin snd span splitAt sqrt subtract succ sum tail take tan toEnum toInteger toRational truncate uncurry undefined unlines until unwords unzip unzip3 userError words writeFile zip
 syntax keyword vimshellFunction foldl1 maxBound maximum foldr1 mapM mapM_ sequence_ showChar showList showParen showString shows showsPrec sinh tanh cosh concatMap divMod atan2 atanh acosh zip3 zipWith zipWith3 dropWhile takeWhile readFile readIO readList readLn readParen reads minBound minimum readsPrec
 syntax match vimshellOperator '\(+\|-\|/\|*\|!\|&\||\|>\|<\|=\|\^\|\$\)\{1,3}\|()\|::'
@@ -181,5 +185,7 @@ syntax match vimshellConditional '\(\<if\>\(.*\<else\>\)\@=\|\(\<if\>.*\)\@<=\<e
 syntax region vimshellError start=+!!!+ end=+!!!+ contains=vimshellErrorHidden oneline
 syntax match vimshellTag '<[0-9A-Za-z_-]*>'
 highlight default link vimshellTag Constant
+syntax match vimshellPermission '^[dl-][r-][w-][x-][r-][w-][x-][r-][w-][x-][@+]\?'
+highlight default link vimshellPermission Special
 
 let b:current_syntax = 'vimshell'
