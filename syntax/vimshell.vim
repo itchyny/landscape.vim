@@ -10,18 +10,18 @@ endif
 syntax match vimshellFunction '\\'
 
 " prompt, error
-syntax match   vimshellUserPrompt   '^\[%\] .*$' contains=vimshellUserPromptHidden
+syntax match vimshellUserPrompt '^\[%\] .*$' contains=vimshellUserPromptHidden
 execute 'syntax match vimshellPrompt' string('^' . vimshell#escape_match(vimshell#get_prompt()))
 execute 'syntax match vimshellSecondPrompt' string('^' . vimshell#escape_match(vimshell#get_secondary_prompt()))
-syntax region   vimshellError   start=+!!!+ end=+!!!+ contains=vimshellErrorHidden oneline
+syntax region vimshellError start=+!!!+ end=+!!!+ contains=vimshellErrorHidden oneline
 
 if has('conceal')
-  " Supported conceal features.
-  syntax match   vimshellErrorHidden            '!!!' contained conceal
-  syntax match   vimshellUserPromptHidden       '^\[%\] ' contained conceal
+ " Supported conceal features.
+ syntax match vimshellErrorHidden '!!!' contained conceal
+ syntax match vimshellUserPromptHidden '^\[%\] ' contained conceal
 else
-  syntax match   vimshellErrorHidden            '!!!' contained
-  syntax match   vimshellUserPromptHidden       '^\[%\] ' contained
+ syntax match vimshellErrorHidden '!!!' contained
+ syntax match vimshellUserPromptHidden '^\[%\] ' contained
 endif
 
 highlight default link vimshellUserPrompt Identifier
@@ -82,8 +82,7 @@ highlight default link vimshellType Type
 
 " GHCi
 let s:hsprompt='^Prelude[^>]*>'
-let hsprompt='^Prelude[^>]*>'
-execute "syntax match vimshellHsPrompt '".hsprompt."'"
+execute "syntax match vimshellHsPrompt '".s:hsprompt."'"
 highlight default link vimshellHsPrompt vimshellPrompt
 execute "syntax match vimshellHsCommand '".s:hsprompt." *:$' contains=vimshellHsPrompt oneline"
 execute "syntax match vimshellHsCommand '".s:hsprompt." *:\\<\\(a\\|b\\|c\\|d\\|e\\|f\\|h\\|i\\|k\\|l\\|m\\|p\\|q\\|r\\|s\\|t\\|u\\|?\\)\\>' contains=vimshellHsPrompt oneline"
@@ -104,42 +103,85 @@ syntax match vimshellHsLoadingPackage '^Loading package .*' contains=vimshellHsL
 highlight default link vimshellHsLoadingPackage Special
 syntax match vimshellCompilername '^GHCi, version \d*\.\d*\.\d*.*$' contains=vimshellURL
 syntax match vimshellCompilername '^The Glorious Glasgow Haskell Compilation System, .*$'
-execute 'syntax match vimshellStatement ' string('\(\('.hsprompt.'.*\<let\>\+[^=]\+=.*\)\@<=\<in\>\|\('.hsprompt.'.*\)\@<=\<let\>\(\s\+[^=]\+=.*$\)\@=\)') 'contains=vimshellNumber,vimshellString'
+execute 'syntax match vimshellError ' string('\('.s:hsprompt.'.*\)\@<=\<let\>\(\s\+\h\w*=\)\@!')
+execute 'syntax match vimshellStatement ' string('\('.s:hsprompt.'.*\<let\>\s\+[^=]\+=\s\+.\+\)\@<=\<in\>\|\('.s:hsprompt.'.*\)\@<=\<let\>\(\s\+[^=]\+=\s\+.\+\)\@=') 'contains=vimshellNumber,vimshellString'
 syntax match vimshellError '\(\<if\>\(.*\<then\>.*\<else\>\)\@!\|\(\<if\>.*\)\@<=\<then\>\(.*\<else\>\)\@!\|\(\<if\>.*\)\@<!\<then\>\(.*\<else\>\)\@=\|\(\<if\>.*\<then\>.*\)\@<!\<else\>\)'
 syntax match vimshellConditional '\(\<if\>\(.*\<then\>.*\<else\>\)\@=\|\(\<if\>.*\)\@<=\<then\>\(.*\<else\>\)\@=\|\(\<if\>.*\<then\>.*\)\@<=\<else\>\)'
 syntax keyword vimshellType Bool Bounded Char Double Either Enum Eq FilePath Float Floating Fractional Functor IO IOError Int Integer Integral Maybe Monad Num Ord Ordering Rational Read ReadS Real RealFloat RealFrac Show ShowS String function
-syntax keyword vimshellFunction abs acos all and any appendFile asTypeOf asin asinh atan break catch ceiling compare concat const cos cosh curry cycle decodeFloat div drop either elem encodeFloat enumFrom enumFromThen enumFromThenTo enumFromTo error even exp exponent fail filter flip floatDigits floatRadix floatRange floor fmap foldl foldr fromEnum fromInteger fromIntegral 
-syntax keyword vimshellFunction fromRational fst gcd getChar getContents getLine head id init interact ioError isDenormalized isIEEE isInfinite isNaN isNegativeZero iterate last lcm length lex lines log logBase lookup map max maybe min mod negate not notElem null odd or otherwise pi pred print product 
+syntax keyword vimshellFunction abs acos all and any appendFile asTypeOf asin asinh atan break catch ceiling compare concat const cos cosh curry cycle decodeFloat div drop either elem encodeFloat enumFrom enumFromThen enumFromThenTo enumFromTo error even exp exponent fail filter flip floatDigits floatRadix floatRange floor fmap foldl foldr fromEnum fromInteger fromIntegral
+syntax keyword vimshellFunction fromRational fst gcd getChar getContents getLine head id init interact ioError isDenormalized isIEEE isInfinite isNaN isNegativeZero iterate last lcm length lex lines log logBase lookup map max maybe min mod negate not notElem null odd or otherwise pi pred print product
 syntax keyword vimshellFunction properFraction putChar putStr putStrLn quot quotRem read realToFrac recip rem repeat replicate return reverse round scaleFloat scanl scanl1 scanr scanr1 seq sequence show significand signum sin snd span splitAt sqrt subtract succ sum tail take tan toEnum toInteger toRational truncate uncurry undefined unlines until unwords unzip unzip3 userError words writeFile zip
 syntax keyword vimshellFunction foldl1 maxBound maximum foldr1 mapM mapM_ sequence_ showChar showList showParen showString shows showsPrec sinh tanh cosh concatMap divMod atan2 atanh acosh zip3 zipWith zipWith3 dropWhile takeWhile readFile readIO readList readLn readParen reads minBound minimum readsPrec
 syntax match vimshellOperator '\(+\|-\|/\|*\|!\|&\||\|>\|<\|=\|\^\|\$\)\{1,3}\|()\|::'
 syntax match vimshellOperator '(\(:\|+\|-\|/\|*\|!\|&\||\|>\|<\|=\|\^\|\$\|\.\)\{1,3})'
 syntax region vimshellError start=+^\*\*\* + end=+$+ contains=vimshellErrorHidden oneline
 if has('conceal')
-  syntax match   vimshellErrorHidden            '\*\*\*' contained conceal
+ syntax match vimshellErrorHidden '\*\*\*' contained conceal
 else
-  syntax match   vimshellErrorHidden            '\*\*\* ' contained
+ syntax match vimshellErrorHidden '\*\*\* ' contained
 endif
+syntax region vimshellError start=+parse error+ end=+$+ oneline
 
 " Python
 syntax match vimshellPyPrompt '>>>'
 highlight default link vimshellPyPrompt vimshellPrompt
-syntax match vimshellError '^SyntaxError.*$'
-syntax match vimshellCompilername '^Python \d*\.\d*\.\d* ([^)]*) *$'
+syntax region vimshellError start=+^SyntaxError+ end=+$+ oneline
+syntax region vimshellCompilername start=+^Python \d*\.\d*\.\d*+ end=+$+ oneline
 syntax match vimshellCompilername '^Python \d*\.\d*\.\d*$'
 syntax match vimshellCompilerdescription '^Python \d*.\d*.\d* ([^)]*).*\n\(.*\n\)*.*for more information.$' contains=vimshellCompilername
 syntax match vimshellError '\<lambda\>\(\s\+\H\)\@='
 syntax match vimshellStatement '\<lambda\>\(\s\+\h\w*:\)\@='
 syntax match vimshellConditional '\(\<if\>\(.*\<else\>\)\@=\|\(\<if\>.*\)\@<=\<else\>\)'
 
+" Perl
+syntax match vimshellCompilername '^This is perl.*built for.*$'
+syntax match vimshellCompilerdescription '^This is perl.*built for.*\(\n.*\)*Home Page.*$' contains=vimshellCompilername
+
+" Ruby
+syntax match vimshellCompilername 'ruby \d*\.\d*\.\d*.*$'
+
+" GCC
+syntax match vimshellCompilername '^[^ ]*gcc.\d*\.\d*\(\.\d*\)\?.*$'
+syntax match vimshellCompilerdescription '^[^ ]*gcc.\d*\.\d*\(\.\d*\)\?.*\(\n.*\)*A PARTICULAR PURPOSE.*$' contains=vimshellCompilername
+
+" TeX
+syntax match vimshellCompilername '^This is \(\w*TeX\w*\), Version.*$'
+
+" shell
+syntax match vimshellCompilername '^\(zsh\|tcsh\) \d*\.\d*\.\d.*$'
+syntax match vimshellCompilername '^GNU bash, version \d*\.\d*\.\d.*$'
+syntax match vimshellCompilerdescription '^GNU bash, version \d*\.\d*\.\d.*\(\n.*\)*Inc.' contains=vimshellCompilername
+
 " GitHub
-syntax match vimshellGitCommitID '^\(\[\a\+ \)\@<=\w\+\(\] \)\@=' contained
+syntax match vimshellCompilername '^git version \d*\.\d*\.\d.*$'
 syntax match vimshellGitBranch '^\[\a\+ \(\w\+\]\)' contains=vimshellGitCommitID
-highlight default link vimshellGitCommitID Constant
 highlight default link vimshellGitBranch Function
 
+" diff
+syntax match vimshellDiffNewFile '^---.*$'
+highlight default link vimshellDiffNewFile Type
+syntax match vimshellDiffFile '^+++.*$'
+highlight default link vimshellDiffFile PreProc
+syntax match vimshellDiffLine '^@@.*$'
+highlight default link vimshellDiffLine Function
+
+" MPlayer
+syntax match vimshellCompilername '^!*MPlayer .*2000.*Team.*$'
+syntax match mplayerPlaying '^Playing '
+syntax match mplayerTitle '\( *Title:\)\@<=\(.*\)$'
+syntax match mplayerStarting '^Starting playback\.\.\.$'
+highlight default link mplayerPlaying PreProc
+highlight default link mplayerPlayingFileName Special
+highlight default link mplayerTag Constant
+highlight default link mplayerTagName Function
+highlight default link mplayerStarting Number
+highlight default link mplayerTitle Special
+syntax match mplayerPlayingFileName '\(Playing \)\@<=.*\(\.\)\@='
+syntax match mplayerTag '\( *Title:\| *Artist:\| *Album:\| *Year:\| *Comment:\| *Track:\| *Genre:\| *Opening audio decoder:\| *AUDIO:\| *Selected audio codec:\| *AO:\| *Video:\| *Clip info:\| *Opening video decoder:\| *Selected video codec:\| *VIDEO:\|\[lavf\] stream \d*:\|VO:\|Opening video filter:\|Movie-Aspect is [^:]*:\| *major_brand:\| *minor_version:\| *compatible_brands:\| *creation_time:\| *copyright:\| *copyright-eng:\|Audio:\)\@<=\(.*\)$'
+syntax match mplayerTagName '^!*\( *Title\| *Artist\| *Album\| *Year\| *Comment\| *Track\| *Genre\| *Opening audio decoder\| *AUDIO\| *Selected audio codec\| *AO\| *Video\| *Clip info\| *Opening video decoder\| *Selected video codec\| *VIDEO\|\[lavf\] stream \d*\|VO\|Opening video filter:\|Movie-Aspect is [^:]*\| *major_brand\| *minor_version\| *compatible_brands\| *creation_time\| *copyright\| *copyright-eng\|Audio\):\@='
+
 " Reforcement
-syntax region   vimshellError   start=+!!!+ end=+!!!+ contains=vimshellErrorHidden oneline
+syntax region vimshellError start=+!!!+ end=+!!!+ contains=vimshellErrorHidden oneline
 syntax match vimshellTag '<[0-9A-Za-z_-]*>'
 highlight default link vimshellTag Constant
 
