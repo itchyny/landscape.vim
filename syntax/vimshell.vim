@@ -132,6 +132,11 @@ syntax match vimshellError '\<lambda\>\(\s\+\H\)\@='
 syntax match vimshellStatement '\<lambda\>\(\s\+\h\w*:\)\@='
 syntax match vimshellConditional '\(\<if\>\(.*\<else\>\)\@=\|\(\<if\>.*\)\@<=\<else\>\)'
 
+" GitHub
+syntax match vimshellGitCommitID '^\(\[\a\+ \)\@<=\w\+\(\] \)\@=' contained
+syntax match vimshellGitBranch '^\[\a\+ \(\w\+\]\)' contains=vimshellGitCommitID
+highlight default link vimshellGitCommitID Constant
+highlight default link vimshellGitBranch Function
 
 " Reforcement
 syntax region   vimshellError   start=+!!!+ end=+!!!+ contains=vimshellErrorHidden oneline
