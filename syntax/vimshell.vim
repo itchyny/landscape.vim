@@ -152,12 +152,12 @@ syntax match vimshellConditional '\(\<if\>\(.*\<else\>\)\@=\|\(\<if\>.*\)\@<=\<e
 " syntax match vimshellCompilername '^\(zsh\|tcsh\) \d*\.\d*\.\d.*$'
 " syntax match vimshellCompilername '^GNU bash, version \d*\.\d*\.\d.*$'
 " syntax match vimshellCompilerdescription '^GNU bash, version \d*\.\d*\.\d.*\(\n.*\)*Inc.' contains=vimshellCompilername
-" 
-" " GitHub
-" syntax match vimshellCompilername '^git version \d*\.\d*\.\d.*$'
-" syntax match vimshellGitBranch '^\[\a\+ \(\w\+\]\)' contains=vimshellGitCommitID
-" highlight default link vimshellGitBranch Function
-" 
+
+" GitHub
+syntax region vimshellCompilername start=+^git version \d\+\.\d\+\.\d\+.*+ end=+$+
+syntax match vimshellGitBranch '^\[\a\+ \(\w\+\]\)'
+highlight default link vimshellGitBranch Special
+
 " " diff
 " syntax match vimshellDiffNewFile '^---.*$'
 " highlight default link vimshellDiffNewFile Type
