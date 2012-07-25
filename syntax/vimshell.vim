@@ -97,18 +97,18 @@ syntax match vimshellHsLoadingPackage '^Loading package .*' contains=vimshellHsL
 highlight default link vimshellHsLoadingPackage Special
 syntax region vimshellCompilername start=+^GHCi, version \d\+\.\d\+\.\d\++ end=+$+ contains=vimshellURL
 syntax region vimshellCompilername start=+^The Glorious Glasgow Haskell Compilation System+ end=+$+
-execute 'syntax match vimshellError ' string('\('.s:hsprompt.'.*\)\@<=\<let\>\(.*=\)\@!')
+execute 'syntax match vimshellError ' string('\('.s:hsprompt.'.*\)\@<=\<let\>\(.*=\s*[^\s]\)\@!')
 execute 'syntax match vimshellStatement ' string('\('.s:hsprompt.'.*\<let\>\s\+[^=]\+=\s\+.\+\)\@<=\<in\>\|\('.s:hsprompt.'.*\)\@<=\<let\>\(\s\+[^=]\+=\s\+.\+\)\@=') 'contains=vimshellNumber,vimshellString'
 syntax match vimshellError '\(\<if\>\(.*\<then\>.*\<else\>\)\@!\|\(\<if\>.*\)\@<=\<then\>\(.*\<else\>\)\@!\|\(\<if\>.*\)\@<!\<then\>\(.*\<else\>\)\@=\|\(\<if\>.*\<then\>.*\)\@<!\<else\>\)'
 syntax match vimshellConditional '\(\<if\>\(.*\<then\>.*\<else\>\)\@=\|\(\<if\>.*\)\@<=\<then\>\(.*\<else\>\)\@=\|\(\<if\>.*\<then\>.*\)\@<=\<else\>\)'
-execute 'syntax match haskellFunction ' string('\('.s:hsprompt.'.*\)\@<=\(\<and\>\|\<any\>\|\<or\>\|\<head\>\|\<last\>\|\<all\>\|\<show\>\|\<print\>\|\<not\>\|\<break\>\|\<map\>\|\<read\>\|\<log\>\)')
-execute 'syntax match haskellFunction ' string('\(\<and\>\|\<any\>\|\<or\>\|\<head\>\|\<last\>\|\<all\>\|\<show\>\|\<print\>\|\<not\>\|\<break\>\|\<map\>\|\<read\>\|\<log\>\)\s*\(::\)\@=')
+execute 'syntax match haskellFunction ' string('\('.s:hsprompt.'.*\)\@<=\(\<and\>\|\<any\>\|\<or\>\|\<head\>\|\<last\>\|\<all\>\|\<show\>\|\<print\>\|\<not\>\|\<break\>\|\<map\>\|\<read\>\|\<log\>\|\<null\>\|\<length\>\|\<reads\>\|\<even\>\|\<error\>\|\<words\>\|\<fail\>\)')
+execute 'syntax match haskellFunction ' string('\(\<and\>\|\<any\>\|\<or\>\|\<head\>\|\<last\>\|\<all\>\|\<show\>\|\<print\>\|\<not\>\|\<break\>\|\<map\>\|\<read\>\|\<log\>\|\<null\>\|\<length\>\|\<reads\>\|\<even\>\|\<error\>\|\<words\>\|\<fail\>\)\s*\(::\)\@=')
 syntax keyword haskellType Bool Bounded Char Double Either Enum Eq FilePath Float Floating Fractional Functor IO IOError Int Integer Integral Maybe Monad Num Ord Ordering Rational Read ReadS Real RealFloat RealFrac Show ShowS String GHC Classes Base
 highlight default link haskellType vimshellType
-syntax keyword haskellFunction abs acos appendFile asTypeOf asin asinh atan catch ceiling compare concat const cos cosh curry cycle decodeFloat div drop either elem encodeFloat enumFrom enumFromThen enumFromThenTo enumFromTo error even exp exponent fail filter flip floatDigits floatRadix floatRange floor fmap foldl foldr fromEnum fromInteger fromIntegral
-syntax keyword haskellFunction fromRational fst gcd getChar getContents getLine id init interact ioError isDenormalized isIEEE isInfinite isNaN isNegativeZero iterate lcm length lex lines logBase lookup max maybe min mod negate notElem null odd otherwise pi pred product
-syntax keyword haskellFunction properFraction putChar putStr putStrLn quot quotRem realToFrac recip rem repeat replicate return reverse round scaleFloat scanl scanl1 scanr scanr1 seq sequence significand signum sin snd span splitAt sqrt subtract succ sum tail take tan toEnum toInteger toRational truncate uncurry undefined unlines until unwords unzip unzip3 userError words writeFile zip
-syntax keyword haskellFunction foldl1 maxBound maximum foldr1 mapM mapM_ sequence_ showChar showList showParen showString shows showsPrec sinh tanh cosh concatMap divMod atan2 atanh acosh zip3 zipWith zipWith3 dropWhile takeWhile readFile readIO readList readLn readParen reads minBound minimum readsPrec
+syntax keyword haskellFunction abs acos appendFile asTypeOf asin asinh atan catch ceiling compare concat const cos cosh curry cycle decodeFloat div drop either elem encodeFloat enumFrom enumFromThen enumFromThenTo enumFromTo exp exponent filter flip floatDigits floatRadix floatRange floor fmap foldl foldr fromEnum fromInteger fromIntegral
+syntax keyword haskellFunction fromRational fst gcd getChar getContents getLine id init interact ioError isDenormalized isIEEE isInfinite isNaN isNegativeZero iterate lcm lex lines logBase lookup max maybe min mod negate notElem odd otherwise pi pred product
+syntax keyword haskellFunction properFraction putChar putStr putStrLn quot quotRem realToFrac recip rem repeat replicate return reverse round scaleFloat scanl scanl1 scanr scanr1 seq sequence significand signum sin snd span splitAt sqrt subtract succ sum tail take tan toEnum toInteger toRational truncate uncurry undefined unlines until unwords unzip unzip3 userError writeFile zip
+syntax keyword haskellFunction foldl1 maxBound maximum foldr1 mapM mapM_ sequence_ showChar showList showParen showString shows showsPrec sinh tanh cosh concatMap divMod atan2 atanh acosh zip3 zipWith zipWith3 dropWhile takeWhile readFile readIO readList readLn readParen minBound minimum readsPrec
 highlight default link haskellFunction vimshellFunction
 syntax match vimshellOperator '\(+\|-\|/\|*\|!\|&\||\|>\|<\|=\|\^\|\$\)\{1,3}\|()\|::'
 syntax match vimshellOperator '(\(:\|+\|-\|/\|*\|!\|&\||\|>\|<\|=\|\^\|\$\|\.\)\{1,3})'
@@ -182,7 +182,7 @@ syntax match vimshellDiffLine '^\d\+\(,\d\+\)\=[cda]\d\+\>\(,\d\+\)\=$'
 syntax region vimshellError start=+!!!+ end=+!!!+ contains=vimshellErrorHidden oneline
 syntax match vimshellTag '<[0-9A-Za-z_-]*>'
 highlight default link vimshellTag Constant
-syntax match vimshellPermission '^[dl-][r-][w-][x-][r-][w-][x-][r-][w-][x-][@+]\?'
+syntax match vimshellPermission '^[bcdlsp-][r-][w-][xsStT-][r-][w-][xsStT-][r-][w-][xsStT-][@+]\?'
 highlight default link vimshellPermission Special
 
 " number, time
