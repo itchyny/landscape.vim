@@ -14,7 +14,7 @@ highlight NonText ctermfg=black guifg=black
 highlight Archive ctermfg=12 guifg=#808079 guibg=#303030
 highlight Constant ctermfg=159 guifg=159
 highlight Function ctermfg=40 guifg=40
-highlight PreProc ctermfg=43 guifg=43
+highlight PreProc ctermfg=39 guifg=39
 highlight StatusLineNC guifg=black guibg=darkgray gui=none ctermfg=black ctermbg=darkgray cterm=none
 if version >= 700
   highlight CursorLine ctermfg=none guifg=none
@@ -33,17 +33,17 @@ call matchadd('Underlined', '\(https\?\|ftp\):\/\/[0-9A-Za-z][&:()\[\]{}#@~%_\-=
 highlight Comment term=none ctermfg=243 ctermbg=none guifg=243 guibg=none
 highlight String ctermfg=207 ctermbg=none guifg=207 guibg=none
 highlight Character ctermfg=100 ctermbg=none guifg=100 guibg=none
-highlight Number ctermfg=85 ctermbg=none guifg=85 guibg=none
-highlight Boolean ctermfg=11 ctermbg=none guifg=11 guibg=none
-highlight link Float Number
+highlight Number ctermfg=39 ctermbg=none guifg=39 guibg=none
+highlight Float ctermfg=43 ctermbg=none guifg=43 guibg=none
+highlight Boolean ctermfg=226 ctermbg=none guifg=226 guibg=none
 highlight Identifier term=none cterm=none ctermfg=104 ctermbg=none guifg=104 guibg=none
 highlight Function ctermfg=46 ctermbg=none guifg=46 guibg=none
 
-highlight Statement ctermfg=47 ctermbg=none guifg=47 guibg=none
-highlight Conditional ctermfg=205 ctermbg=none guifg=205 guibg=none
+highlight Statement ctermfg=118 ctermbg=none guifg=118 guibg=none
+highlight Conditional ctermfg=166 ctermbg=none guifg=166 guibg=none
 highlight default link Repeat Statement
 highlight default link Label Statement
-highlight Operator ctermfg=220 ctermbg=none guifg=220 guibg=none
+highlight Operator ctermfg=214 ctermbg=none guifg=214 guibg=none
 highlight default link Keyword Statement
 highlight default link Exception Statement
 
