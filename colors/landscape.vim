@@ -70,6 +70,8 @@ call matchadd('Todo', 'TODO')
 call matchadd('Error', '　')
 call matchadd('Underlined', '\(https\?\|ftp\|git\):\/\/[0-9A-Za-z][&:()\[\]{}#@~%_\-=?/.0-9A-Za-z]*[/0-9A-Za-z]\(:\d\d*\/\?\)\?')
 
+highlight Time ctermfg=135 ctermbg=none guifg=135 guibg=none
+highlight Date ctermfg=133 ctermbg=none guifg=133 guibg=none
 " ColorColumn
 " Conceal
 " Cursor

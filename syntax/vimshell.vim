@@ -7,7 +7,7 @@ endif
 
 " pre setting
 " GHCi
-syntax match vimshellFunction '\\'
+syntax match vimshellFunction '\\\(.*->\)\@='
 
 " prompt, error
 syntax match vimshellUserPrompt '^\[%\] .*$' contains=vimshellUserPromptHidden
@@ -114,9 +114,9 @@ syntax match vimshellOperator '\(+\|-\|/\|*\|!\|&\||\|>\|<\|=\|\^\|\$\)\{1,3}\|(
 syntax match vimshellOperator '(\(:\|+\|-\|/\|*\|!\|&\||\|>\|<\|=\|\^\|\$\|\.\)\{1,3})'
 syntax region vimshellError start=+^\*\*\* + end=+$+ contains=vimshellErrorHidden oneline
 if has('conceal')
-  syntax match vimshellErrorHidden '\*\*\*' contained conceal
+  syntax match vimshellErrorHidden '^\*\*\*' contained conceal
 else
-  syntax match vimshellErrorHidden '\*\*\* ' contained
+  syntax match vimshellErrorHidden '^\*\*\* ' contained
 endif
 syntax region vimshellError start=+parse error+ end=+$+ oneline
 
@@ -185,13 +185,16 @@ highlight default link vimshellTag Constant
 syntax match vimshellPermission '^[bcdlsp-][r-][w-][xsStT-][r-][w-][xsStT-][r-][w-][xsStT-][@+]\?'
 highlight default link vimshellPermission Special
 
-" number, time
+" number, time, date
 highlight default link vimshellNumber Number
 highlight default link vimshellFloat Float
 syntax match vimshellNumber '[+-]\=\<\d\+\>\|[+-]\=\<0[xX]\x\+\>\|[+-]\=\<0[oO]\o\+\>'
 syntax match vimshellFloat '\<[+-]\=\%(\d\+\.\d\+\|\d\+\.\|\.\d\+\)\%([eE][+-]\=\d\+\)\?\>'
-syntax match vimshellTime '\d\d\=:\d\d\='
-syntax match vimshellTime '\d\d\=:\d\d\=:\d\d\='
-highlight default link vimshellTime Type
+syntax match vimshellTime '\<\d\d\=:\d\d\=\>'
+" syntax match vimshellTime '\<\d\d\=:\d\d\=\.\d\d\=\>'
+syntax match vimshellTime '\<\d\d\=:\d\d\=:\d\d\=\>'
+syntax match vimshellDate '\<\d\+-\d\d\=-\d\+\>'
+highlight default link vimshellTime Time
+highlight default link vimshellDate Date
 
 let b:current_syntax = 'vimshell'
