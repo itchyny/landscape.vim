@@ -33,7 +33,7 @@ call matchadd('Underlined', '\(https\?\|ftp\):\/\/[0-9A-Za-z][&:()\[\]{}#@~%_\-=
 highlight Comment term=none ctermfg=243 ctermbg=none guifg=243 guibg=none
 highlight String ctermfg=207 ctermbg=none guifg=207 guibg=none
 highlight Character ctermfg=100 ctermbg=none guifg=100 guibg=none
-highlight Number ctermfg=39 ctermbg=none guifg=39 guibg=none
+highlight Number ctermfg=45 ctermbg=none guifg=45 guibg=none
 highlight Float ctermfg=43 ctermbg=none guifg=43 guibg=none
 highlight Boolean ctermfg=226 ctermbg=none guifg=226 guibg=none
 highlight Identifier term=none cterm=none ctermfg=104 ctermbg=none guifg=104 guibg=none

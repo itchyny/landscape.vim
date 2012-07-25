@@ -63,7 +63,6 @@ highlight default link vimShellExe Statement
 syntax match vimshellVariable '$\h\w*' contained
 syntax match vimshellVariable '$$\h\w*' contained
 syntax region vimshellVariable start=+${+ end=+}+ contained
-
 highlight default link vimshellVariable Identifier
 
 " Programming language
@@ -130,11 +129,13 @@ syntax match vimshellCompilername '^Python \d*\.\d*\.\d* ([^)]*) *$'
 syntax match vimshellCompilername '^Python \d*\.\d*\.\d*$'
 syntax match vimshellCompilerdescription '^Python \d*.\d*.\d* ([^)]*).*\n\(.*\n\)*.*for more information.$' contains=vimshellCompilername
 syntax match vimshellError '\<lambda\>\(\s\+\H\)\@='
-syntax match vimshellStatement '\<lambda\>\(\s\+\h\w\*:\)\@='
+syntax match vimshellStatement '\<lambda\>\(\s\+\h\w*:\)\@='
 syntax match vimshellConditional '\(\<if\>\(.*\<else\>\)\@=\|\(\<if\>.*\)\@<=\<else\>\)'
 
 
 " Reforcement
 syntax region   vimshellError   start=+!!!+ end=+!!!+ contains=vimshellErrorHidden oneline
+syntax match vimshellTag '<[0-9A-Za-z_-]*>'
+highlight default link vimshellTag Constant
 
 let b:current_syntax = 'vimshell'
