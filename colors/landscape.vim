@@ -33,10 +33,10 @@ highlight Define ctermfg=37 guifg=37
 highlight Macro ctermfg=36 guifg=36
 highlight PreCondit ctermfg=35 guifg=35
 
-highlight Type ctermfg=201 ctermbg=none guifg=201 guibg=none
-highlight StorageClass ctermfg=200 ctermbg=none guifg=200 guibg=none
-highlight Structure ctermfg=199 ctermbg=none guifg=199 guibg=none
-highlight Typedef ctermfg=198 ctermbg=none guifg=198 guibg=none
+highlight Type ctermfg=207 ctermbg=none guifg=207 guibg=none
+highlight StorageClass ctermfg=201 ctermbg=none guifg=201 guibg=none
+highlight Structure ctermfg=200 ctermbg=none guifg=200 guibg=none
+highlight Typedef ctermfg=199 ctermbg=none guifg=199 guibg=none
 
 highlight Special ctermfg=178 guifg=178
 highlight SpecialChar ctermfg=179 guifg=179

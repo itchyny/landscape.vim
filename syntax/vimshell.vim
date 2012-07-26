@@ -7,7 +7,7 @@ endif
 
 " pre setting
 " GHCi
-syntax match vimshellFunction '\\\(.*->\)\@='
+syntax match vimshellFunction '\\\(.*->\)\@=\|\(\\.*\)\@<=->'
 
 " prompt, error
 syntax match vimshellUserPrompt '^\[%\] .*$' contains=vimshellUserPromptHidden
@@ -27,14 +27,6 @@ highlight default link vimshellSecondPrompt Function
 highlight default link vimshellUserPromptHidden Ignore
 highlight default link vimshellError Error
 highlight default link vimshellErrorHidden Ignore
-
-" string
-syntax match vimshellStringSpecial '\\\([0-9]\+\|o[0-7]\+\|x[0-9a-fA-F]\+\|[\"\\'&\\abfnrtv]\|^[A-Z^_\[\\\]]\)' contains=vimshellFunction contained
-syntax region vimshellString start=+"+ end=+"+ contains=vimshellStringSpecial oneline contained
-syntax region vimshellString start=+'+ end=+'+ contains=vimshellStringSpecial oneline contained
-syntax region vimshellString start=+"+ skip=+\\\\\|\\"+ end=+"+ oneline
-highlight default link vimshellStringSpecial SpecialChar
-highlight default link vimshellString String
 
 " special
 syntax match vimshellSpecial '[|<>;&;]' contained
@@ -184,6 +176,15 @@ syntax match vimshellTag '<[0-9A-Za-z_-]*>'
 highlight default link vimshellTag Constant
 syntax match vimshellPermission '^[bcdlsp-][r-][w-][xsStT-][r-][w-][xsStT-][r-][w-][xsStT-][@+]\?'
 highlight default link vimshellPermission Special
+syntax match vimshellFunction '\\\(.*->\)\@=\|\(\\.*\)\@<=->'
+
+" string
+syntax match vimshellStringSpecial '\\\([0-9]\+\|o[0-7]\+\|x[0-9a-fA-F]\+\|[\"\\'&\\abfnrtv]\|^[A-Z^_\[\\\]]\)' contains=vimshellFunction contained
+syntax region vimshellString start=+"+ end=+"+ contains=vimshellStringSpecial oneline contained
+syntax region vimshellString start=+'+ end=+'+ contains=vimshellStringSpecial oneline contained
+syntax region vimshellString start=+"+ skip=+\\\\\|\\"+ end=+"+ oneline
+highlight default link vimshellStringSpecial SpecialChar
+highlight default link vimshellString String
 
 " number, time, date
 highlight default link vimshellNumber Number
