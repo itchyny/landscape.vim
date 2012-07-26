@@ -97,8 +97,8 @@ syntax match vimshellHsLoadingPackage '^Loading package .*' contains=vimshellHsL
 highlight default link vimshellHsLoadingPackage Special
 syntax region vimshellCompilername start=+^GHCi, version \d\+\.\d\+\.\d\++ end=+$+ contains=vimshellURL
 syntax region vimshellCompilername start=+^The Glorious Glasgow Haskell Compilation System+ end=+$+
-execute 'syntax match vimshellError ' string('\('.s:hsprompt.'.*\)\@<=\<let\>\(.*=\s*[^\s]\)\@!')
-execute 'syntax match vimshellStatement ' string('\('.s:hsprompt.'.*\<let\>\s\+[^=]\+=\s\+.\+\)\@<=\<in\>\|\('.s:hsprompt.'.*\)\@<=\<let\>\(\s\+[^=]\+=\s\+.\+\)\@=') 'contains=vimshellNumber,vimshellString'
+execute 'syntax match vimshellError ' string('\('.s:hsprompt.'.*\)\@<=\<let\>\(\s\+[^=]\+=\s*\S\+\)\@!')
+execute 'syntax match vimshellStatement ' string('\('.s:hsprompt.'.*\<let\>\s\+[^=]\+=\s*.\+\)\@<=\<in\>\|\('.s:hsprompt.'.*\)\@<=\<let\>\(\s\+[^=]\+=\s*\S\+\)\@=') 'contains=vimshellNumber,vimshellString'
 syntax match vimshellError '\(\<if\>\(.*\<then\>.*\<else\>\)\@!\|\(\<if\>.*\)\@<=\<then\>\(.*\<else\>\)\@!\|\(\<if\>.*\)\@<!\<then\>\(.*\<else\>\)\@=\|\(\<if\>.*\<then\>.*\)\@<!\<else\>\)'
 syntax match vimshellConditional '\(\<if\>\(.*\<then\>.*\<else\>\)\@=\|\(\<if\>.*\)\@<=\<then\>\(.*\<else\>\)\@=\|\(\<if\>.*\<then\>.*\)\@<=\<else\>\)'
 execute 'syntax match haskellFunction ' string('\('.s:hsprompt.'.*\)\@<=\(\<and\>\|\<any\>\|\<or\>\|\<head\>\|\<last\>\|\<all\>\|\<show\>\|\<print\>\|\<not\>\|\<break\>\|\<map\>\|\<read\>\|\<log\>\|\<null\>\|\<length\>\|\<reads\>\|\<even\>\|\<error\>\|\<words\>\|\<fail\>\)')
