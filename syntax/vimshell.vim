@@ -195,6 +195,7 @@ syntax match vimshellTime '\<\d\d\=:\d\d\=\>'
 " syntax match vimshellTime '\<\d\d\=:\d\d\=\.\d\d\=\>'
 syntax match vimshellTime '\<\d\d\=:\d\d\=:\d\d\=\>'
 syntax match vimshellDate '\<\d\+-\d\d\=-\d\+\>'
+syntax match vimshellDate '\<\d\+/\d\d\=/\d\+\>'
 highlight default link vimshellTime Time
 highlight default link vimshellDate Date
 
