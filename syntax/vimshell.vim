@@ -32,6 +32,15 @@ highlight default link vimshellErrorHidden Ignore
 syntax match vimshellSpecial '[|<>;&;]' contained
 highlight default link vimshellSpecial Special
 
+" string
+syntax match vimshellStringSpecial '\\\([0-9]\+\|o[0-7]\+\|x[0-9a-fA-F]\+\|[\"\\'&\\abfnrtv]\|^[A-Z^_\[\\\]]\)' contains=vimshellFunction contained
+syntax region vimshellString start=+"+ end=+"+ contains=vimshellStringSpecial oneline contained
+syntax region vimshellString start=+'+ end=+'+ contains=vimshellStringSpecial oneline contained
+syntax region vimshellString start=+`+ end=+'+ contains=vimshellStringSpecial,haskellFunction,haskellType oneline
+syntax region vimshellString start=+"+ skip=+\\\\\|\\"+ end=+"+ oneline
+highlight default link vimshellStringSpecial SpecialChar
+highlight default link vimshellString String
+
 " shell
 syntax match vimshellArguments '\s-\=-[[:alnum:]-]\+=\=' contained
 execute "syntax region vimshellExe start=".string('^'.vimshell#escape_match(vimshell#get_prompt()))
@@ -95,7 +104,7 @@ syntax match vimshellError '\(\<if\>\(.*\<then\>.*\<else\>\)\@!\|\(\<if\>.*\)\@<
 syntax match vimshellConditional '\(\<if\>\(.*\<then\>.*\<else\>\)\@=\|\(\<if\>.*\)\@<=\<then\>\(.*\<else\>\)\@=\|\(\<if\>.*\<then\>.*\)\@<=\<else\>\)'
 execute 'syntax match haskellFunction ' string('\('.s:hsprompt.'.*\)\@<=\(\<and\>\|\<any\>\|\<or\>\|\<head\>\|\<last\>\|\<all\>\|\<show\>\|\<print\>\|\<not\>\|\<break\>\|\<map\>\|\<read\>\|\<log\>\|\<null\>\|\<length\>\|\<reads\>\|\<even\>\|\<error\>\|\<words\>\|\<fail\>\|\<zip\>\|\<take\>\|\<until\>\|\<lines\>\)')
 execute 'syntax match haskellFunction ' string('\(\<and\>\|\<any\>\|\<or\>\|\<head\>\|\<last\>\|\<all\>\|\<show\>\|\<print\>\|\<not\>\|\<break\>\|\<map\>\|\<read\>\|\<log\>\|\<null\>\|\<length\>\|\<reads\>\|\<even\>\|\<error\>\|\<words\>\|\<fail\>\|\<zip\>\|\<take\>\|\<until\>\|\<lines\>\)\s*\(::\)\@=')
-syntax keyword haskellType Bool Bounded Char Double Either Enum Eq FilePath Float Floating Fractional Functor IO IOError Int Integer Integral Maybe Monad Num Ord Ordering Rational Read ReadS Real RealFloat RealFrac Show ShowS String GHC Classes Base
+syntax keyword haskellType Bool Bounded Char Double Either Enum Eq FilePath Float Floating Fractional Functor IO IOError Int Integer Integral Maybe Monad Num Ord Ordering Rational Read ReadS Real RealFloat RealFrac Show ShowS String GHC Classes Base Tuple
 highlight default link haskellType vimshellType
 syntax keyword haskellFunction abs acos appendFile asTypeOf asin asinh atan catch ceiling compare concat const cos cosh curry cycle decodeFloat div drop either elem encodeFloat enumFrom enumFromThen enumFromThenTo enumFromTo exp exponent filter flip floatDigits floatRadix floatRange floor fmap foldl foldr fromEnum fromInteger fromIntegral
 syntax keyword haskellFunction fromRational fst gcd getChar getContents getLine id init interact ioError isDenormalized isIEEE isInfinite isNaN isNegativeZero iterate lcm lex logBase lookup max maybe min mod negate notElem odd otherwise pi pred product
@@ -104,6 +113,7 @@ syntax keyword haskellFunction foldl1 maxBound maximum foldr1 mapM mapM_ sequenc
 highlight default link haskellFunction vimshellFunction
 syntax match vimshellOperator '\(+\|-\|/\|*\|!\|&\||\|>\|<\|=\|\^\|\$\)\{1,3}\|()\|::'
 syntax match vimshellOperator '(\(:\|+\|-\|/\|*\|!\|&\||\|>\|<\|=\|\^\|\$\|\.\)\{1,3})'
+execute 'syntax match vimshellComment ' string('--.*\(Defined in\)') ' oneline contains=vimshellString,vimshellURL,haskellType'
 syntax region vimshellError start=+^\*\*\* + end=+$+ contains=vimshellErrorHidden oneline
 if has('conceal')
   syntax match vimshellErrorHidden '^\*\*\*' contained conceal
@@ -182,6 +192,7 @@ syntax match vimshellFunction '\\\(.*->\)\@=\|\(\\.*\)\@<=->'
 syntax match vimshellStringSpecial '\\\([0-9]\+\|o[0-7]\+\|x[0-9a-fA-F]\+\|[\"\\'&\\abfnrtv]\|^[A-Z^_\[\\\]]\)' contains=vimshellFunction contained
 syntax region vimshellString start=+"+ end=+"+ contains=vimshellStringSpecial oneline contained
 syntax region vimshellString start=+'+ end=+'+ contains=vimshellStringSpecial oneline contained
+syntax region vimshellString start=+`+ end=+'+ contains=vimshellStringSpecial,haskellFunction,haskellType oneline
 syntax region vimshellString start=+"+ skip=+\\\\\|\\"+ end=+"+ oneline
 highlight default link vimshellStringSpecial SpecialChar
 highlight default link vimshellString String
