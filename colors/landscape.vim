@@ -10,7 +10,7 @@ endif
 highlight Comment term=none ctermfg=243 ctermbg=none guifg=243 guibg=none
 
 highlight Constant ctermfg=159 guifg=159
-highlight String ctermfg=207 ctermbg=none guifg=207 guibg=none
+highlight String ctermfg=215 ctermbg=none guifg=215 guibg=none
 highlight Character ctermfg=100 ctermbg=none guifg=100 guibg=none
 highlight Number ctermfg=45 ctermbg=none guifg=45 guibg=none
 highlight Boolean ctermfg=226 ctermbg=none guifg=226 guibg=none
@@ -21,7 +21,7 @@ highlight Function ctermfg=46 ctermbg=none guifg=46 guibg=none
 
 highlight Statement ctermfg=118 ctermbg=none guifg=118 guibg=none
 highlight Conditional ctermfg=166 ctermbg=none guifg=166 guibg=none
-highlight default link Repeat Statement
+highlight default link Repeat Conditional
 highlight default link Label Statement
 highlight Operator ctermfg=214 ctermbg=none guifg=214 guibg=none
 highlight default link Keyword Statement
@@ -39,7 +39,7 @@ highlight Structure ctermfg=200 ctermbg=none guifg=200 guibg=none
 highlight Typedef ctermfg=199 ctermbg=none guifg=199 guibg=none
 
 highlight Special ctermfg=178 guifg=178
-highlight SpecialChar ctermfg=179 guifg=179
+highlight SpecialChar ctermfg=208 guifg=208
 highlight Tag ctermfg=180 guifg=180
 highlight Delimiter ctermfg=181 guifg=181
 highlight SpecialComment ctermfg=182 guifg=182
