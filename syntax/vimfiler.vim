@@ -68,7 +68,7 @@ hi def link vimfilerSpecialUnSafe Statement
 
 hi def link vimfilerNonMark Special
 "hi vimfilerMarkedFile gui=REVERSE term=REVERSE
-hi def link vimfilerMarkedFile Type
+hi def link vimfilerMarkedFile Structure
 hi def link vimfilerDirectory Preproc
 hi def link vimfilerSize Constant
 
