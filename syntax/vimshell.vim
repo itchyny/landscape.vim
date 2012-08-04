@@ -53,6 +53,14 @@ syntax match vimshellVariable '$\h\w*' contained
 syntax match vimshellVariable '$$\h\w*' contained
 syntax region vimshellVariable start=+${+ end=+}+ contained
 highlight default link vimshellVariable Identifier
+syntax match vimshellDirectory '\%(\f\s\?\)\+/\ze\%(\s\|$\)'
+highlight default link vimshellDirectory Preproc
+syntax match vimshellLink '\(^\|\s\)[[:alnum:]_.][[:alnum:]_.-]\+@'
+highlight default link vimshellLink Character
+syntax match vimshellLinkTo '\(\(^\|\s\)[[:alnum:]_.][[:alnum:]_.-]\+@ ->\)\@<=\(^\|\s\)\(\([[:alnum:]_.][[:alnum:]_.-]\+\)\|.\/\?\)\+'
+highlight default link vimshellLinkTo String
+syntax match vimshellDotFiles '\%(^\|\s\)\.[[:alnum:]_.-]\+[[:blank:]\n]'
+highlight default link vimshellDotFiles Comment
 
 " Programming language
 syntax keyword vimshellBoolean True False true false
@@ -71,6 +79,8 @@ highlight default link vimshellType Type
 
 " GHCi
 let s:hsprompt='^Prelude[^>]*>'
+syntax match vimshellOperator '\(+\|-\|/\|*\|!\|&\||\|>\|<\|=\|\^\|\$\)\{1,3}\|()\|::'
+syntax match vimshellOperator '(\(:\|+\|-\|/\|*\|!\|&\||\|>\|<\|=\|\^\|\$\|\.\)\{1,3})'
 execute "syntax match vimshellHsPrompt '".s:hsprompt."'"
 highlight default link vimshellHsPrompt vimshellPrompt
 command -nargs=1 HsCommand execute 'syntax match vimshellHsCommand ' string(s:hsprompt.' *:'.<args>) ' contains=vimshellHsPrompt oneline'
@@ -112,8 +122,6 @@ syntax keyword haskellFunction properFraction putChar putStr putStrLn quot quotR
 syntax keyword haskellFunction foldl1 maxBound maximum foldr1 mapM mapM_ sequence_ showChar showList showParen showString shows showsPrec sinh tanh cosh concatMap divMod atan2 atanh acosh zip3 zipWith zipWith3 dropWhile takeWhile readFile readIO readList readLn readParen minBound minimum readsPrec
 syntax keyword haskellFunction nubBy deleteBy deleteFirstsBy unionBy intersectBy groupBy sortBy insertBy maximumBy minimumBy genericLength genericTake genericDrop genericSplitAt genericIndex genericReplicate 
 highlight default link haskellFunction vimshellFunction
-syntax match vimshellOperator '\(+\|-\|/\|*\|!\|&\||\|>\|<\|=\|\^\|\$\)\{1,3}\|()\|::'
-syntax match vimshellOperator '(\(:\|+\|-\|/\|*\|!\|&\||\|>\|<\|=\|\^\|\$\|\.\)\{1,3})'
 execute 'syntax match vimshellComment ' string('--.*\(Defined in\)') ' oneline contains=vimshellString,vimshellURL,haskellType'
 syntax region vimshellError start=+^\*\*\* + end=+$+ contains=vimshellErrorHidden oneline
 if has('conceal')

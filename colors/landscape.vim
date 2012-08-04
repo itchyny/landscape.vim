@@ -23,7 +23,7 @@ highlight Statement ctermfg=118 ctermbg=none guifg=118 guibg=none
 highlight Conditional ctermfg=166 ctermbg=none guifg=166 guibg=none
 highlight default link Repeat Conditional
 highlight default link Label Statement
-highlight Operator ctermfg=214 ctermbg=none guifg=214 guibg=none
+highlight Operator ctermfg=220 ctermbg=none guifg=220 guibg=none
 highlight default link Keyword Statement
 highlight default link Exception Statement
 
