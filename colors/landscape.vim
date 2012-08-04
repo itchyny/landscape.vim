@@ -58,7 +58,7 @@ highlight StatusLineNC guifg=black guibg=darkgray gui=none ctermfg=black ctermbg
 if version >= 700
   highlight CursorLine ctermfg=none guifg=none
   highlight CursorColumn ctermfg=none guifg=none
-  highlight MatchParen term=standout guifg=#f6f3e8 guibg=#857b6f gui=bold
+  highlight MatchParen term=reverse ctermfg=none ctermbg=1 guifg=none guibg=1
   highlight Pmenu ctermfg=black ctermbg=gray guifg=black guibg=gray
   highlight PmenuSel ctermfg=black ctermbg=darkgray guifg=black guibg=darkgray
   highlight PmenuSbar ctermfg=white ctermbg=darkgray guifg=white guibg=darkgray
