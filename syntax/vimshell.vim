@@ -53,12 +53,14 @@ syntax match vimshellVariable '$\h\w*' contained
 syntax match vimshellVariable '$$\h\w*' contained
 syntax region vimshellVariable start=+${+ end=+}+ contained
 highlight default link vimshellVariable Identifier
+syntax match vimshellLinkTo '\(\(^\|\s\)[[:alnum:]_.][[:alnum:]_.-]\+@ ->\)\@<=\s\+\(\(\([[:alnum:]_.][[:alnum:]_.-]\+\)\|.\)\/\?\)\+'
+highlight default link vimshellLinkTo String
+syntax match vimshellPath '\(^\|\s\)\(\/\|\.\.\?\)\?\(\([[:alnum:]_.][[:alnum:]_.-]\+\)\/\)\+\(\([[:alnum:]_.][[:alnum:]_.-]\+\)\|.\)\?'
+highlight default link vimshellPath Include
 syntax match vimshellDirectory '\%(\f\s\?\)\+/\ze\%(\s\|$\)'
 highlight default link vimshellDirectory Preproc
 syntax match vimshellLink '\(^\|\s\)[[:alnum:]_.][[:alnum:]_.-]\+@'
 highlight default link vimshellLink Character
-syntax match vimshellLinkTo '\(\(^\|\s\)[[:alnum:]_.][[:alnum:]_.-]\+@ ->\)\@<=\(^\|\s\)\(\([[:alnum:]_.][[:alnum:]_.-]\+\)\|.\/\?\)\+'
-highlight default link vimshellLinkTo String
 syntax match vimshellDotFiles '\%(^\|\s\)\.[[:alnum:]_.-]\+[[:blank:]\n]'
 highlight default link vimshellDotFiles Comment
 
@@ -173,6 +175,8 @@ highlight default link vimshellDiffFile PreProc
 syntax region vimshellDiffLine start=+^@@+ end=+$+ oneline
 highlight default link vimshellDiffLine Function
 syntax match vimshellDiffLine '^\d\+\(,\d\+\)\=[cda]\d\+\>\(,\d\+\)\=$'
+syntax keyword gitCommand add bisect branch checkout clone commit diff fetch grep init log merge mv pull push rebase reset rm show status tag
+highlight default link gitCommand Function
 
 " " MPlayer
 " syntax match vimshellCompilername '^!*MPlayer .*2000.*Team.*$'
@@ -196,6 +200,8 @@ highlight default link vimshellTag Constant
 syntax match vimshellPermission '^[bcdlsp-][r-][w-][xsStT-][r-][w-][xsStT-][r-][w-][xsStT-][@+]\?'
 highlight default link vimshellPermission Special
 syntax match vimshellFunction '\\\(.*->\)\@=\|\(\\.*\)\@<=->'
+syntax match vimshellPath '\(^\|\s\)\(\/\|\.\.\?\)\?\(\([[:alnum:]_.][[:alnum:]_.-]\+\)\/\)\+\(\([[:alnum:]_.][[:alnum:]_.-]\+\)\)\?'
+syntax match vimshellLinkTo '\(\(^\|\s\)[[:alnum:]_.][[:alnum:]_.-]\+@ ->\)\@<=\s\+\(\(\([[:alnum:]_.][[:alnum:]_.-]\+\)\|.\)\/\?\)\+'
 
 " string
 syntax match vimshellStringSpecial '\\\([0-9]\+\|o[0-7]\+\|x[0-9a-fA-F]\+\|[\"\\'&\\abfnrtv]\|^[A-Z^_\[\\\]]\)' contains=vimshellFunction contained
@@ -212,7 +218,6 @@ highlight default link vimshellFloat Float
 syntax match vimshellNumber '[+-]\=\<\d\+\>\|[+-]\=\<0[xX]\x\+\>\|[+-]\=\<0[oO]\o\+\>'
 syntax match vimshellFloat '\<[+-]\=\%(\d\+\.\d\+\|\d\+\.\|\.\d\+\)\%([eE][+-]\=\d\+\)\?\>'
 syntax match vimshellTime '\<\d\d\=:\d\d\=\>'
-" syntax match vimshellTime '\<\d\d\=:\d\d\=\.\d\d\=\>'
 syntax match vimshellTime '\<\d\d\=:\d\d\=:\d\d\=\>'
 syntax match vimshellDate '\<\d\+-\d\d\=-\d\+\>'
 syntax match vimshellDate '\<\d\+/\d\d\=/\d\+\>'

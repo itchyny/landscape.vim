@@ -87,8 +87,8 @@ hi def link vimfilerTypeSystem Comment
 hi def link vimfilerTypeLink Comment
 
 
-execute "syntax match vimfilerPdf '^".g:vimfiler_file_icon." .*pdf ' contains=vimfilerIcon"
-execute "syntax match vimfilerHtml '^".g:vimfiler_file_icon." .*html ' contains=vimfilerIcon"
+execute 'syntax match vimfilerPdf ' string('^'.g:vimfiler_file_icon.' .*\(pdf\|PDF\)')  ' contains=vimfilerIcon'
+execute 'syntax match vimfilerHtml ' string('^'.g:vimfiler_file_icon.' .*\(html\|HTML\)')  ' contains=vimfilerIcon'
 execute "syntax match vimfilerIcon '^".g:vimfiler_file_icon." ' contained"
 
 " syntax match vimfilerConflict '(Case Conflict \d*)'
