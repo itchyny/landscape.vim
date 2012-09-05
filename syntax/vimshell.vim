@@ -63,6 +63,7 @@ syntax match vimshellLink '\(^\|\s\)[[:alnum:]_.][[:alnum:]_.-]\+@'
 highlight default link vimshellLink Character
 syntax match vimshellDotFiles '\%(^\|\s\)\.[[:alnum:]_.-]\+[[:blank:]\n]'
 highlight default link vimshellDotFiles Comment
+syntax keyword ls cp df expr launchctl mkdir pwd sh tcsh zsh bash csh domainname hostname link mv rcp sleep test cat date echo kill ln pax rm stty unlink chmod dd ed ksh ls ps rmdir sync
 
 " Programming language
 syntax keyword vimshellBoolean True False true false
@@ -118,7 +119,7 @@ execute 'syntax match haskellFunction ' string('\('.s:hsprompt.'.*\)\@<=\(\<and\
 execute 'syntax match haskellFunction ' string('\(\<and\>\|\<any\>\|\<or\>\|\<head\>\|\<last\>\|\<all\>\|\<show\>\|\<print\>\|\<not\>\|\<break\>\|\<map\>\|\<read\>\|\<log\>\|\<null\>\|\<length\>\|\<reads\>\|\<even\>\|\<error\>\|\<words\>\|\<fail\>\|\<zip\>\|\<take\>\|\<until\>\|\<lines\>\|\<repeat\>\|\<return\>\|\<compare\>\|\<filter\>\)\s*\(::\)\@=')
 syntax keyword haskellType Bool Bounded Char Double Either Enum Eq FilePath Float Floating Fractional Functor IO IOError Int Integer Integral Maybe Monad Num Ord Ordering Rational Read ReadS Real RealFloat RealFrac Show ShowS String GHC Classes Base Tuple
 highlight default link haskellType vimshellType
-syntax keyword haskellFunction abs acos appendFile asTypeOf asin asinh atan catch ceiling concat const cos cosh curry cycle decodeFloat div drop either elem encodeFloat enumFrom enumFromThen enumFromThenTo enumFromTo exp exponent flip floatDigits floatRadix floatRange floor fmap foldl foldr fromEnum fromInteger fromIntegral
+syntax keyword haskellFunction abs acos appendFile asTypeOf asin asinh atan catch ceiling concat const cos cosh curry cycle decodeFloat div drop either elem encodeFloat enumFrom enumFromThen enumFromThenTo enumFromTo exp exponent flip floatDigits floatRadix floatRange floor fmap foldl foldr fromEnum fromInteger fromIntegral return map
 syntax keyword haskellFunction fromRational fst gcd getChar getContents getLine id init interact ioError isDenormalized isIEEE isInfinite isNaN isNegativeZero iterate lcm lex logBase lookup max maybe min mod negate notElem odd otherwise pi pred product
 syntax keyword haskellFunction properFraction putChar putStr putStrLn quot quotRem realToFrac recip rem replicate reverse round scaleFloat scanl scanl1 scanr scanr1 seq sequence significand signum sin snd span splitAt sqrt subtract succ sum tail tan toEnum toInteger toRational truncate uncurry undefined unlines unwords unzip unzip3 userError writeFile
 syntax keyword haskellFunction foldl1 maxBound maximum foldr1 mapM mapM_ sequence_ showChar showList showParen showString shows showsPrec sinh tanh cosh concatMap divMod atan2 atanh acosh zip3 zipWith zipWith3 dropWhile takeWhile readFile readIO readList readLn readParen minBound minimum readsPrec
@@ -137,11 +138,14 @@ syntax region vimshellError start=+parse error+ end=+$+ oneline
 syntax match vimshellPyPrompt '^>>>'
 highlight default link vimshellPyPrompt vimshellPrompt
 syntax region vimshellError start=+^SyntaxError+ end=+$+ oneline
+syntax region vimshellError start=+^Traceback+ end=+given)+
 syntax region vimshellCompilername start=+^Python \d\+\.\d\+\.\d\++ end=+$+ oneline
 syntax region vimshellCompilerdescription start=+^Python \d\+.\d\+.\d\++ end=+for more information\.+ contains=vimshellCompilername
 syntax match vimshellError '\<lambda\>\(\s\+\h\w*:\)\@!'
 syntax match vimshellStatement '\<lambda\>\(\s\+\h\w*:\)\@='
 syntax match vimshellConditional '\(\<if\>\(.*\<else\>\)\@=\|\(\<if\>.*\)\@<=\<else\>\)'
+syntax match vimshellError '\<def\>\(\s\+\h\w*(.*).*:\)\@!'
+syntax match vimshellStatement '\<def\>\(\s\+\h\w*\s*(.*).*:\)\@='
 
 " " Perl
 " syntax match vimshellCompilername '^This is perl.*built for.*$'
@@ -175,21 +179,22 @@ highlight default link vimshellDiffFile PreProc
 syntax region vimshellDiffLine start=+^@@+ end=+$+ oneline
 highlight default link vimshellDiffLine Function
 syntax match vimshellDiffLine '^\d\+\(,\d\+\)\=[cda]\d\+\>\(,\d\+\)\=$'
-syntax keyword gitCommand add bisect branch checkout clone commit diff fetch grep init log merge mv pull push rebase reset rm show status tag
+highlight default link vimshellCommand Function
+syntax keyword vimshellCommand add bisect branch checkout clone commit diff fetch grep init log merge mv pull push rebase reset rm show status tag gcc chmod gzip tar make
 highlight default link gitCommand Function
 
-" " MPlayer
-" syntax match vimshellCompilername '^!*MPlayer .*2000.*Team.*$'
-" syntax match mplayerPlaying '^Playing '
-" syntax match mplayerTitle '\( *Title:\)\@<=\(.*\)$'
-" syntax match mplayerStarting '^Starting playback\.\.\.$'
-" highlight default link mplayerPlaying PreProc
-" highlight default link mplayerPlayingFileName Special
-" highlight default link mplayerTag Constant
-" highlight default link mplayerTagName Function
-" highlight default link mplayerStarting Number
-" highlight default link mplayerTitle Special
-" syntax match mplayerPlayingFileName '\(Playing \)\@<=.*\(\.\)\@='
+" MPlayer
+syntax match vimshellCompilername '^!*MPlayer .*2000.*Team.*$'
+syntax match mplayerPlaying '^Playing '
+syntax match mplayerTitle '\( *Title:\)\@<=\(.*\)$'
+syntax match mplayerStarting '^Starting playback\.\.\.$'
+highlight default link mplayerPlaying PreProc
+highlight default link mplayerPlayingFileName Special
+highlight default link mplayerTag Constant
+highlight default link mplayerTagName Function
+highlight default link mplayerStarting Number
+highlight default link mplayerTitle Special
+syntax match mplayerPlayingFileName '\(Playing \)\@<=.*\(\.\)\@='
 " syntax match mplayerTag '\( *Title:\| *Artist:\| *Album:\| *Year:\| *Comment:\| *Track:\| *Genre:\| *Opening audio decoder:\| *AUDIO:\| *Selected audio codec:\| *AO:\| *Video:\| *Clip info:\| *Opening video decoder:\| *Selected video codec:\| *VIDEO:\|\[lavf\] stream \d*:\|VO:\|Opening video filter:\|Movie-Aspect is [^:]*:\| *major_brand:\| *minor_version:\| *compatible_brands:\| *creation_time:\| *copyright:\| *copyright-eng:\|Audio:\)\@<=\(.*\)$'
 " syntax match mplayerTagName '^!*\( *Title\| *Artist\| *Album\| *Year\| *Comment\| *Track\| *Genre\| *Opening audio decoder\| *AUDIO\| *Selected audio codec\| *AO\| *Video\| *Clip info\| *Opening video decoder\| *Selected video codec\| *VIDEO\|\[lavf\] stream \d*\|VO\|Opening video filter:\|Movie-Aspect is [^:]*\| *major_brand\| *minor_version\| *compatible_brands\| *creation_time\| *copyright\| *copyright-eng\|Audio\):\@='
 
