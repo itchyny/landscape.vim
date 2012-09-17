@@ -7,62 +7,62 @@ if exists("syntax_on")
   syntax reset
 endif
 
-highlight Comment term=none ctermfg=243 ctermbg=none guifg=243 guibg=none
+highlight Normal gui=none guifg=White guibg=grey0
+highlight Comment term=none ctermfg=243 ctermbg=none gui=none guifg=#767676
+highlight Constant term=none ctermfg=159 gui=none guifg=#afffff
+highlight String term=none ctermfg=215 ctermbg=none gui=none guifg=#ffaf5f
+highlight Character term=none ctermfg=100 ctermbg=none gui=none guifg=#878700
+highlight Number term=none ctermfg=45 ctermbg=none gui=none guifg=#00dfff
+highlight Boolean term=none ctermfg=226 ctermbg=none gui=none guifg=#ffff00
+highlight Float term=none ctermfg=43 ctermbg=none gui=none guifg=#00dfaf
 
-highlight Constant ctermfg=159 guifg=159
-highlight String ctermfg=215 ctermbg=none guifg=215 guibg=none
-highlight Character ctermfg=100 ctermbg=none guifg=100 guibg=none
-highlight Number ctermfg=45 ctermbg=none guifg=45 guibg=none
-highlight Boolean ctermfg=226 ctermbg=none guifg=226 guibg=none
-highlight Float ctermfg=43 ctermbg=none guifg=43 guibg=none
+highlight Identifier term=none cterm=none ctermfg=104 ctermbg=none gui=none guifg=#8787df
+highlight Function term=none ctermfg=46 ctermbg=none gui=none guifg=#00ff00
 
-highlight Identifier term=none cterm=none ctermfg=104 ctermbg=none guifg=104 guibg=none
-highlight Function ctermfg=46 ctermbg=none guifg=46 guibg=none
-
-highlight Statement ctermfg=118 ctermbg=none guifg=118 guibg=none
-highlight Conditional ctermfg=166 ctermbg=none guifg=166 guibg=none
+highlight Statement term=none ctermfg=118 ctermbg=none gui=none guifg=#87ff00
+highlight Conditional term=none ctermfg=166 ctermbg=none gui=none guifg=#df5f00
 highlight default link Repeat Conditional
 highlight default link Label Statement
-highlight Operator ctermfg=220 ctermbg=none guifg=220 guibg=none
+highlight Operator term=none ctermfg=220 ctermbg=none gui=none guifg=#ffdf00
 highlight default link Keyword Statement
 highlight default link Exception Statement
 
-highlight PreProc ctermfg=39 guifg=39
-highlight Include ctermfg=38 guifg=38
-highlight Define ctermfg=37 guifg=37
-highlight Macro ctermfg=36 guifg=36
-highlight PreCondit ctermfg=35 guifg=35
+highlight PreProc term=none ctermfg=39 gui=none guifg=#00afff
+highlight Include term=none ctermfg=38 gui=none guifg=#00afdf
+highlight Define term=none ctermfg=37 gui=none guifg=#00afaf
+highlight Macro term=none ctermfg=36 gui=none guifg=#00af87
+highlight PreCondit term=none ctermfg=35 gui=none guifg=#00af5f
 
-highlight Type ctermfg=207 ctermbg=none guifg=207 guibg=none
-highlight StorageClass ctermfg=201 ctermbg=none guifg=201 guibg=none
-highlight Structure ctermfg=200 ctermbg=none guifg=200 guibg=none
-highlight Typedef ctermfg=199 ctermbg=none guifg=199 guibg=none
+highlight Type term=none ctermfg=207 ctermbg=none gui=none guifg=#ff5fff
+highlight StorageClass term=none ctermfg=201 ctermbg=none gui=none guifg=#ff00ff
+highlight Structure term=none ctermfg=200 ctermbg=none gui=none guifg=#ff00df
+highlight Typedef term=none ctermfg=199 ctermbg=none gui=none guifg=#ff00af
 
-highlight Special ctermfg=178 guifg=178
-highlight SpecialChar ctermfg=208 guifg=208
-highlight Tag ctermfg=180 guifg=180
-highlight Delimiter ctermfg=181 guifg=181
-highlight SpecialComment ctermfg=182 guifg=182
-highlight Debug ctermfg=183 guifg=183
+highlight Special term=none ctermfg=178 gui=none guifg=orange
+highlight SpecialChar term=none ctermfg=208 gui=none guifg=orange
+highlight Tag term=none ctermfg=180 gui=none guifg=orange
+highlight Delimiter term=none ctermfg=181 gui=none guifg=orange
+highlight SpecialComment term=none ctermfg=182 gui=none guifg=violet
+highlight Debug term=none ctermfg=183 gui=none guifg=violet
 
-highlight Underlined term=underline ctermfg=51 ctermbg=none guifg=51 guibg=none
-highlight Error ctermfg=15 ctermbg=124 guifg=15 guibg=124
-highlight Todo ctermfg=16 ctermbg=11 guifg=16 guibg=11
+highlight Underlined term=underline ctermfg=51 ctermbg=none gui=none guifg=#00ffff
+highlight Error term=none ctermfg=15 ctermbg=124 gui=none guifg=white gui=none guifg=#ffffff guibg=#af0000
+highlight Todo term=none ctermfg=16 ctermbg=11 gui=none guifg=#000000 guibg=#ffff00
 highlight default link ErrorMsg Error
 
-highlight VertSplit guifg=black guibg=darkgray gui=none ctermfg=black ctermbg=darkgray cterm=none
-highlight SpecialKey term=underline ctermfg=darkgray guifg=darkgray
-highlight NonText ctermfg=black guifg=black
-highlight Archive ctermfg=12 guifg=#808079 guibg=#303030
-highlight StatusLineNC guifg=black guibg=darkgray gui=none ctermfg=black ctermbg=darkgray cterm=none
+highlight VertSplit term=none gui=none guifg=black guibg=darkgray gui=none ctermfg=black ctermbg=darkgray cterm=none
+highlight SpecialKey term=underline ctermfg=darkgray gui=none guifg=darkgray
+highlight NonText term=none ctermfg=black gui=none guifg=black
+highlight Archive term=none ctermfg=12 gui=none guifg=#808079 guibg=#303030
+highlight StatusLineNC term=none gui=none guifg=black guibg=darkgray gui=none ctermfg=black ctermbg=darkgray cterm=none gui=none
 if version >= 700
-  highlight CursorLine ctermfg=none guifg=none
-  highlight CursorColumn ctermfg=none guifg=none
-  highlight MatchParen term=reverse ctermfg=none ctermbg=1 guifg=none guibg=1
-  highlight Pmenu ctermfg=black ctermbg=gray guifg=black guibg=gray
-  highlight PmenuSel ctermfg=black ctermbg=darkgray guifg=black guibg=darkgray
-  highlight PmenuSbar ctermfg=white ctermbg=darkgray guifg=white guibg=darkgray
-  highlight PmenuThumb ctermfg=white ctermbg=darkgray guifg=white guibg=darkgray
+  highlight CursorLine ctermfg=none
+  highlight CursorColumn ctermfg=none
+  highlight MatchParen term=reverse ctermfg=none ctermbg=1 guibg=red
+  highlight Pmenu ctermfg=black ctermbg=gray gui=none guifg=black guibg=gray
+  highlight PmenuSel ctermfg=black ctermbg=darkgray gui=none guifg=black guibg=darkgray
+  highlight PmenuSbar ctermfg=white ctermbg=darkgray gui=none guifg=white guibg=darkgray
+  highlight PmenuThumb ctermfg=white ctermbg=darkgray gui=none guifg=white guibg=darkgray
 endif
 call matchadd('Todo', 'todo')
 call matchadd('Todo', 'Todo')
@@ -70,8 +70,9 @@ call matchadd('Todo', 'TODO')
 call matchadd('Error', '　')
 call matchadd('Underlined', '\(https\?\|ftp\|git\):\/\/[0-9A-Za-z][&:()\[\]{}#@~%_\-=?/.0-9A-Za-z]*[/0-9A-Za-z]\(:\d\d*\/\?\)\?')
 
-highlight Time ctermfg=135 ctermbg=none guifg=135 guibg=none
-highlight Date ctermfg=133 ctermbg=none guifg=133 guibg=none
+highlight Time ctermfg=135 ctermbg=none gui=none guifg=#af5fff
+highlight Date ctermfg=134 ctermbg=none gui=none guifg=#af5fdf
+
 " ColorColumn
 " Conceal
 " Cursor

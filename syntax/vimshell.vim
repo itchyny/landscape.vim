@@ -1,10 +1,4 @@
 
-if version < 700
-  syntax clear
-elseif exists("b:current_syntax")
-  finish
-endif
-
 " pre setting
 " GHCi
 syntax match vimshellFunction '\\\(.*->\)\@=\|\(\\.*\)\@<=->'

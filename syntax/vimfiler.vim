@@ -1,10 +1,4 @@
 
-if version < 700
- syntax clear
-elseif exists('b:current_syntax')
- finish
-endif
-
 let leaf_icon = vimfiler#util#escape_pattern(g:vimfiler_tree_leaf_icon)
 let opened_icon = vimfiler#util#escape_pattern(g:vimfiler_tree_opened_icon)
 let closed_icon = vimfiler#util#escape_pattern(g:vimfiler_tree_closed_icon)
@@ -107,3 +101,4 @@ highlight default link vimfilerIcon Boolean
 
 highlight link vimfilerDateToday Comment
 let b:current_syntax = 'vimfiler'
+
