@@ -68,8 +68,7 @@ call matchadd('Todo', 'todo')
 call matchadd('Todo', 'Todo')
 call matchadd('Todo', 'TODO')
 call matchadd('Error', '　')
-call matchadd('Underlined', '\(https\?\|ftp\|git\):\/\/[0-9A-Za-z][&:()\[\]{}#@~%_\-=?/.0-9A-Za-z]*[/0-9A-Za-z]\(:\d\d*\/\?\)\?')
-
+call matchadd('Underlined', '\(https\?\|ftp\|git\):\/\/[0-9A-Za-z]\([&:\[\]{}#@~%_\-=?/.0-9A-Za-z]*\(([&:\[\]{}#@~%_\-=?/.0-9A-Za-z]*)\)\?\)*[/0-9A-Za-z]*\(:\d\d*\/\?\)\?')
 highlight Time ctermfg=135 ctermbg=none gui=none guifg=#af5fff
 highlight Date ctermfg=134 ctermbg=none gui=none guifg=#af5fdf
 
