@@ -72,6 +72,7 @@ call matchadd('Underlined', '\(https\?\|ftp\|git\):\/\/[0-9A-Za-z]\([&:\[\]{}#@~
 highlight Time ctermfg=135 ctermbg=none gui=none guifg=#af5fff
 highlight Date ctermfg=134 ctermbg=none gui=none guifg=#af5fdf
 
+highlight default link vimCmplxRepeat Normal
 " ColorColumn
 " Conceal
 " Cursor
