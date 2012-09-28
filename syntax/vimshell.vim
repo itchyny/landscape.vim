@@ -168,10 +168,10 @@ highlight default link vimshellGitBranch Special
 " diff
 syntax region vimshellDiffNewFile start=+^-+ end=+$+ oneline
 syntax region vimshellDiffNewFile start=+^---+ end=+$+ oneline
-highlight default link vimshellDiffNewFile Type
+highlight default link vimshellDiffNewFile Preproc
 syntax region vimshellDiffFile start=/^+/ end=+$+ oneline
 syntax region vimshellDiffFile start=/^+++/ end=+$+ oneline
-highlight default link vimshellDiffFile PreProc
+highlight default link vimshellDiffFile Type
 syntax region vimshellDiffLine start=+^@@+ end=+$+ oneline
 highlight default link vimshellDiffLine Function
 syntax match vimshellDiffLine '^\d\+\(,\d\+\)\=[cda]\d\+\>\(,\d\+\)\=$'
