@@ -168,8 +168,10 @@ highlight default link vimshellGitBranch Special
 " diff
 syntax region vimshellDiffNewFile start=+^-\(-->\)\@!+ end=+$+ oneline
 syntax region vimshellDiffNewFile start=+^---[^>]+ end=+$+ oneline
+syntax region vimshellDiffNewFile start=+^> + end=+$+ oneline
 highlight default link vimshellDiffNewFile Preproc
 syntax region vimshellDiffFile start=/^+/ end=+$+ oneline
+syntax region vimshellDiffFile start=/^< / end=+$+ oneline
 syntax region vimshellDiffFile start=/^+++/ end=+$+ oneline
 highlight default link vimshellDiffFile Type
 syntax region vimshellDiffLine start=+^@@+ end=+$+ oneline
