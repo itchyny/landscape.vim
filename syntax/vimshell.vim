@@ -57,7 +57,7 @@ syntax match vimshellLink '\(^\|\s\)[[:alnum:]_.][[:alnum:]_.-]\+@'
 highlight default link vimshellLink Character
 syntax match vimshellDotFiles '\%(^\|\s\)\.[[:alnum:]_.-]\+[[:blank:]\n]'
 highlight default link vimshellDotFiles Comment
-syntax keyword ls cp df expr launchctl mkdir pwd sh tcsh zsh bash csh domainname hostname link mv rcp sleep test cat date echo kill ln pax rm stty unlink chmod dd ed ksh ls ps rmdir sync
+syntax keyword vimshellCommand ls cp df expr launchctl mkdir pwd sh tcsh zsh bash csh domainname hostname link mv rcp sleep test cat date echo kill ln pax rm stty unlink chmod dd ed ksh ls ps rmdir sync
 
 " Programming language
 syntax keyword vimshellBoolean True False true false
