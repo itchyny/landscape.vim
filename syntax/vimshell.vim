@@ -1,13 +1,8 @@
 
-" pre setting
-" GHCi
-syntax match vimshellFunction '\\\(.*->\)\@=\|\(\\.*\)\@<=->'
-
 " prompt, error
 syntax match vimshellUserPrompt '^\[%\] .*$' contains=vimshellUserPromptHidden
 execute 'syntax match vimshellPrompt' string('^' . vimshell#escape_match(vimshell#get_prompt()))
 execute 'syntax match vimshellSecondPrompt' string('^' . vimshell#escape_match(vimshell#get_secondary_prompt()))
-syntax region vimshellError start=+!!!+ end=+!!!+ contains=vimshellErrorHidden oneline
 if has('conceal')
   syntax match vimshellErrorHidden '!!!' contained conceal
   syntax match vimshellUserPromptHidden '^\[%\] ' contained conceal
@@ -193,8 +188,6 @@ highlight default link mplayerTagName Function
 highlight default link mplayerStarting Number
 highlight default link mplayerTitle Special
 syntax match mplayerPlayingFileName '\(Playing \)\@<=.*\(\.\)\@='
-" syntax match mplayerTag '\( *Title:\| *Artist:\| *Album:\| *Year:\| *Comment:\| *Track:\| *Genre:\| *Opening audio decoder:\| *AUDIO:\| *Selected audio codec:\| *AO:\| *Video:\| *Clip info:\| *Opening video decoder:\| *Selected video codec:\| *VIDEO:\|\[lavf\] stream \d*:\|VO:\|Opening video filter:\|Movie-Aspect is [^:]*:\| *major_brand:\| *minor_version:\| *compatible_brands:\| *creation_time:\| *copyright:\| *copyright-eng:\|Audio:\)\@<=\(.*\)$'
-" syntax match mplayerTagName '^!*\( *Title\| *Artist\| *Album\| *Year\| *Comment\| *Track\| *Genre\| *Opening audio decoder\| *AUDIO\| *Selected audio codec\| *AO\| *Video\| *Clip info\| *Opening video decoder\| *Selected video codec\| *VIDEO\|\[lavf\] stream \d*\|VO\|Opening video filter:\|Movie-Aspect is [^:]*\| *major_brand\| *minor_version\| *compatible_brands\| *creation_time\| *copyright\| *copyright-eng\|Audio\):\@='
 
 " post setting
 syntax region vimshellError start=+!!!+ end=+!!!+ contains=vimshellErrorHidden oneline
