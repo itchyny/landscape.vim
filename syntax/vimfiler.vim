@@ -82,6 +82,7 @@ hi def link vimfilerTypeLink Comment
 
 
 execute 'syntax match vimfilerPdf ' string('^'.g:vimfiler_file_icon.' .*\(pdf\|PDF\)')  ' contains=vimfilerIcon'
+execute 'syntax match vimfilerTypeImage ' string('^'.g:vimfiler_file_icon.' .*\(eps\|EPS\)')  ' contains=vimfilerIcon'
 execute 'syntax match vimfilerHtml ' string('^'.g:vimfiler_file_icon.' .*\(html\|HTML\)')  ' contains=vimfilerIcon'
 execute "syntax match vimfilerIcon '^".g:vimfiler_file_icon." ' contained"
 
