@@ -53,6 +53,8 @@ highlight default link vimshellLink Character
 syntax match vimshellDotFiles '\%(^\|\s\)\.[[:alnum:]_.-]\+[[:blank:]\n]'
 highlight default link vimshellDotFiles Comment
 syntax keyword vimshellCommand ls cp df expr launchctl mkdir pwd sh tcsh zsh bash csh domainname hostname link mv rcp sleep test cat date echo kill ln pax rm stty unlink chmod dd ed ksh ls ps rmdir sync
+syntax keyword vimshellCommand mount_acfs SystemStarter shutdown mknod mount_smbfs nologin autodiskmount reboot halt dmesg fsck_cs dynamic_pager launchd fibreconfig mount_afp mount_webdav newfs_udf mount_udf md5 fsck_udf rtsol mount_ntfs ipfw ping6 route ip6fw ifconfig ping mount_msdos fsck_msdos newfs_msdos kextunload kextload newfs_hfs umount mount_exfat disklabel newfs_exfat quotacheck fsck_exfat mount mount_fdesc mount_ftp mount_hfs fstyp_udf fstyp_ntfs fstyp_msdos fstyp_hfs fstyp fsck_hfs fsck mount_devfs mount_cd9660 mount_cddafs emond pfctl nfsiod mount_nfs nfsd mpioutil
+syntax keyword vimshellCommand cabal happy openssl whois awk ghc ghci vim python perl
 
 " Programming language
 syntax keyword vimshellBoolean True False true false
