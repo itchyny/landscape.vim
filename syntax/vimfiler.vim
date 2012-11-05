@@ -5,49 +5,59 @@ let closed_icon = vimfiler#util#escape_pattern(g:vimfiler_tree_closed_icon)
 let file_icon = vimfiler#util#escape_pattern(g:vimfiler_file_icon)
 let marked_file_icon = vimfiler#util#escape_pattern(g:vimfiler_marked_file_icon)
 
-syn match vimfilerNonMarkedFile '.*'
+syntax match vimfilerNonMarkedFile '.*'
  \ contains=vimfilerNonMark,vimfilerTypeText,vimfilerTypeImage,vimfilerTypeArchive,
  \vimfilerTypeExecute,vimfilerTypeMultimedia,vimfilerTypeDirectory,vimfilerTypeSystem,vimfilerTypeLink,
  \vimfilerSize,vimfilerDate,vimfilerDateToday,vimfilerDateWeek
-execute 'syn match vimfilerMarkedFile' '''^\s*\%(' . leaf_icon .'\)\?'
+execute 'syntax match vimfilerMarkedFile' '''^\s*\%(' . leaf_icon .'\)\?'
  \ . marked_file_icon . ' .*$'''
  \ 'contains=vimfilerDate,vimfilerDateToday,vimfilerDateWeek'
-syn match vimfilerDirectory '^..$'
+syntax match vimfilerDirectory '^..$'
 
-syn match vimfilerPrompt '^\[in\]: .*$'
+syntax match vimfilerPrompt '^\[in\]: .*$'
  \ contains=vimfilerSpecial,vimfilerCurrentDirectory
-syn match vimfilerPromptUnSafe '^! \[in\]: .*$'
+syntax match vimfilerPromptUnSafe '^! \[in\]: .*$'
  \ contains=vimfilerSpecial,vimfilerSpecialUnSafe,vimfilerCurrentDirectory
-syn match vimfilerSpecialUnSafe '^! ' contained
-syn match vimfilerSpecial '\[in\]:' contained
-syn match vimfilerCurrentDirectory '\s\zs.*$' contained contains=vimfilerMask
-syn match vimfilerMask '\[.*\]$' contained
-syn match vimfilerFileLine '\[.*\]$' contained
+syntax match vimfilerSpecialUnSafe '^! ' contained
+syntax match vimfilerSpecial '\[in\]:' contained
+syntax match vimfilerCurrentDirectory '\s\zs.*$' contained contains=vimfilerMask
+syntax match vimfilerMask '\[.*\]$' contained
+syntax match vimfilerFileLine '\[.*\]$' contained
 
-syn match vimfilerTypeText '.*\[TXT\]' contained
-syn match vimfilerTypeImage '.*\[IMG\]' contained
-syn match vimfilerTypeArchive '.*\[ARC\]' contained
-syn match vimfilerTypeExecute '.*\[EXE\]' contained
-syn match vimfilerTypeMultimedia '.*\[MUL\]' contained
-syn match vimfilerTypeDirectory '.*\[DIR\]' contained
-syn match vimfilerTypeSystem '.*\[SYS\]' contained
-syn match vimfilerTypeLink '.*\[LNK\]' contained
+syntax match vimfilerTypeText '.*\[TXT\]' contained
+syntax match vimfilerTypeImage '.*\[IMG\]' contained
+syntax match vimfilerTypeArchive '.*\[ARC\]' contained
+syntax match vimfilerTypeExecute '.*\[EXE\]' contained
+syntax match vimfilerTypeMultimedia '.*\[MUL\]' contained
+syntax match vimfilerTypeDirectory '.*\[DIR\]' contained
+syntax match vimfilerTypeSystem '.*\[SYS\]' contained
+syntax match vimfilerTypeLink '.*\[LNK\]' contained
+syntax match vimfilerTypeText '.* \~$' contained contains=vimfilerMarker
+syntax match vimfilerTypeImage '.* !$' contained contains=vimfilerMarker
+syntax match vimfilerTypeArchive '.* @$' contained contains=vimfilerMarker
+syntax match vimfilerTypeExecute '.* #$' contained contains=vimfilerMarker
+syntax match vimfilerTypeMultimedia '.* \$$' contained contains=vimfilerMarker
+syntax match vimfilerTypeDirectory '.* %$' contained contains=vimfilerMarker
+syntax match vimfilerTypeSystem '.* \^$' contained contains=vimfilerMarker
+syntax match vimfilerTypeLink '.* &$' contained contains=vimfilerMarker
 
-syn match vimfilerSize '\s\zs[[:digit:].]\+\s*[GMKB]' contained
+syntax match vimfilerSize '\s\zs[[:digit:].]\+\s*[GMKB]' contained
 
-" syn match vimfilerNonMark '^\s*|\?[+-]' contained
-execute 'syn match vimfilerNonMark'
+" syntax match vimfilerNonMark '^\s*|\?[+-]' contained
+execute 'syntax match vimfilerNonMark'
  \ '''^\s*\%('. leaf_icon .'\)\?\%('. opened_icon . '\|'
  \ . closed_icon . '\|' . file_icon .'\)'' contained'
 
-syn match vimfilerDate '\s\zs#[^#]\+$' contains=vimfilerDateIgnore contained
-syn match vimfilerDateToday '\s\zs\~[^~]\+$' contains=vimfilerDateIgnore contained
-syn match vimfilerDateWeek '\s\zs![^!]\+$' contains=vimfilerDateIgnore contained
+syntax match vimfilerDate '\s\zs#[^#]\+$' contains=vimfilerDateIgnore contained
+syntax match vimfilerDateToday '\s\zs\~[^~]\+$' contains=vimfilerDateIgnore contained
+syntax match vimfilerDateWeek '\s\zs![^!]\+$' contains=vimfilerDateIgnore contained
 if has('conceal')
  " Supported conceal features.
- syn match vimfilerDateIgnore '[#~!]' contained conceal
+ syntax match vimfilerDateIgnore '[#~!]' contained conceal
+ syntax match   vimfilerMarker        '[~!@#$%^&]$' contained conceal
 else
- syn match vimfilerDateIgnore '[#~!]' contained
+ syntax match vimfilerDateIgnore '[#~!]' contained
+ syntax match   vimfilerMarker        '[~!@#$%^&]$' contained
 endif
 
 if has('gui_running')
