@@ -52,9 +52,16 @@ syntax match vimshellLink '\(^\|\s\)[[:alnum:]_.][[:alnum:]_.-]\+@'
 highlight default link vimshellLink Character
 syntax match vimshellDotFiles '\%(^\|\s\)\.[[:alnum:]_.-]\+[[:blank:]\n]'
 highlight default link vimshellDotFiles Comment
-syntax keyword vimshellCommand ls cp df expr launchctl mkdir pwd sh tcsh zsh bash csh domainname hostname link mv rcp sleep test cat date echo kill ln pax rm stty unlink chmod dd ed ksh ls ps rmdir sync
-syntax keyword vimshellCommand mount_acfs SystemStarter shutdown mknod mount_smbfs nologin autodiskmount reboot halt dmesg fsck_cs dynamic_pager launchd fibreconfig mount_afp mount_webdav newfs_udf mount_udf md5 fsck_udf rtsol mount_ntfs ipfw ping6 route ip6fw ifconfig ping mount_msdos fsck_msdos newfs_msdos kextunload kextload newfs_hfs umount mount_exfat disklabel newfs_exfat quotacheck fsck_exfat mount mount_fdesc mount_ftp mount_hfs fstyp_udf fstyp_ntfs fstyp_msdos fstyp_hfs fstyp fsck_hfs fsck mount_devfs mount_cd9660 mount_cddafs emond pfctl nfsiod mount_nfs nfsd mpioutil
-syntax keyword vimshellCommand cabal happy openssl whois awk ghc ghci vim python perl
+syntax keyword vimshellCommand ls cp df expr launchctl mkdir pwd sh tcsh zsh bash csh domainname hostname
+syntax keyword vimshellCommand link mv rcp sleep test cat date echo kill ln pax rm stty unlink chmod dd ed ksh ls
+syntax keyword vimshellCommand ps rmdir sync mount_acfs SystemStarter shutdown mknod mount_smbfs nologin autodiskmount
+syntax keyword vimshellCommand reboot halt dmesg fsck_cs dynamic_pager launchd fibreconfig mount_afp mount_webdav
+syntax keyword vimshellCommand newfs_udf mount_udf md5 fsck_udf rtsol mount_ntfs ipfw ping6 route ip6fw ifconfig
+syntax keyword vimshellCommand ping mount_msdos fsck_msdos newfs_msdos kextunload kextload newfs_hfs umount
+syntax keyword vimshellCommand mount_exfat disklabel newfs_exfat quotacheck fsck_exfat mount mount_fdesc mount_ftp
+syntax keyword vimshellCommand mount_hfs fstyp_udf fstyp_ntfs fstyp_msdos fstyp_hfs fstyp fsck_hfs fsck mount_devfs
+syntax keyword vimshellCommand mount_cd9660 mount_cddafs emond pfctl nfsiod mount_nfs nfsd mpioutil cabal happy
+syntax keyword vimshellCommand openssl whois awk ghc ghci vim python perl
 
 " Programming language
 syntax keyword vimshellBoolean True False true false
@@ -114,7 +121,7 @@ syntax keyword haskellFunction abs acos appendFile asTypeOf asin asinh atan catc
 syntax keyword haskellFunction fromRational fst gcd getChar getContents getLine id init interact ioError isDenormalized isIEEE isInfinite isNaN isNegativeZero iterate lcm lex logBase lookup max maybe min mod negate notElem odd otherwise pi pred product
 syntax keyword haskellFunction properFraction putChar putStr putStrLn quot quotRem realToFrac recip rem replicate reverse round scaleFloat scanl scanl1 scanr scanr1 seq sequence significand signum sin snd span splitAt sqrt subtract succ sum tail tan toEnum toInteger toRational truncate uncurry undefined unlines unwords unzip unzip3 userError writeFile
 syntax keyword haskellFunction foldl1 maxBound maximum foldr1 mapM mapM_ sequence_ showChar showList showParen showString shows showsPrec sinh tanh cosh concatMap divMod atan2 atanh acosh zip3 zipWith zipWith3 dropWhile takeWhile readFile readIO readList readLn readParen minBound minimum readsPrec
-syntax keyword haskellFunction nubBy deleteBy deleteFirstsBy unionBy intersectBy groupBy sortBy insertBy maximumBy minimumBy genericLength genericTake genericDrop genericSplitAt genericIndex genericReplicate 
+syntax keyword haskellFunction nubBy deleteBy deleteFirstsBy unionBy intersectBy groupBy sortBy insertBy maximumBy minimumBy genericLength genericTake genericDrop genericSplitAt genericIndex genericReplicate
 highlight default link haskellFunction vimshellFunction
 execute 'syntax match vimshellComment ' string('--.*\(Defined in\)') ' oneline contains=vimshellString,vimshellURL,haskellType'
 syntax region vimshellError start=+^\*\*\* + end=+$+ contains=vimshellErrorHidden oneline

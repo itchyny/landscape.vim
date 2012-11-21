@@ -45,6 +45,8 @@ highlight Delimiter term=none ctermfg=181 gui=none guifg=orange
 highlight SpecialComment term=none ctermfg=182 gui=none guifg=violet
 highlight Debug term=none ctermfg=183 gui=none guifg=violet
 
+highlight Visual term=none ctermbg=239 guibg=#4e4e4e
+highlight default link VisualNOS Visual 
 highlight Underlined term=underline ctermfg=51 ctermbg=none gui=none guifg=#00ffff
 highlight Error term=none ctermfg=15 ctermbg=124 gui=none guifg=white gui=none guifg=#ffffff guibg=#af0000
 highlight Todo term=none ctermfg=16 ctermbg=11 gui=none guifg=#000000 guibg=#ffff00
@@ -85,7 +87,6 @@ highlight default link vimCmplxRepeat Normal
 " LineNr
 " ModeMsg
 " MoreMsg
-" Normal
 " Question
 " Search
 " SpellBad
@@ -93,13 +94,10 @@ highlight default link vimCmplxRepeat Normal
 " SpellLocal
 " SpellRare
 " StatusLine
-" StatusLineNC
 " TabLine
 " TabLineFill
 " TabLineSel
 " Title
-" Visual
-" VisualNOS
 " WarningMsg
 " Ignore
 " WildMenu

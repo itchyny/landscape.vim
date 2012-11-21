@@ -14,10 +14,8 @@ execute 'syntax match vimfilerMarkedFile' '''^\s*\%(' . leaf_icon .'\)\?'
  \ 'contains=vimfilerDate,vimfilerDateToday,vimfilerDateWeek'
 syntax match vimfilerDirectory '^..$'
 
-syntax match vimfilerPrompt '^\[in\]: .*$'
- \ contains=vimfilerSpecial,vimfilerCurrentDirectory
-syntax match vimfilerPromptUnSafe '^! \[in\]: .*$'
- \ contains=vimfilerSpecial,vimfilerSpecialUnSafe,vimfilerCurrentDirectory
+syntax match vimfilerPrompt '^\[in\]: .*$' contains=vimfilerSpecial,vimfilerCurrentDirectory
+syntax match vimfilerPromptUnSafe '^! \[in\]: .*$' contains=vimfilerSpecial,vimfilerSpecialUnSafe,vimfilerCurrentDirectory
 syntax match vimfilerSpecialUnSafe '^! ' contained
 syntax match vimfilerSpecial '\[in\]:' contained
 syntax match vimfilerCurrentDirectory '\s\zs.*$' contained contains=vimfilerMask
