@@ -48,7 +48,8 @@ highlight Debug term=none ctermfg=183 gui=none guifg=violet
 highlight Visual term=none ctermbg=239 guibg=#4e4e4e
 highlight default link VisualNOS Visual 
 highlight Underlined term=underline ctermfg=51 ctermbg=none gui=none guifg=#00ffff
-highlight Error term=none ctermfg=15 ctermbg=124 gui=none guifg=white gui=none guifg=#ffffff guibg=#af0000
+highlight Error term=none ctermfg=15 ctermbg=124 gui=none guifg=#ffffff guibg=#af0000
+highlight WarningMsg term=none ctermfg=0 ctermbg=11 gui=none guifg=#000000 guibg=#ffff00
 highlight Todo term=none ctermfg=16 ctermbg=11 gui=none guifg=#000000 guibg=#ffff00
 highlight default link ErrorMsg Error
 
@@ -74,6 +75,11 @@ call matchadd('Underlined', '\(https\?\|ftp\|git\):\/\/[0-9A-Za-z]\([&:\[\]{}#@~
 highlight Time ctermfg=135 ctermbg=none gui=none guifg=#af5fff
 highlight Date ctermfg=134 ctermbg=none gui=none guifg=#af5fdf
 
+highlight default link SpellBad ErrorMsg
+highlight default link SpellCap WarningMsg
+highlight default link SpellLocal WarningMsg
+highlight default link SpellRare WarningMsg
+
 highlight default link vimCmplxRepeat Normal
 " ColorColumn
 " Conceal
@@ -89,15 +95,10 @@ highlight default link vimCmplxRepeat Normal
 " MoreMsg
 " Question
 " Search
-" SpellBad
-" SpellCap
-" SpellLocal
-" SpellRare
 " StatusLine
 " TabLine
 " TabLineFill
 " TabLineSel
 " Title
-" WarningMsg
 " Ignore
 " WildMenu

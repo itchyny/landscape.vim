@@ -45,7 +45,7 @@ highlight default link vimshellVariable Identifier
 syntax match vimshellLinkTo '\(\(^\|\s\)[[:alnum:]_.][[:alnum:]_.-]\+@ ->\)\@<=\s\+\(\(\([[:alnum:]_.][[:alnum:]_.-]\+\)\|.\)\/\?\)\+'
 highlight default link vimshellLinkTo String
 syntax match vimshellPath '\(^\|\s\)\(\/\|\.\.\?\)\?\(\([[:alnum:]_.][[:alnum:]_.-]\+\)\/\)\+\(\([[:alnum:]_.][[:alnum:]_.-]\+\)\|.\)\?'
-highlight default link vimshellPath Include
+highlight default link vimshellPath Constant
 syntax match vimshellDirectory '\%(\f\s\?\)\+/\ze\%(\s\|$\)'
 highlight default link vimshellDirectory Preproc
 syntax match vimshellLink '\(^\|\s\)[[:alnum:]_.][[:alnum:]_.-]\+@'
@@ -197,6 +197,16 @@ highlight default link mplayerTagName Function
 highlight default link mplayerStarting Number
 highlight default link mplayerTitle Special
 syntax match mplayerPlayingFileName '\(Playing \)\@<=.*\(\.\)\@='
+
+" LaTeX
+syntax match vimshellError '^.*[Ee]rror.*'
+syntax match vimshellError '^.*[Ww]arning.*'
+syntax match vimshellError '^.*ERROR.*'
+syntax match vimshellError '^.*WARNING.*'
+syntax match vimshellError '^.*I found no.*'
+syntax match vimshellError "^.*I can't.*"
+syntax match vimshellError '^.*Overfull.*'
+syntax match vimshellError '^!.*'
 
 " post setting
 syntax region vimshellError start=+!!!+ end=+!!!+ contains=vimshellErrorHidden oneline
