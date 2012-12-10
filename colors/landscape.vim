@@ -49,7 +49,7 @@ highlight Visual term=none ctermbg=239 guibg=#4e4e4e
 highlight default link VisualNOS Visual 
 highlight Underlined term=underline ctermfg=51 ctermbg=none gui=none guifg=#00ffff
 highlight Error term=none ctermfg=15 ctermbg=124 gui=none guifg=#ffffff guibg=#af0000
-highlight WarningMsg term=none ctermfg=0 ctermbg=11 gui=none guifg=#000000 guibg=#ffff00
+highlight WarningMsg term=none ctermfg=7 ctermbg=0 gui=none guifg=#c0c0c0 guibg=#000000
 highlight Todo term=none ctermfg=16 ctermbg=11 gui=none guifg=#000000 guibg=#ffff00
 highlight default link ErrorMsg Error
 

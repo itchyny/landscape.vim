@@ -89,11 +89,11 @@ hi def link vimfilerTypeSystem Comment
 hi def link vimfilerTypeLink Comment
 
 
-execute 'syntax match vimfilerPdf ' string('^'.g:vimfiler_file_icon.' .*\.\(pdf\|PDF\)[ \n]') ' contains=vimfilerIcon'
-execute 'syntax match vimfilerTypeImage ' string('^'.g:vimfiler_file_icon.' .*\.\(eps\|EPS\)[ \n]')  ' contains=vimfilerIcon'
-execute 'syntax match vimfilerHtml ' string('^'.g:vimfiler_file_icon.' .*\.\(html\|HTML\)[ \n]')  ' contains=vimfilerIcon'
-execute "syntax match vimfilerIcon '^".g:vimfiler_file_icon." ' contained"
-execute 'syntax match vimfilerTypeSystem ' string('^'.g:vimfiler_file_icon.' \(Makefile.in\|configure\|aclocal.m4\|autom4te.cache/\|Makefile\|stamp-h1\|config.log\|config.status\|config.h\|config.h.in\|output.0\|output.1\|requests\|traces.0\|traces.1\)[ \n]')  ' contains=vimfilerIcon'
+execute 'syntax match vimfilerPdf ' string('^ *'.g:vimfiler_file_icon.' .*\.\(pdf\|PDF\)[ \n]') ' contains=vimfilerIcon'
+execute 'syntax match vimfilerTypeImage ' string('^ *'.g:vimfiler_file_icon.' .*\.\(eps\|EPS\)[ \n]')  ' contains=vimfilerIcon'
+execute 'syntax match vimfilerHtml ' string('^ *'.g:vimfiler_file_icon.' .*\.\(html\|HTML\)[ \n]')  ' contains=vimfilerIcon'
+execute "syntax match vimfilerIcon '^ *".g:vimfiler_file_icon." ' contained"
+execute 'syntax match vimfilerTypeSystem ' string('^ *'.g:vimfiler_file_icon.' \(Makefile.in\|configure\|aclocal.m4\|autom4te.cache/\|Makefile\|stamp-h1\|config.log\|config.status\|config.h\|config.h.in\|output.0\|output.1\|requests\|traces.0\|traces.1\)[ \n]')  ' contains=vimfilerIcon'
 
 " syntax match vimfilerConflict '(Case Conflict \d*)'
 " highlight default link vimfilerConflict Error
