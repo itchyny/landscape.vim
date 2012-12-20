@@ -67,11 +67,17 @@ if version >= 700
   highlight PmenuSbar ctermfg=white ctermbg=darkgray gui=none guifg=white guibg=darkgray
   highlight PmenuThumb ctermfg=white ctermbg=darkgray gui=none guifg=white guibg=darkgray
 endif
-call matchadd('Todo', 'todo')
-call matchadd('Todo', 'Todo')
-call matchadd('Todo', 'TODO')
-call matchadd('Error', '　')
-call matchadd('Underlined', '\(https\?\|ftp\|git\):\/\/[0-9A-Za-z]\([&:\[\]{}#@~%_\-=?/.0-9A-Za-z]*\(([&:\[\]{}#@~%_\-=?/.0-9A-Za-z]*)\)\?\)*[/0-9A-Za-z]*\(:\d\d*\/\?\)\?')
+augroup LandscapeUnderline
+  function! s:newmatch()
+    call matchadd('Underlined', '\(https\?\|ftp\|git\):\/\/[0-9A-Za-z]\([&:\[\]{}#@~%_\-=?/.0-9A-Za-z]*\(([&:\[\]{}#@~%_\-=?/.0-9A-Za-z]*)\)\?\)*[/0-9A-Za-z]*\(:\d\d*\/\?\)\?')
+    call matchadd('Todo', 'todo')
+    call matchadd('Todo', 'Todo')
+    call matchadd('Todo', 'TODO')
+    call matchadd('Error', '　')
+  endfunction
+  autocmd!
+  autocmd BufAdd,BufCreate,BufEnter,WinEnter * call s:newmatch()
+augroup END
 highlight Time ctermfg=135 ctermbg=none gui=none guifg=#af5fff
 highlight Date ctermfg=134 ctermbg=none gui=none guifg=#af5fdf
 
