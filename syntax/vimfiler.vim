@@ -95,9 +95,6 @@ execute 'syntax match vimfilerHtml ' string('^ *'.g:vimfiler_file_icon.' .*\.\(h
 execute "syntax match vimfilerIcon '^ *".g:vimfiler_file_icon." ' contained"
 execute 'syntax match vimfilerTypeSystem ' string('^ *'.g:vimfiler_file_icon.' \(Makefile.in\|configure\|aclocal.m4\|autom4te.cache/\|Makefile\|stamp-h1\|config.log\|config.status\|config.h\|config.h.in\|output.0\|output.1\|requests\|traces.0\|traces.1\)[ \n]')  ' contains=vimfilerIcon'
 
-" syntax match vimfilerConflict '(Case Conflict \d*)'
-" highlight default link vimfilerConflict Error
-
 highlight Archive ctermfg=12 guifg=#808079 guibg=#303030
 highlight default link vimfilerPdf Function
 highlight default link vimfilerHtml Function
