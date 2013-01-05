@@ -45,7 +45,7 @@ highlight Delimiter term=none ctermfg=181 gui=none guifg=orange
 highlight SpecialComment term=none ctermfg=182 gui=none guifg=violet
 highlight Debug term=none ctermfg=183 gui=none guifg=violet
 
-highlight Visual term=none ctermbg=239 guibg=#4e4e4e
+highlight Visual term=none ctermbg=241 guibg=#666666
 highlight default link VisualNOS Visual 
 highlight Underlined term=underline ctermfg=51 ctermbg=none gui=none guifg=#00ffff
 highlight Error term=none ctermfg=15 ctermbg=124 gui=none guifg=#ffffff guibg=#af0000
@@ -62,7 +62,7 @@ highlight StatusLineNC term=none gui=none guifg=black guibg=darkgray gui=none ct
 if version >= 700
   highlight CursorLine term=underline ctermfg=none gui=underline guibg=gray0
   highlight CursorColumn ctermfg=none
-  highlight MatchParen ctermfg=none ctermbg=240 guibg=#585858
+  highlight MatchParen ctermfg=none ctermbg=237 guibg=#3a3a3a
   highlight Pmenu ctermfg=black ctermbg=gray gui=none guifg=black guibg=gray
   highlight PmenuSel ctermfg=black ctermbg=darkgray gui=none guifg=black guibg=darkgray
   highlight PmenuSbar ctermfg=white ctermbg=darkgray gui=none guifg=white guibg=darkgray
