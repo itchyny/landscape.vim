@@ -85,21 +85,11 @@ syntax match vimshellOperator '(\(:\|+\|-\|/\|*\|!\|&\||\|>\|<\|=\|\^\|\$\|\.\)\
 execute "syntax match vimshellHsPrompt '".s:hsprompt."'"
 highlight default link vimshellHsPrompt vimshellPrompt
 command -nargs=1 HsCommand execute 'syntax match vimshellHsCommand ' string(s:hsprompt.' *:'.<args>) ' contains=vimshellHsPrompt oneline'
-HsCommand ' *$'
-HsCommand '\<\(a\|b\|c\|d\|e\|f\|h\|i\|k\|l\|m\|p\|q\|r\|s\|t\|u\|?\)\>'
-HsCommand '\<\(ab\|ad\|ba\|br\|cd\|cm\|co\|ct\|de\|ed\|et\|fo\|he\|hi\|in\|ki\|'
-      \ .'li\|lo\|ma\|mo\|pr\|qu\|re\|ru\|se\|sh\|sp\|st\|tr\|ty\|un\)\>'
-HsCommand '\<\(aba\|add\|bac\|bre\|bro\|cmd\|con\|cta\|def\|del\|edi\|eta\|for\|hel\|his\|inf\|'
-      \ .'kin\|lis\|loa\|mai\|mod\|pri\|qui\|rel\|run\|set\|sho\|spr\|ste\|tra\|typ\|und\|uns\)\>'
-HsCommand '\<\(aban\|back\|brea\|brow\|cont\|ctag\|dele\|edit\|etag\|forc\|forw\|help\|hist\|info\|'
-      \ .'kind\|list\|load\|main\|modu\|prin\|quit\|relo\|show\|spri\|step\|trac\|type\|unde\|unse\)\>'
-HsCommand '\<\(aband\|break\|brows\|conti\|ctags\|delet\|etags\|force\|forwa\|histo\|modul\|print\|'
-      \ .'reloa\|sprin\|stepl\|stepm\|trace\|undef\|unset\)\>'
-HsCommand '\<\(abando\|browse\|contin\|delete\|forwar\|histor\|module\|reload\|sprint\|steplo\|stepmo\)\>'
-HsCommand '\<\(abandon\|continu\|forward\|history\|steploc\|stepmod\)\>'
-HsCommand '\<\(continue\|steploca\|stepmodu\)\>'
-HsCommand '\<\(steplocal\|stepmodul\)\>'
-HsCommand '\<\(stepmodule\)\>'
+
+HsCommand '\<\(add\|cmd\|def\|run\|set\)\>'
+HsCommand '\<\(back\|edit\|help\|info\|kind\|list\|load\|main\|quit\|show\|type\)\>'
+HsCommand '\<\(break\|ctags\|etags\|force\|print\|trace\|undef\|unset\)\>'
+HsCommand '\<\(browse\|\|delete\|reload\|sprint\|abandon\|forward\|history\|continue\|steplocal\|stepmodule\)\>'
 delcommand HsCommand
 highlight default link vimshellHsCommand vimshellExe
 syntax match vimshellHsLoading '^Loading package '
