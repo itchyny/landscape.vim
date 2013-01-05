@@ -60,9 +60,9 @@ highlight NonText term=none ctermfg=black gui=none guifg=black
 highlight Archive term=none ctermfg=12 gui=none guifg=#808079 guibg=#303030
 highlight StatusLineNC term=none gui=none guifg=black guibg=darkgray gui=none ctermfg=black ctermbg=darkgray cterm=none gui=none
 if version >= 700
-  highlight CursorLine ctermfg=none
+  highlight CursorLine term=underline ctermfg=none gui=underline guibg=black
   highlight CursorColumn ctermfg=none
-  highlight MatchParen ctermfg=none ctermbg=8 guibg=gray
+  highlight MatchParen ctermfg=none ctermbg=240 guibg=#585858
   highlight Pmenu ctermfg=black ctermbg=gray gui=none guifg=black guibg=gray
   highlight PmenuSel ctermfg=black ctermbg=darkgray gui=none guifg=black guibg=darkgray
   highlight PmenuSbar ctermfg=white ctermbg=darkgray gui=none guifg=white guibg=darkgray
