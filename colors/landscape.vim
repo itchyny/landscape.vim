@@ -67,7 +67,7 @@ if version >= 700
   highlight PmenuSbar ctermfg=white ctermbg=darkgray gui=none guifg=white guibg=darkgray
   highlight PmenuThumb ctermfg=white ctermbg=darkgray gui=none guifg=white guibg=darkgray
 endif
-augroup LandscapeUnderline
+augroup MatchAdd
   function! s:newmatch()
     call matchadd('Underlined',
           \'\(https\?\|ftp\|git\):\/\/\('
