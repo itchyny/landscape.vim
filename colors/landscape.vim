@@ -45,7 +45,7 @@ highlight Delimiter term=none ctermfg=181 gui=none guifg=orange
 highlight SpecialComment term=none ctermfg=182 gui=none guifg=violet
 highlight Debug term=none ctermfg=183 gui=none guifg=violet
 
-highlight Visual term=none ctermbg=241 guibg=#666666
+highlight Visual term=none ctermbg=241 guibg=#606060
 highlight default link VisualNOS Visual 
 highlight Underlined term=underline ctermfg=51 ctermbg=none gui=none guifg=#00ffff
 highlight Error term=none ctermfg=15 ctermbg=124 gui=none guifg=#ffffff guibg=#af0000
