@@ -129,8 +129,8 @@ syntax region vimshellError start=+^SyntaxError+ end=+$+ oneline
 syntax region vimshellError start=+^Traceback+ end=+given)+
 syntax region vimshellCompilername start=+^Python \d\+\.\d\+\.\d\++ end=+$+ oneline
 syntax region vimshellCompilerdescription start=+^Python \d\+.\d\+.\d\++ end=+for more information\.+ contains=vimshellCompilername
-syntax match vimshellError '\<lambda\>\(\s\+\h\w*:\)\@!'
-syntax match vimshellStatement '\<lambda\>\(\s\+\h\w*:\)\@='
+syntax match vimshellError '\<lambda\>\(\(\s\+\(\h\w*\)\?\)\?:\)\@!'
+syntax match vimshellStatement '\<lambda\>\(\(\s\+\(\h\w*\)\?\)\?:\)\@='
 syntax match vimshellConditional '\(\<if\>\(.*\<else\>\)\@=\|\(\<if\>.*\)\@<=\<else\>\)'
 syntax match vimshellError '\<def\>\(\s\+\h\w*(.*).*:\)\@!'
 syntax match vimshellStatement '\<def\>\(\s\+\h\w*\s*(.*).*:\)\@='
