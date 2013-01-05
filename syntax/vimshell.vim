@@ -18,7 +18,7 @@ highlight default link vimshellError Error
 highlight default link vimshellErrorHidden Ignore
 
 " special
-syntax match vimshellSpecial '[|<>&;]' contained
+syntax match vimshellSpecial '[|<>;&;]' contained
 highlight default link vimshellSpecial Special
 
 " string
