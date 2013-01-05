@@ -212,6 +212,8 @@ syntax match vimshellLinkTo '\(\(^\|\s\)[[:alnum:]_.][[:alnum:]_.-]\+@ ->\)\@<=\
 syntax match vimshellStringSpecial '\\\([0-9]\+\|o[0-7]\+\|x[0-9a-fA-F]\+\|[\"\\'&\\abfnrtv]\|^[A-Z^_\[\\\]]\)' contains=vimshellFunction contained
 syntax region vimshellString start=+"+ end=+"+ contains=vimshellStringSpecial oneline contained
 syntax region vimshellString start=+'+ end=+'+ contains=vimshellStringSpecial oneline contained
+syntax region vimshellString start=+"+ end=+"+ contains=vimshellStringSpecial oneline
+syntax region vimshellString start=+'+ end=+'+ contains=vimshellStringSpecial oneline
 syntax region vimshellString start=+`+ end=+'+ contains=vimshellStringSpecial,haskellFunction,haskellType oneline
 syntax region vimshellString start=+"+ skip=+\\\\\|\\"+ end=+"+ oneline
 highlight default link vimshellStringSpecial SpecialChar
