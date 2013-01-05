@@ -87,7 +87,6 @@ syntax match vimshellOperator '(\(:\|+\|-\|/\|*\|!\|&\||\|>\|<\|=\|\^\|\$\|\.\)\
 execute "syntax match vimshellHsPrompt '".s:hsprompt."'"
 highlight default link vimshellHsPrompt vimshellPrompt
 command -nargs=1 HsCommand execute 'syntax match vimshellHsCommand ' string(s:hsprompt.' *:'.<args>) ' contains=vimshellHsPrompt oneline'
-
 HsCommand '\<\(add\|cmd\|def\|run\|set\)\>'
 HsCommand '\<\(back\|edit\|help\|info\|kind\|list\|load\|main\|quit\|show\|type\)\>'
 HsCommand '\<\(break\|ctags\|etags\|force\|print\|trace\|undef\|unset\)\>'
@@ -105,10 +104,9 @@ execute 'syntax match vimshellError ' string('\('.s:hsprompt.'.*\)\@<=\<let\>\(\
 execute 'syntax match vimshellStatement ' string('\('.s:hsprompt.'.*\<let\>\s\+[^=]\+=\s*.\+\)\@<=\<in\>\|\('.s:hsprompt.'.*\)\@<=\<let\>\(\s\+[^=]\+=\s*\S\+\)\@=') 'contains=vimshellNumber,vimshellString'
 execute 'syntax match vimshellError ' string('\('.s:hsprompt.'.*\)\@<=\(\<if\>\(.*\<then\>.*\<else\>\)\@!\|\(\<if\>.*\)\@<=\<then\>\(.*\<else\>\)\@!\|\(\<if\>.*\)\@<!\<then\>\(.*\<else\>\)\@=\|\(\<if\>.*\<then\>.*\)\@<!\<else\>\)')
 syntax match vimshellConditional '\(\<if\>\(.*\<then\>.*\<else\>\)\@=\|\(\<if\>.*\)\@<=\<then\>\(.*\<else\>\)\@=\|\(\<if\>.*\<then\>.*\)\@<=\<else\>\)'
-execute 'syntax match haskellFunction ' string('\('.s:hsprompt.'.*\)\@<=\(\<and\>\|\<any\>\|\<or\>\|\<head\>\|\<last\>\|\<all\>\|\<show\>\|\<print\>\|\<not\>\|\<break\>\|\<map\>\|\<read\>\|\<log\>\|\<null\>\|\<length\>\|\<reads\>\|\<even\>\|\<error\>\|\<words\>\|\<fail\>\|\<zip\>\|\<take\>\|\<until\>\|\<lines\>\|\<repeat\>\|\<return\>\|\<compare\>\|\<filter\>\)')
-execute 'syntax match haskellFunction ' string('\(\<and\>\|\<any\>\|\<or\>\|\<head\>\|\<last\>\|\<all\>\|\<show\>\|\<print\>\|\<not\>\|\<break\>\|\<map\>\|\<read\>\|\<log\>\|\<null\>\|\<length\>\|\<reads\>\|\<even\>\|\<error\>\|\<words\>\|\<fail\>\|\<zip\>\|\<take\>\|\<until\>\|\<lines\>\|\<repeat\>\|\<return\>\|\<compare\>\|\<filter\>\)\s*\(::\)\@=')
 syntax keyword haskellType Bool Bounded Char Double Either Enum Eq FilePath Float Floating Fractional Functor IO IOError Int Integer Integral Maybe Monad Num Ord Ordering Rational Read ReadS Real RealFloat RealFrac Show ShowS String GHC Classes Base Tuple
 highlight default link haskellType vimshellType
+syntax keyword haskellFunction and any or head last all show print not break map read log null length reads even error words fail zip take until lines repeat return compare filter
 syntax keyword haskellFunction abs acos appendFile asTypeOf asin asinh atan catch ceiling concat const cos cosh curry cycle decodeFloat div drop either elem encodeFloat enumFrom enumFromThen enumFromThenTo enumFromTo exp exponent flip floatDigits floatRadix floatRange floor fmap foldl foldr fromEnum fromInteger fromIntegral return map
 syntax keyword haskellFunction fromRational fst gcd getChar getContents getLine id init interact ioError isDenormalized isIEEE isInfinite isNaN isNegativeZero iterate lcm lex logBase lookup max maybe min mod negate notElem odd otherwise pi pred product
 syntax keyword haskellFunction properFraction putChar putStr putStrLn quot quotRem realToFrac recip rem replicate reverse round scaleFloat scanl scanl1 scanr scanr1 seq sequence significand signum sin snd span splitAt sqrt subtract succ sum tail tan toEnum toInteger toRational truncate uncurry undefined unlines unwords unzip unzip3 userError writeFile
