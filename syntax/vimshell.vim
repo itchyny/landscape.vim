@@ -135,24 +135,24 @@ syntax match vimshellConditional '\(\<if\>\(.*\<else\>\)\@=\|\(\<if\>.*\)\@<=\<e
 syntax match vimshellError '\<def\>\(\s\+\h\w*(.*).*:\)\@!'
 syntax match vimshellStatement '\<def\>\(\s\+\h\w*\s*(.*).*:\)\@='
 
-" " Perl
-" syntax match vimshellCompilername '^This is perl.*built for.*$'
-" syntax match vimshellCompilerdescription '^This is perl.*built for.*\(\n.*\)*Home Page.*$' contains=vimshellCompilername
-"
-" " Ruby
-" syntax match vimshellCompilername 'ruby \d*\.\d*\.\d*.*$'
-"
-" " GCC
-" syntax match vimshellCompilername '^[^ ]*gcc.\d*\.\d*\(\.\d*\)\?.*$'
-" syntax match vimshellCompilerdescription '^[^ ]*gcc.\d*\.\d*\(\.\d*\)\?.*\(\n.*\)*A PARTICULAR PURPOSE.*$' contains=vimshellCompilername
-"
-" " TeX
-" syntax match vimshellCompilername '^This is \(\w*TeX\w*\), Version.*$'
-"
-" " shell
-" syntax match vimshellCompilername '^\(zsh\|tcsh\) \d*\.\d*\.\d.*$'
-" syntax match vimshellCompilername '^GNU bash, version \d*\.\d*\.\d.*$'
-" syntax match vimshellCompilerdescription '^GNU bash, version \d*\.\d*\.\d.*\(\n.*\)*Inc.' contains=vimshellCompilername
+" Perl
+syntax match vimshellCompilername '^This is perl.*built for.*$'
+syntax match vimshellCompilerdescription '^This is perl.*built for.*\(\n.*\)*Home Page.*$' contains=vimshellCompilername
+
+" Ruby
+syntax match vimshellCompilername 'ruby \d*\.\d*\.\d*.*$'
+
+" GCC
+syntax match vimshellCompilername '^[^ ]*gcc.\d*\.\d*\(\.\d*\)\?.*$'
+syntax match vimshellCompilerdescription '^[^ ]*gcc.\d*\.\d*\(\.\d*\)\?.*\(\n.*\)*A PARTICULAR PURPOSE.*$' contains=vimshellCompilername
+
+" TeX
+syntax match vimshellCompilername '^This is \(\w*TeX\w*\), Version.*$'
+
+" shell
+syntax match vimshellCompilername '^\(zsh\|tcsh\) \d*\.\d*\.\d.*$'
+syntax match vimshellCompilername '^GNU bash, version \d*\.\d*\.\d.*$'
+syntax match vimshellCompilerdescription '^GNU bash, version \d*\.\d*\.\d.*\(\n.*\)*Inc.' contains=vimshellCompilername
 
 " GitHub
 syntax region vimshellCompilername start=+^git version \d\+\.\d\+\.\d\+.*+ end=+$+ oneline
