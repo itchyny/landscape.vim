@@ -69,7 +69,13 @@ if version >= 700
 endif
 augroup LandscapeUnderline
   function! s:newmatch()
-    call matchadd('Underlined', '\(https\?\|ftp\|git\):\/\/[0-9A-Za-z]\([&:\[\]#@~%_\-=?/.0-9A-Za-z]*\(([&:\[\]#@~%_\-=?/.0-9A-Za-z]*)\)\?\({[&:\[\]#@~%_\-=?/.0-9A-Za-z]*}\)\?\)*[/0-9A-Za-z]*\(:\d\d*\/\?\)\?')
+    call matchadd('Underlined',
+          \'\(https\?\|ftp\|git\):\/\/\('
+          \.'[&:#*@~%_\-=?/.0-9A-Za-z]*'
+          \.'\(([&:#*@~%_\-=?/.0-9A-Za-z]*)\)\?'
+          \.'\({[&:#*@~%_\-=?/.0-9A-Za-z]*}\)\?'
+          \.'\(\[[&:#*@~%_\-=?/.0-9A-Za-z]*\]\)\?'
+          \.'\)*[/0-9A-Za-z]*\(:\d\d*\/\?\)\?')
     call matchadd('Todo', 'todo')
     call matchadd('Todo', 'Todo')
     call matchadd('Todo', 'TODO')
