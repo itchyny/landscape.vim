@@ -156,7 +156,7 @@ syntax match vimshellCompilerdescription '^GNU bash, version \d*\.\d*\.\d.*\(\n.
 
 " GitHub
 syntax region vimshellCompilername start=+^git version \d\+\.\d\+\.\d\+.*+ end=+$+ oneline
-syntax match vimshellGitBranch '^\[\a\+ \(\w\+\]\)'
+syntax match vimshellGitBranch '^\[\a\+ \w\+\]'
 highlight default link vimshellGitBranch Special
 
 " diff
