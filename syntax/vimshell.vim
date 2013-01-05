@@ -53,7 +53,7 @@ highlight default link vimshellLink Character
 syntax match vimshellDotFiles '\%(^\|\s\)\.[[:alnum:]_.-]\+[[:blank:]\n]'
 highlight default link vimshellDotFiles Comment
 syntax keyword vimshellCommand ls cp df expr launchctl mkdir pwd sh tcsh zsh bash csh domainname hostname
-syntax keyword vimshellCommand link mv rcp sleep test cat date echo kill ln pax rm stty unlink chmod dd ed ksh ls
+syntax keyword vimshellCommand link mv rcp sleep test cat date echo kill ln pax rm stty unlink chmod dd ed ksh
 syntax keyword vimshellCommand ps rmdir sync mount_acfs SystemStarter shutdown mknod mount_smbfs nologin autodiskmount
 syntax keyword vimshellCommand reboot halt dmesg fsck_cs dynamic_pager launchd fibreconfig mount_afp mount_webdav
 syntax keyword vimshellCommand newfs_udf mount_udf md5 fsck_udf rtsol mount_ntfs ipfw ping6 route ip6fw ifconfig
@@ -63,6 +63,7 @@ syntax keyword vimshellCommand mount_hfs fstyp_udf fstyp_ntfs fstyp_msdos fstyp_
 syntax keyword vimshellCommand mount_cd9660 mount_cddafs emond pfctl nfsiod mount_nfs nfsd mpioutil cabal happy
 syntax keyword vimshellCommand openssl whois awk ghc ghci vim python perl git
 syntax keyword vimshellCommand add bisect branch checkout clone commit diff fetch grep init log merge pull push rebase reset show status tag gcc gzip tar make
+syntax keyword vimshellCommand nop texe less iexe cd view vexe time sudo ssh source_shellcmd source shell sexe scp repeat popd open mkcd let history histdel gexe gendoc gcd galias exit exe eval dirs alias whereis vimsh vimdiff build which clear bg
 highlight default link vimshellCommand Function
 
 " Programming language
