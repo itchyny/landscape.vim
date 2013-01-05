@@ -62,6 +62,8 @@ syntax keyword vimshellCommand mount_exfat disklabel newfs_exfat quotacheck fsck
 syntax keyword vimshellCommand mount_hfs fstyp_udf fstyp_ntfs fstyp_msdos fstyp_hfs fstyp fsck_hfs fsck mount_devfs
 syntax keyword vimshellCommand mount_cd9660 mount_cddafs emond pfctl nfsiod mount_nfs nfsd mpioutil cabal happy
 syntax keyword vimshellCommand openssl whois awk ghc ghci vim python perl
+syntax keyword vimshellCommand add bisect branch checkout clone commit diff fetch grep init log merge pull push rebase reset show status tag gcc gzip tar make
+highlight default link vimshellCommand Function
 
 " Programming language
 syntax keyword vimshellBoolean True False true false
@@ -171,8 +173,6 @@ highlight default link vimshellDiffFile Type
 syntax region vimshellDiffLine start=+^@@+ end=+$+ oneline
 highlight default link vimshellDiffLine Function
 syntax match vimshellDiffLine '^\d\+\(,\d\+\)\=[cda]\d\+\>\(,\d\+\)\=$'
-highlight default link vimshellCommand Function
-syntax keyword vimshellCommand add bisect branch checkout clone commit diff fetch grep init log merge mv pull push rebase reset rm show status tag gcc chmod gzip tar make
 highlight default link gitCommand Function
 
 " MPlayer
