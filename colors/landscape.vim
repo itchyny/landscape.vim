@@ -61,7 +61,7 @@ highlight StatusLineNC term=none gui=none guifg=black guibg=darkgray gui=none ct
 if version >= 700
   highlight CursorLine ctermfg=none
   highlight CursorColumn ctermfg=none
-  highlight MatchParen term=reverse ctermfg=none ctermbg=1 guibg=red
+  highlight MatchParen ctermfg=none ctermbg=8 guibg=gray
   highlight Pmenu ctermfg=black ctermbg=gray gui=none guifg=black guibg=gray
   highlight PmenuSel ctermfg=black ctermbg=darkgray gui=none guifg=black guibg=darkgray
   highlight PmenuSbar ctermfg=white ctermbg=darkgray gui=none guifg=white guibg=darkgray
