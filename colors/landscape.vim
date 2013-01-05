@@ -54,6 +54,7 @@ highlight Todo term=none ctermfg=16 ctermbg=11 gui=none guifg=#000000 guibg=#fff
 highlight default link ErrorMsg Error
 
 highlight VertSplit term=none gui=none guifg=black guibg=darkgray gui=none ctermfg=black ctermbg=darkgray cterm=none
+highlight Folded term=none ctermfg=247 ctermbg=235 guifg=#9e9e9e guibg=#262626
 highlight SpecialKey term=underline ctermfg=darkgray gui=none guifg=darkgray
 highlight NonText term=none ctermfg=black gui=none guifg=black
 highlight Archive term=none ctermfg=12 gui=none guifg=#808079 guibg=#303030
@@ -93,12 +94,12 @@ highlight default link SpellLocal WarningMsg
 highlight default link SpellRare WarningMsg
 
 highlight default link vimCmplxRepeat Normal
+
 " ColorColumn
 " Conceal
 " Cursor
 " CursorIM
 " Directory
-" Folded
 " FoldColumn
 " SignColumn
 " IncSearch
