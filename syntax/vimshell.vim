@@ -45,6 +45,8 @@ highlight default link vimshellVariable Identifier
 syntax match vimshellLinkTo '\(\(^\|\s\)[[:alnum:]_.][[:alnum:]_.-]\+@ ->\)\@<=\s\+\(\(\([[:alnum:]_.][[:alnum:]_.-]\+\)\|.\)\/\?\)\+'
 highlight default link vimshellLinkTo String
 syntax match vimshellPath '\(^\|\s\)\(\/\|\.\.\?\)\?\(\([[:alnum:]_.][[:alnum:]_.-]\+\)\/\)\+\(\([[:alnum:]_.][[:alnum:]_.-]\+\)\|.\)\?'
+syntax match vimshellPath '\(\/\|\.\.\?\)\(\([[:alpha:]_.][[:alnum:]_.-]*\)\/\)\+\(\([[:alnum:]_.][[:alnum:]_.-]\+\)\|.\)\?'
+syntax match vimshellPath '[[:alnum:]]\@<!\.\?\/\([a-z][[:alnum:]_-]*\)\.\([a-z]*[[:alnum:]_-]\+\)'
 highlight default link vimshellPath Constant
 syntax match vimshellDirectory '\%(\f\s\?\)\+/\ze\%(\s\|$\)'
 highlight default link vimshellDirectory Preproc
@@ -61,7 +63,7 @@ syntax keyword vimshellCommand ping mount_msdos fsck_msdos newfs_msdos kextunloa
 syntax keyword vimshellCommand mount_exfat disklabel newfs_exfat quotacheck fsck_exfat mount mount_fdesc mount_ftp
 syntax keyword vimshellCommand mount_hfs fstyp_udf fstyp_ntfs fstyp_msdos fstyp_hfs fstyp fsck_hfs fsck mount_devfs
 syntax keyword vimshellCommand mount_cd9660 mount_cddafs emond pfctl nfsiod mount_nfs nfsd mpioutil cabal happy
-syntax keyword vimshellCommand openssl whois awk ghc ghci runhaskell vim python perl git ruby irb
+syntax keyword vimshellCommand openssl whois awk ghc ghci runhaskell vim python perl git ruby irb mplayer ps2pdf pdf2ps latex platex pdflatex pdfetex pdftex
 syntax keyword vimshellCommand add bisect branch checkout clone commit diff fetch grep init log merge pull push rebase reset show status tag gcc gzip tar make
 syntax keyword vimshellCommand nop texe less iexe cd view vexe time sudo ssh source_shellcmd source shell sexe scp repeat popd open mkcd let history histdel gexe gendoc gcd galias exit exe eval dirs alias whereis vimsh vimdiff build which clear bg
 highlight default link vimshellCommand Function
@@ -83,7 +85,7 @@ highlight default link vimshellType Type
 
 " GHCi
 let s:hsprompt='^Prelude[^>]*>'
-syntax match vimshellOperator '\(+\|-\|/\|*\|!\|&\||\|>\|<\|=\|\^\|\$\)\{1,3}\|()\|::'
+syntax match vimshellOperator ' \(+\|-\|/\|*\|!\|&\||\|>\|<\|=\|\^\|\$\)\{1,3} \|()\|::'
 syntax match vimshellOperator '(\(:\|+\|-\|/\|*\|!\|&\||\|>\|<\|=\|\^\|\$\|\.\)\{1,3})'
 execute "syntax match vimshellHsPrompt '".s:hsprompt."'"
 highlight default link vimshellHsPrompt vimshellPrompt
@@ -205,7 +207,11 @@ syntax match vimshellPermission '^[bcdlsp-][r-][w-][xsStT-][r-][w-][xsStT-][r-][
 highlight default link vimshellPermission Special
 syntax match vimshellFunction '\\\(.*->\)\@=\|\(\\.*\)\@<=->'
 syntax match vimshellPath '\(^\|\s\)\(\/\|\.\.\?\)\?\(\([[:alnum:]_.][[:alnum:]_.-]\+\)\/\)\+\(\([[:alnum:]_.][[:alnum:]_.-]\+\)\)\?'
+syntax match vimshellPath '\(\/\|\.\.\?\)\(\([[:alpha:]_.][[:alnum:]_.-]*\)\/\)\+\(\([[:alnum:]_.][[:alnum:]_.-]\+\)\|.\)\?'
+syntax match vimshellPath '[[:alnum:]]\@<!\.\?\/\([a-z][[:alnum:]_-]*\)\.\([a-z]*[[:alnum:]_-]\+\)'
 syntax match vimshellLinkTo '\(\(^\|\s\)[[:alnum:]_.][[:alnum:]_.-]\+@ ->\)\@<=\s\+\(\(\([[:alnum:]_.][[:alnum:]_.-]\+\)\|.\)\/\?\)\+'
+execute 'syntax match vimshellPrompt' string('^' . vimshell#escape_match(vimshell#get_prompt()))
+execute 'syntax match vimshellSecondPrompt' string('^' . vimshell#escape_match(vimshell#get_secondary_prompt()))
 
 " string
 syntax match vimshellStringSpecial '\\\([0-9]\+\|o[0-7]\+\|x[0-9a-fA-F]\+\|[\"\\'&\\abfnrtv]\|^[A-Z^_\[\\\]]\)' contains=vimshellFunction contained
