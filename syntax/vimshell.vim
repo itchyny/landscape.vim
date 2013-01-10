@@ -64,9 +64,10 @@ syntax keyword vimshellCommand mount_exfat disklabel newfs_exfat quotacheck fsck
 syntax keyword vimshellCommand mount_hfs fstyp_udf fstyp_ntfs fstyp_msdos fstyp_hfs fstyp fsck_hfs fsck mount_devfs
 syntax keyword vimshellCommand mount_cd9660 mount_cddafs emond pfctl nfsiod mount_nfs nfsd mpioutil cabal happy
 syntax keyword vimshellCommand openssl whois awk ghc ghci runhaskell vim python perl git ruby irb mplayer ps2pdf pdf2ps latex platex pdflatex pdfetex pdftex
-syntax keyword vimshellCommand add bisect branch checkout clone commit diff fetch grep init log merge pull push rebase reset show status tag gcc gzip tar make
 syntax keyword vimshellCommand nop texe less iexe cd view vexe time sudo ssh source_shellcmd source shell sexe scp repeat popd open mkcd let history histdel gexe gendoc gcd galias exit exe eval dirs alias whereis vimsh vimdiff build which clear bg
 highlight default link vimshellCommand Function
+syntax keyword vimshellGitHubCommands add bisect branch checkout clone commit diff fetch grep init log merge pull push rebase reset show status tag gcc gzip tar make
+highlight default link vimshellGitHubCommands Constant
 
 " Programming language
 syntax keyword vimshellBoolean True False true false
