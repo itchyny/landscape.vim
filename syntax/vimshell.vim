@@ -167,13 +167,13 @@ highlight default link vimshellGitBranch Special
 syntax region vimshellDiffNewFile start=+^-\(-->\)\@!+ end=+$+ oneline
 syntax region vimshellDiffNewFile start=+^---[^>]+ end=+$+ oneline
 syntax region vimshellDiffNewFile start=+^> + end=+$+ oneline
-highlight default link vimshellDiffNewFile Preproc
+highlight default link vimshellDiffNewFile Type
 syntax region vimshellDiffFile start=/^+/ end=+$+ oneline
 syntax region vimshellDiffFile start=/^< / end=+$+ oneline
 syntax region vimshellDiffFile start=/^+++/ end=+$+ oneline
-highlight default link vimshellDiffFile Type
+highlight default link vimshellDiffFile PreCondit
 syntax region vimshellDiffLine start=+^@@+ end=+$+ oneline
-highlight default link vimshellDiffLine Function
+highlight default link vimshellDiffLine Special
 syntax match vimshellDiffLine '^\d\+\(,\d\+\)\=[cda]\d\+\>\(,\d\+\)\=$'
 highlight default link gitCommand Function
 
