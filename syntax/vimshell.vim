@@ -54,18 +54,28 @@ syntax match vimshellLink '\(^\|\s\)[[:alnum:]_.][[:alnum:]_.-]\+@'
 highlight default link vimshellLink Character
 syntax match vimshellDotFiles '\%(^\|\s\)\.[[:alnum:]_.-]\+[[:blank:]\n]'
 highlight default link vimshellDotFiles Comment
-syntax keyword vimshellCommand ls cp df expr launchctl mkdir pwd sh tcsh zsh bash csh domainname hostname
-syntax keyword vimshellCommand link mv rcp sleep test cat date echo kill ln pax rm stty unlink chmod dd ed ksh
-syntax keyword vimshellCommand ps rmdir sync mount_acfs SystemStarter shutdown mknod mount_smbfs nologin autodiskmount
-syntax keyword vimshellCommand reboot halt dmesg fsck_cs dynamic_pager launchd fibreconfig mount_afp mount_webdav
-syntax keyword vimshellCommand newfs_udf mount_udf md5 fsck_udf rtsol mount_ntfs ipfw ping6 route ip6fw ifconfig
-syntax keyword vimshellCommand ping mount_msdos fsck_msdos newfs_msdos kextunload kextload newfs_hfs umount
-syntax keyword vimshellCommand mount_exfat disklabel newfs_exfat quotacheck fsck_exfat mount mount_fdesc mount_ftp
-syntax keyword vimshellCommand mount_hfs fstyp_udf fstyp_ntfs fstyp_msdos fstyp_hfs fstyp fsck_hfs fsck mount_devfs
-syntax keyword vimshellCommand mount_cd9660 mount_cddafs emond pfctl nfsiod mount_nfs nfsd mpioutil cabal happy gcc gzip tar make
-syntax keyword vimshellCommand openssl whois awk ghc ghci runhaskell vim python perl git ruby irb mplayer ps2pdf pdf2ps latex platex pdflatex pdfetex pdftex
-syntax keyword vimshellCommand nop texe less iexe cd view vexe time sudo ssh source_shellcmd source shell sexe scp repeat popd open mkcd let history histdel gexe gendoc gcd galias exit exe eval dirs alias whereis vimsh vimdiff build which clear bg
-highlight default link vimshellCommand Function
+syntax keyword vimshellCommand ls cp df expr launchctl mkdir pwd sh tcsh zsh bash 
+syntax keyword vimshellCommand csh domainname hostname link mv rcp sleep test cat 
+syntax keyword vimshellCommand date echo kill ln pax rm stty unlink chmod dd ed ksh 
+syntax keyword vimshellCommand ps rmdir sync mount_acfs SystemStarter shutdown mknod 
+syntax keyword vimshellCommand mount_smbfs nologin autodiskmount reboot halt dmesg 
+syntax keyword vimshellCommand fsck_cs dynamic_pager launchd fibreconfig mount_afp 
+syntax keyword vimshellCommand mount_webdav newfs_udf mount_udf md5 fsck_udf rtsol 
+syntax keyword vimshellCommand mount_ntfs ipfw ping6 route ip6fw ifconfig ping mount_msdos 
+syntax keyword vimshellCommand fsck_msdos newfs_msdos kextunload kextload newfs_hfs 
+syntax keyword vimshellCommand umount mount_exfat disklabel newfs_exfat quotacheck 
+syntax keyword vimshellCommand fsck_exfat mount mount_fdesc mount_ftp mount_hfs fstyp_udf 
+syntax keyword vimshellCommand fstyp_ntfs fstyp_msdos fstyp_hfs fstyp fsck_hfs fsck 
+syntax keyword vimshellCommand mount_devfs mount_cd9660 mount_cddafs emond pfctl 
+syntax keyword vimshellCommand nfsiod mount_nfs nfsd mpioutil cabal happy gcc gzip 
+syntax keyword vimshellCommand tar make openssl whois awk ghc ghci runhaskell vim 
+syntax keyword vimshellCommand python perl git ruby irb mplayer ps2pdf pdf2ps latex 
+syntax keyword vimshellCommand platex pdflatex pdfetex pdftex nop texe less iexe 
+syntax keyword vimshellCommand cd view vexe time sudo ssh source_shellcmd source 
+syntax keyword vimshellCommand shell sexe scp repeat popd open mkcd let history histdel 
+syntax keyword vimshellCommand gexe gendoc gcd galias exit exe eval dirs alias whereis 
+syntax keyword vimshellCommand vimsh vimdiff build which clear bg wget
+syntax keyword vimshellCommand highlight default link vimshellCommand Function
 syntax keyword vimshellGitHubCommands add bisect branch checkout clone commit diff fetch grep init log merge pull push rebase reset show status tag
 highlight default link vimshellGitHubCommands Constant
 
