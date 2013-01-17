@@ -74,8 +74,8 @@ syntax keyword vimshellCommand platex pdflatex pdfetex pdftex nop texe less iexe
 syntax keyword vimshellCommand cd view vexe time sudo ssh source_shellcmd source 
 syntax keyword vimshellCommand shell sexe scp repeat popd open mkcd let history histdel 
 syntax keyword vimshellCommand gexe gendoc gcd galias exit exe eval dirs alias whereis 
-syntax keyword vimshellCommand vimsh vimdiff build which clear bg wget git
-syntax keyword vimshellCommand highlight default link vimshellCommand Function
+syntax keyword vimshellCommand vimsh vimdiff build which clear bg wget
+highlight default link vimshellCommand Function
 syntax keyword vimshellGitHubCommands add bisect branch checkout clone commit diff fetch grep init log merge pull push rebase reset show status tag
 highlight default link vimshellGitHubCommands Constant
 
