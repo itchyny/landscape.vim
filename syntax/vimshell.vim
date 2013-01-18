@@ -118,14 +118,39 @@ execute 'syntax match vimshellError ' string('\('.s:hsprompt.'.*\)\@<=\<let\>\(\
 execute 'syntax match vimshellStatement ' string('\('.s:hsprompt.'.*\<let\>\s\+[^=]\+=\s*.\+\)\@<=\<in\>\|\('.s:hsprompt.'.*\)\@<=\<let\>\(\s\+[^=]\+=\s*\S\+\)\@=') 'contains=vimshellNumber,vimshellString'
 execute 'syntax match vimshellError ' string('\('.s:hsprompt.'.*\)\@<=\(\<if\>\(.*\<then\>.*\<else\>\)\@!\|\(\<if\>.*\)\@<=\<then\>\(.*\<else\>\)\@!\|\(\<if\>.*\)\@<!\<then\>\(.*\<else\>\)\@=\|\(\<if\>.*\<then\>.*\)\@<!\<else\>\)')
 syntax match vimshellConditional '\(\<if\>\(.*\<then\>.*\<else\>\)\@=\|\(\<if\>.*\)\@<=\<then\>\(.*\<else\>\)\@=\|\(\<if\>.*\<then\>.*\)\@<=\<else\>\)'
-syntax keyword haskellType Bool Bounded Char Double Either Enum Eq FilePath Float Floating Fractional Functor IO IOError Int Integer Integral Maybe Monad Num Ord Ordering Rational Read ReadS Real RealFloat RealFrac Show ShowS String GHC Classes Base Tuple Types Type Data
+syntax keyword haskellType Bool Bounded Char Double Either Enum Eq FilePath Float 
+syntax keyword haskellType Floating Fractional Functor IO IOError Int Integer 
+syntax keyword haskellType Integral Maybe Monad Num Ord Ordering Rational Read 
+syntax keyword haskellType ReadS Real RealFloat RealFrac Show ShowS String GHC 
+syntax keyword haskellType Classes Base Tuple Types Type Data
 highlight default link haskellType vimshellType
-syntax keyword haskellFunction and any or head last all show print not break map read null length reads even error words fail zip take until lines repeat return compare filter
-syntax keyword haskellFunction abs acos appendFile asTypeOf asin asinh atan catch ceiling concat const cos cosh curry cycle decodeFloat div drop either elem encodeFloat enumFrom enumFromThen enumFromThenTo enumFromTo exp exponent flip floatDigits floatRadix floatRange floor fmap foldl foldr fromEnum fromInteger fromIntegral return map
-syntax keyword haskellFunction fromRational fst gcd getChar getContents getLine id interact ioError isDenormalized isIEEE isInfinite isNaN isNegativeZero iterate lcm lex logBase lookup max maybe min mod negate notElem odd otherwise pi pred product
-syntax keyword haskellFunction properFraction putChar putStr putStrLn quot quotRem realToFrac recip rem replicate reverse round scaleFloat scanl scanl1 scanr scanr1 seq sequence significand signum sin snd span splitAt sqrt subtract succ sum tail tan toEnum toInteger toRational truncate uncurry undefined unlines unwords unzip unzip3 userError writeFile
-syntax keyword haskellFunction foldl1 maxBound maximum foldr1 mapM mapM_ sequence_ showChar showList showParen showString shows showsPrec sinh tanh cosh concatMap divMod atan2 atanh acosh zip3 zipWith zipWith3 dropWhile takeWhile readFile readIO readList readLn readParen minBound minimum readsPrec
-syntax keyword haskellFunction nubBy deleteBy deleteFirstsBy unionBy intersectBy groupBy sortBy insertBy maximumBy minimumBy genericLength genericTake genericDrop genericSplitAt genericIndex genericReplicate
+syntax keyword haskellFunction and any or head last all show print not break map 
+syntax keyword haskellFunction read null length reads even error words fail zip take 
+syntax keyword haskellFunction until lines repeat return compare filter abs acos 
+syntax keyword haskellFunction appendFile asTypeOf asin asinh atan catch ceiling 
+syntax keyword haskellFunction concat const cos cosh curry cycle decodeFloat div 
+syntax keyword haskellFunction drop either elem encodeFloat enumFrom enumFromThen 
+syntax keyword haskellFunction enumFromThenTo enumFromTo exp exponent flip floatDigits 
+syntax keyword haskellFunction floatRadix floatRange floor fmap foldl foldr fromEnum 
+syntax keyword haskellFunction fromInteger fromIntegral return map fromRational fst 
+syntax keyword haskellFunction gcd getChar getContents getLine id interact ioError 
+syntax keyword haskellFunction isDenormalized isIEEE isInfinite isNaN isNegativeZero 
+syntax keyword haskellFunction iterate lcm lex logBase lookup max maybe min mod negate 
+syntax keyword haskellFunction notElem odd otherwise pi pred product properFraction 
+syntax keyword haskellFunction putChar putStr putStrLn quot quotRem realToFrac recip 
+syntax keyword haskellFunction rem replicate reverse round scaleFloat scanl scanl1 
+syntax keyword haskellFunction scanr scanr1 seq sequence significand signum sin snd 
+syntax keyword haskellFunction span splitAt sqrt subtract succ sum tail tan toEnum 
+syntax keyword haskellFunction toInteger toRational truncate uncurry undefined unlines 
+syntax keyword haskellFunction unwords unzip unzip3 userError writeFile foldl1 maxBound 
+syntax keyword haskellFunction maximum foldr1 mapM mapM_ sequence_ showChar showList 
+syntax keyword haskellFunction showParen showString shows showsPrec sinh tanh cosh 
+syntax keyword haskellFunction concatMap divMod atan2 atanh acosh zip3 zipWith zipWith3 
+syntax keyword haskellFunction dropWhile takeWhile readFile readIO readList readLn 
+syntax keyword haskellFunction readParen minBound minimum readsPrec nubBy deleteBy 
+syntax keyword haskellFunction deleteFirstsBy unionBy intersectBy groupBy sortBy 
+syntax keyword haskellFunction insertBy maximumBy minimumBy genericLength genericTake 
+syntax keyword haskellFunction genericDrop genericSplitAt genericIndex genericReplicate
 highlight default link haskellFunction vimshellFunction
 execute 'syntax match vimshellComment ' string('--.*\(Defined in\)') ' oneline contains=vimshellString,vimshellURL,haskellType'
 syntax region vimshellError start=+^\*\*\* + end=+$+ contains=vimshellErrorHidden oneline
