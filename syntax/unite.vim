@@ -30,7 +30,7 @@ syntax match uniteTypeMultimedia '.*\.\(
       \.rmvb\|rpm\|smi\|mkv\|mid\|wav\|mp3\|ogg\|wma\|au\)\>' contained containedin=uniteFile
 highlight default link uniteTypeMultimedia Identifier
 syntax match uniteTypeSystem '.*\.\(o\|hi\|inf\|sys\|reg\|dat\|spi\|a\|so\|lib\|dll\)\>' contained containedin=uniteFile
-syntax match uniteTypeSystem '\(Makefile\.in\|configure[\s$]\|aclocal\.m4\|Makefile\|stamp-h1\|config\.status\|config\.h\(\.in\)\?\~\?\(\s\|$\)\|config\.h\.in\~\?[\s$]\|output\.[0-9]\S\?\|requests\|traces\.[0-9]\S\?\)' contained containedin=uniteFile
+syntax match uniteTypeSystem '\(Makefile\.in\|configure[\s$]\|aclocal\.m4\|Makefile\|stamp-h1\|config\.status\|config\.h\(\.in\)\?\~\?\|config\.h\.in\~\?\|output\.[0-9]\S\?\|requests\|traces\.[0-9]\S\?\)\s\@=' contained containedin=uniteFile
 highlight default link uniteTypeSystem Comment
 syntax region uniteMarkedLine start=/^\*/ end='$' keepend
 syntax region uniteNonMarkedLine start=/^- / end='$' keepend
@@ -40,28 +40,28 @@ syntax match uniteQuickMatchTrigger /^.|/ contained
 syntax match uniteNumber '\d\+' contained containedin=uniteStatusLine
 highlight default link uniteNumber Number
 
-highlight default link uniteSourcePrompt  Constant
-highlight default link uniteSeparator  NONE
+highlight default link uniteSourcePrompt Constant
+highlight default link uniteSeparator NONE
 highlight default link uniteSourceNames Conditional
-highlight default link uniteSourceArgs  Function
+highlight default link uniteSourceArgs Function
 highlight default link uniteMessageSource Constant
 
-highlight default link uniteQuickMatchTrigger  Special
-highlight default link uniteMarkedLine  Statement
-highlight default link uniteCandidateSourceName  uniteSourceNames
-highlight default link uniteCandidateMarker  Special
-highlight default link uniteCandidateInputKeyword  Function
+highlight default link uniteQuickMatchTrigger Special
+highlight default link uniteMarkedLine Statement
+highlight default link uniteCandidateSourceName uniteSourceNames
+highlight default link uniteCandidateMarker Special
+highlight default link uniteCandidateInputKeyword Function
 
-highlight default link uniteChooseAction  NONE
-highlight default link uniteChooseCandidate  NONE
-highlight default link uniteChooseKey  SpecialKey
-highlight default link uniteChooseMessage  NONE
-highlight default link uniteChoosePrompt  uniteSourcePrompt
-highlight default link uniteChooseSource  uniteSourceNames
+highlight default link uniteChooseAction NONE
+highlight default link uniteChooseCandidate NONE
+highlight default link uniteChooseKey SpecialKey
+highlight default link uniteChooseMessage NONE
+highlight default link uniteChoosePrompt uniteSourcePrompt
+highlight default link uniteChooseSource uniteSourceNames
 
-highlight default link uniteInputPrompt  Identifier
-highlight default link uniteInputPromptError  Error
-highlight default link uniteInputSpecial  Special
+highlight default link uniteInputPrompt Identifier
+highlight default link uniteInputPromptError Error
+highlight default link uniteInputSpecial Special
 
 highlight default link uniteError Error
 highlight default link uniteErrorHidden Ignore
