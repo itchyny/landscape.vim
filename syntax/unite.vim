@@ -60,6 +60,14 @@ highlight default link uniteChoosePrompt uniteSourcePrompt
 highlight default link uniteChooseSource uniteSourceNames
 highlight default link uniteSource__FileMru_Time Date
 
+syntax region uniteError start=+!!!+ end=+!!!+ contains=uniteErrorHidden oneline
+if has('conceal')
+  " Supported conceal features.
+  syntax match uniteErrorHidden '!!!' contained conceal
+else
+  syntax match uniteErrorHidden '!!!' contained
+endif
+
 highlight default link uniteInputPrompt Identifier
 highlight default link uniteInputPromptError Error
 highlight default link uniteInputSpecial Special
