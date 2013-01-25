@@ -339,9 +339,9 @@ syntax match vimshellPyPrompt '^>>>' contained
 highlight default link vimshellPyPrompt vimshellPrompt
 syntax region vimshellCompilername start=+^Python \d\+\.\d\+\.\d\++ end=+$+ oneline contained
 syntax region vimshellCompilerdescription start=+^Python \d\+.\d\+.\d\++ end=+for more information\.+ contains=vimshellCompilername contained
-syntax match vimshellLambdaError '\s\@<=\<lambda\>\(\(\s\+\(\h\w*\)\?\)\?:\)\@!' contained
+syntax match vimshellLambdaError '\<lambda\>\(\(\s\+\(\h\w*\)\?\)\?:\)\@!' contained
 highlight default link vimshellLambdaError vimshellError
-syntax match vimshellStatement '\s\@<=\<lambda\>\(\(\s\+\(\h\w*\)\?\)\?:\)\@=' contained
+syntax match vimshellStatement '\<lambda\>\(\(\s\+\(\h\w*\)\?\)\?:\)\@=' contained
 syntax match vimshellConditional '\(\<if\>\(.*\<else\>\)\@=\|\(\<if\>.*\)\@<=\<else\>\)' contained
 syntax match vimshellError '\<def\>\(\s\+\h\w*(.*).*:\)\@!' contained
 syntax match vimshellStatement '\<def\>\(\s\+\h\w*\s*(.*).*:\)\@=' contained
@@ -372,6 +372,8 @@ execute 'syntax region vimshellMan start=' string(s:command_match.man.'\|^'.s:pr
       \.' contains=vimshellPromptLine,vimshellUserPromptLine,vimshellStringMan,vimshellNumber,vimshellPath,vimshellIEEE,vimshellError,'
       \.'manOptionDesc,manLongOptionDesc,manReference,manTitle,manSectionHeading,manSubHeading'
       \.' keepend'
+
+syntax region vimshellError start=+!!!+ end=+!!!+ contains=vimshellErrorHidden oneline
 
 let b:current_syntax = 'vimshell'
 
