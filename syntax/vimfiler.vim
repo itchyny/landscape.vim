@@ -98,7 +98,7 @@ execute 'syntax match vimfilerPdf ' string('^ *'.g:vimfiler_file_icon.' .*\.\(pd
 execute 'syntax match vimfilerTypeImage ' string('^ *'.g:vimfiler_file_icon.' .*\.\(eps\|EPS\)[ \n]')  ' contains=vimfilerIcon'
 execute 'syntax match vimfilerHtml ' string('^ *'.g:vimfiler_file_icon.' .*\.\(html\|HTML\)[ \n]')  ' contains=vimfilerIcon'
 execute "syntax match vimfilerIcon '^ *".g:vimfiler_file_icon." ' contained"
-execute 'syntax match vimfilerTypeSystem ' string('^ *'.g:vimfiler_file_icon.' \(Makefile\.in\|configure\|aclocal\.m4\|Makefile\|stamp-h1\|config\.status\|config\.h\|config\.h\.in\~\?\|output\.[0-9]\|requests\|traces\.[0-9]\|.*\.log\)[ \n]')  ' contains=vimfilerIcon'
+execute 'syntax match vimfilerTypeSystem ' string('^ *'.g:vimfiler_file_icon.' \(Makefile\.in\|configure\|aclocal\.m4\|Makefile\|stamp-h1\|config\.status\|config\.h\|config\.h\.in\~\?\|output\.[0-9]\S\?\|requests\|traces\.[0-9]\S\?\|.*\.log\)[ \n]')  ' contains=vimfilerIcon'
 execute 'syntax match vimfilerTypeSystem ' string('^ *'.g:vimfiler_file_icon.' \([A-Za-z0-9_-]*\(\.o\|\.hi\)\)[ \n]')  ' contains=vimfilerIcon'
 
 highlight Archive ctermfg=12 guifg=#808079 guibg=#303030
