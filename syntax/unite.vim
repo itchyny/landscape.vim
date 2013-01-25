@@ -42,7 +42,7 @@ highlight default link uniteNumber Number
 
 highlight default link uniteSourcePrompt Constant
 highlight default link uniteSeparator NONE
-highlight default link uniteSourceNames Conditional
+highlight default link uniteSourceNames Constant
 highlight default link uniteSourceArgs Function
 highlight default link uniteMessageSource Constant
 
@@ -50,7 +50,7 @@ highlight default link uniteQuickMatchTrigger Special
 highlight default link uniteMarkedLine Statement
 highlight default link uniteCandidateSourceName uniteSourceNames
 highlight default link uniteCandidateMarker Special
-highlight default link uniteCandidateInputKeyword Function
+highlight default link uniteCandidateInputKeyword Define
 
 highlight default link uniteChooseAction NONE
 highlight default link uniteChooseCandidate NONE
