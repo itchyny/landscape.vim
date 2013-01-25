@@ -58,6 +58,7 @@ highlight default link uniteChooseKey SpecialKey
 highlight default link uniteChooseMessage NONE
 highlight default link uniteChoosePrompt uniteSourcePrompt
 highlight default link uniteChooseSource uniteSourceNames
+highlight default link uniteSource__FileMru_Time Date
 
 highlight default link uniteInputPrompt Identifier
 highlight default link uniteInputPromptError Error
