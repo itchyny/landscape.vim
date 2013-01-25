@@ -176,7 +176,7 @@ execute 'syntax match vimshellLsalLinePart' string(s:permission
       \.'\s\+\d\+\s\+\f\+\s\+\f\+\s\+\d\+\s\+\(\d\+\s\+\d\+\s\+\d\+\(:\d\+\)\?\|\d\d\d\d-\d\d-\d\d\s\+\d\+:\d\+\)')
   \'contains=vimshellPermission,vimshellNumber,vimshellDate,vimshellTime contained'
 highlight default link vimshellPermission Constant
-execute 'syntax match vimshellLsalLine' string(s:permission 
+execute 'syntax match vimshellLsalLine' string(s:permission
       \.'\s\+\d\+\s\+\f\+\s\+\f\+\s\+\d\+\s\+\(\d\+\s\+\d\+\s\+\d\+\(:\d\+\)\?\|\d\d\d\d-\d\d-\d\d\s\+\d\+:\d\+\).*$')
   \'contains=vimshellLsalLinePart,vimshellPdf,vimshellArchive,vimshellImage,'
   \.'vimshellTypeText,vimshellTypeMultimedia,vimshellTypeSystem,vimshellTypeExe,'
@@ -318,15 +318,15 @@ highlight default link vimshellDiffFile DiffFile
 highlight default link vimshellDiffNewFile DiffNewFile
 syntax match vimshellDiffLine '^\d\+\(,\d\+\)\=[cda]\d\+\>\(,\d\+\)\=$' contained
 syntax match vimshellPlus '+\+' contained
-highlight default link vimshellPlus vimshellDiffFile 
+highlight default link vimshellPlus vimshellDiffFile
 syntax match vimshellPlusNeg '\s\(+\+-*\|-\+\)' contains=vimshellPlus contained
-highlight default link vimshellPlusNeg vimshellDiffNewFile 
+highlight default link vimshellPlusNeg vimshellDiffNewFile
 execute 'syntax region vimshellLs start=' string(s:command_match.git.'\|'.s:command_match.diff.'\|^diff -') ' end=+^\[%\].*+'
       \.' contains=vimshellPromptLine,vimshellUserPromptLine,vimshellTime,vimshellDate,'
       \.'vimshellDiffFile,vimshellDiffNewFile,vimshellDiffLine,vimshellError,vimshellNumber,vimshellPath,vimshellDiffGit,vimshellPath,vimshellDiffAdd,vimshellDiffDelete,vimshellPlusNeg'
       \.' keepend'
 syntax match vimshellGitArguments '\<-\=-[[:alnum:]-]\+' contained
-highlight default link vimshellGitArguments vimshellArguments 
+highlight default link vimshellGitArguments vimshellArguments
 syntax match vimshellGit '\<git\>' contained
 highlight default link vimshellGit vimshellCommand
 execute 'syntax region vimshellLs start=' string('^usage: git') ' end=+^\[%\].*+'
@@ -345,10 +345,30 @@ syntax match vimshellStatement '\<lambda\>\(\(\s\+\(\h\w*\)\?\)\?:\)\@=' contain
 syntax match vimshellConditional '\(\<if\>\(.*\<else\>\)\@=\|\(\<if\>.*\)\@<=\<else\>\)' contained
 syntax match vimshellError '\<def\>\(\s\+\h\w*(.*).*:\)\@!' contained
 syntax match vimshellStatement '\<def\>\(\s\+\h\w*\s*(.*).*:\)\@=' contained
+syntax keyword vimshellPythonFunction
+      \ abs divmod input open staticmethod
+      \ all enumerate int ord str
+      \ any eval isinstance pow sum
+      \ basestring execfile issubclass print super
+      \ bin file iter property tuple
+      \ bool filter len range type
+      \ bytearray float list raw_input unichr
+      \ callable format locals reduce unicode
+      \ chr frozenset long reload vars
+      \ classmethod getattr map repr xrange
+      \ cmp globals max reversed zip
+      \ compile hasattr memoryview round __import__
+      \ complex hash min set apply
+      \ delattr help next setattr buffer
+      \ dict hex object slice coerce
+      \ dir id oct sorted intern exit help
+      \ contained
+highlight default link vimshellPythonFunction Function
+syntax match vimshellPythonFunction '\<__[a-z]\{3,}__\>' contained
 execute 'syntax region vimshellPython start=' string(s:command_match.python) ' end=+^\[%\].*+'
       \.' contains=vimshellPromptLine,vimshellUserPromptLine,'
       \.'vimshellPyPrompt,vimshellCompilerdescription,vimshellError,vimshellStatement,vimshellConditional,'
-      \.'vimshellComment,vimshellNumber,vimshellFloat,vimshellString,vimshellBoolean,vimshellOperator,vimshellLambdaError'
+      \.'vimshellComment,vimshellNumber,vimshellFloat,vimshellString,vimshellBoolean,vimshellOperator,vimshellLambdaError,vimshellPythonFunction'
       \.' keepend'
 
 " man
