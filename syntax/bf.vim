@@ -1,10 +1,7 @@
-if !exists("main_syntax")
-  if version < 600
-    syntax clear
-  elseif exists("b:current_syntax")
-    finish
-  endif
-  let main_syntax = 'bf'
+if version < 700
+  syntax clear
+elseif exists("b:current_syntax")
+  finish
 endif
 
 syn match bfIncr "+"

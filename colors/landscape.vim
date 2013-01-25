@@ -46,11 +46,20 @@ highlight SpecialComment term=none ctermfg=182 gui=none guifg=violet
 highlight Debug term=none ctermfg=183 gui=none guifg=violet
 
 highlight Visual term=none ctermbg=241 guibg=#606060
-highlight default link VisualNOS Visual 
+highlight default link VisualNOS Visual
 highlight Underlined term=underline ctermfg=51 ctermbg=none gui=none guifg=#00ffff
 highlight Error term=none ctermfg=15 ctermbg=124 gui=none guifg=#ffffff guibg=#af0000
 highlight WarningMsg term=none ctermfg=7 ctermbg=0 gui=none guifg=#c0c0c0 guibg=#000000
 highlight Todo term=none ctermfg=16 ctermbg=11 gui=none guifg=#000000 guibg=#ffff00
+highlight DiffAdd term=none cterm=none ctermfg=none ctermbg=22 guifg=none guibg=#005f00
+highlight DiffChange term=none cterm=none ctermfg=none ctermbg=52 guifg=none guibg=#5f0000
+highlight DiffDelete term=none cterm=none ctermfg=none ctermbg=88 guifg=none guibg=#870000
+highlight DiffText term=none cterm=none ctermfg=none ctermbg=160 guifg=none guibg=#df0000
+highlight DiffFile term=none cterm=none ctermfg=47 ctermbg=none guifg=#00ff5f guibg=none
+highlight DiffNewFile term=none cterm=none ctermfg=199 ctermbg=none guifg=#ff00af guibg=none
+highlight default link DiffRemoved DiffDelete
+highlight DiffLine term=none cterm=none ctermfg=129 ctermbg=none guifg=#af00ff guibg=none
+highlight default link DiffAdded DiffAdd
 highlight default link ErrorMsg Error
 
 highlight VertSplit term=none gui=none guifg=black guibg=darkgray gui=none ctermfg=black ctermbg=darkgray cterm=none
@@ -88,10 +97,10 @@ augroup END
 highlight Time ctermfg=135 ctermbg=none gui=none guifg=#af5fff
 highlight Date ctermfg=134 ctermbg=none gui=none guifg=#af5fdf
 
-highlight default link SpellBad ErrorMsg
-highlight default link SpellCap WarningMsg
-highlight default link SpellLocal WarningMsg
-highlight default link SpellRare WarningMsg
+highlight SpellBad term=none cterm=none ctermbg=52 gui=none guibg=#5f0000
+highlight default link SpellCap SpellBad
+highlight default link SpellLocal SpellBad
+highlight default link SpellRare SpellBad
 
 highlight default link vimCmplxRepeat Normal
 
