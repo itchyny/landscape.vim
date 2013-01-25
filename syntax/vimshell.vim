@@ -129,8 +129,8 @@ syntax match vimshellPath '\(\(\.\|\~\)\?\/\|\.\.\?\)\(\([[:alpha:]_.][[:alnum:]
 syntax match vimshellPath '[[:alnum:]]\@<!\.\?\/\([a-z][[:alnum:]_-]*\)\.\([a-z]*[[:alnum:]_-]\+\)' contained
 syntax match vimshellPath '\(^\|\s\)\@<=\(\(\.\|\~\)\?\/\|\.\.\?\)\?\(\([[:alnum:]_.][[:alnum:]_.-]*\)\/\)\+\(\([[:alnum:]_.][[:alnum:]_.-]*\)\)\?' contained
 syntax match vimshellPath '\(\/\|\.\.\?\)\(\([[:alpha:]_.][[:alnum:]_.-]*\)\/\)\+\(\([[:alnum:]_.][[:alnum:]_.-]\+\)\|.\)\?' contained
-syntax match vimshellDotFiles '\%(^\|\s\)\@<=\.[[:alnum:]_.-]\+[[:blank:]\n]' contained
 highlight default link vimshellPath Preproc
+syntax match vimshellDotFiles '\%(^\|\s\)\@<=\.[[:alnum:]_.-]\+[[:blank:]\n]' contained
 highlight default link vimshellDotFiles Comment
 
 execute 'syntax match vimshellPromptLine' string(s:str_prompt_both . '.*')
@@ -148,12 +148,15 @@ highlight default link vimshellArchive Special
 syntax match vimshellImage '\(\S\| \S\)*\.\(eps\|EPS\|bmp\|BMP\|png\|PNG\|gif\|GIF\|JPE\?G\|jpe\?g\|jp2\|tif\|ico\|wdp\|cur\|ani\)\>\(\s\|$\)' contained
 highlight default link vimshellImage Type
 syntax match vimshellTypeText '\(\S\| \S\)*\.\(txt\|cfg\|ini\)\>\(\s\|$\)' contained
+highlight default link vimshellTypeText Constant
 syntax match vimshellTypeMultimedia '\(\S\| \S\)*\.\(
       \.avi\|asf\|wmv\|mpg\|flv\|swf\|divx\|mov\|mpa\|m1a\|
       \.m2p\|m2a\|mpeg\|m1v\|m2v\|mp2v\|mp4\|qt\|ra\|rm\|ram\|
       \.rmvb\|rpm\|smi\|mkv\|mid\|wav\|mp3\|ogg\|wma\|au\)\>\(\s\|$\)' contained
+highlight default link vimshellTypeMultimedia Identifier
 syntax match vimshellTypeSystem '\(\S\| \S\)*\.\(o\|hi\|inf\|sys\|reg\|dat\|spi\|a\|so\|lib\|dll\)\>\(\s\|$\)' contained
 syntax match vimshellTypeSystem '\(Makefile\.in\|configure[\s$]\|aclocal\.m4\|Makefile\(\s\|$\)\|stamp-h1\|config\.status\|config\.h\(\.in\)\?\~\?\(\s\|$\)\|config\.h\.in\~\?[\s$]\|output\.[0-9]\S\?\|requests\|traces\.[0-9]\S\?\|\(\S\| \S\)*\.log\)' contained
+highlight default link vimshellTypeSystem Comment
 syntax match vimshellTypeExe '\S\{2,}\*\(\s\|$\)' contains=vimshellTypeExeMarker contained
 highlight default link vimshellTypeExe Statement
 syntax match vimshellTypeExeMarker '\*\(\s\|$\)' contained
@@ -163,9 +166,6 @@ else
   syntax match vimshellTypeExeMarker '\*\(\s\|$\)' contained
 endif
 highlight default link vimshellTypeExeMarker Ignore
-highlight default link vimshellTypeText Constant
-highlight default link vimshellTypeMultimedia Identifier
-highlight default link vimshellTypeSystem Comment
 syntax match vimshellPathLsal '\(^\|\s\)\@<=[^.]\f*/' contained
 highlight default link vimshellPathLsal vimshellPath
 syntax match vimshellLinkFrom '.*@ ->' contains=vimshellOperator contained
