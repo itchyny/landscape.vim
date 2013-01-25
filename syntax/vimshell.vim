@@ -20,8 +20,8 @@ for s:j in keys(s:alias_table)
 endfor
 
 " error
-syntax region vimshellError start=+^\*\*\* + end=+$+ contains=vimshellErrorHidden oneline
-syntax region vimshellError start=+!!!+ end=+!!!+ contains=vimshellErrorHidden oneline
+syntax region vimshellError start=+^\*\*\* + end=+$+ contains=vimshellErrorHidden oneline keepend
+syntax region vimshellError start=+!!!+ end=+!!!+ contains=vimshellErrorHidden oneline keepend
 syntax keyword vimshellError error Error ERROR warning Warning Worning Overfull
 if has('conceal')
   syntax match vimshellErrorHidden '^\*\*\*' contained conceal
@@ -299,9 +299,9 @@ syntax keyword GitHubCommand
       \  clone             fetch-pack               lost-found         notes            remote-https    stash
       \  contained
 highlight default link GitHubCommand Constant
-syntax region vimshellDiffAdd start=/^+/ end=+$+ oneline contained
-syntax region vimshellDiffDelete start=/^-/ end=+$+ oneline contained
-syntax region vimshellDiffLine start=+^@@ -+ end=+$+ oneline contained
+syntax region vimshellDiffAdd start=/^+/ end=+$+ oneline contained keepend
+syntax region vimshellDiffDelete start=/^-/ end=+$+ oneline contained keepend
+syntax region vimshellDiffLine start=+^@@ -+ end=+$+ oneline contained keepend
 highlight default link vimshellDiffAdd DiffAdd
 highlight default link vimshellDiffDelete DiffDelete
 highlight default link vimshellDiffLine DiffLine
@@ -309,11 +309,11 @@ syntax keyword vimshellDiffKeyword diff contained
 highlight default link vimshellDiffKeyword vimshellCommand
 syntax region vimshellDiffGit start='^diff --' end=+$+ contains=vimshellPath,vimshellDiffKeyword oneline contained
 highlight default link vimshellDiffGit vimshellArguments
-syntax region vimshellDiffDelete start=+^-\(-->\)\@!+ end=+$+ oneline contained
-syntax region vimshellDiffNewFile start=+^---[^>]+ end=+$+ oneline contained
-syntax region vimshellDiffNewFile start=+^> + end=+$+ oneline contained
-syntax region vimshellDiffFile start=/^+++/ end=+$+ oneline contained
-syntax region vimshellDiffFile start=/^< / end=+$+ oneline contained
+syntax region vimshellDiffDelete start=+^-\(-->\)\@!+ end=+$+ oneline contained keepend
+syntax region vimshellDiffNewFile start=+^---[^>]+ end=+$+ oneline contained keepend
+syntax region vimshellDiffNewFile start=+^> + end=+$+ oneline contained keepend
+syntax region vimshellDiffFile start=/^+++/ end=+$+ oneline contained keepend
+syntax region vimshellDiffFile start=/^< / end=+$+ oneline contained keepend
 highlight default link vimshellDiffFile DiffFile
 highlight default link vimshellDiffNewFile DiffNewFile
 syntax match vimshellDiffLine '^\d\+\(,\d\+\)\=[cda]\d\+\>\(,\d\+\)\=$' contained
