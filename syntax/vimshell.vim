@@ -20,8 +20,8 @@ for s:j in keys(s:alias_table)
 endfor
 
 " error
-syntax region vimshellError start=+^\*\*\* + end=+$+ contains=vimshellErrorHidden oneline keepend
-syntax region vimshellError start=+!!!+ end=+!!!+ contains=vimshellErrorHidden oneline keepend
+syntax region vimshellError start=+^\*\*\* + end=+$+ contains=vimshellErrorHidden oneline
+syntax region vimshellError start=+!!!+ end=+!!!+ contains=vimshellErrorHidden oneline
 syntax keyword vimshellError error Error ERROR warning Warning Worning Overfull
 if has('conceal')
   syntax match vimshellErrorHidden '^\*\*\*' contained conceal

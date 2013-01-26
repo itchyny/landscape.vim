@@ -51,14 +51,14 @@ highlight Underlined term=underline ctermfg=51 ctermbg=none gui=none guifg=#00ff
 highlight Error term=none ctermfg=15 ctermbg=124 gui=none guifg=#ffffff guibg=#af0000
 highlight WarningMsg term=none ctermfg=7 ctermbg=0 gui=none guifg=#c0c0c0 guibg=#000000
 highlight Todo term=none ctermfg=16 ctermbg=11 gui=none guifg=#000000 guibg=#ffff00
-highlight DiffAdd term=none cterm=none ctermfg=none ctermbg=22 guifg=none guibg=#005f00
-highlight DiffChange term=none cterm=none ctermfg=none ctermbg=52 guifg=none guibg=#5f0000
-highlight DiffDelete term=none cterm=none ctermfg=none ctermbg=88 guifg=none guibg=#870000
-highlight DiffText term=none cterm=none ctermfg=none ctermbg=160 guifg=none guibg=#df0000
-highlight DiffFile term=none cterm=none ctermfg=47 ctermbg=none guifg=#00ff5f guibg=none
-highlight DiffNewFile term=none cterm=none ctermfg=199 ctermbg=none guifg=#ff00af guibg=none
+highlight DiffAdd term=none cterm=none ctermfg=none ctermbg=22 guifg=fg guibg=#005f00
+highlight DiffChange term=none cterm=none ctermfg=none ctermbg=52 guifg=fg guibg=#5f0000
+highlight DiffDelete term=none cterm=none ctermfg=none ctermbg=88 guifg=fg guibg=#870000
+highlight DiffText term=none cterm=none ctermfg=none ctermbg=160 guifg=fg guibg=#df0000
+highlight DiffFile term=none cterm=none ctermfg=47 ctermbg=none guifg=#00ff5f guibg=bg
+highlight DiffNewFile term=none cterm=none ctermfg=199 ctermbg=none guifg=#ff00af guibg=bg
 highlight default link DiffRemoved DiffDelete
-highlight DiffLine term=none cterm=none ctermfg=129 ctermbg=none guifg=#af00ff guibg=none
+highlight DiffLine term=none cterm=none ctermfg=129 ctermbg=none guifg=#af00ff guibg=bg
 highlight default link DiffAdded DiffAdd
 highlight default link ErrorMsg Error
 
