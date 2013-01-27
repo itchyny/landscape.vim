@@ -40,7 +40,3 @@ hi bfIO ctermfg=213 guifg=#ff87ff
 
 let b:current_syntax = 'bf'
 
-if main_syntax == 'bf'
-  unlet main_syntax
-endif
-
