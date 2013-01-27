@@ -10,7 +10,7 @@ syntax match uniteMessageSource /^\[.\{-}\]/ contained
 syntax match uniteSourceArgs /:\S\+/ contained
 
 " syntax match uniteFile '.*\(\.[[:alnum:]]\+\|/\)\(\s\s\s\)\@=' contained containedin=uniteCandidateAbbr
-syntax match uniteFile '.*\.\S\+\(\s\s\s\)\@=' contained containedin=uniteCandidateAbbr
+syntax match uniteFile '.*\.\S\+\(\s\s\s\)\@=' contained containedin=uniteCandidateAbbr,uniteSource__FileMru
 " syntax match uniteDotFiles '[/\s]\@<=\.[[:alnum:]_.-]\+\s\{10,}' contained containedin=uniteFile
 " highlight default link uniteDotFiles Comment
 " syntax match unitePath '.*/' contained containedin=uniteFile
@@ -29,7 +29,7 @@ syntax match uniteTypeMultimedia '.*\.\(
       \.rmvb\|rpm\|smi\|mkv\|mid\|wav\|mp3\|ogg\|wma\|au\)\>' contained containedin=uniteFile
 highlight default link uniteTypeMultimedia Identifier
 syntax match uniteTypeSystem '.*\.\(o\|hi\|inf\|sys\|reg\|dat\|spi\|a\|so\|lib\|dll\)\>' contained containedin=uniteFile
-syntax match uniteTypeSystem '\(Makefile\.in\|configure[\s$]\|aclocal\.m4\|Makefile\|stamp-h1\|config\.status\|config\.h\.in\~\?\|output\.[0-9]\S\?\|requests\|traces\.[0-9]\S\?\)\s\@=' contained containedin=uniteFile
+syntax match uniteTypeSystem '\(Makefile\.in\|configure[\s$]\|aclocal\.m4\|[Mm]akefile\|stamp-h1\|config\.status\|config\.h\.in\~\?\|output\.[0-9]\S\?\|requests\|traces\.[0-9]\S\?\)\s\@=' contained containedin=uniteFile
 highlight default link uniteTypeSystem Comment
 syntax region uniteMarkedLine start=/^\*/ end='$' keepend
 syntax region uniteNonMarkedLine start=/^- / end='$' keepend
