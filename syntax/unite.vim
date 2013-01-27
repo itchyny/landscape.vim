@@ -3,7 +3,6 @@ if version < 700
 elseif exists('b:current_syntax')
   finish
 endif
-
 syntax match uniteSourcePrompt /^Sources/ contained nextgroup=uniteSeparator
 syntax match uniteSeparator /:/ contained nextgroup=uniteSourceNames
 syntax match uniteSourceNames / [[:alnum:]_\/-]\+/ contained nextgroup=uniteSourceArgs
@@ -73,6 +72,8 @@ highlight default link uniteInputSpecial Special
 
 highlight default link uniteError Error
 highlight default link uniteErrorHidden Ignore
+
+call unite#set_highlight()
 
 let b:current_syntax = 'unite'
 
