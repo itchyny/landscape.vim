@@ -6,8 +6,17 @@ endif
 syntax match uniteSourcePrompt /^Sources/ contained nextgroup=uniteSeparator
 syntax match uniteSeparator /:/ contained nextgroup=uniteSourceNames
 syntax match uniteSourceNames / [[:alnum:]_\/-]\+/ contained nextgroup=uniteSourceArgs
+syntax match uniteMessage /^\[.\{-}\].*$/  contains=uniteMessageSource,uniteNumber,uniteGitCommand,uniteBundleName 
 syntax match uniteMessageSource /^\[.\{-}\]/ contained
 syntax match uniteSourceArgs /:\S\+/ contained
+syntax match uniteGitCommand /git \S\+ -\S\+/ contained contains=uniteGit,uniteGitArg
+syntax match uniteGitArg /\-\S\+/ contained
+syntax match uniteGit /git/ contained
+syntax match uniteBundleName /|\@<=\S\+|\@=/ contained
+highlight default link uniteGitCommand Constant
+highlight default link uniteGitArg Type
+highlight default link uniteGit Function
+highlight default link uniteBundleName Identifier
 
 " syntax match uniteFile '.*\(\.[[:alnum:]]\+\|/\)\(\s\s\s\)\@=' contained containedin=uniteCandidateAbbr
 syntax match uniteFile '.*\.\S\+\(\s\s\s\)\@=' contained containedin=uniteCandidateAbbr,uniteSource__FileMru
@@ -43,6 +52,7 @@ highlight default link uniteSourcePrompt Constant
 highlight default link uniteSeparator NONE
 highlight default link uniteSourceNames Constant
 highlight default link uniteSourceArgs Function
+highlight default link uniteMessage NONE
 highlight default link uniteMessageSource Constant
 
 highlight default link uniteQuickMatchTrigger Special
