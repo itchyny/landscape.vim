@@ -67,22 +67,22 @@ endif
 if has('gui_running')
  highlight vimfilerCurrentDirectory guifg=#80ffff guibg=NONE
 else
- highlight def link vimfilerCurrentDirectory Identifier
+ highlight default link vimfilerCurrentDirectory Identifier
 endif
-highlight def link vimfilerMask Statement
+highlight default link vimfilerMask Statement
 
-highlight def link vimfilerSpecial Special
-highlight def link vimfilerSpecialUnSafe Statement
+highlight default link vimfilerSpecial Special
+highlight default link vimfilerSpecialUnSafe Statement
 
-highlight def link vimfilerNonMark Icon
-highlight def link vimfilerMarkedFile Marked
-highlight def link vimfilerDirectory Preproc
-highlight def link vimfilerSize Constant
+highlight default link vimfilerNonMark Icon
+highlight default link vimfilerMarkedFile Marked
+highlight default link vimfilerDirectory Preproc
+highlight default link vimfilerSize Constant
 
-highlight def link vimfilerDateToday DateToday
-highlight def link vimfilerDateWeek DateWeek
-highlight def link vimfilerDateIgnore Ignore
-highlight def link vimfilerDate DateOld
+highlight default link vimfilerDateToday DateToday
+highlight default link vimfilerDateWeek DateWeek
+highlight default link vimfilerDateIgnore Ignore
+highlight default link vimfilerDate DateOld
 
 execute 'syntax match vimfilerPdfHtml ' string('^ *'.g:vimfiler_file_icon.' .*\.\(pdf\|html\)[ \n]') ' contains=vimfilerIcon'
 execute 'syntax match vimfilerTypeImage ' string('^ *'.g:vimfiler_file_icon.' .*\.\(eps\|EPS\)[ \n]')  ' contains=vimfilerIcon'
