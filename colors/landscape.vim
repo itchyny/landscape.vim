@@ -66,11 +66,11 @@ highlight VertSplit term=none gui=none guifg=black guibg=darkgray gui=none cterm
 highlight Folded term=none ctermfg=247 ctermbg=235 guifg=#9e9e9e guibg=#262626
 highlight SpecialKey term=underline ctermfg=darkgray gui=none guifg=darkgray
 highlight NonText term=none ctermfg=black gui=none guifg=black
-highlight Archive term=none ctermfg=12 gui=none guifg=#808079 guibg=#303030
 highlight StatusLineNC term=none gui=none guifg=black guibg=darkgray gui=none ctermfg=black ctermbg=darkgray cterm=none gui=none
 if version >= 700
   highlight CursorLine term=underline ctermfg=none gui=underline guibg=gray0
   highlight CursorColumn ctermfg=none
+  highlight LineNr ctermfg=214 guifg=#ffaf00
   highlight MatchParen ctermfg=none ctermbg=237 guibg=#3a3a3a
   highlight Pmenu ctermfg=black ctermbg=gray gui=none guifg=black guibg=gray
   highlight PmenuSel ctermfg=black ctermbg=darkgray gui=none guifg=black guibg=darkgray
@@ -94,8 +94,6 @@ augroup MatchAdd
   autocmd!
   autocmd BufAdd,BufCreate,BufEnter,WinEnter * call s:newmatch()
 augroup END
-highlight Time ctermfg=135 ctermbg=none gui=none guifg=#af5fff
-highlight Date ctermfg=134 ctermbg=none gui=none guifg=#af5fdf
 
 highlight SpellBad term=none cterm=none ctermbg=52 gui=none guibg=#5f0000
 highlight default link SpellCap SpellBad
@@ -103,6 +101,28 @@ highlight default link SpellLocal SpellBad
 highlight default link SpellRare SpellBad
 
 highlight default link vimCmplxRepeat Normal
+
+" for vimshell, vimfiler, unite.vim
+highlight default link Command Function
+highlight default link GitCommand Constant
+highlight default link Arguments Type
+highlight default link PdfHtml Function
+highlight default link Archive Special
+highlight default link Image Type
+highlight default link Multimedia Identifier
+highlight default link System Comment
+highlight default link Text Constant
+highlight default link Link Constant
+highlight default link Exe Statement
+highlight default link Prompt Identifier
+highlight default link Icon LineNr
+highlight Time ctermfg=135 ctermbg=none gui=none guifg=#af5fff
+highlight Date ctermfg=134 ctermbg=none gui=none guifg=#af5fdf
+highlight default link DateToday Special
+highlight default link DateWeek Identifier
+highlight default link DateOld Comment
+highlight default link Path Preproc
+highlight default link Marked StorageClass
 
 " ColorColumn
 " Conceal
@@ -112,7 +132,6 @@ highlight default link vimCmplxRepeat Normal
 " FoldColumn
 " SignColumn
 " IncSearch
-" LineNr
 " ModeMsg
 " MoreMsg
 " Question

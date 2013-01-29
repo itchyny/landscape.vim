@@ -74,43 +74,34 @@ highlight def link vimfilerMask Statement
 highlight def link vimfilerSpecial Special
 highlight def link vimfilerSpecialUnSafe Statement
 
-highlight def link vimfilerNonMark Special
-"highlight vimfilerMarkedFile gui=REVERSE term=REVERSE
-highlight def link vimfilerMarkedFile Structure
+highlight def link vimfilerNonMark Icon
+highlight def link vimfilerMarkedFile Marked
 highlight def link vimfilerDirectory Preproc
 highlight def link vimfilerSize Constant
 
-highlight def link vimfilerDateToday Special
-highlight def link vimfilerDateWeek Identifier
+highlight def link vimfilerDateToday DateToday
+highlight def link vimfilerDateWeek DateWeek
 highlight def link vimfilerDateIgnore Ignore
-highlight def link vimfilerDate Comment
+highlight def link vimfilerDate DateOld
 
-highlight def link vimfilerTypeText Constant
-highlight def link vimfilerTypeImage Type
-highlight def link vimfilerTypeArchive Special
-highlight def link vimfilerTypeExecute Statement
-highlight def link vimfilerTypeMultimedia Identifier
-highlight def link vimfilerTypeDirectory Preproc
-highlight def link vimfilerTypeSystem Comment
-highlight def link vimfilerTypeLink Comment
-highlight def link vimfilerMarker Ignore
-highlight def link vimfilerDateIgnore Ignore
-
-execute 'syntax match vimfilerPdf ' string('^ *'.g:vimfiler_file_icon.' .*\.\(pdf\|PDF\)[ \n]') ' contains=vimfilerIcon'
+execute 'syntax match vimfilerPdfHtml ' string('^ *'.g:vimfiler_file_icon.' .*\.\(pdf\|html\)[ \n]') ' contains=vimfilerIcon'
 execute 'syntax match vimfilerTypeImage ' string('^ *'.g:vimfiler_file_icon.' .*\.\(eps\|EPS\)[ \n]')  ' contains=vimfilerIcon'
-execute 'syntax match vimfilerHtml ' string('^ *'.g:vimfiler_file_icon.' .*\.\(html\|HTML\)[ \n]')  ' contains=vimfilerIcon'
 execute "syntax match vimfilerIcon '^ *".g:vimfiler_file_icon." ' contained"
 execute 'syntax match vimfilerTypeSystem ' string('^ *'.g:vimfiler_file_icon.' \(#\S\+#\|Makefile\.in\|configure\|aclocal\.m4\|Makefile\|stamp-h1\|config\.status\|config\.h\|config\.h\.in\~\?\|output\.[0-9]\S\?\|requests\|traces\.[0-9]\S\?\|.*\.log\)[ \n]')  ' contains=vimfilerIcon'
 execute 'syntax match vimfilerTypeSystem ' string('^ *'.g:vimfiler_file_icon.' \([A-Za-z0-9_-]*\(\.o\|\.hi\)\)[ \n]')  ' contains=vimfilerIcon'
 
-highlight Archive ctermfg=12 guifg=#808079 guibg=#303030
-highlight default link vimfilerPdf Function
-highlight default link vimfilerHtml Function
-highlight default link vimfilerTypeLink Constant
-highlight default link vimfilerTypeExecute Special
+highlight default link vimfilerTypeText Text
+highlight default link vimfilerTypeDirectory Path
+highlight default link vimfilerMarker Ignore
+highlight default link vimfilerDateIgnore Ignore
+highlight default link vimfilerPdfHtml PdfHtml
+highlight default link vimfilerTypeLink Link
+highlight default link vimfilerTypeExecute Exe
 highlight default link vimfilerTypeArchive Archive
-highlight default link vimfilerTypeImage Boolean
-highlight default link vimfilerIcon Boolean
+highlight default link vimfilerTypeImage Image
+highlight default link vimfilerTypeMultimedia Multimedia
+highlight default link vimfilerTypeSystem System
+highlight default link vimfilerIcon Icon
 
 let b:current_syntax = 'vimfiler'
 

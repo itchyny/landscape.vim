@@ -42,7 +42,7 @@ if has('conceal')
 else
   syntax match vimshellUserPromptHidden '^\[%\] ' contained
 endif
-highlight default link vimshellUserPrompt Identifier
+highlight default link vimshellUserPrompt Prompt
 highlight default link vimshellUserPromptLine Preproc
 highlight default link vimshellUserPromptHidden Ignore
 
@@ -57,23 +57,21 @@ for s:i in s:commands
 endfor
 execute 'syntax match vimshellPrompt' s:str_prompt ' contained'
 execute 'syntax match vimshellSecondPrompt' s:str_secondary_prompt ' contained'
-highlight default link vimshellPrompt Identifier
-highlight default link vimshellSecondPrompt Identifier
-syntax match vimshellArguments '\s-\=-[[:alnum:]-]\+' contained
-highlight default link vimshellArguments Type
-
 syntax match vimshellSpecial '[|<>;&]' contained
-highlight default link vimshellSpecial Special
-
 execute 'syntax match vimshellCommand' string('^' . s:prompt . '\s*\\\?\f\+') ' contains=vimshellPrompt'
 syntax match vimshellCommand '[|;&]\s*\f\+' contains=vimshellSpecial contained
-highlight default link vimshellCommand Function
+syntax match vimshellArguments '\s-\=-[[:alnum:]-]\+' contained
+highlight default link vimshellPrompt Prompt
+highlight default link vimshellSecondPrompt vimshellPrompt
+highlight default link vimshellArguments Arguments
+highlight default link vimshellSpecial Special
+highlight default link vimshellCommand Command
 
 " number
-highlight default link vimshellNumber Number
-highlight default link vimshellFloat Float
 syntax match vimshellNumber '[+-]\=\<\d\+\>\|[+-]\=\<0[xX]\x\+\>\|[+-]\=\<0[oO]\o\+\>' contained
 syntax match vimshellFloat '\<[+-]\=\%(\d\+\.\d\+\|\d\+\.\|\.\d\+\)\%([eE][+-]\=\d\+\)\?\>' contained
+highlight default link vimshellNumber Number
+highlight default link vimshellFloat Float
 
 " string
 syntax match vimshellStringSpecial '\\\([0-9]\+\|o[0-7]\+\|x[0-9a-fA-F]\+\|[\"\\'&\\abfnrtv]\|^[A-Z^_\[\\\]]\)' contained
@@ -119,9 +117,9 @@ DateWeek 6
 DateWeek 7
 delcommand DateWeek
 highlight default link vimshellTime Time
-highlight default link vimshellDateToday Special
-highlight default link vimshellDateWeek Identifier
-highlight default link vimshellDate Comment
+highlight default link vimshellDateToday DateToday
+highlight default link vimshellDateWeek DateWeek
+highlight default link vimshellDate DateOld
 
 " file name
 syntax match vimshellPath '\(^\|\s\)\@<=\(\(\.\|\~\)\?\|\.\.\?\)\(\/\([[:alnum:]_.][[:alnum:]_.-]\+\)\)\+\/\?' contained
@@ -129,7 +127,7 @@ syntax match vimshellPath '\(\(\.\|\~\)\?\/\|\.\.\?\)\(\([[:alpha:]_.][[:alnum:]
 syntax match vimshellPath '[[:alnum:]]\@<!\.\?\/\([a-z][[:alnum:]_-]*\)\.\([a-z]*[[:alnum:]_-]\+\)' contained
 syntax match vimshellPath '\(^\|\s\)\@<=\(\(\.\|\~\)\?\/\|\.\.\?\)\?\(\([[:alnum:]_.][[:alnum:]_.-]*\)\/\)\+\(\([[:alnum:]_.][[:alnum:]_.-]*\)\)\?' contained
 syntax match vimshellPath '\(\/\|\.\.\?\)\(\([[:alpha:]_.][[:alnum:]_.-]*\)\/\)\+\(\([[:alnum:]_.][[:alnum:]_.-]\+\)\|.\)\?' contained
-highlight default link vimshellPath Preproc
+highlight default link vimshellPath Path
 syntax match vimshellDotFiles '\%(^\|\s\)\@<=\.[[:alnum:]_.-]\+[[:blank:]\n]' contained
 highlight default link vimshellDotFiles Comment
 
@@ -141,24 +139,24 @@ execute 'syntax match vimshellPromptLine' string(s:str_prompt_both . '.*')
 let s:permission = '^[bcdlsp-][r-][w-][xsStT-][r-][w-][xsStT-][r-][w-][xsStT-][@+]\?'
 syntax match vimshellDotPathLsal '\(^\|\s\)\@<=\.\f*' contained
 highlight default link vimshellDotPathLsal vimshellDotFiles
-syntax match vimshellPdf '\(\S\| \S\)*\.\(pdf\|html\|HTML\)\>\(\s\|$\)' contained
-highlight default link vimshellPdf Function
+syntax match vimshellPdfHtml '\(\S\| \S\)*\.\(pdf\|html\)\>\(\s\|$\)' contained
+highlight default link vimshellPdfHtml PdfHtml
 syntax match vimshellArchive '\(\S\| \S\)*\.\(lha\|lzh\|zip\|gz\|bz2\|cab\|rar\|7z\|tgz\|tar\)\>\(\s\|$\)' contained
-highlight default link vimshellArchive Special
-syntax match vimshellImage '\(\S\| \S\)*\.\(eps\|EPS\|bmp\|BMP\|png\|PNG\|gif\|GIF\|JPE\?G\|jpe\?g\|jp2\|tif\|ico\|wdp\|cur\|ani\)\>\(\s\|$\)' contained
-highlight default link vimshellImage Type
+highlight default link vimshellArchive Archive
+syntax match vimshellImage '\(\S\| \S\)*\.\(eps\|bmp\|BMP\|png\|PNG\|gif\|GIF\|JPE\?G\|jpe\?g\|jp2\|tif\|ico\|wdp\|cur\|ani\)\>\(\s\|$\)' contained
+highlight default link vimshellImage Image
 syntax match vimshellTypeText '\(\S\| \S\)*\.\(txt\|cfg\|ini\)\>\(\s\|$\)' contained
-highlight default link vimshellTypeText Constant
+highlight default link vimshellTypeText Text
 syntax match vimshellTypeMultimedia '\(\S\| \S\)*\.\(
-      \.avi\|asf\|wmv\|mpg\|flv\|swf\|divx\|mov\|mpa\|m1a\|
-      \.m2p\|m2a\|mpeg\|m1v\|m2v\|mp2v\|mp4\|qt\|ra\|rm\|ram\|
-      \.rmvb\|rpm\|smi\|mkv\|mid\|wav\|mp3\|ogg\|wma\|au\)\>\(\s\|$\)' contained
-highlight default link vimshellTypeMultimedia Identifier
+      \.avi\|asf\|wmv\|flv\|swf\|divx\|mov\|m1a\|
+      \.m2[ap]\|mpe\?g\|m[12]v\|mp2v\|mp[34a]\|qt\|ra\|rm\|ram\|
+      \.rmvb\|rpm\|smi\|mkv\|mid\|wav\|ogg\|wma\|au\)\>\(\s\|$\)' contained
+highlight default link vimshellTypeMultimedia Multimedia
 syntax match vimshellTypeSystem '\(\S\| \S\)*\.\(o\|hi\|inf\|sys\|reg\|dat\|spi\|a\|so\|lib\|dll\)\>\(\s\|$\)' contained
-syntax match vimshellTypeSystem '\(#\S\+#\|Makefile\.in\|configure[\s$]\|aclocal\.m4\|Makefile\(\s\|$\)\|stamp-h1\|config\.status\|config\.h\(\.in\)\?\~\?\(\s\|$\)\|config\.h\.in\~\?[\s$]\|output\.[0-9]\S\?\|requests\|traces\.[0-9]\S\?\|\(\S\| \S\)*\.log\)' contained
-highlight default link vimshellTypeSystem Comment
+syntax match vimshellTypeSystem '#\S\+#\|configure[\s$]\|aclocal\.m4\|Makefile\(\s\(\.in\)\?\|$\)\|stamp-h1\|config\.\(h\.in\)\?\|config\.h\.in\~\?[\s$]\|output\.[0-9]\S\?\|requests\|traces\.[0-9]\S\?' contained
+highlight default link vimshellTypeSystem System
 syntax match vimshellTypeExe '\S\{2,}\*\(\s\|$\)' contains=vimshellTypeExeMarker contained
-highlight default link vimshellTypeExe Statement
+highlight default link vimshellTypeExe Exe
 syntax match vimshellTypeExeMarker '\*\(\s\|$\)' contained
 if has('conceal')
   syntax match vimshellTypeExeMarker '\*\(\s\|$\)' contained conceal
@@ -178,13 +176,13 @@ execute 'syntax match vimshellLsalLinePart' string(s:permission
 highlight default link vimshellPermission Constant
 execute 'syntax match vimshellLsalLine' string(s:permission
       \.'\s\+\d\+\s\+\f\+\s\+\f\+\s\+\d\+\s\+\(\d\+\s\+\d\+\s\+\d\+\(:\d\+\)\?\|\d\d\d\d-\d\d-\d\d\s\+\d\+:\d\+\).*$')
-  \'contains=vimshellLsalLinePart,vimshellPdf,vimshellArchive,vimshellImage,'
+  \'contains=vimshellLsalLinePart,vimshellPdfHtml,vimshellArchive,vimshellImage,'
   \.'vimshellTypeText,vimshellTypeMultimedia,vimshellTypeSystem,vimshellTypeExe,'
   \.'vimshellPathLsal,vimshellDotPathLsal,vimshellLinkFromDest'
 execute 'syntax region vimshellLs start=' string(s:command_match.ls) ' end=+^\[%\].*+'
       \.' contains=vimshellPromptLine,vimshellUserPromptLine,vimshellArchive,vimshellLsalLine,vimshellDotFiles,'
       \.'vimshellTypeText,vimshellTypeMultimedia,vimshellTypeSystem,vimshellTypeExe,'
-      \.'vimshellPath,vimshellPdf,vimshellImage,vimshellError'
+      \.'vimshellPath,vimshellPdfHtml,vimshellImage,vimshellError'
       \.' keepend'
 
 " programming
@@ -298,7 +296,7 @@ syntax keyword GitHubCommand
       \ clean             fetch                    log                name-rev         remote-http     stage
       \ clone             fetch-pack               lost-found         notes            remote-https    stash
       \ contained
-highlight default link GitHubCommand Constant
+highlight default link GitHubCommand GitCommand
 syntax region vimshellDiffAdd start=/^+/ end=+$+ oneline contained keepend
 syntax region vimshellDiffDelete start=/^-/ end=+$+ oneline contained keepend
 syntax region vimshellDiffLine start=+^@@ -+ end=+$+ oneline contained keepend
