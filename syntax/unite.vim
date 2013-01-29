@@ -55,6 +55,7 @@ highlight default link uniteNumber Number
 syntax match uniteLineNumber ' *\<\d\+\>' contained containedin=uniteSource__Line
 highlight default link uniteLineNumber LineNr
 
+" vimshell history
 syntax match uniteSpecial '[|<>;&]' contained
 highlight default link uniteSpecial Special
 syntax match uniteCommand '\(^- vimshell/history \)\@<=\s*\S\+' contained contains=uniteCandidateSourceName
