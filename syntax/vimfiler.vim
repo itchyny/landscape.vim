@@ -9,6 +9,7 @@ let opened_icon = vimfiler#util#escape_pattern(g:vimfiler_tree_opened_icon)
 let closed_icon = vimfiler#util#escape_pattern(g:vimfiler_tree_closed_icon)
 let file_icon = vimfiler#util#escape_pattern(g:vimfiler_file_icon)
 let marked_file_icon = vimfiler#util#escape_pattern(g:vimfiler_marked_file_icon)
+let ro_file_icon = vimfiler#util#escape_pattern(g:vimfiler_readonly_file_icon)
 
 syntax match vimfilerNonMarkedFile '.*'
  \ contains=vimfilerNonMark,vimfilerTypeText,vimfilerTypeImage,vimfilerTypeArchive,
@@ -49,7 +50,7 @@ syntax match vimfilerSize '\s\zs[[:digit:].]\+\s*[GMKB]' contained
 " syntax match vimfilerNonMark '^\s*|\?[+-]' contained
 execute 'syntax match vimfilerNonMark'
  \ '''^\s*\%('. leaf_icon .'\)\?\%('. opened_icon . '\|'
- \ . closed_icon . '\|' . file_icon .'\)'' contained'
+ \ . closed_icon . '\|' . ro_file_icon . '\|' . file_icon .'\)'' contained'
 
 syntax match vimfilerDateWeek '\s\zs#[^#]\+$' contains=vimfilerDateIgnore contained
 syntax match vimfilerDate '\s\zs\~[^~]\+$' contains=vimfilerDateIgnore contained
