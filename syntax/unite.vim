@@ -42,7 +42,7 @@ syntax region uniteMarkedLine start=/^\*/ end='$' keepend
 syntax region uniteNonMarkedLine start=/^- / end='$' keepend contains=uniteCandidateMarker,uniteCandidateSourceName,uniteCandidateAbbr
 syntax match uniteCandidateMarker /^- / contained
 syntax match uniteQuickMatchTrigger /^.|/ contained
-syntax match uniteNumber '\d\+' contained containedin=uniteStatusLine
+syntax match uniteNumber '\<\d\+\>' contained containedin=uniteStatusLine
 highlight default link uniteNumber Number
 
 highlight default link uniteSourcePrompt Constant
