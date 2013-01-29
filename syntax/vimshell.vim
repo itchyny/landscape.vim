@@ -322,15 +322,17 @@ syntax match vimshellPlus '+\+' contained
 highlight default link vimshellPlus vimshellDiffFile
 syntax match vimshellPlusNeg '\s\(+\+-*\|-\+\)' contains=vimshellPlus contained
 highlight default link vimshellPlusNeg vimshellDiffNewFile
-execute 'syntax region vimshellLs start=' string(s:command_match.git.'\|'.s:command_match.diff.'\|^diff -') ' end=+^\[%\].*+'
+syntax match vimshellPlusNegOperator '([+-])' contained
+highlight default link vimshellPlusNegOperator Operator
+execute 'syntax region vimshellGitRegion start=' string(s:command_match.git.'\|'.s:command_match.diff.'\|^diff -') ' end=+^\[%\].*+'
       \.' contains=vimshellPromptLine,vimshellUserPromptLine,vimshellTime,vimshellDate,'
-      \.'vimshellDiffFile,vimshellDiffNewFile,vimshellDiffLine,vimshellError,vimshellNumber,vimshellPath,vimshellDiffGit,vimshellPath,vimshellDiffAdd,vimshellDiffDelete,vimshellPlusNeg'
+      \.'vimshellDiffFile,vimshellDiffNewFile,vimshellDiffLine,vimshellError,vimshellNumber,vimshellPath,vimshellDiffGit,vimshellPath,vimshellDiffAdd,vimshellDiffDelete,vimshellPlusNeg,vimshellPlusNegOperator'
       \.' keepend'
 syntax match vimshellGitArguments '\<-\=-[[:alnum:]-]\+' contained
 highlight default link vimshellGitArguments vimshellArguments
 syntax match vimshellGit '\<git\>' contained
 highlight default link vimshellGit vimshellCommand
-execute 'syntax region vimshellLs start=' string('^usage: git') ' end=+^\[%\].*+'
+execute 'syntax region vimshellGitRegion start=' string('^usage: git') ' end=+^\[%\].*+'
       \.' contains=vimshellPromptLine,vimshellUserPromptLine,'
       \.'GitHubCommand,vimshellGitArguments,vimshellGit,vimshellError,vimshellString'
       \.' keepend'
