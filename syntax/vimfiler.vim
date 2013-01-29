@@ -93,7 +93,8 @@ highlight def link vimfilerTypeMultimedia Identifier
 highlight def link vimfilerTypeDirectory Preproc
 highlight def link vimfilerTypeSystem Comment
 highlight def link vimfilerTypeLink Comment
-
+highlight def link vimfilerMarker Ignore
+highlight def link vimfilerDateIgnore Ignore
 
 execute 'syntax match vimfilerPdf ' string('^ *'.g:vimfiler_file_icon.' .*\.\(pdf\|PDF\)[ \n]') ' contains=vimfilerIcon'
 execute 'syntax match vimfilerTypeImage ' string('^ *'.g:vimfiler_file_icon.' .*\.\(eps\|EPS\)[ \n]')  ' contains=vimfilerIcon'
