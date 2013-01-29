@@ -19,7 +19,7 @@ highlight default link uniteGit Function
 highlight default link uniteBundleName Identifier
 
 " syntax match uniteFile '.*\(\.[[:alnum:]]\+\|/\)\(\s\s\s\)\@=' contained containedin=uniteCandidateAbbr
-syntax match uniteFile '.*\.\S\+\(\s\s\s\)\@=' contained containedin=uniteCandidateAbbr,uniteSource__FileMru
+syntax match uniteFile '.*\.\S\+\(\s\s\s\)\@=' contained containedin=uniteCandidateAbbr,uniteSource__FileMru contains=uniteCandidateInputKeyword
 " syntax match uniteDotFiles '[/\s]\@<=\.[[:alnum:]_.-]\+\s\{10,}' contained containedin=uniteFile
 " highlight default link uniteDotFiles Comment
 " syntax match unitePath '.*/' contained containedin=uniteFile
