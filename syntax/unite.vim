@@ -20,9 +20,8 @@ highlight default link uniteBundleName Identifier
 
 " string
 syntax match uniteStringSpecial '\\\([0-9]\+\|o[0-7]\+\|x[0-9a-fA-F]\+\|[\"\\'&\\abfnrtv]\|^[A-Z^_\[\\\]]\)' contained
-syntax region uniteString start=+"+ end=+"+ contains=uniteStringSpecial oneline contained
-syntax region uniteString start=+'+ end=+'+ contains=uniteStringSpecial oneline contained
-syntax region uniteString start=+`+ end=+`+ contains=uniteStringSpecial oneline contained
+syntax region uniteString start=+"+ end=+"+ contains=uniteStringSpecial,uniteCandidateInputKeyword oneline contained
+syntax region uniteString start=+'+ end=+'+ contains=uniteStringSpecial,uniteCandidateInputKeyword oneline contained
 highlight default link uniteStringSpecial SpecialChar
 highlight default link uniteString String
 
@@ -58,21 +57,19 @@ highlight default link uniteLineNumber LineNr
 " vimshell history
 syntax match uniteSpecial '[|<>;&]' contained
 highlight default link uniteSpecial Special
-syntax match uniteCommand '\(^- vimshell/history \)\@<=\s*\S\+' contained contains=uniteCandidateSourceName
-syntax match uniteCommand '\(|\|;\|&&\)\s*\f\+' contains=uniteSpecial contained
+syntax match uniteCommand '\(^- vimshell/history \)\@<=\s*\S\+' contained contains=uniteCandidateSourceName,uniteCandidateInputKeyword
+syntax match uniteCommand '[|;&]\s*\f\+' contains=uniteSpecial,uniteCandidateInputKeyword contained
 highlight default link uniteCommand Function
-syntax match unitePath '\(^\|\s\)\@<=\(\(\.\|\~\)\?\|\.\.\?\)\(\/\([[:alnum:]_.][[:alnum:]_.-]\+\)\)\+\/\?' contained
-syntax match unitePath '\(\(\.\|\~\)\?\/\|\.\.\?\)\(\([[:alpha:]_.][[:alnum:]_.-]*\)\/\)\+\(\([[:alnum:]_.][[:alnum:]_.-]\+\)\|.\)\?' contained
-syntax match unitePath '[[:alnum:]]\@<!\.\?\/\([a-z][[:alnum:]_-]*\)\.\([a-z]*[[:alnum:]_-]\+\)' contained
-syntax match unitePath '\(^\|\s\)\@<=\(\(\.\|\~\)\?\/\|\.\.\?\)\?\(\([[:alnum:]_.][[:alnum:]_.-]*\)\/\)\+\(\([[:alnum:]_.][[:alnum:]_.-]*\)\)\?' contained
-syntax match unitePath '\(\/\|\.\.\?\)\(\([[:alpha:]_.][[:alnum:]_.-]*\)\/\)\+\(\([[:alnum:]_.][[:alnum:]_.-]\+\)\|.\)\?' contained
-highlight default link unitePath Preproc
-syntax match uniteDotFiles '\%(^\|\s\)\@<=\.[[:alnum:]_.-]\+[[:blank:]\n]' contained
-highlight default link uniteDotFiles Comment
+" syntax match unitePath '\(^\|\s\)\@<=\(\(\.\|\~\)\?\|\.\.\?\)\(\/\([[:alnum:]_.][[:alnum:]_.-]\+\)\)\+\/\?' contained contains=uniteCandidateInputKeyword
+" syntax match unitePath '\(\(\.\|\~\)\?\/\|\.\.\?\)\(\([[:alpha:]_.][[:alnum:]_.-]*\)\/\)\+\(\([[:alnum:]_.][[:alnum:]_.-]\+\)\|.\)\?' contained contains=uniteCandidateInputKeyword
+" syntax match unitePath '[[:alnum:]]\@<!\.\?\/\([a-z][[:alnum:]_-]*\)\.\([a-z]*[[:alnum:]_-]\+\)' contained contains=uniteCandidateInputKeyword
+" syntax match unitePath '\(^\|\s\)\@<=\(\(\.\|\~\)\?\/\|\.\.\?\)\?\(\([[:alnum:]_.][[:alnum:]_.-]*\)\/\)\+\(\([[:alnum:]_.][[:alnum:]_.-]*\)\)\?' contained contains=uniteCandidateInputKeyword
+" syntax match unitePath '\(\/\|\.\.\?\)\(\([[:alpha:]_.][[:alnum:]_.-]*\)\/\)\+\(\([[:alnum:]_.][[:alnum:]_.-]\+\)\|.\)\?' contained contains=uniteCandidateInputKeyword
+" highlight default link unitePath Preproc
 syntax match uniteArguments '\s-\=-[[:alnum:]-]\+' contained
 highlight default link uniteArguments Type
 syntax match uniteVimshellHistory '.*' contains=uniteSpecial,uniteCommand,uniteString,GitHubCommand,uniteNumber,unitePath,uniteArguments,uniteDotFiles
-      \ contained containedin=uniteSource__VimshellHistory 
+      \ contained containedin=uniteSource__VimshellHistory
 
 highlight default link uniteSourcePrompt Constant
 highlight default link uniteSeparator NONE

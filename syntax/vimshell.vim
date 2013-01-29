@@ -66,7 +66,7 @@ syntax match vimshellSpecial '[|<>;&]' contained
 highlight default link vimshellSpecial Special
 
 execute 'syntax match vimshellCommand' string('^' . s:prompt . '\s*\\\?\f\+') ' contains=vimshellPrompt'
-syntax match vimshellCommand '\(|\|;\|&&\)\s*\f\+' contains=vimshellSpecial contained
+syntax match vimshellCommand '[|;&]\s*\f\+' contains=vimshellSpecial contained
 highlight default link vimshellCommand Function
 
 " number
