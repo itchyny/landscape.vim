@@ -40,10 +40,12 @@ syntax match uniteTypeSystem '\(#\S\+#\|Makefile\.in\|configure[\s$]\|aclocal\.m
 highlight default link uniteTypeSystem Comment
 syntax region uniteMarkedLine start=/^\*/ end='$' keepend
 syntax region uniteNonMarkedLine start=/^- / end='$' keepend contains=uniteCandidateMarker,uniteCandidateSourceName,uniteCandidateAbbr
-syntax match uniteCandidateMarker /^- / contained
+syntax match uniteCandidateMarker /^- / contained nextgroup=uniteLineNumber
 syntax match uniteQuickMatchTrigger /^.|/ contained
 syntax match uniteNumber '\<\d\+\>' contained containedin=uniteStatusLine
 highlight default link uniteNumber Number
+syntax match uniteLineNumber ' *\<\d\+\>' contained containedin=uniteSource__Line
+highlight default link uniteLineNumber LineNr
 
 highlight default link uniteSourcePrompt Constant
 highlight default link uniteSeparator NONE
