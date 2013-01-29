@@ -76,8 +76,7 @@ syntax match vimshellNumber '[+-]\=\<\d\+\>\|[+-]\=\<0[xX]\x\+\>\|[+-]\=\<0[oO]\
 syntax match vimshellFloat '\<[+-]\=\%(\d\+\.\d\+\|\d\+\.\|\.\d\+\)\%([eE][+-]\=\d\+\)\?\>' contained
 
 " string
-syntax match vimshellStringSpecial '\\\([0-9]\+\|o[0-7]\+\|x[0-9a-fA-F]\+\|[\"\\'&\\abfnrtv]\|^[A-Z^_\[\\\]]\)'
-      \ contains=vimshellFunction contained
+syntax match vimshellStringSpecial '\\\([0-9]\+\|o[0-7]\+\|x[0-9a-fA-F]\+\|[\"\\'&\\abfnrtv]\|^[A-Z^_\[\\\]]\)' contained
 syntax region vimshellString start=+"+ end=+"+ contains=vimshellStringSpecial oneline contained
 syntax region vimshellString start=+'+ end=+'+ contains=vimshellStringSpecial oneline contained
 syntax region vimshellString start=+`+ end=+`+ contains=vimshellStringSpecial oneline contained
