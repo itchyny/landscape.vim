@@ -41,8 +41,7 @@ syntax match uniteTypeSystem '.*\.\(o\|hi\|inf\|sys\|reg\|dat\|spi\|a\|so\|lib\|
 syntax match uniteTypeSystem '\(Makefile\.in\|configure[\s$]\|aclocal\.m4\|[Mm]akefile\|stamp-h1\|config\.status\|config\.h\.in\~\?\|output\.[0-9]\S\?\|requests\|traces\.[0-9]\S\?\)\s\@=' contained containedin=uniteFile
 highlight default link uniteTypeSystem Comment
 syntax region uniteMarkedLine start=/^\*/ end='$' keepend
-syntax region uniteNonMarkedLine start=/^- / end='$' keepend
-      \ contains=uniteCandidateMarker,uniteCandidateSourceName,uniteCandidateAbbr
+syntax region uniteNonMarkedLine start=/^- / end='$' keepend contains=uniteCandidateMarker,uniteCandidateSourceName,uniteCandidateAbbr
 syntax match uniteCandidateMarker /^- / contained
 syntax match uniteQuickMatchTrigger /^.|/ contained
 syntax match uniteNumber '\d\+' contained containedin=uniteStatusLine
