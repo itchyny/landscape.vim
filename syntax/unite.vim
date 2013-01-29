@@ -47,6 +47,13 @@ highlight default link uniteNumber Number
 syntax match uniteLineNumber ' *\<\d\+\>' contained containedin=uniteSource__Line
 highlight default link uniteLineNumber LineNr
 
+" TODO
+" execute 'syntax match uniteVimshellHistory' string('.*') 
+"       \.' contains=unitePrompt,uniteSecondPrompt,uniteSpecial,uniteCommand,'
+"       \.'uniteString,GitHubCommand,uniteNumber,uniteDate,uniteTime,'
+"       \.'unitePath,uniteArguments,uniteDotFiles '
+"       \.'containedin=uniteSource__VimshellHistory'
+
 highlight default link uniteSourcePrompt Constant
 highlight default link uniteSeparator NONE
 highlight default link uniteSourceNames Constant
