@@ -156,7 +156,7 @@ syntax match vimshellTypeMultimedia '\(\S\| \S\)*\.\(
       \.rmvb\|rpm\|smi\|mkv\|mid\|wav\|mp3\|ogg\|wma\|au\)\>\(\s\|$\)' contained
 highlight default link vimshellTypeMultimedia Identifier
 syntax match vimshellTypeSystem '\(\S\| \S\)*\.\(o\|hi\|inf\|sys\|reg\|dat\|spi\|a\|so\|lib\|dll\)\>\(\s\|$\)' contained
-syntax match vimshellTypeSystem '\(Makefile\.in\|configure[\s$]\|aclocal\.m4\|Makefile\(\s\|$\)\|stamp-h1\|config\.status\|config\.h\(\.in\)\?\~\?\(\s\|$\)\|config\.h\.in\~\?[\s$]\|output\.[0-9]\S\?\|requests\|traces\.[0-9]\S\?\|\(\S\| \S\)*\.log\)' contained
+syntax match vimshellTypeSystem '\(#\S\+#\|Makefile\.in\|configure[\s$]\|aclocal\.m4\|Makefile\(\s\|$\)\|stamp-h1\|config\.status\|config\.h\(\.in\)\?\~\?\(\s\|$\)\|config\.h\.in\~\?[\s$]\|output\.[0-9]\S\?\|requests\|traces\.[0-9]\S\?\|\(\S\| \S\)*\.log\)' contained
 highlight default link vimshellTypeSystem Comment
 syntax match vimshellTypeExe '\S\{2,}\*\(\s\|$\)' contains=vimshellTypeExeMarker contained
 highlight default link vimshellTypeExe Statement
