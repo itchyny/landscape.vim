@@ -57,7 +57,7 @@ highlight default link uniteLineNumber LineNr
 
 syntax match uniteSpecial '[|<>;&]' contained
 highlight default link uniteSpecial Special
-syntax match uniteCommand '\(^- vimshell/history \)\@<=\\\?\f\+' contained contains=uniteCandidateSourceName
+syntax match uniteCommand '\(^- vimshell/history \)\@<=\s*\S\+' contained contains=uniteCandidateSourceName
 syntax match uniteCommand '\(|\|;\|&&\)\s*\f\+' contains=uniteSpecial contained
 highlight default link uniteCommand Function
 syntax match unitePath '\(^\|\s\)\@<=\(\(\.\|\~\)\?\|\.\.\?\)\(\/\([[:alnum:]_.][[:alnum:]_.-]\+\)\)\+\/\?' contained
