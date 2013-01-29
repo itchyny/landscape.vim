@@ -70,7 +70,7 @@ highlight StatusLineNC term=none gui=none guifg=black guibg=darkgray gui=none ct
 if version >= 700
   highlight CursorLine term=underline ctermfg=none gui=underline guibg=gray0
   highlight CursorColumn ctermfg=none
-  highlight LineNr ctermfg=173 guifg=#df875f
+  highlight LineNr ctermfg=142 guifg=#afaf00
   highlight MatchParen ctermfg=none ctermbg=237 guibg=#3a3a3a
   highlight Pmenu ctermfg=black ctermbg=gray gui=none guifg=black guibg=gray
   highlight PmenuSel ctermfg=black ctermbg=darkgray gui=none guifg=black guibg=darkgray
