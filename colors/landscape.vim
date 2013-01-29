@@ -86,9 +86,7 @@ augroup MatchAdd
           \.'\({\([&:#*@~%_\-=?/.0-9A-Za-z]*\|{[&:#*@~%_\-=?/.0-9A-Za-z]*}\)}\)\?'
           \.'\(\[[&:#*@~%_\-=?/.0-9A-Za-z]*\]\)\?'
           \.'\)*[/0-9A-Za-z]*\(:\d\d*\/\?\)\?')
-    call matchadd('Todo', 'todo')
-    call matchadd('Todo', 'Todo')
-    call matchadd('Todo', 'TODO')
+    call matchadd('Todo', '[tT]odo\|TODO')
     call matchadd('Error', '　')
   endfunction
   autocmd!
