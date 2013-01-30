@@ -46,7 +46,7 @@ highlight default link uniteStringSpecial SpecialChar
 highlight default link uniteString String
 
 " files
-syntax match uniteFile '.\+\f\(\s\s\s\)\@=' contained containedin=uniteCandidateAbbr,uniteSource__FileMru contains=uniteCandidateInputKeyword
+syntax match uniteFile '.\+\f\(\s\s\s\)\@=' contained containedin=uniteSource__FileMru contains=uniteCandidateInputKeyword
 syntax match unitePdfHtml '.*\.\(pdf\|html\)\>' contained containedin=uniteFile contains=uniteCandidateInputKeyword
 syntax match uniteArchive '.*\.\(lha\|lzh\|zip\|gz\|bz2\|cab\|rar\|7z\|tgz\|tar\)\>' contained containedin=uniteFile contains=uniteCandidateInputKeyword
 syntax match uniteImage '.*\.\(eps\|bmp\|BMP\|png\|PNG\|gif\|GIF\|JPE\?G\|jpe\?g\|jp2\|tif\|ico\|wdp\|cur\|ani\)\>' contained containedin=uniteFile contains=uniteCandidateInputKeyword
