@@ -115,7 +115,7 @@ highlight default link Exe Statement
 highlight default link Prompt Identifier
 highlight default link Icon LineNr
 highlight Time ctermfg=141 ctermbg=none gui=none guifg=#af87ff
-highlight Date ctermfg=135 ctermbg=none gui=none guifg=#afafff
+highlight Date ctermfg=140 ctermbg=none gui=none guifg=#af87df
 highlight default link DateToday Special
 highlight default link DateWeek Identifier
 highlight default link DateOld Comment
