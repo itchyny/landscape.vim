@@ -78,7 +78,7 @@ highlight default link uniteCandidateInputKeyword Define
 
 " vimshell history
 syntax match uniteSpecial '[|<>;&]' contained
-syntax match uniteCommand '\(^- vimshell/history \)\@<=\s*\S\+' contained contains=uniteCandidateSourceName,uniteCandidateInputKeyword
+syntax match uniteCommand '\(^- vimshell/history \(\S\+\)\?\)\@<=\S\+' contained contains=uniteCandidateSourceName,uniteCandidateInputKeyword
 syntax match uniteCommand '[|;&]\s*\f\+' contains=uniteSpecial,uniteCandidateInputKeyword contained
 syntax match uniteArguments '\s-\=-[[:alnum:]-]\+' contained
 syntax match uniteVimshellHistory '.*' contains=uniteSpecial,uniteCommand,uniteString,GitHubCommand,uniteNumber,uniteArguments,uniteDotFiles contained containedin=uniteSource__VimshellHistory
