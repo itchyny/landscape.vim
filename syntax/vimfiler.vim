@@ -64,11 +64,7 @@ else
  syntax match   vimfilerMarker        '[~!@#$%^&]$' contained
 endif
 
-if has('gui_running')
- highlight vimfilerCurrentDirectory guifg=#80ffff guibg=NONE
-else
- highlight default link vimfilerCurrentDirectory Identifier
-endif
+highlight default link vimfilerCurrentDirectory Path
 highlight default link vimfilerMask Statement
 
 highlight default link vimfilerSpecial Special
