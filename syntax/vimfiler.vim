@@ -28,14 +28,14 @@ syntax match vimfilerCurrentDirectory '\s\zs.*$' contained contains=vimfilerMask
 syntax match vimfilerMask '\[.*\]$' contained
 syntax match vimfilerFileLine '\[.*\]$' contained
 
-syntax match vimfilerTypeText '.*\[TXT\]' contained
-syntax match vimfilerTypeImage '.*\[IMG\]' contained
-syntax match vimfilerTypeArchive '.*\[ARC\]' contained
-syntax match vimfilerTypeExecute '.*\[EXE\]' contained
-syntax match vimfilerTypeMultimedia '.*\[MUL\]' contained
+syntax match vimfilerTypeText '.*\[T\]' contained
+syntax match vimfilerTypeImage '.*\[I\]' contained
+syntax match vimfilerTypeArchive '.*\[A\]' contained
+syntax match vimfilerTypeExecute '.*\[X\]' contained
+syntax match vimfilerTypeMultimedia '.*\[M\]' contained
 syntax match vimfilerTypeDirectory '.*\[DIR\]' contained
-syntax match vimfilerTypeSystem '.*\[SYS\]' contained
-syntax match vimfilerTypeLink '.*\[LNK\]' contained
+syntax match vimfilerTypeSystem '.*\[S\]' contained
+syntax match vimfilerTypeLink '.*\[L\]' contained
 syntax match vimfilerTypeText '.* \~$' contained contains=vimfilerMarker
 syntax match vimfilerTypeImage '.* !$' contained contains=vimfilerMarker
 syntax match vimfilerTypeArchive '.* @$' contained contains=vimfilerMarker
