@@ -219,7 +219,7 @@ syntax keyword haskellType Bool Bounded Char Double Either Enum Eq FilePath Floa
 syntax keyword haskellType Floating Fractional Functor IO IOError Int Integer contained
 syntax keyword haskellType Integral Maybe Monad Num Ord Ordering Rational Read contained
 syntax keyword haskellType ReadS Real RealFloat RealFrac Show ShowS String GHC contained
-syntax keyword haskellType Classes Base Tuple Types Type Data Language contained
+syntax keyword haskellType Classes Base Tuple Types Type Data Language List contained
 highlight default link haskellType Type
 syntax keyword haskellFunction and any or head last all show print not break map contained
 syntax keyword haskellFunction read null length reads even error words fail zip take contained
