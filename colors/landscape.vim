@@ -16,11 +16,11 @@ highlight Number term=none ctermfg=81 ctermbg=none gui=none guifg=#5fdfff
 highlight Boolean term=none ctermfg=226 ctermbg=none gui=none guifg=#ffff00
 highlight Float term=none ctermfg=43 ctermbg=none gui=none guifg=#00dfaf
 
-highlight Identifier term=none cterm=none ctermfg=104 ctermbg=none gui=none guifg=#8787df
+highlight Identifier term=none cterm=none ctermfg=110 ctermbg=none gui=none guifg=#87afdf
 highlight Function term=none ctermfg=46 ctermbg=none gui=none guifg=#00ff00
 
 highlight Statement term=none ctermfg=118 ctermbg=none gui=none guifg=#87ff00
-highlight Conditional term=none ctermfg=166 ctermbg=none gui=none guifg=#df5f00
+highlight Conditional term=none ctermfg=166 ctermbg=none gui=none guifg=#ef7f00
 highlight default link Repeat Conditional
 highlight default link Label Statement
 highlight Operator term=none ctermfg=220 ctermbg=none gui=none guifg=#ffdf00
@@ -33,10 +33,10 @@ highlight Define term=none ctermfg=37 gui=none guifg=#00afaf
 highlight Macro term=none ctermfg=36 gui=none guifg=#00af87
 highlight PreCondit term=none ctermfg=35 gui=none guifg=#00af5f
 
-highlight Type term=none ctermfg=207 ctermbg=none gui=none guifg=#ff5fff
-highlight StorageClass term=none ctermfg=201 ctermbg=none gui=none guifg=#ff00ff
-highlight Structure term=none ctermfg=200 ctermbg=none gui=none guifg=#ff00df
-highlight Typedef term=none ctermfg=199 ctermbg=none gui=none guifg=#ff00af
+highlight Type term=none ctermfg=207 ctermbg=none gui=none guifg=#ff8fff
+highlight StorageClass term=none ctermfg=201 ctermbg=none gui=none guifg=#ff5fff
+highlight Structure term=none ctermfg=200 ctermbg=none gui=none guifg=#ff5fdf
+highlight Typedef term=none ctermfg=199 ctermbg=none gui=none guifg=#ff5faf
 
 highlight Special term=none ctermfg=178 gui=none guifg=orange
 highlight SpecialChar term=none ctermfg=208 gui=none guifg=orange
@@ -114,8 +114,8 @@ highlight default link Link Constant
 highlight default link Exe Statement
 highlight default link Prompt Identifier
 highlight default link Icon LineNr
-highlight Time ctermfg=135 ctermbg=none gui=none guifg=#af5fff
-highlight Date ctermfg=134 ctermbg=none gui=none guifg=#af5fdf
+highlight Time ctermfg=141 ctermbg=none gui=none guifg=#af87ff
+highlight Date ctermfg=135 ctermbg=none gui=none guifg=#afafff
 highlight default link DateToday Special
 highlight default link DateWeek Identifier
 highlight default link DateOld Comment
