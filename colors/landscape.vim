@@ -48,6 +48,7 @@ highlight Debug term=none ctermfg=183 gui=none guifg=violet
 highlight Visual term=none ctermbg=241 guibg=#606060
 highlight default link VisualNOS Visual
 highlight Underlined term=underline ctermfg=51 ctermbg=none gui=none guifg=#00ffff
+highlight default link URL Underlined
 highlight Error term=none ctermfg=15 ctermbg=124 gui=none guifg=#ffffff guibg=#af0000
 highlight WarningMsg term=none ctermfg=7 ctermbg=0 gui=none guifg=#c0c0c0 guibg=#000000
 highlight Todo term=none ctermfg=16 ctermbg=11 gui=none guifg=#000000 guibg=#ffff00
@@ -61,6 +62,7 @@ highlight default link DiffRemoved DiffDelete
 highlight DiffLine term=none cterm=none ctermfg=129 ctermbg=none guifg=#af00ff guibg=bg
 highlight default link DiffAdded DiffAdd
 highlight default link ErrorMsg Error
+highlight Ignore ctermbg=none gui=none guifg=none
 
 highlight VertSplit term=none gui=none guifg=black guibg=darkgray gui=none ctermfg=black ctermbg=darkgray cterm=none
 highlight Folded term=none ctermfg=247 ctermbg=235 guifg=#9e9e9e guibg=#262626
@@ -77,9 +79,15 @@ if version >= 700
   highlight PmenuSbar ctermfg=white ctermbg=darkgray gui=none guifg=white guibg=darkgray
   highlight PmenuThumb ctermfg=white ctermbg=darkgray gui=none guifg=white guibg=darkgray
 endif
-augroup MatchAdd
   function! s:newmatch()
-    call matchadd('Underlined',
+    if exists("b:landscape_match")
+      for m in getmatches()
+        if m.group == 'URL' || m.group == 'Todo' || m.group == 'Error'
+          call matchdelete(m.id)
+        endif
+      endfor
+    endif
+    call matchadd('URL',
           \'\(https\?\|ftp\|git\):\/\/\('
           \.'[&:#*@~%_\-=?/.0-9A-Za-z]*'
           \.'\(([&:#*@~%_\-=?/.0-9A-Za-z]*)\)\?'
@@ -88,7 +96,9 @@ augroup MatchAdd
           \.'\)*[/0-9A-Za-z]*\(:\d\d*\/\?\)\?')
     call matchadd('Todo', '[tT]odo\|TODO')
     call matchadd('Error', '　')
+    let b:landscape_match = 1
   endfunction
+augroup MatchAdd
   autocmd!
   autocmd BufAdd,BufCreate,BufEnter,WinEnter * call s:newmatch()
 augroup END
@@ -139,5 +149,4 @@ highlight default link Marked StorageClass
 " TabLineFill
 " TabLineSel
 " Title
-" Ignore
 " WildMenu

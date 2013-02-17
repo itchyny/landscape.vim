@@ -11,7 +11,6 @@ if has('conceal')
 else
   syntax match uniteErrorHidden '!!!' contained
 endif
-
 highlight default link uniteError Error
 highlight default link uniteErrorHidden Ignore
 
@@ -46,7 +45,7 @@ highlight default link uniteStringSpecial SpecialChar
 highlight default link uniteString String
 
 " files
-syntax match uniteFile '.\+\f\(\s\s\s\)\@=' contained containedin=uniteSource__FileMru contains=uniteCandidateInputKeyword
+syntax match uniteFile '.\+\f\(\s\s\s\)\@=' contained containedin=uniteCandidateAbbr,uniteSource__FileMru contains=uniteCandidateInputKeyword
 syntax match unitePdfHtml '.*\.\(pdf\|html\)\>' contained containedin=uniteFile contains=uniteCandidateInputKeyword
 syntax match uniteArchive '.*\.\(lha\|lzh\|zip\|gz\|bz2\|cab\|rar\|7z\|tgz\|tar\)\>' contained containedin=uniteFile contains=uniteCandidateInputKeyword
 syntax match uniteImage '.*\.\(eps\|bmp\|BMP\|png\|PNG\|gif\|GIF\|JPE\?G\|jpe\?g\|jp2\|tif\|ico\|wdp\|cur\|ani\)\>' contained containedin=uniteFile contains=uniteCandidateInputKeyword
@@ -74,7 +73,7 @@ highlight default link uniteMarkedLine Marked
 highlight default link uniteQuickMatchTrigger Special
 highlight default link uniteCandidateSourceName uniteSourceNames
 highlight default link uniteCandidateMarker Icon
-highlight default link uniteCandidateInputKeyword Define
+highlight default link uniteCandidateInputKeyword PreCondit
 
 " vimshell history
 syntax match uniteSpecial '[|<>;&]' contained
@@ -98,7 +97,11 @@ highlight default link uniteInputPrompt Prompt
 highlight default link uniteInputPromptError Error
 highlight default link uniteInputSpecial Special
 
+" TODO: check what is done in this function
+" TODO: 全面的に書きなおす
+" TODO: あらゆるソースでうまくいくように
 call unite#set_highlight()
 
 let b:current_syntax = 'unite'
 
+" TODO: waringとsearchを別に

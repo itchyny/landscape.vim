@@ -75,9 +75,9 @@ highlight default link vimshellFloat Float
 
 " string
 syntax match vimshellStringSpecial '\\\([0-9]\+\|o[0-7]\+\|x[0-9a-fA-F]\+\|[\"\\'&\\abfnrtv]\|^[A-Z^_\[\\\]]\)' contained
-syntax region vimshellString start=+"+ end=+"+ contains=vimshellStringSpecial oneline contained
-syntax region vimshellString start=+'+ end=+'+ contains=vimshellStringSpecial oneline contained
-syntax region vimshellString start=+`+ end=+`+ contains=vimshellStringSpecial oneline contained
+syntax region vimshellString start=+"+ end=+"+ contains=vimshellStringSpecial oneline contained keepend
+syntax region vimshellString start=+'+ end=+'+ contains=vimshellStringSpecial oneline contained keepend
+syntax region vimshellString start=+`+ end=+`+ contains=vimshellStringSpecial oneline contained keepend
 highlight default link vimshellStringSpecial SpecialChar
 highlight default link vimshellString String
 
@@ -90,7 +90,7 @@ highlight default link vimshellOperator Operator
 function! s:formatdate(time)
   let year = strftime('\(%Y\|%y\)', a:time)
   let month = substitute(strftime('\(%m\|%b\)', a:time), ' ', '', '')
-  let day = substitute(strftime('%d', a:time), ' ', '', '')
+  let day = substitute(substitute(strftime('%d', a:time), '^0', '0\\=', ''), ' ', '', '')
   return '\<\('.year.'\/'.month.'\/'.day
         \.'\|'.year.'-'.month.'-'.day
         \.'\|'.month.'\s\+'.day.'\s\+\d\d:\?\d\d\)\>'

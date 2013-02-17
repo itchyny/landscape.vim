@@ -4,19 +4,19 @@ elseif exists("b:current_syntax")
   finish
 endif
 
-let leaf_icon = vimfiler#util#escape_pattern(g:vimfiler_tree_leaf_icon)
-let opened_icon = vimfiler#util#escape_pattern(g:vimfiler_tree_opened_icon)
-let closed_icon = vimfiler#util#escape_pattern(g:vimfiler_tree_closed_icon)
-let file_icon = vimfiler#util#escape_pattern(g:vimfiler_file_icon)
-let marked_file_icon = vimfiler#util#escape_pattern(g:vimfiler_marked_file_icon)
-let ro_file_icon = vimfiler#util#escape_pattern(g:vimfiler_readonly_file_icon)
+let s:leaf_icon = vimfiler#util#escape_pattern(g:vimfiler_tree_leaf_icon)
+let s:opened_icon = vimfiler#util#escape_pattern(g:vimfiler_tree_opened_icon)
+let s:closed_icon = vimfiler#util#escape_pattern(g:vimfiler_tree_closed_icon)
+let s:file_icon = vimfiler#util#escape_pattern(g:vimfiler_file_icon)
+let s:marked_file_icon = vimfiler#util#escape_pattern(g:vimfiler_marked_file_icon)
+let s:ro_file_icon = vimfiler#util#escape_pattern(g:vimfiler_readonly_file_icon)
 
 syntax match vimfilerNonMarkedFile '.*'
  \ contains=vimfilerNonMark,vimfilerTypeText,vimfilerTypeImage,vimfilerTypeArchive,
  \vimfilerTypeExecute,vimfilerTypeMultimedia,vimfilerTypeDirectory,vimfilerTypeSystem,vimfilerTypeLink,
  \vimfilerSize,vimfilerDateWeek,vimfilerDate,vimfilerDateToday
-execute 'syntax match vimfilerMarkedFile' '''^\s*\%(' . leaf_icon .'\)\?'
- \ . marked_file_icon . ' .*$'''
+execute 'syntax match vimfilerMarkedFile' '''^\s*\%(' . s:leaf_icon .'\)\?'
+ \ . s:marked_file_icon . ' .*$'''
  \ 'contains=vimfilerDateWeek,vimfilerDate,vimfilerDateToday'
 syntax match vimfilerDirectory '^..$'
 
@@ -49,8 +49,8 @@ syntax match vimfilerSize '\s\zs[[:digit:].]\+\s*[GMKB]' contained
 
 " syntax match vimfilerNonMark '^\s*|\?[+-]' contained
 execute 'syntax match vimfilerNonMark'
- \ '''^\s*\%('. leaf_icon .'\)\?\%('. opened_icon . '\|'
- \ . closed_icon . '\|' . ro_file_icon . '\|' . file_icon .'\)'' contained'
+ \ '''^\s*\%('. s:leaf_icon .'\)\?\%('. s:opened_icon . '\|'
+ \ . s:closed_icon . '\|' . s:ro_file_icon . '\|' . s:file_icon .'\)'' contained'
 
 syntax match vimfilerDateWeek '\s\zs#[^#]\+$' contains=vimfilerDateIgnore contained
 syntax match vimfilerDate '\s\zs\~[^~]\+$' contains=vimfilerDateIgnore contained
@@ -98,6 +98,12 @@ highlight default link vimfilerTypeImage Image
 highlight default link vimfilerTypeMultimedia Multimedia
 highlight default link vimfilerTypeSystem System
 highlight default link vimfilerIcon Icon
+
+unlet s:opened_icon
+unlet s:closed_icon
+unlet s:ro_file_icon
+unlet s:file_icon
+unlet s:marked_file_icon
 
 let b:current_syntax = 'vimfiler'
 
