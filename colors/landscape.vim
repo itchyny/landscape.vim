@@ -47,7 +47,7 @@ highlight Debug term=none ctermfg=183 gui=none guifg=violet
 
 highlight Visual term=none ctermbg=241 guibg=#606060
 highlight default link VisualNOS Visual
-highlight Underlined term=underline ctermfg=51 ctermbg=none gui=none guifg=#00ffff
+highlight Underlined term=underline ctermfg=45 ctermbg=none gui=none guifg=#00dfff
 highlight default link URL Underlined
 highlight Error term=none ctermfg=15 ctermbg=124 gui=none guifg=#ffffff guibg=#af0000
 highlight WarningMsg term=none ctermfg=7 ctermbg=0 gui=none guifg=#c0c0c0 guibg=#000000
