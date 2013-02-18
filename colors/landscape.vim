@@ -79,25 +79,25 @@ if version >= 700
   highlight PmenuSbar ctermfg=white ctermbg=darkgray gui=none guifg=white guibg=darkgray
   highlight PmenuThumb ctermfg=white ctermbg=darkgray gui=none guifg=white guibg=darkgray
 endif
-  function! s:newmatch()
-    if exists("b:landscape_match")
-      for m in getmatches()
-        if m.group == 'URL' || m.group == 'Todo' || m.group == 'Error'
-          call matchdelete(m.id)
-        endif
-      endfor
-    endif
-    call matchadd('URL',
-          \'\(https\?\|ftp\|git\):\/\/\('
-          \.'[&:#*@~%_\-=?/.0-9A-Za-z]*'
-          \.'\(([&:#*@~%_\-=?/.0-9A-Za-z]*)\)\?'
-          \.'\({\([&:#*@~%_\-=?/.0-9A-Za-z]*\|{[&:#*@~%_\-=?/.0-9A-Za-z]*}\)}\)\?'
-          \.'\(\[[&:#*@~%_\-=?/.0-9A-Za-z]*\]\)\?'
-          \.'\)*[/0-9A-Za-z]*\(:\d\d*\/\?\)\?')
-    call matchadd('Todo', '[tT]odo\|TODO')
-    call matchadd('Error', '　')
-    let b:landscape_match = 1
-  endfunction
+function! s:newmatch()
+  if exists("b:landscape_match")
+    for m in getmatches()
+      if m.group == 'URL' || m.group == 'Todo' || m.group == 'Error'
+        call matchdelete(m.id)
+      endif
+    endfor
+  endif
+  call matchadd('URL',
+        \'\(https\?\|ftp\|git\):\/\/\('
+        \.'[&:#*@~%_\-=?/.0-9A-Za-z]*'
+        \.'\(([&:#*@~%_\-=?/.0-9A-Za-z]*)\)\?'
+        \.'\({\([&:#*@~%_\-=?/.0-9A-Za-z]*\|{[&:#*@~%_\-=?/.0-9A-Za-z]*}\)}\)\?'
+        \.'\(\[[&:#*@~%_\-=?/.0-9A-Za-z]*\]\)\?'
+        \.'\)*[/0-9A-Za-z]*\(:\d\d*\/\?\)\?')
+  call matchadd('Todo', '[tT]odo\|TODO')
+  call matchadd('Error', '　')
+  let b:landscape_match = 1
+endfunction
 augroup MatchAdd
   autocmd!
   autocmd BufCreate,BufNew,WinEnter * call s:newmatch()
