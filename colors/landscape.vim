@@ -100,7 +100,7 @@ endif
   endfunction
 augroup MatchAdd
   autocmd!
-  autocmd BufAdd,BufCreate,BufEnter,WinEnter * call s:newmatch()
+  autocmd BufCreate,BufNew,WinEnter * call s:newmatch()
 augroup END
 
 highlight SpellBad term=none cterm=none ctermbg=52 gui=none guibg=#5f0000
