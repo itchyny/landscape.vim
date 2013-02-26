@@ -17,9 +17,9 @@ highlight Boolean term=none ctermfg=226 ctermbg=none gui=none guifg=#ffff00
 highlight Float term=none ctermfg=43 ctermbg=none gui=none guifg=#00dfaf
 
 highlight Identifier term=none cterm=none ctermfg=110 ctermbg=none gui=none guifg=#87afdf
-highlight Function term=none ctermfg=46 ctermbg=none gui=none guifg=#00ff00
+highlight Function term=none ctermfg=84 ctermbg=none gui=none guifg=#5fdfaf
 
-highlight Statement term=none ctermfg=118 ctermbg=none gui=none guifg=#87ff00
+highlight Statement term=none ctermfg=76 ctermbg=none gui=none guifg=#5fdf00
 highlight Conditional term=none ctermfg=166 ctermbg=none gui=none guifg=#ef7f00
 highlight default link Repeat Conditional
 highlight default link Label Statement
@@ -73,7 +73,7 @@ if version >= 700
   highlight CursorLine term=underline cterm=underline ctermbg=none gui=underline guibg=gray0
   highlight CursorColumn ctermfg=none
   highlight LineNr term=none ctermfg=58 guifg=#5f5f00
-  highlight CursorLineNr term=underline cterm=bold,underline ctermfg=100 guifg=#878700
+  highlight CursorLineNr term=underline cterm=bold,underline ctermfg=148 guifg=#afdf00
   highlight MatchParen ctermfg=none ctermbg=237 guibg=#3a3a3a
   highlight Pmenu ctermfg=black ctermbg=gray gui=none guifg=black guibg=gray
   highlight PmenuSel ctermfg=black ctermbg=darkgray gui=none guifg=black guibg=darkgray
