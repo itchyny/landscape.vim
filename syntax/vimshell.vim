@@ -6,7 +6,7 @@ endif
 
 " get alias commands
 let s:alias_table = b:vimshell.alias_table
-let s:commands = split('git,ls,python,diff,ghc,ghci,haddock,cabal,man', ',')
+let s:commands = split('git,ls,python,diff,ghc,ghci,haddock,cabal,man,make', ',')
 let s:command_match = {}
 for s:i in s:commands
   let s:command_match[s:i] = s:i
@@ -199,7 +199,7 @@ highlight default link vimshellComment Comment
 highlight default link vimshellType Type
 
 " ghci
-let s:hsprompt='^[^ ][a-zA-Z .0-9]*>'
+let s:hsprompt='^[^ ][a-zA-Z .0-9]\+>'
 execute 'syntax match vimshellHsPrompt ' string(s:hsprompt) ' contained'
 highlight default link vimshellHsPrompt vimshellPrompt
 command -nargs=1 HsCommand execute 'syntax match vimshellHsCommand ' string(s:hsprompt.' *:'.<args>) ' contains=vimshellHsPrompt contained oneline'
@@ -263,7 +263,7 @@ execute 'syntax match vimshellComment ' string('--.*\(Defined in\)') ' oneline c
 "       \.'vimshellCompilername,vimshellStatement,vimshellComment,vimshellNumber,vimshellFloat,vimshellString,vimshellBoolean,vimshellConditional,'
 "       \.'vimshellError,vimshellGhcError'
 "       \.' keepend'
-execute 'syntax region vimshellGhci start=' string(s:command_match.ghc.'\|'.s:command_match.ghci) ' end=+^\[%\].*+'
+execute 'syntax region vimshellGhci start=' string(s:command_match.ghc.'\|'.s:command_match.ghci.'\|'.s:hsprompt) ' end=+^\[%\].*+'
       \.' contains='
       \.'vimshellPromptLine,vimshellUserPromptLine,vimshellLsalLine,'
       \.'vimshellCompilername,vimshellStatement,vimshellComment,vimshellNumber,vimshellFloat,vimshellString,vimshellBoolean,vimshellConditional,'
@@ -328,7 +328,7 @@ syntax match vimshellPlusNeg '\s\(+\+-*\|-\+\)' contains=vimshellPlus contained
 highlight default link vimshellPlusNeg vimshellDiffNewFile
 syntax match vimshellPlusNegOperator '([+-])' contained
 highlight default link vimshellPlusNegOperator Operator
-execute 'syntax region vimshellGitRegion start=' string(s:command_match.git.'\|'.s:command_match.diff.'\|^diff -') ' end=+^\[%\].*+'
+execute 'syntax region vimshellGitRegion start=' string(s:command_match.git.'\|'.s:command_match.diff.'\|^diff -\|^@@ -\d') ' end=+^\[%\].*+'
       \.' contains=vimshellPromptLine,vimshellUserPromptLine,vimshellTime,vimshellDate,'
       \.'vimshellDiffFile,vimshellDiffNewFile,vimshellDiffLine,vimshellError,vimshellNumber,vimshellPath,vimshellDiffGit,vimshellPath,vimshellDiffAdd,vimshellDiffDelete,vimshellPlusNeg,vimshellPlusNegOperator'
       \.' keepend'
@@ -379,8 +379,8 @@ execute 'syntax region vimshellPython start=' string(s:command_match.python) ' e
       \.' keepend'
 
 " man
-syntax region vimshellStringMan start=+``\=+ end=+''\=+ contains=vimshellStringSpecial oneline contained
-highlight default link vimshellStringMan String
+syntax region vimshellUnixString start=+``\=+ end=+''\=+ contains=vimshellStringSpecial oneline contained
+highlight default link vimshellUnixString String
 syntax match vimshellIEEE 'IEEE Std [0-9\-.]\+' contained
 highlight default link vimshellIEEE Constant
 syntax match manReference "\f\+([1-9][A-Za-z]\=)" contained
@@ -396,9 +396,15 @@ highlight default link manSubHeading Function
 highlight default link manTitle Title
 highlight default link manSectionHeading Statement
 execute 'syntax region vimshellMan start=' string(s:command_match.man.'\|^'.s:prompt.'\s*git\s\+--help\>') ' end=+^\[%\].*+'
-      \.' contains=vimshellPromptLine,vimshellUserPromptLine,vimshellStringMan,vimshellNumber,vimshellPath,vimshellIEEE,vimshellError,'
+      \.' contains=vimshellPromptLine,vimshellUserPromptLine,vimshellUnixString,vimshellNumber,vimshellPath,vimshellIEEE,vimshellError,'
       \.'manOptionDesc,manLongOptionDesc,manReference,manTitle,manSectionHeading,manSubHeading'
       \.' keepend'
+
+" make
+execute 'syntax region vimshellMake start=' string(s:command_match.make.'\|^'.s:prompt.'\s*git\s\+--help\>') ' end=+^\[%\].*+'
+      \.' contains=vimshellPromptLine,vimshellUserPromptLine,vimshellString,vimshellUnixString,vimshellNumber,vimshellPath,vimshellError'
+      \.' keepend'
+
 
 syntax region vimshellError start=+!!!+ end=+!!!+ contains=vimshellErrorHidden oneline
 
