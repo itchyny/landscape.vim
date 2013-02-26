@@ -7,9 +7,9 @@ if exists("syntax_on")
   syntax reset
 endif
 
-highlight Normal gui=none guifg=White guibg=grey0
+highlight Normal gui=none guifg=#dddddd guibg=grey0
 highlight Comment term=none ctermfg=243 ctermbg=none gui=none guifg=#767676
-highlight Constant term=none ctermfg=159 gui=none guifg=#afffff
+highlight Constant term=none ctermfg=117 gui=none guifg=#87dfff
 highlight String term=none ctermfg=215 ctermbg=none gui=none guifg=#ffaf5f
 highlight Character term=none ctermfg=214 ctermbg=none gui=none guifg=#ffaf00
 highlight Number term=none ctermfg=81 ctermbg=none gui=none guifg=#5fdfff
@@ -47,7 +47,7 @@ highlight Debug term=none ctermfg=183 gui=none guifg=violet
 
 highlight Visual term=none ctermbg=241 guibg=#606060
 highlight default link VisualNOS Visual
-highlight Underlined term=underline ctermfg=45 ctermbg=none gui=none guifg=#00dfff
+highlight Underlined term=underline ctermfg=45 ctermbg=none gui=underline guifg=#00dfff
 highlight default link URL Underlined
 highlight Error term=none ctermfg=15 ctermbg=124 gui=none guifg=#ffffff guibg=#af0000
 highlight WarningMsg term=none ctermfg=7 ctermbg=0 gui=none guifg=#c0c0c0 guibg=#000000
@@ -62,7 +62,7 @@ highlight default link DiffRemoved DiffDelete
 highlight DiffLine term=none cterm=none ctermfg=129 ctermbg=none guifg=#af00ff guibg=bg
 highlight default link DiffAdded DiffAdd
 highlight default link ErrorMsg Error
-highlight Ignore ctermbg=none gui=none guifg=none
+highlight Ignore ctermbg=none gui=none guifg=bg
 
 highlight VertSplit term=none gui=none guifg=black guibg=darkgray gui=none ctermfg=black ctermbg=darkgray cterm=none
 highlight Folded term=none ctermfg=247 ctermbg=235 guifg=#9e9e9e guibg=#262626
