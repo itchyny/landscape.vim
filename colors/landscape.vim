@@ -21,7 +21,7 @@ highlight Function term=none ctermfg=123 ctermbg=none gui=none guifg=#5fffff
 
 highlight Statement term=none ctermfg=76 ctermbg=none gui=none guifg=#5fdf00
 highlight Conditional term=none ctermfg=166 ctermbg=none gui=none guifg=#ef7f00
-highlight default link Repeat Conditional
+highlight default link Repeat Statement
 highlight default link Label Statement
 highlight Operator term=none ctermfg=220 ctermbg=none gui=none guifg=#ffdf00
 highlight default link Keyword Statement
