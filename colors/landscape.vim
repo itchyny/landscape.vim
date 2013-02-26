@@ -13,11 +13,11 @@ highlight Constant term=none ctermfg=159 gui=none guifg=#afffff
 highlight String term=none ctermfg=215 ctermbg=none gui=none guifg=#ffaf5f
 highlight Character term=none ctermfg=214 ctermbg=none gui=none guifg=#ffaf00
 highlight Number term=none ctermfg=81 ctermbg=none gui=none guifg=#5fdfff
-highlight Boolean term=none ctermfg=226 ctermbg=none gui=none guifg=#ffff00
-highlight Float term=none ctermfg=43 ctermbg=none gui=none guifg=#00dfaf
+highlight Boolean term=none ctermfg=227 ctermbg=none gui=none guifg=#ffff5f
+highlight Float term=none ctermfg=85 ctermbg=none gui=none guifg=#5fffaf
 
 highlight Identifier term=none cterm=none ctermfg=110 ctermbg=none gui=none guifg=#87afdf
-highlight Function term=none ctermfg=84 ctermbg=none gui=none guifg=#5fdfaf
+highlight Function term=none ctermfg=123 ctermbg=none gui=none guifg=#5fffff
 
 highlight Statement term=none ctermfg=76 ctermbg=none gui=none guifg=#5fdf00
 highlight Conditional term=none ctermfg=166 ctermbg=none gui=none guifg=#ef7f00
@@ -51,7 +51,7 @@ highlight Underlined term=underline ctermfg=45 ctermbg=none gui=none guifg=#00df
 highlight default link URL Underlined
 highlight Error term=none ctermfg=15 ctermbg=124 gui=none guifg=#ffffff guibg=#af0000
 highlight WarningMsg term=none ctermfg=7 ctermbg=0 gui=none guifg=#c0c0c0 guibg=#000000
-highlight Todo term=none ctermfg=16 ctermbg=11 gui=none guifg=#000000 guibg=#ffff00
+highlight Todo term=none ctermfg=16 ctermbg=185 gui=none guifg=#000000 guibg=#dfdf5f
 highlight DiffAdd term=none cterm=none ctermfg=none ctermbg=22 guifg=fg guibg=#005f00
 highlight DiffChange term=none cterm=none ctermfg=none ctermbg=52 guifg=fg guibg=#5f0000
 highlight DiffDelete term=none cterm=none ctermfg=none ctermbg=88 guifg=fg guibg=#870000
