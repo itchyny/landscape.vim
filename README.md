@@ -1,7 +1,5 @@
-landscape.vim
-==================================
-editor be colorful, life be joyful
-----------------------------------
+# landscape.vim
+## editor be colorful, life be joyful
 ![shell script](https://github.com/itchyny/landscape.vim/raw/master/img/1.png)
 ![vimfiler](https://github.com/itchyny/landscape.vim/raw/master/img/2.png)
 ![C source](https://github.com/itchyny/landscape.vim/raw/master/img/3.png)
