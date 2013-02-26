@@ -33,7 +33,7 @@ syntax match vimfilerTypeImage '.*\[I\]' contained
 syntax match vimfilerTypeArchive '.*\[A\]' contained
 syntax match vimfilerTypeExecute '.*\[X\]' contained
 syntax match vimfilerTypeMultimedia '.*\[M\]' contained
-syntax match vimfilerTypeDirectory '.*\[DIR\]' contained
+syntax match vimfilerTypeDirectory '.*\[D\]' contained
 syntax match vimfilerTypeSystem '.*\[S\]' contained
 syntax match vimfilerTypeLink '.*\[L\]' contained
 syntax match vimfilerTypeText '.* \~$' contained contains=vimfilerMarker

@@ -92,7 +92,7 @@ highlight default link uniteChooseMessage NONE
 highlight default link uniteChoosePrompt uniteSourcePrompt
 highlight default link uniteChooseSource uniteSourceNames
 highlight default link uniteSource__FileMru_Time Date
-
+highlight default link uniteSource__Buffer_Time Time
 highlight default link uniteInputPrompt Prompt
 highlight default link uniteInputPromptError Error
 highlight default link uniteInputSpecial Special
