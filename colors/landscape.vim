@@ -9,7 +9,7 @@ endif
 
 highlight Normal gui=none guifg=#dddddd guibg=grey0
 highlight Comment term=none ctermfg=243 ctermbg=none gui=none guifg=#767676
-highlight Constant term=none ctermfg=117 gui=none guifg=#87dfff
+highlight Constant term=none ctermfg=105 gui=none guifg=#87dfff
 highlight String term=none ctermfg=215 ctermbg=none gui=none guifg=#ffaf5f
 highlight Character term=none ctermfg=214 ctermbg=none gui=none guifg=#ffaf00
 highlight Number term=none ctermfg=81 ctermbg=none gui=none guifg=#5fdfff
@@ -45,9 +45,12 @@ highlight Delimiter term=none ctermfg=181 gui=none guifg=orange
 highlight SpecialComment term=none ctermfg=182 gui=none guifg=violet
 highlight Debug term=none ctermfg=183 gui=none guifg=violet
 
+highlight TabLine ctermfg=253 ctermbg=241 guifg=#dadada guibg=#606060
+highlight TabLineFill ctermfg=253 ctermbg=241 guifg=#dadada guibg=#606060
+highlight TabLineSel cterm=bold ctermfg=253 ctermbg=234 guifg=#dadada guibg=#606060
 highlight Visual term=none ctermbg=241 guibg=#606060
 highlight default link VisualNOS Visual
-highlight Underlined term=underline ctermfg=45 ctermbg=none gui=underline guifg=#00dfff
+highlight Underlined term=underline ctermfg=45 gui=underline guifg=#00dfff
 highlight default link URL Underlined
 highlight Error term=none ctermfg=15 ctermbg=124 gui=none guifg=#ffffff guibg=#af0000
 highlight WarningMsg term=none ctermfg=7 ctermbg=0 gui=none guifg=#c0c0c0 guibg=#000000
@@ -66,12 +69,15 @@ highlight Ignore ctermbg=none gui=none guifg=bg
 
 highlight VertSplit term=none gui=none guifg=black guibg=darkgray gui=none ctermfg=black ctermbg=darkgray cterm=none
 highlight Folded term=none ctermfg=247 ctermbg=235 guifg=#9e9e9e guibg=#262626
+highlight FoldColumn term=none ctermfg=247 ctermbg=235 guifg=#9e9e9e guibg=#262626
+highlight SignColumn term=none ctermfg=247 ctermbg=235 guifg=#9e9e9e guibg=#262626
 highlight SpecialKey term=underline ctermfg=darkgray gui=none guifg=darkgray
 highlight NonText term=none ctermfg=black gui=none guifg=black
 highlight StatusLineNC term=none gui=none guifg=black guibg=darkgray gui=none ctermfg=black ctermbg=darkgray cterm=none gui=none
 if version >= 700
-  highlight CursorLine term=underline cterm=none ctermbg=235 gui=none guibg=#262626
-  highlight CursorColumn ctermfg=none
+  highlight CursorLine term=none cterm=none ctermbg=235 gui=none guibg=#262626
+  highlight ColorColumn term=none cterm=none ctermbg=239 gui=none guibg=#4e4e4e
+  highlight CursorColumn term=none cterm=none ctermbg=235 gui=none guibg=#262626
   highlight LineNr term=none ctermfg=58 ctermbg=none guifg=#5f5f00 guibg=none
   highlight CursorLineNr term=underline cterm=bold ctermfg=148 ctermbg=235 gui=bold guifg=#afdf00 guibg=#262626
   highlight MatchParen ctermfg=none ctermbg=237 guibg=#3a3a3a
@@ -80,6 +86,8 @@ if version >= 700
   highlight PmenuSbar ctermfg=white ctermbg=darkgray gui=none guifg=white guibg=darkgray
   highlight PmenuThumb ctermfg=white ctermbg=darkgray gui=none guifg=white guibg=darkgray
 endif
+highlight Search cterm=none ctermfg=234 ctermbg=220 gui=none guifg=#1c1c1c guibg=#ffdf00
+highlight IncSearch cterm=none ctermfg=236 ctermbg=136 gui=none guifg=#303030 guibg=#af8700
 function! s:newmatch()
   if exists("b:landscape_match")
     for m in getmatches()
@@ -88,15 +96,22 @@ function! s:newmatch()
       endif
     endfor
   endif
+  " execute 'syntax match  URL ' string(
+  "       \'\(https\?\|ftp\|git\):\/\/\('
+  "       \.'[&:#*@~%_\-=?/.0-9A-Za-z]*'
+  "       \.'\(([&:#*@~%_\-=?/.0-9A-Za-z]*)\)\?'
+  "       \.'\({\([&:#*@~%_\-=?/.0-9A-Za-z]*\|{[&:#*@~%_\-=?/.0-9A-Za-z]*}\)}\)\?'
+  "       \.'\(\[[&:#*@~%_\-=?/.0-9A-Za-z]*\]\)\?'
+  "       \.'\)*[/0-9A-Za-z]*\(:\d\d*\/\?\)\?')
   call matchadd('URL',
         \'\(https\?\|ftp\|git\):\/\/\('
         \.'[&:#*@~%_\-=?/.0-9A-Za-z]*'
         \.'\(([&:#*@~%_\-=?/.0-9A-Za-z]*)\)\?'
         \.'\({\([&:#*@~%_\-=?/.0-9A-Za-z]*\|{[&:#*@~%_\-=?/.0-9A-Za-z]*}\)}\)\?'
         \.'\(\[[&:#*@~%_\-=?/.0-9A-Za-z]*\]\)\?'
-        \.'\)*[/0-9A-Za-z]*\(:\d\d*\/\?\)\?')
-  call matchadd('Todo', '[tT]odo\|TODO')
-  call matchadd('Error', '　')
+        \.'\)*[/0-9A-Za-z]*\(:\d\d*\/\?\)\?', -1)
+  call matchadd('Todo', '[tT]odo\|TODO', -1)
+  call matchadd('Error', '　', -1)
   let b:landscape_match = 1
 endfunction
 augroup MatchAdd
@@ -132,22 +147,14 @@ highlight default link DateWeek Identifier
 highlight default link DateOld Comment
 highlight default link Path Preproc
 highlight default link Marked StorageClass
+highlight default link Title Identifier
 
-" ColorColumn
 " Conceal
 " Cursor
 " CursorIM
 " Directory
-" FoldColumn
-" SignColumn
-" IncSearch
 " ModeMsg
 " MoreMsg
 " Question
-" Search
 " StatusLine
-" TabLine
-" TabLineFill
-" TabLineSel
-" Title
 " WildMenu
