@@ -171,12 +171,12 @@ highlight default link vimshellLinkFrom String
 syntax match vimshellLinkFromDest '.*@ ->.*' contains=vimshellLinkFrom,vimshellDotPathLsal,vimshellPathLsal contained
 execute 'syntax match vimshellPermission' string(s:permission) 'contained'
 execute 'syntax match vimshellLsalLinePart' string(s:permission
-      \.'\s\+\d\+\s\+\f\+\s\+\f\+\s\+\d\+\s\+\(\d\+\s\+\d\+\s\+\d\+\(:\d\+\)\?\|\d\d\d\d-\d\d-\d\d\s\+\d\+:\d\+\)')
+      \.'\s\+\d\+\s\+\f\+\s\+\f\+\s\+\d\+\s\+\(\(\d\+\|[A-Z][a-z][a-z]\)\s\+\d\+\s\+\d\+\(:\d\+\)\?\|\d\d\d\d-\d\d-\d\d\s\+\d\+:\d\+\)')
   \'contains=vimshellPermission,vimshellNumber,vimshellDate,vimshellTime contained'
 highlight default link vimshellPermission Constant
 execute 'syntax match vimshellLsalLine' string(s:permission
-      \.'\s\+\d\+\s\+\f\+\s\+\f\+\s\+\d\+\s\+\(\d\+\s\+\d\+\s\+\d\+\(:\d\+\)\?\|\d\d\d\d-\d\d-\d\d\s\+\d\+:\d\+\).*$')
-  \'contains=vimshellLsalLinePart,vimshellPdfHtml,vimshellArchive,vimshellImage,'
+      \.'\s\+\d\+\s\+\f\+\s\+\f\+\s\+\d\+\s\+\(\(\d\+\|[A-Z][a-z][a-z]\)\s\+\d\+\s\+\d\+\(:\d\+\)\?\|\d\d\d\d-\d\d-\d\d\s\+\d\+:\d\+\).*$')
+  \' contains=vimshellLsalLinePart,vimshellPdfHtml,vimshellArchive,vimshellImage,'
   \.'vimshellTypeText,vimshellTypeMultimedia,vimshellTypeSystem,vimshellTypeExe,'
   \.'vimshellPathLsal,vimshellDotPathLsal,vimshellLinkFromDest'
 execute 'syntax region vimshellLs start=' string(s:command_match.ls) ' end=+^\[%\].*+'
