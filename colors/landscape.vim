@@ -70,10 +70,10 @@ highlight SpecialKey term=underline ctermfg=darkgray gui=none guifg=darkgray
 highlight NonText term=none ctermfg=black gui=none guifg=black
 highlight StatusLineNC term=none gui=none guifg=black guibg=darkgray gui=none ctermfg=black ctermbg=darkgray cterm=none gui=none
 if version >= 700
-  highlight CursorLine term=underline ctermfg=none gui=underline guibg=gray0
+  highlight CursorLine term=underline cterm=underline ctermbg=none gui=underline guibg=gray0
   highlight CursorColumn ctermfg=none
   highlight LineNr term=none ctermfg=58 guifg=#5f5f00
-  highlight CursorLineNr term=underline cterm=bold ctermfg=100 guifg=#878700
+  highlight CursorLineNr term=underline cterm=bold,underline ctermfg=100 guifg=#878700
   highlight MatchParen ctermfg=none ctermbg=237 guibg=#3a3a3a
   highlight Pmenu ctermfg=black ctermbg=gray gui=none guifg=black guibg=gray
   highlight PmenuSel ctermfg=black ctermbg=darkgray gui=none guifg=black guibg=darkgray

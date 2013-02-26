@@ -82,7 +82,7 @@ highlight default link vimshellStringSpecial SpecialChar
 highlight default link vimshellString String
 
 " operator
-syntax match vimshellOperator '\(+\|-\|/\|*\|!\|&\||\|>\|<\|=\|\^\|\$\)\{1,3}\(\s\|$\)\|()\|::' contained
+syntax match vimshellOperator '\(\s\|^\)\(+\|-\|/\|*\|!\|&\||\|>\|<\|=\|\^\|\$\)\{1,3}\(\s\|$\)\|()\|::' contained
 syntax match vimshellOperator '(\(:\|+\|-\|/\|*\|!\|&\||\|>\|<\|=\|\^\|\$\|\.\)\{1,3})' contained
 highlight default link vimshellOperator Operator
 
@@ -104,6 +104,7 @@ syntax match vimshellTime '\<\d\d\=:\d\d\=:\d\d\=\>' contained
 syntax match vimshellDate '\<\d\+-\d\d\=-\d\+\>' contained
 syntax match vimshellDate '\<\d\+/\d\d\=/\d\+\>' contained
 syntax match vimshellDate '\<\d\d\?\s\+\d\d\?\s\+\d\d:\?\d\d\>' contained
+syntax match vimshellDate '\<[A-Z][a-z][a-z]\s\+\d\d\?\s\+\d\d:\?\d\d\>' contained
 command -nargs=1 DateToday execute 'syntax match vimshellDateToday ' string(s:formatdate(s:yesterday(s:today, <args>))) ' containedin=vimshellDate contained'
 DateToday 0
 DateToday 1
@@ -159,7 +160,7 @@ syntax match vimshellTypeExe '\S\{2,}\*\(\s\|$\)' contains=vimshellTypeExeMarker
 highlight default link vimshellTypeExe Exe
 syntax match vimshellTypeExeMarker '\*\(\s\|$\)' contained
 if has('conceal')
-  syntax match vimshellTypeExeMarker '\*\(\s\|$\)' contained conceal
+  syntax match vimshellTypeExeMarker '\*\(\s\|$\)' contained " conceal
 else
   syntax match vimshellTypeExeMarker '\*\(\s\|$\)' contained
 endif
@@ -346,7 +347,7 @@ syntax match vimshellPyPrompt '^>>>' contained
 highlight default link vimshellPyPrompt vimshellPrompt
 syntax region vimshellCompilername start=+^Python \d\+\.\d\+\.\d\++ end=+$+ oneline contained
 syntax region vimshellCompilerdescription start=+^Python \d\+.\d\+.\d\++ end=+for more information\.+ contains=vimshellCompilername contained
-syntax match vimshellLambdaError '\<lambda\>\(\(\s\+\(\h\w*\)\?\)\?:\)\@!' contained
+syntax match vimshellLambdaError '<\@<!\<lambda\>\(\(\s\+\(\h\w*\)\?\)\?:\)\@!' contained
 highlight default link vimshellLambdaError vimshellError
 syntax match vimshellStatement '\<lambda\>\(\(\s\+\(\h\w*\)\?\)\?:\)\@=' contained
 syntax match vimshellConditional '\(\<if\>\(.*\<else\>\)\@=\|\(\<if\>.*\)\@<=\<else\>\)' contained
