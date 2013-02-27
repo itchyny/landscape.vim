@@ -16,7 +16,7 @@ highlight Number term=none ctermfg=81 ctermbg=none gui=none guifg=#5fdfff
 highlight Boolean term=none ctermfg=227 ctermbg=none gui=none guifg=#ffff5f
 highlight Float term=none ctermfg=85 ctermbg=none gui=none guifg=#5fffaf
 
-highlight Identifier term=none cterm=none ctermfg=110 ctermbg=none gui=none guifg=#87afdf
+highlight Identifier term=none cterm=none ctermfg=39 ctermbg=none gui=none guifg=#87afdf
 highlight Function term=none ctermfg=123 ctermbg=none gui=none guifg=#5fffff
 
 highlight Statement term=none ctermfg=76 ctermbg=none gui=none guifg=#5fdf00
