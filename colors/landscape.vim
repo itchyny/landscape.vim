@@ -65,6 +65,7 @@ highlight default link DiffRemoved DiffDelete
 highlight DiffLine term=none cterm=none ctermfg=129 ctermbg=none guifg=#af00ff guibg=bg
 highlight default link DiffAdded DiffAdd
 highlight default link ErrorMsg Error
+highlight default link FullSpace Error
 highlight Ignore ctermbg=none gui=none guifg=bg
 
 highlight VertSplit term=none gui=none guifg=black guibg=darkgray gui=none ctermfg=black ctermbg=darkgray cterm=none
@@ -91,27 +92,28 @@ highlight IncSearch cterm=none ctermfg=236 ctermbg=136 gui=none guifg=#303030 gu
 function! s:newmatch()
   if exists("b:landscape_match")
     for m in getmatches()
-      if m.group == 'URL' || m.group == 'Todo' || m.group == 'Error'
+      if m.group == 'URL' ||
+       \ m.group == 'Todo' ||
+       \ m.group == 'FullSpace'
         call matchdelete(m.id)
       endif
     endfor
   endif
-  " execute 'syntax match  URL ' string(
-  "       \'\(https\?\|ftp\|git\):\/\/\('
-  "       \.'[&:#*@~%_\-=?/.0-9A-Za-z]*'
-  "       \.'\(([&:#*@~%_\-=?/.0-9A-Za-z]*)\)\?'
-  "       \.'\({\([&:#*@~%_\-=?/.0-9A-Za-z]*\|{[&:#*@~%_\-=?/.0-9A-Za-z]*}\)}\)\?'
-  "       \.'\(\[[&:#*@~%_\-=?/.0-9A-Za-z]*\]\)\?'
-  "       \.'\)*[/0-9A-Za-z]*\(:\d\d*\/\?\)\?')
-  call matchadd('URL',
-        \'\(https\?\|ftp\|git\):\/\/\('
-        \.'[&:#*@~%_\-=?/.0-9A-Za-z]*'
-        \.'\(([&:#*@~%_\-=?/.0-9A-Za-z]*)\)\?'
-        \.'\({\([&:#*@~%_\-=?/.0-9A-Za-z]*\|{[&:#*@~%_\-=?/.0-9A-Za-z]*}\)}\)\?'
-        \.'\(\[[&:#*@~%_\-=?/.0-9A-Za-z]*\]\)\?'
-        \.'\)*[/0-9A-Za-z]*\(:\d\d*\/\?\)\?', -1)
-  call matchadd('Todo', '[tT]odo\|TODO', -1)
-  call matchadd('Error', '　', -1)
+  if g:landscape_highlight_url
+    call matchadd('URL',
+          \'\(https\?\|ftp\|git\):\/\/\('
+          \.'[&:#*@~%_\-=?/.0-9A-Za-z]*'
+          \.'\(([&:#*@~%_\-=?/.0-9A-Za-z]*)\)\?'
+          \.'\({\([&:#*@~%_\-=?/.0-9A-Za-z]*\|{[&:#*@~%_\-=?/.0-9A-Za-z]*}\)}\)\?'
+          \.'\(\[[&:#*@~%_\-=?/.0-9A-Za-z]*\]\)\?'
+          \.'\)*[/0-9A-Za-z]*\(:\d\d*\/\?\)\?', -1)
+  endif
+  if g:landscape_highlight_todo
+    call matchadd('Todo', '[tT]odo\|TODO', -1)
+  endif
+  if g:landscape_highlight_full_space
+    call matchadd('FullSpace', '　', -1)
+  endif
   let b:landscape_match = 1
 endfunction
 augroup MatchAdd
@@ -133,7 +135,7 @@ highlight default link Arguments Type
 highlight default link PdfHtml Function
 highlight default link Archive Special
 highlight default link Image Type
-highlight default link Multimedia Identifier
+highlight default link Multimedia SpecialComment
 highlight default link System Comment
 highlight default link Text Constant
 highlight default link Link Constant
