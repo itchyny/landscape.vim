@@ -109,7 +109,7 @@ function! s:newmatch()
           \.'\)*[/0-9A-Za-z]*\(:\d\d*\/\?\)\?', -1)
   endif
   if g:landscape_highlight_todo
-    call matchadd('Todo', '[tT]odo\|TODO', -1)
+    call matchadd('Todo', '\<\([tT]odo\|TODO\)\>', -1)
   endif
   if g:landscape_highlight_full_space
     call matchadd('FullSpace', '　', -1)
