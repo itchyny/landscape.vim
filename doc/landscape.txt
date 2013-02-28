@@ -32,12 +32,12 @@ g:landscape_highlight_full_space		*g:landscape_highlight_full_space*
 ==============================================================================
 SYNTAX FILES					*landscape-syntax*
 
-Currently, this plug-in contains following syntax files.
+This plug-in contains following syntax files.
 
-	vimfiler.vim
-	vimshell.vim
-	unite.vim
-	quickrun.vim
+	vimfiler.vim (https://github.com/Shougo/vimfiler)
+	vimshell.vim (https://github.com/Shougo/vimshell)
+	unite.vim (https://github.com/Shougo/unite.vim)
+	quickrun.vim (https://github.com/thinca/vim-quickrun)
 
 ==============================================================================
-vim:tw=78:sw=4:ts=8:ft=help:norl:
+vim:tw=78:sw=4:ts=8:ft=help:norl:noet:
