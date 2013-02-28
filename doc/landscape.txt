@@ -32,5 +32,12 @@ g:landscape_highlight_full_space		*g:landscape_highlight_full_space*
 ==============================================================================
 SYNTAX FILES					*landscape-syntax*
 
+Currently, this plug-in contains following syntax files.
+
+	vimfiler.vim
+	vimshell.vim
+	unite.vim
+	quickrun.vim
+
 ==============================================================================
 vim:tw=78:sw=4:ts=8:ft=help:norl:
