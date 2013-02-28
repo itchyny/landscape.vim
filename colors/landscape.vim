@@ -90,31 +90,35 @@ endif
 highlight Search cterm=none ctermfg=234 ctermbg=220 gui=none guifg=#1c1c1c guibg=#ffdf00
 highlight IncSearch cterm=none ctermfg=236 ctermbg=136 gui=none guifg=#303030 guibg=#af8700
 function! s:newmatch()
-  if exists("b:landscape_match")
-    for m in getmatches()
-      if m.group == 'URL' ||
-       \ m.group == 'Todo' ||
-       \ m.group == 'FullSpace'
-        call matchdelete(m.id)
-      endif
-    endfor
+  if g:landscape_highlight_url ||
+   \ g:landscape_highlight_todo ||
+   \ g:landscape_highlight_full_space
+    if exists("b:landscape_match")
+      for m in getmatches()
+        if m.group == 'URL' ||
+         \ m.group == 'Todo' ||
+         \ m.group == 'FullSpace'
+          call matchdelete(m.id)
+        endif
+      endfor
+    endif
+    if g:landscape_highlight_url
+      call matchadd('URL',
+            \'\(https\?\|ftp\|git\):\/\/\('
+            \.'[&:#*@~%_\-=?/.0-9A-Za-z]*'
+            \.'\(([&:#*@~%_\-=?/.0-9A-Za-z]*)\)\?'
+            \.'\({\([&:#*@~%_\-=?/.0-9A-Za-z]*\|{[&:#*@~%_\-=?/.0-9A-Za-z]*}\)}\)\?'
+            \.'\(\[[&:#*@~%_\-=?/.0-9A-Za-z]*\]\)\?'
+            \.'\)*[/0-9A-Za-z]*\(:\d\d*\/\?\)\?', -1)
+    endif
+    if g:landscape_highlight_todo
+      call matchadd('Todo', '\<\([tT]odo\|TODO\)\>', -1)
+    endif
+    if g:landscape_highlight_full_space
+      call matchadd('FullSpace', '　', -1)
+    endif
+    let b:landscape_match = 1
   endif
-  if g:landscape_highlight_url
-    call matchadd('URL',
-          \'\(https\?\|ftp\|git\):\/\/\('
-          \.'[&:#*@~%_\-=?/.0-9A-Za-z]*'
-          \.'\(([&:#*@~%_\-=?/.0-9A-Za-z]*)\)\?'
-          \.'\({\([&:#*@~%_\-=?/.0-9A-Za-z]*\|{[&:#*@~%_\-=?/.0-9A-Za-z]*}\)}\)\?'
-          \.'\(\[[&:#*@~%_\-=?/.0-9A-Za-z]*\]\)\?'
-          \.'\)*[/0-9A-Za-z]*\(:\d\d*\/\?\)\?', -1)
-  endif
-  if g:landscape_highlight_todo
-    call matchadd('Todo', '\<\([tT]odo\|TODO\)\>', -1)
-  endif
-  if g:landscape_highlight_full_space
-    call matchadd('FullSpace', '　', -1)
-  endif
-  let b:landscape_match = 1
 endfunction
 augroup MatchAdd
   autocmd!
