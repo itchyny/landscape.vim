@@ -1,0 +1,36 @@
+*landscape.txt*	A colorscheme for Vim
+
+Version: 0.0
+Author: itchyny
+
+CONTENTS					*landscape-contents*
+
+==============================================================================
+INTRODUCTION					*landscape-introduction*
+
+The *landscape* plug-in is a colorscheme plug-in for Vim.
+It also provides some syntax files.
+
+==============================================================================
+INSTALL						*landscape-install*
+
+==============================================================================
+VARIABLES					*landscape-variables*
+
+g:landscape_highlight_url			*g:landscape_highlight_url*
+		If this variable is 1, URLs are colored anyware.
+		The default value is 0.
+
+g:landscape_highlight_todo			*g:landscape_highlight_todo*
+		If this variable is 1, the words TODO, todo and Todo are
+		colored anyware. The default value is 0.
+
+g:landscape_highlight_full_space		*g:landscape_highlight_full_space*
+		If this variable is 1, full-size spaces are colored anyware.
+		The default value is 0.
+
+==============================================================================
+SYNTAX FILES					*landscape-syntax*
+
+==============================================================================
+vim:tw=78:sw=4:ts=8:ft=help:norl:
