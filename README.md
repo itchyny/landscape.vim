@@ -11,4 +11,9 @@
 
 ![vimfiler and vimshell](https://github.com/itchyny/landscape.vim/raw/master/img/5.png)
 
+## Author
+itchyny (https://github.com/itchyny)
+
+## License
+MIT License
 
