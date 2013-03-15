@@ -18,11 +18,13 @@ itchyny (https://github.com/itchyny)
 MIT License
 
 ## Installation
-If you are using NeoBundle, add
+If you are using neobundle, add
 
         NeoBundle 'itchyny/landscape.vim'
 
 to your .vimrc. Note that write this configuration before any of unite.vim,
 vimfiler.vim and vimshell.vim.
 
+Otherwise, download scripts to corresponding directory under $VIM.
+For example, place plugin/landscape.vim at $VIM/plugin/.
 
