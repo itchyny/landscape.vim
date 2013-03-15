@@ -68,10 +68,9 @@ syntax region vimfilerTypeLink start=' ' end='&$' contained contains=vimfilerMar
 
 syntax match vimfilerSize '\s\zs[[:digit:].]\+\s*[GMKB]' contained
 
-" syntax match vimfilerNonMark '^\s*|\?[+-]' contained
 execute 'syntax match vimfilerNonMark'
  \ '''^\s*\%('. s:leaf_icon .'\)\?\%('. s:opened_icon . '\|'
- \ . s:closed_icon . '\|' . s:ro_file_icon . '\|' . s:file_icon .'\)'' contained'
+ \ . s:closed_icon . '\|' . s:ro_file_icon . '\|' . s:file_icon .'\)\s\@='' contained'
 
 syntax match vimfilerDateWeek '\s\zs#[^#]\+$' contains=vimfilerDateIgnore contained
 syntax match vimfilerDate '\s\zs\~[^~]\+$' contains=vimfilerDateIgnore contained
