@@ -64,6 +64,7 @@ highlight default link uniteArchive Archive
 highlight default link uniteImage Image
 highlight default link uniteTypeMultimedia Multimedia
 highlight default link uniteTypeSystem System
+highlight default link uniteSource__Buffer_NoFile Conditional
 
 syntax region uniteMarkedLine start=/^\*/ end='$' keepend
 syntax region uniteNonMarkedLine start=/^- / end='$' keepend contains=uniteCandidateMarker,uniteCandidateSourceName,uniteCandidateAbbr
