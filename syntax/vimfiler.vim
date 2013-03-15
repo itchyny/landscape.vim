@@ -84,7 +84,7 @@ highlight default link vimfilerSpecialUnSafe Statement
 
 highlight default link vimfilerNonMark Icon
 highlight default link vimfilerMarkedFile Marked
-highlight default link vimfilerDirectory Preproc
+highlight default link vimfilerDirectory Path
 highlight default link vimfilerSize Constant
 
 highlight default link vimfilerDateToday DateToday
