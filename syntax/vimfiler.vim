@@ -1,3 +1,7 @@
+if exists('g:landscape_syntax_vimfiler') && g:landscape_syntax_vimfiler == 0
+  finish
+endif
+
 if version < 700
   syntax clear
 elseif exists("b:current_syntax")
