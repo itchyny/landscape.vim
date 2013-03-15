@@ -155,7 +155,7 @@ highlight default link vimshellTypeText Text
 syntax match vimshellTypeMultimedia '\(\S\| \S\)*\.\(
       \.avi\|asf\|wmv\|flv\|swf\|divx\|mov\|m1a\|
       \.m2[ap]\|mpe\?g\|m[12]v\|mp2v\|mp[34a]\|qt\|ra\|rm\|ram\|
-      \.rmvb\|rpm\|smi\|mkv\|mid\|wav\|ogg\|wma\|au\)\>\(\s\|$\)' contained
+      \.rmvb\|rpm\|smi\|mkv\|mid\|wav\|ogg\|wma\|au\|flac\)\>\(\s\|$\)' contained
 highlight default link vimshellTypeMultimedia Multimedia
 syntax match vimshellTypeSystem '\(\S\| \S\)*\.\(o\|hi\|inf\|sys\|reg\|dat\|spi\|a\|so\|lib\|dll\)\>\(\s\|$\)' contained
 syntax match vimshellTypeSystem '#\S\+#\|configure[\s$]\|aclocal\.m4\|Makefile\(\s\(\.in\)\?\|$\)\|stamp-h1\|config\.\(h\.in\)\?\|config\.h\.in\~\?[\s$]\|output\.[0-9]\S\?\|requests\|traces\.[0-9]\S\?' contained

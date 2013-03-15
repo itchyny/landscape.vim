@@ -48,7 +48,7 @@ syntax region vimfilerTypeMultimedia start=' '
       \ end='\[M\]\|\.\(
       \.avi\|asf\|wmv\|flv\|swf\|divx\|mov\|m1a\|
       \.m2[ap]\|mpe\?g\|m[12]v\|mp2v\|mp[34a]\|qt\|ra\|rm\|ram\|
-      \.rmvb\|rpm\|smi\|mkv\|mid\|wav\|ogg\|wma\|au\)$'
+      \.rmvb\|rpm\|smi\|mkv\|mid\|wav\|ogg\|wma\|au\|flac\)$'
       \ contained oneline
 syntax region vimfilerTypeDirectory start=' '
       \ end='\[D\]\|/$'

@@ -56,7 +56,7 @@ syntax match uniteImage '.*\.\(eps\|bmp\|BMP\|png\|PNG\|gif\|GIF\|JPE\?G\|jpe\?g
 syntax match uniteTypeMultimedia '.*\.\(
       \.avi\|asf\|wmv\|flv\|swf\|divx\|mov\|m1a\|
       \.m2[ap]\|mpe\?g\|m[12]v\|mp2v\|mp[34a]\|qt\|ra\|rm\|ram\|
-      \.rmvb\|rpm\|smi\|mkv\|mid\|wav\|ogg\|wma\|au\)\>' contained containedin=uniteFile contains=uniteCandidateInputKeyword
+      \.rmvb\|rpm\|smi\|mkv\|mid\|wav\|ogg\|wma\|au\|flac\)\>' contained containedin=uniteFile contains=uniteCandidateInputKeyword
 syntax match uniteTypeSystem '.*\.\(o\|hi\|inf\|sys\|reg\|dat\|spi\|a\|so\|lib\|dll\)\>' contained containedin=uniteFile contains=uniteCandidateInputKeyword
 syntax match uniteTypeSystem '\(#\S\+#\|configure[\s$]\|aclocal\.m4\|[Mm]akefile\(\.in\)\?\|stamp-h1\|config\.\(h\.in\~\?\|status\)\|output\.[0-9]\S\?\|requests\|traces\.[0-9]\S\?\)\s\@=' contained containedin=uniteFile contains=uniteCandidateInputKeyword
 highlight default link unitePdfHtml PdfHtml
