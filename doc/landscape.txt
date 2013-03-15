@@ -1,8 +1,9 @@
 *landscape.txt*	A colorscheme and syntax for Vim
 
 Version: 0.0
-Author: itchyny
+Author: itchyny (https://github.com/itchyny)
 License: MIT License
+Repository: https://github.com/itchyny/landscape.vim
 
 CONTENTS					*landscape-contents*
 
