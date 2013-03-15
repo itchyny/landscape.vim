@@ -160,7 +160,7 @@ syntax match vimshellTypeExe '\S\{2,}\*\(\s\|$\)' contains=vimshellTypeExeMarker
 highlight default link vimshellTypeExe Exe
 syntax match vimshellTypeExeMarker '\*\(\s\|$\)' contained
 if has('conceal')
-  syntax match vimshellTypeExeMarker '\*\(\s\|$\)' contained " conceal
+  syntax match vimshellTypeExeMarker '\*\(\s\|$\)' contained conceal
 else
   syntax match vimshellTypeExeMarker '\*\(\s\|$\)' contained
 endif
