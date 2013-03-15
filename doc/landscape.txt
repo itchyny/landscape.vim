@@ -19,15 +19,15 @@ INSTALL						*landscape-install*
 VARIABLES					*landscape-variables*
 
 g:landscape_highlight_url			*g:landscape_highlight_url*
-		If this variable is 1, URLs are colored anyware.
+		If this variable is 1, URLs are colored anywhere.
 		The default value is 0.
 
 g:landscape_highlight_todo			*g:landscape_highlight_todo*
 		If this variable is 1, the words TODO, todo and Todo are
-		colored anyware. The default value is 0.
+		colored anywhere. The default value is 0.
 
 g:landscape_highlight_full_space		*g:landscape_highlight_full_space*
-		If this variable is 1, full-size spaces are colored anyware.
+		If this variable is 1, full-size spaces are colored anywhere.
 		The default value is 0.
 
 ==============================================================================
