@@ -64,11 +64,11 @@ This plug-in contains following syntax files.
 
 If you do not want to disable these syntax files, add following configuration
 to .vimrc.
-
+>
 	let g:landscape_syntax_vimfiler = 0
 	let g:landscape_syntax_vimshell = 0
 	let g:landscape_syntax_unite = 0
 	let g:landscape_syntax_quickrun = 0
-
+<
 ==============================================================================
 vim:tw=78:sw=4:ts=8:ft=help:norl:noet:
