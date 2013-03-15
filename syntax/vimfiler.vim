@@ -32,22 +32,39 @@ syntax match vimfilerCurrentDirectory '\s\zs.*$' contained contains=vimfilerMask
 syntax match vimfilerMask '\[.*\]$' contained
 syntax match vimfilerFileLine '\[.*\]$' contained
 
-syntax match vimfilerTypeText '.*\[T\]' contained
-syntax match vimfilerTypeImage '.*\[I\]' contained
-syntax match vimfilerTypeArchive '.*\[A\]' contained
-syntax match vimfilerTypeExecute '.*\[X\]' contained
-syntax match vimfilerTypeMultimedia '.*\[M\]' contained
-syntax match vimfilerTypeDirectory '.*\[D\]' contained
-syntax match vimfilerTypeSystem '.*\[S\]' contained
-syntax match vimfilerTypeLink '.*\[L\]' contained
-syntax match vimfilerTypeText '.* \~$' contained contains=vimfilerMarker
-syntax match vimfilerTypeImage '.* !$' contained contains=vimfilerMarker
-syntax match vimfilerTypeArchive '.* @$' contained contains=vimfilerMarker
-syntax match vimfilerTypeExecute '.* #$' contained contains=vimfilerMarker
-syntax match vimfilerTypeMultimedia '.* \$$' contained contains=vimfilerMarker
-syntax match vimfilerTypeDirectory '.* %$' contained contains=vimfilerMarker
-syntax match vimfilerTypeSystem '.* \^$' contained contains=vimfilerMarker
-syntax match vimfilerTypeLink '.* &$' contained contains=vimfilerMarker
+syntax region vimfilerTypeText start=' '
+      \ end='\[T\]\|\.\(txt\|cfg\|ini\)$'
+      \ contained oneline
+syntax region vimfilerTypeImage start=' '
+      \ end='\[I\]\|\.\(bmp\|png\|gif\|jpg\|jpeg\|jp2\|tif\|ico\|wdp\|cur\|ani\)$'
+      \ contained oneline
+syntax region vimfilerTypeArchive start=' '
+      \ end='\[A\]\|\.\(lzh\|zip\|gz\|bz2\|cab\|rar\|7z\|tgz\|tar\)$'
+      \ contained oneline
+syntax region vimfilerTypeExecute start=' '
+      \ end='\[X\]\|\.\(exe\)$'
+      \ contained oneline
+syntax region vimfilerTypeMultimedia start=' '
+      \ end='\[M\]\|\.\(
+      \.avi\|asf\|wmv\|flv\|swf\|divx\|mov\|m1a\|
+      \.m2[ap]\|mpe\?g\|m[12]v\|mp2v\|mp[34a]\|qt\|ra\|rm\|ram\|
+      \.rmvb\|rpm\|smi\|mkv\|mid\|wav\|ogg\|wma\|au\)$'
+      \ contained oneline
+syntax region vimfilerTypeDirectory start=' '
+      \ end='\[D\]\|/$'
+      \ contained oneline
+syntax region vimfilerTypeSystem start=' '
+      \ end='\[S\]\|\.\(o\|hi\|inf\|sys\|reg\|dat\|spi\|a\|so\|lib\|dll\)$'
+      \ contained oneline
+syntax region vimfilerTypeLink start=' ' end='\[L\]' contained oneline
+syntax region vimfilerTypeText start=' ' end='\~$' contained contains=vimfilerMarker oneline
+syntax region vimfilerTypeImage start=' ' end='!$' contained contains=vimfilerMarker oneline
+syntax region vimfilerTypeArchive start=' ' end='@$' contained contains=vimfilerMarker oneline
+syntax region vimfilerTypeExecute start=' ' end='#$' contained contains=vimfilerMarker oneline
+syntax region vimfilerTypeMultimedia start=' ' end='\$$' contained contains=vimfilerMarker oneline
+syntax region vimfilerTypeDirectory start=' ' end='%$' contained contains=vimfilerMarker oneline
+syntax region vimfilerTypeSystem start=' ' end='\ $' contained contains=vimfilerMarker oneline
+syntax region vimfilerTypeLink start=' ' end='&$' contained contains=vimfilerMarker oneline
 
 syntax match vimfilerSize '\s\zs[[:digit:].]\+\s*[GMKB]' contained
 
