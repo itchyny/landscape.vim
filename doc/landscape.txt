@@ -1,4 +1,4 @@
-*landscape.txt*	A colorscheme for Vim
+*landscape.txt*	A colorscheme and syntax for Vim
 
 Version: 0.0
 Author: itchyny
