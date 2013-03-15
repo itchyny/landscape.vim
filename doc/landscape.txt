@@ -6,6 +6,11 @@ License: MIT License
 
 CONTENTS					*landscape-contents*
 
+Introduction				|landscape-introduction|
+Install					|landscape-install|
+Variables				|landscape-variables|
+Syntax Files				|landscape-syntax|
+
 ==============================================================================
 INTRODUCTION					*landscape-introduction*
 
