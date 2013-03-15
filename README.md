@@ -20,7 +20,7 @@ MIT License
 ## Installation
 If you are using neobundle, add
 
-        NeoBundle 'itchyny/landscape.vim'
+    NeoBundle 'itchyny/landscape.vim'
 
 to your .vimrc. Note that write this configuration before any of unite.vim,
 vimfiler.vim and vimshell.vim.
