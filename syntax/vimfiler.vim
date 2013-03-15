@@ -58,7 +58,7 @@ syntax region vimfilerTypeSystem start=' '
       \ contained oneline
 syntax region vimfilerTypeLink start=' ' end='\[L\]' contained oneline
 
-syntax match vimfilerSize '\s\zs[[:digit:].]\+\s*[GMKB]' contained
+syntax match vimfilerSize '\s\zs[[:digit:].]\+[GMKB]' contained
 
 execute 'syntax match vimfilerNonMark'
  \ '''^\s*\%('. s:leaf_icon .'\)\?\%('. s:opened_icon . '\|'
