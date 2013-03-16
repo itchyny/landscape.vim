@@ -111,4 +111,3 @@ call unite#set_highlight()
 
 let b:current_syntax = 'unite'
 
-" TODO: waringとsearchを別に
