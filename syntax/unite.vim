@@ -80,7 +80,7 @@ highlight default link uniteMarkedLine Marked
 highlight default link uniteQuickMatchTrigger Special
 highlight default link uniteCandidateSourceName uniteSourceNames
 highlight default link uniteCandidateMarker Icon
-highlight default link uniteCandidateInputKeyword PreCondit
+highlight default link uniteCandidateInputKeyword Comment
 
 " vimshell history
 syntax match uniteSpecial '[|<>;&]' contained
