@@ -21,7 +21,7 @@ highlight default link uniteErrorHidden Ignore
 syntax match uniteSourcePrompt /^Sources/ contained nextgroup=uniteSeparator
 syntax match uniteSeparator /:/ contained nextgroup=uniteSourceNames
 syntax match uniteSourceNames / [[:alnum:]_\/-]\+/ contained nextgroup=uniteSourceArgs,uniteCommand
-syntax match uniteMessage /^\[.\{-}\].*$/  contains=uniteMessageSource,uniteNumber,uniteGitCommand,uniteBundleName
+syntax match uniteMessage /^\[.\{-}\].*$/ contains=uniteMessageSource,uniteNumber,uniteGitCommand,uniteBundleName
 syntax match uniteMessageSource /^\[.\{-}\]/ contained
 syntax match uniteSourceArgs /:\S\+/ contained
 highlight default link uniteSourcePrompt Prompt

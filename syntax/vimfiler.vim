@@ -70,10 +70,10 @@ syntax match vimfilerDateToday '\s\zs![^!]\+$' contains=vimfilerDateIgnore conta
 if has('conceal')
  " Supported conceal features.
  syntax match vimfilerDateIgnore '[#~!]' contained conceal
- syntax match   vimfilerMarker        '[~!@#$%^&]$' contained conceal
+ syntax match vimfilerMarker '[~!@#$%^&]$' contained conceal
 else
  syntax match vimfilerDateIgnore '[#~!]' contained
- syntax match   vimfilerMarker        '[~!@#$%^&]$' contained
+ syntax match vimfilerMarker '[~!@#$%^&]$' contained
 endif
 
 highlight default link vimfilerCurrentDirectory Path
@@ -93,10 +93,10 @@ highlight default link vimfilerDateIgnore Ignore
 highlight default link vimfilerDate DateOld
 
 execute 'syntax match vimfilerPdfHtml ' string('^ *'.g:vimfiler_file_icon.' .*\.\(pdf\|html\)[ \n]') ' contains=vimfilerIcon'
-execute 'syntax match vimfilerTypeImage ' string('^ *'.g:vimfiler_file_icon.' .*\.\(eps\|EPS\)[ \n]')  ' contains=vimfilerIcon'
+execute 'syntax match vimfilerTypeImage ' string('^ *'.g:vimfiler_file_icon.' .*\.\(eps\|EPS\)[ \n]') ' contains=vimfilerIcon'
 execute "syntax match vimfilerIcon '^ *".g:vimfiler_file_icon." ' contained"
-execute 'syntax match vimfilerTypeSystem ' string('^ *'.g:vimfiler_file_icon.' \(#\S\+#\|Makefile\.in\|configure\|aclocal\.m4\|Makefile\|stamp-h1\|config\.status\|config\.h\|config\.h\.in\~\?\|output\.[0-9]\S\?\|requests\|traces\.[0-9]\S\?\|.*\.log\)[ \n]')  ' contains=vimfilerIcon'
-execute 'syntax match vimfilerTypeSystem ' string('^ *'.g:vimfiler_file_icon.' \([A-Za-z0-9_-]*\(\.o\|\.hi\)\)[ \n]')  ' contains=vimfilerIcon'
+execute 'syntax match vimfilerTypeSystem ' string('^ *'.g:vimfiler_file_icon.' \(#\S\+#\|Makefile\.in\|configure\|aclocal\.m4\|Makefile\|stamp-h1\|config\.status\|config\.h\|config\.h\.in\~\?\|output\.[0-9]\S\?\|requests\|traces\.[0-9]\S\?\|.*\.log\)[ \n]') ' contains=vimfilerIcon'
+execute 'syntax match vimfilerTypeSystem ' string('^ *'.g:vimfiler_file_icon.' \([A-Za-z0-9_-]*\(\.o\|\.hi\)\)[ \n]') ' contains=vimfilerIcon'
 
 highlight default link vimfilerTypeText Text
 highlight default link vimfilerTypeDirectory Path
