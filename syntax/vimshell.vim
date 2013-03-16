@@ -333,7 +333,7 @@ syntax match vimshellPlusNeg '\s\(+\+-*\|-\+\)' contains=vimshellPlus contained
 highlight default link vimshellPlusNeg vimshellDiffNewFile
 syntax match vimshellPlusNegOperator '([+-])' contained
 highlight default link vimshellPlusNegOperator Operator
-syntax match vimshellBranch '\[[^\[\]]*\]' contained
+syntax match vimshellBranch '\[[^\[\] ]* [a-z0-9]\+\]' contained
 highlight default link vimshellBranch Conditional
 execute 'syntax region vimshellGitRegion start=' string(s:command_match.git.'\|'.s:command_match.diff.'\|^diff -\|^@@ -\d') ' end=+^\[%\].*+'
       \.' contains=vimshellPromptLine,vimshellUserPromptLine,vimshellTime,vimshellDate,'
