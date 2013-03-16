@@ -9,7 +9,7 @@ elseif exists("b:current_syntax")
 endif
 
 " get alias commands
-let s:alias_table = b:vimshell.alias_table
+let s:alias_table = exists('b:vimshell') ? b:vimshell.alias_table : {}
 let s:commands = split('git,ls,python,diff,ghc,ghci,haddock,cabal,man,make', ',')
 let s:command_match = {}
 for s:i in s:commands
