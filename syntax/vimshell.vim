@@ -319,6 +319,8 @@ syntax keyword vimshellDiffKeyword diff contained
 highlight default link vimshellDiffKeyword vimshellCommand
 syntax region vimshellDiffGit start='^diff --' end=+$+ contains=vimshellPath,vimshellDiffKeyword oneline contained
 highlight default link vimshellDiffGit vimshellArguments
+syntax match vimshellGitArguments '\<-\=-[[:alnum:]-]\+' contained
+highlight default link vimshellGitArguments vimshellArguments
 syntax region vimshellDiffDelete start=+^-\(-->\)\@!+ end=+$+ oneline contained keepend
 syntax region vimshellDiffNewFile start=+^---[^>]+ end=+$+ oneline contained keepend
 syntax region vimshellDiffNewFile start=+^> + end=+$+ oneline contained keepend
@@ -341,8 +343,6 @@ execute 'syntax region vimshellGitRegion start=' string(s:command_match.git.'\|'
       \.'vimshellPath,vimshellDiffGit,vimshellPath,vimshellDiffAdd,vimshellDiffDelete,'
       \.'vimshellPlusNeg,vimshellPlusNegOperator,GitHubCommand,vimshellGitArguments,vimshellGit,vimshellBranch'
       \.' keepend'
-syntax match vimshellGitArguments '\<-\=-[[:alnum:]-]\+' contained
-highlight default link vimshellGitArguments vimshellArguments
 syntax match vimshellGit '\<git\>' contained
 highlight default link vimshellGit vimshellCommand
 execute 'syntax region vimshellGitRegion start=' string('^usage: git') ' end=+^\[%\].*+'
