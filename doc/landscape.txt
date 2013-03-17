@@ -58,10 +58,10 @@ SYNTAX FILES					*landscape-syntax*
 
 This plug-in contains following syntax files.
 
-	vimfiler.vim (https://github.com/Shougo/vimfiler)
-	vimshell.vim (https://github.com/Shougo/vimshell)
-	unite.vim (https://github.com/Shougo/unite.vim)
-	quickrun.vim (https://github.com/thinca/vim-quickrun)
+	|vimfiler|.vim (https://github.com/Shougo/vimfiler)
+	|vimshell|.vim (https://github.com/Shougo/vimshell)
+	|unite|.vim (https://github.com/Shougo/unite.vim)
+	|quickrun|.vim (https://github.com/thinca/vim-quickrun)
 
 If you do not want to disable these syntax files, add following configuration
 to .vimrc.
@@ -71,7 +71,7 @@ to .vimrc.
 	let g:landscape_syntax_unite = 0
 	let g:landscape_syntax_quickrun = 0
 <
-I highly recommend following configuration for unite.vim.
+I highly recommend following configuration for |unite.vim|.
 >
 	let g:unite_cursor_line_highlight = 'CursorLine'
 <
