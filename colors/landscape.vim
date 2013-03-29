@@ -86,7 +86,7 @@ if version >= 700
   highlight PmenuSbar ctermfg=white ctermbg=darkgray gui=none guifg=white guibg=darkgray
   highlight PmenuThumb ctermfg=white ctermbg=darkgray gui=none guifg=white guibg=darkgray
 endif
-highlight Search cterm=none ctermfg=234 ctermbg=220 gui=none guifg=#1c1c1c guibg=#ffdf00
+highlight Search cterm=reverse ctermfg=220 ctermbg=234 gui=reverse guifg=#ffdf00 guibg=#1c1c1c
 highlight IncSearch cterm=none ctermfg=236 ctermbg=136 gui=none guifg=#303030 guibg=#af8700
 function! s:newmatch()
   if g:landscape_highlight_url ||
