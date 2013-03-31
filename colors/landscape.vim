@@ -53,7 +53,7 @@ highlight Underlined term=underline ctermfg=45 gui=underline guifg=#00dfff
 highlight default link URL Underlined
 highlight Error term=none ctermfg=15 ctermbg=124 gui=none guifg=#ffffff guibg=#af0000
 highlight WarningMsg term=none ctermfg=7 ctermbg=0 gui=none guifg=#c0c0c0 guibg=#000000
-highlight Todo term=none ctermfg=16 ctermbg=185 gui=none guifg=#000000 guibg=#dfdf5f
+highlight Todo cterm=reverse ctermfg=185 ctermbg=16 gui=reverse guifg=#dfdf5f guibg=#000000
 highlight DiffAdd term=none cterm=none ctermfg=none ctermbg=22 guifg=fg guibg=#005f00
 highlight DiffChange term=none cterm=none ctermfg=none ctermbg=52 guifg=fg guibg=#5f0000
 highlight DiffDelete term=none cterm=none ctermfg=none ctermbg=88 guifg=fg guibg=#870000
@@ -87,7 +87,7 @@ if version >= 700
   highlight PmenuThumb ctermfg=white ctermbg=darkgray gui=none guifg=white guibg=darkgray
 endif
 highlight Search cterm=reverse ctermfg=220 ctermbg=234 gui=reverse guifg=#ffdf00 guibg=#1c1c1c
-highlight IncSearch cterm=none ctermfg=236 ctermbg=136 gui=none guifg=#303030 guibg=#af8700
+highlight IncSearch cterm=reverse ctermfg=136 ctermbg=236 gui=reverse guifg=#af8700 guibg=#303030
 function! s:newmatch()
   if g:landscape_highlight_url ||
    \ g:landscape_highlight_todo ||
