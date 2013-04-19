@@ -159,6 +159,7 @@ syntax match vimshellTypeMultimedia '\(\S\| \S\)*\.\(
 highlight default link vimshellTypeMultimedia Multimedia
 syntax match vimshellTypeSystem '\(\S\| \S\)*\.\(o\|hi\|inf\|sys\|reg\|dat\|spi\|a\|so\|lib\|dll\)\>\(\s\|$\)' contained
 syntax match vimshellTypeSystem '#\S\+#\|configure[\s$]\|aclocal\.m4\|Makefile\(\s\(\.in\)\?\|$\)\|stamp-h1\|config\.\(h\.in\)\?\|config\.h\.in\~\?[\s$]\|output\.[0-9]\S\?\|requests\|traces\.[0-9]\S\?' contained
+syntax match vimshellTypeSystem 'y\.tab\.c\|y\.output\|lex\.yy\.c\|y\.tab\.h' contained
 highlight default link vimshellTypeSystem System
 syntax match vimshellTypeExe '\S\{2,}\*\(\s\|$\)' contains=vimshellTypeExeMarker contained
 highlight default link vimshellTypeExe Exe

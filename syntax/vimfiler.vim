@@ -96,6 +96,7 @@ execute 'syntax match vimfilerPdfHtml ' string('^ *'.g:vimfiler_file_icon.' .*\.
 execute 'syntax match vimfilerTypeImage ' string('^ *'.g:vimfiler_file_icon.' .*\.\(eps\|EPS\)[ \n]') ' contains=vimfilerIcon'
 execute "syntax match vimfilerIcon '^ *".g:vimfiler_file_icon." ' contained"
 execute 'syntax match vimfilerTypeSystem ' string('^ *'.g:vimfiler_file_icon.' \(#\S\+#\|Makefile\.in\|configure\|aclocal\.m4\|Makefile\|stamp-h1\|config\.status\|config\.h\|config\.h\.in\~\?\|output\.[0-9]\S\?\|requests\|traces\.[0-9]\S\?\)[ \n]') ' contains=vimfilerIcon'
+execute 'syntax match vimfilerTypeSystem ' string('^ *'.g:vimfiler_file_icon.' \(y\.tab\.c\|y\.output\|lex\.yy\.c\|y\.tab\.h\)[ \n]') ' contains=vimfilerIcon'
 execute 'syntax match vimfilerTypeSystem ' string('^ *'.g:vimfiler_file_icon.' \([A-Za-z0-9_-]*\(\.o\|\.hi\)\)[ \n]') ' contains=vimfilerIcon'
 
 highlight default link vimfilerTypeText Text
