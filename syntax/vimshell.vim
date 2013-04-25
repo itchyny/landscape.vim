@@ -30,7 +30,7 @@ syntax region vimshellError start=+!!!+ end=+!!!+ contains=vimshellErrorHidden o
 syntax keyword vimshellError error Error ERROR warning Warning Worning Overfull
 if has('conceal')
   syntax match vimshellErrorHidden '^\*\*\*' contained conceal
-  syntax match vimshellErrorHidden '!!!' contained conceal
+  syntax match vimshellErrorHidden '!!!\(vimshell: \)\?' contained conceal
 else
   syntax match vimshellErrorHidden '^\*\*\* ' contained
   syntax match vimshellErrorHidden '!!!' contained
