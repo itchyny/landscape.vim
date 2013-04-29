@@ -21,14 +21,9 @@ highlight default link uniteErrorHidden Ignore
 syntax match uniteSourcePrompt /^Sources/ contained nextgroup=uniteSeparator
 syntax match uniteSeparator /:/ contained nextgroup=uniteSourceNames
 syntax match uniteSourceNames / [[:alnum:]_\/-]\+/ contained nextgroup=uniteSourceArgs,uniteCommand
-syntax match uniteMessage /^\[.\{-}\].*$/ contains=uniteMessageSource,uniteNumber,uniteGitCommand,uniteBundleName
-syntax match uniteMessageSource /^\[.\{-}\]/ contained
 syntax match uniteSourceArgs /:\S\+/ contained
 highlight default link uniteSourcePrompt Prompt
 highlight default link uniteSeparator NONE
-highlight default link uniteSourceNames Constant
-highlight default link uniteMessage NONE
-highlight default link uniteMessageSource Constant
 highlight default link uniteSourceArgs Function
 
 " git
@@ -94,6 +89,13 @@ syntax match uniteVimshellHistory '.*' contains=uniteSpecial,uniteCommand,uniteS
 highlight default link uniteSpecial Special
 highlight default link uniteCommand Command
 highlight default link uniteArguments Arguments
+
+" neobundle/update
+syntax match uniteMessage /^- \[.\{-}\].*$/ contains=uniteMessageSource,uniteNumber,uniteGitCommand,uniteBundleName
+syntax match uniteMessageSource /^- \[.\{-}\]/ contained
+highlight default link uniteSourceNames Constant
+highlight default link uniteMessage NONE
+highlight default link uniteMessageSource Constant
 
 highlight default link uniteChooseAction NONE
 highlight default link uniteChooseCandidate NONE
