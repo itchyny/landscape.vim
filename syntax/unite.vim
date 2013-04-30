@@ -27,10 +27,10 @@ highlight default link uniteSeparator NONE
 highlight default link uniteSourceArgs Function
 
 " git
-syntax match uniteGitCommand /git \S\+ -\S\+/ contained contains=uniteGit,uniteGitArg
+syntax match uniteGitCommand /git \S\+ -\S\+/ contained contains=uniteGit,uniteGitArg containedin=uniteSource__NeoBundleInstall_Progress
 syntax match uniteGitArg /\-\S\+/ contained
 syntax match uniteGit /git/ contained
-syntax match uniteBundleName /|\@<=\S\+|\@=/ contained
+syntax match uniteBundleName /|\@<=\S\+|\@=/ contained containedin=uniteSource__NeoBundleInstall_Source
 highlight default link uniteGitCommand GitCommand
 highlight default link uniteGitArg Arguments
 highlight default link uniteGit Command
@@ -70,7 +70,7 @@ syntax region uniteMarkedLine start=/^\*/ end='$' keepend
 syntax region uniteNonMarkedLine start=/^- / end='$' keepend contains=uniteCandidateMarker,uniteCandidateSourceName,uniteCandidateAbbr
 syntax match uniteCandidateMarker /^- / contained
 syntax match uniteQuickMatchTrigger /^.|/ contained
-syntax match uniteNumber '\<\d\+\>' contained containedin=uniteStatusLine
+syntax match uniteNumber '\<\d\+\>' contained containedin=uniteStatusLine,uniteSource__NeoBundleInstall_Progress
 syntax match uniteLineNumber '\(^- *+\? *\)\@<=\<\d\+\>' contained containedin=uniteSource__Line
 highlight default link uniteNumber Number
 highlight default link uniteLineNumber LineNr
@@ -105,6 +105,8 @@ highlight default link uniteChoosePrompt uniteSourcePrompt
 highlight default link uniteChooseSource uniteSourceNames
 highlight default link uniteSource__FileMru_Time Date
 highlight default link uniteSource__Buffer_Time Time
+highlight default link uniteSource__NeoBundleInstall_Progress Normal
+highlight default link uniteSource__NeoBundleInstall_Source Normal
 highlight default link uniteInputPrompt Prompt
 highlight default link uniteInputPromptError Error
 highlight default link uniteInputSpecial Special
