@@ -91,8 +91,8 @@ highlight default link uniteCommand Command
 highlight default link uniteArguments Arguments
 
 " neobundle/update
-syntax match uniteMessage /^- \[.\{-}\].*$/ contains=uniteMessageSource,uniteNumber,uniteGitCommand,uniteBundleName
-syntax match uniteMessageSource /^- \[.\{-}\]/ contained
+syntax match uniteMessage /^- *\[.\{-}\].*$/ contains=uniteMessageSource,uniteNumber,uniteGitCommand,uniteBundleName
+syntax match uniteMessageSource /^- *\[.\{-}\]/ contained
 highlight default link uniteSourceNames Constant
 highlight default link uniteMessage NONE
 highlight default link uniteMessageSource Constant

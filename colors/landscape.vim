@@ -80,7 +80,7 @@ if version >= 700
   highlight CursorColumn term=none cterm=none ctermbg=235 gui=none guibg=#262626
   highlight LineNr term=none ctermfg=58 ctermbg=none guifg=#5f5f00 guibg=bg
   highlight CursorLineNr term=underline cterm=bold ctermfg=148 ctermbg=235 gui=bold guifg=#afdf00 guibg=#262626
-  highlight MatchParen ctermfg=none ctermbg=237 guibg=#3a3a3a
+  highlight MatchParen ctermfg=none ctermbg=240 guibg=#585858
   highlight Pmenu ctermfg=black ctermbg=gray gui=none guifg=black guibg=gray
   highlight PmenuSel ctermfg=black ctermbg=darkgray gui=none guifg=black guibg=darkgray
   highlight PmenuSbar ctermfg=white ctermbg=darkgray gui=none guifg=white guibg=darkgray
