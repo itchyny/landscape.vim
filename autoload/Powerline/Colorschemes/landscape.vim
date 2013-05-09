@@ -58,7 +58,7 @@ let g:Powerline#Colorschemes#landscape#colorscheme = Pl#Colorscheme#Init([
     \ 's': ['white', 'gray5', ['bold']],
     \ }),
   \
-  \ Pl#Hi#Segments(['fileinfo', 'filename', 'unite:status', 'vimfiler:status'], {
+  \ Pl#Hi#Segments(['fileinfo', 'filename', 'unite:status', 'vimfiler:status', 'vimshell:status'], {
     \ 'i': ['white', 'darkestgreen', ['bold']],
     \ 'n': ['white', 'darkestcyan', ['bold']],
     \ 'v': ['white', 'darkestpurple', ['bold']],

@@ -41,6 +41,18 @@ let g:Powerline#Themes#landscape#theme = Pl#Theme#Create(
 		\ , 'lineinfo'
   \ ),
 	\
+	\
+  \ Pl#Theme#Buffer('vimshell', ['match', 'any', [Pl#Match#Add('&ft', 'vimshell')]]
+		\ , 'paste_indicator'
+		\ , 'mode_indicator'
+    \ , 'vimshell:status'
+    \ , Pl#Segment#Truncate()
+    \ , Pl#Segment#Split()
+    \ , 'filetype'
+		\ , 'scrollpercent'
+		\ , 'lineinfo'
+  \ ),
+	\
 	\ Pl#Theme#Buffer('command_t'
 		\ , ['static_str.name', 'Command-T']
 		\ , Pl#Segment#Truncate()
