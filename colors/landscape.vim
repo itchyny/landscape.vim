@@ -81,10 +81,10 @@ if version >= 700
   highlight LineNr term=none ctermfg=58 ctermbg=none guifg=#5f5f00 guibg=bg
   highlight CursorLineNr term=underline cterm=bold ctermfg=148 ctermbg=235 gui=bold guifg=#afdf00 guibg=#262626
   highlight MatchParen ctermfg=none ctermbg=240 guibg=#585858
-  highlight Pmenu ctermfg=black ctermbg=gray gui=none guifg=black guibg=gray
-  highlight PmenuSel ctermfg=black ctermbg=darkgray gui=none guifg=black guibg=darkgray
-  highlight PmenuSbar ctermfg=white ctermbg=darkgray gui=none guifg=white guibg=darkgray
-  highlight PmenuThumb ctermfg=white ctermbg=darkgray gui=none guifg=white guibg=darkgray
+  highlight Pmenu ctermfg=233 ctermbg=249 gui=none guifg=#121212 guibg=#b2b2b2
+  highlight PmenuSel ctermfg=233 ctermbg=242 gui=none guifg=#121212 guibg=#666666
+  highlight PmenuSbar ctermfg=233 ctermbg=244 gui=none guifg=#121212 guibg=#808080
+  highlight PmenuThumb ctermfg=233 ctermbg=239 gui=none guifg=#121212 guibg=#4e4e4e
 endif
 highlight Search cterm=reverse ctermfg=220 ctermbg=234 gui=reverse guifg=#ffdf00 guibg=#1c1c1c
 highlight IncSearch cterm=reverse ctermfg=136 ctermbg=236 gui=reverse guifg=#af8700 guibg=#303030
