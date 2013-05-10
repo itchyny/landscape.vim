@@ -11,6 +11,7 @@ Introduction				|landscape-introduction|
 Install					|landscape-install|
 Variables				|landscape-variables|
 Syntax Files				|landscape-syntax|
+Powerline Theme				|landscape-powerline|
 
 ==============================================================================
 INTRODUCTION					*landscape-introduction*
@@ -75,5 +76,16 @@ I highly recommend following configuration for |unite.vim|.
 >
 	let g:unite_cursor_line_highlight = 'CursorLine'
 <
+==============================================================================
+POWERLINE THEME					*landscape-powerline*
+This plug-in contains a theme and colorscheme for |powerline|. Note that it is
+for vim-powerline (https://github.com/Lokaltog/vim-powerline), not for
+Powerline (https://github.com/Lokaltog/powerline). You can use the theme and
+colorscheme by following configurations.
+>
+	let g:Powerline_theme = 'landscape'
+	let g:Powerline_colorscheme = 'landscape'
+<
+
 ==============================================================================
 vim:tw=78:sw=4:ts=8:ft=help:norl:noet:
