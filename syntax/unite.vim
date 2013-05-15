@@ -27,9 +27,11 @@ highlight default link uniteSeparator NONE
 highlight default link uniteSourceArgs Function
 
 " git
-syntax match uniteGitCommand /git \S\+ -\S\+/ contained contains=uniteGit,uniteGitArg containedin=uniteSource__NeoBundleInstall_Progress
+syntax match uniteGitCommand /git .*/ contained contains=uniteGit,uniteGitArg,uniteSpecial,uniteCommand containedin=uniteSource__NeoBundleInstall_Progress
 syntax match uniteGitArg /\-\S\+/ contained
 syntax match uniteGit /git/ contained
+syntax match uniteSpecial '[|<>;&]' contained
+syntax match uniteCommand '[|;&]\s*\f\+' contains=uniteSpecial contained
 syntax match uniteBundleName /|\@<=\S\+|\@=/ contained containedin=uniteSource__NeoBundleInstall_Source
 highlight default link uniteGitCommand GitCommand
 highlight default link uniteGitArg Arguments
