@@ -89,10 +89,13 @@ if version >= 700
 endif
 highlight Search cterm=reverse ctermfg=220 ctermbg=234 gui=reverse guifg=#ffdf00 guibg=#1c1c1c
 highlight IncSearch cterm=reverse ctermfg=136 ctermbg=236 gui=reverse guifg=#af8700 guibg=#303030
+
 function! s:newmatch()
+  try
   if g:landscape_highlight_url ||
    \ g:landscape_highlight_todo ||
-   \ g:landscape_highlight_full_space
+   \ g:landscape_highlight_full_space ||
+   \ g:landscape_highlight_url_filetype != {}
     if exists("b:landscape_match")
       for m in getmatches()
         if m.group == 'URL' ||
@@ -102,7 +105,9 @@ function! s:newmatch()
         endif
       endfor
     endif
-    if g:landscape_highlight_url
+    if g:landscape_highlight_url &&
+          \ (!has_key(g:landscape_highlight_url_filetype, &l:filetype) ||
+          \ g:landscape_highlight_url_filetype[&l:filetype])
       call matchadd('URL',
             \'\(https\?\|ftp\|git\):\/\/\('
             \.'[&:#*@~%_\-=?/.0-9A-Za-z]*'
@@ -119,10 +124,12 @@ function! s:newmatch()
     endif
     let b:landscape_match = 1
   endif
+  catch
+  endtry
 endfunction
 augroup MatchAdd
   autocmd!
-  autocmd BufCreate,BufNew,WinEnter * call s:newmatch()
+  autocmd BufCreate,BufNew,WinEnter,FileType * call s:newmatch()
 augroup END
 
 highlight SpellBad term=none cterm=none ctermbg=52 gui=none guibg=#5f0000
