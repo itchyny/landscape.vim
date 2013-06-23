@@ -116,7 +116,11 @@ highlight default link uniteInputSpecial Special
 " TODO: check what is done in this function
 " TODO: 全面的に書きなおす
 " TODO: あらゆるソースでうまくいくように
-call unite#set_highlight()
+if exists('*unite#view#_set_highlight')
+  call unite#view#_set_highlight()
+else
+  call unite#set_highlight()
+endif
 
 let b:current_syntax = 'unite'
 
