@@ -28,7 +28,7 @@ highlight default link quickrunPath Preproc
 highlight default link quickrunImage Type
 highlight default link quickrunNumber Number
 highlight default link quickrunFloat Float
-syntax match quickrunNumber '[+-]\=\<\d\+\>\|[+-]\=\<0[xX]\x\+\>\|[+-]\=\<0[oO]\o\+\>'
+syntax match quickrunNumber '\([+-]\=\<\d\+\>\|[+-]\=\<0[xX]\x\+\>\|[+-]\=\<0[oO]\o\+\>\)\.\@!'
 syntax match quickrunFloat '\<[+-]\=\%(\d\+\.\d\+\|\d\+\.\|\.\d\+\)\%([eE][+-]\=\d\+\)\?'
 syntax match quickrunTime '\<\d\d\=:\d\d\=\>'
 syntax match quickrunTime '\<\d\d\=:\d\d\=:\d\d\=\>'
