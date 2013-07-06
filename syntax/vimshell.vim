@@ -332,8 +332,8 @@ highlight default link vimshellDiffNewFile DiffNewFile
 syntax match vimshellDiffLine '^\d\+\(,\d\+\)\=[cda]\d\+\>\(,\d\+\)\=$' contained
 syntax match vimshellPlus '+\+' contained
 highlight default link vimshellPlus vimshellDiffFile
-syntax match vimshellPlusNeg '\s\(+\+-*\|-\+\)' contains=vimshellPlus contained
-highlight default link vimshellPlusNeg vimshellDiffNewFile
+" syntax match vimshellPlusNeg '^\(+\+-*\|-\+\)' contains=vimshellPlus contained
+" highlight default link vimshellPlusNeg vimshellDiffNewFile
 syntax match vimshellPlusNegOperator '([+-])' contained
 highlight default link vimshellPlusNegOperator Operator
 syntax match vimshellBranch '\[[^\[\] ]* [a-z0-9]\+\]' contained
