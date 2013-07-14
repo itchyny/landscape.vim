@@ -189,7 +189,7 @@ execute 'syntax match vimshellLsalLine' string(s:permission
   \' contains=vimshellLsalLinePart,vimshellPdfHtml,vimshellArchive,vimshellImage,'
   \.'vimshellTypeText,vimshellTypeMultimedia,vimshellTypeSystem,vimshellTypeExe,'
   \.'vimshellPathLsal,vimshellDotPathLsal,vimshellLinkFromDest'
-execute 'syntax region vimshellLs start=' string(s:command_match.ls) ' end=+\n\(' . escape(get(g:, 'vimshell_prompt', 'vimshell% '), '*.^$') . '\)\@=+'
+execute 'syntax region vimshellLs start=' string(s:command_match.ls) ' end=+\n\(' . s:prompt . '\)\@=+'
       \.' contains=vimshellPromptLine,vimshellUserPromptLine,vimshellArchive,vimshellLsalLine,vimshellDotFiles,'
       \.'vimshellTypeText,vimshellTypeMultimedia,vimshellTypeSystem,vimshellTypeExe,'
       \.'vimshellPath,vimshellPdfHtml,vimshellImage,vimshellError'
@@ -273,7 +273,7 @@ execute 'syntax match vimshellComment ' string('--.*\(Defined in\)') ' oneline c
 "       \.'vimshellCompilername,vimshellStatement,vimshellComment,vimshellNumber,vimshellFloat,vimshellString,vimshellBoolean,vimshellConditional,'
 "       \.'vimshellError,vimshellGhcError'
 "       \.' keepend'
-execute 'syntax region vimshellGhci start=' string(s:command_match.ghc.'\|'.s:command_match.ghci.'\|'.s:hsprompt) ' end=+\n\(' . escape(get(g:, 'vimshell_prompt', 'vimshell% '), '*.^$') . '\)\@=+'
+execute 'syntax region vimshellGhci start=' string(s:command_match.ghc.'\|'.s:command_match.ghci.'\|'.s:hsprompt) ' end=+\n\(' . s:prompt . '\)\@=+'
       \.' contains='
       \.'vimshellPromptLine,vimshellUserPromptLine,vimshellLsalLine,'
       \.'vimshellCompilername,vimshellStatement,vimshellComment,vimshellNumber,vimshellFloat,vimshellString,vimshellBoolean,vimshellConditional,'
@@ -283,7 +283,7 @@ execute 'syntax region vimshellGhci start=' string(s:command_match.ghc.'\|'.s:co
 
 " haddock, cabal
 syntax match vimshellHaddockCoverage '^\s*\d\d\=% (\s\+\d\+ /\s\+\d\+) in .*$' contains=vimshellString,vimshellNumber contained
-execute 'syntax region vimshellHaddock start=' string(s:command_match.haddock.'\|'.s:command_match.cabal) ' end=+\n\(' . escape(get(g:, 'vimshell_prompt', 'vimshell% '), '*.^$') . '\)\@=+'
+execute 'syntax region vimshellHaddock start=' string(s:command_match.haddock.'\|'.s:command_match.cabal) ' end=+\n\(' . s:prompt . '\)\@=+'
       \.' contains=vimshellPromptLine,vimshellUserPromptLine,'
       \.'vimshellHaddockCoverage,vimshellError,vimshellString,vimshellNumber,haskellType'
       \.' keepend'
@@ -342,7 +342,7 @@ syntax match vimshellPlusNegOperator '([+-])' contained
 highlight default link vimshellPlusNegOperator Operator
 syntax match vimshellBranch '\[[^\[\] ]* [a-z0-9]\+\]' contained
 highlight default link vimshellBranch Conditional
-execute 'syntax region vimshellGitRegion start=' string(s:command_match.git.'\|'.s:command_match.diff.'\|^diff -\|^@@ -\d') ' end=+\n\(' . escape(get(g:, 'vimshell_prompt', 'vimshell% '), '*.^$') . '\)\@=+'
+execute 'syntax region vimshellGitRegion start=' string(s:command_match.git.'\|'.s:command_match.diff.'\|^diff -\|^@@ -\d') ' end=+\n\(' . s:prompt . '\)\@=+'
       \.' contains=vimshellPromptLine,vimshellUserPromptLine,vimshellTime,vimshellDate,'
       \.'vimshellDiffFile,vimshellDiffNewFile,vimshellDiffLine,vimshellError,vimshellNumber,'
       \.'vimshellPath,vimshellDiffGit,vimshellPath,vimshellDiffAdd,vimshellDiffDelete,'
@@ -350,7 +350,7 @@ execute 'syntax region vimshellGitRegion start=' string(s:command_match.git.'\|'
       \.' keepend'
 syntax match vimshellGit '\<git\>' contained
 highlight default link vimshellGit vimshellCommand
-execute 'syntax region vimshellGitRegion start=' string('^usage: git') ' end=+\n\(' . escape(get(g:, 'vimshell_prompt', 'vimshell% '), '*.^$') . '\)\@=+'
+execute 'syntax region vimshellGitRegion start=' string('^usage: git') ' end=+\n\(' . s:prompt . '\)\@=+'
       \.' contains=vimshellPromptLine,vimshellUserPromptLine,'
       \.'GitHubCommand,vimshellGitArguments,vimshellGit,vimshellError,vimshellString'
       \.' keepend'
@@ -386,7 +386,7 @@ syntax keyword vimshellPythonFunction
       \ contained
 highlight default link vimshellPythonFunction Function
 syntax match vimshellPythonFunction '\<__[a-z]\{3,}__\>' contained
-execute 'syntax region vimshellPython start=' string(s:command_match.python) ' end=+\n\(' . escape(get(g:, 'vimshell_prompt', 'vimshell% '), '*.^$') . '\)\@=+'
+execute 'syntax region vimshellPython start=' string(s:command_match.python) ' end=+\n\(' . s:prompt . '\)\@=+'
       \.' contains=vimshellPromptLine,vimshellUserPromptLine,'
       \.'vimshellPyPrompt,vimshellCompilerdescription,vimshellError,vimshellStatement,vimshellConditional,'
       \.'vimshellComment,vimshellNumber,vimshellFloat,vimshellString,vimshellBoolean,vimshellOperator,vimshellLambdaError,vimshellPythonFunction'
@@ -409,13 +409,13 @@ highlight default link manReference PreProc
 highlight default link manSubHeading Function
 highlight default link manTitle Title
 highlight default link manSectionHeading Statement
-execute 'syntax region vimshellMan start=' string(s:command_match.man.'\|^'.s:prompt.'\s*git\s\+--help\>') ' end=+\n\(' . escape(get(g:, 'vimshell_prompt', 'vimshell% '), '*.^$') . '\)\@=+'
+execute 'syntax region vimshellMan start=' string(s:command_match.man.'\|^'.s:prompt.'\s*git\s\+--help\>') ' end=+\n\(' . s:prompt . '\)\@=+'
       \.' contains=vimshellPromptLine,vimshellUserPromptLine,vimshellUnixString,vimshellNumber,vimshellPath,vimshellIEEE,vimshellError,'
       \.'manOptionDesc,manLongOptionDesc,manReference,manTitle,manSectionHeading,manSubHeading'
       \.' keepend'
 
 " make
-execute 'syntax region vimshellMake start=' string(s:command_match.make.'\|^'.s:prompt.'\s*git\s\+--help\>') ' end=+\n\(' . escape(get(g:, 'vimshell_prompt', 'vimshell% '), '*.^$') . '\)\@=+'
+execute 'syntax region vimshellMake start=' string(s:command_match.make.'\|^'.s:prompt.'\s*git\s\+--help\>') ' end=+\n\(' . s:prompt . '\)\@=+'
       \.' contains=vimshellPromptLine,vimshellUserPromptLine,vimshellString,vimshellUnixString,vimshellNumber,vimshellPath,vimshellError'
       \.' keepend'
 
