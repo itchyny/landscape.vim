@@ -40,8 +40,8 @@ highlight default link uniteBundleName Identifier
 
 " string
 syntax match uniteStringSpecial '\\\([0-9]\+\|o[0-7]\+\|x[0-9a-fA-F]\+\|[\"\\'&\\abfnrtv]\|^[A-Z^_\[\\\]]\)' contained
-syntax region uniteString start=+"+ end=+"+ contains=uniteStringSpecial,uniteCandidateInputKeyword oneline contained
-syntax region uniteString start=+'+ end=+'+ contains=uniteStringSpecial,uniteCandidateInputKeyword oneline contained
+syntax region uniteString start=+"+ end=+"+ contains=uniteCandidateAbbr,uniteStringSpecial,uniteCandidateInputKeyword oneline contained
+syntax region uniteString start=+'+ end=+'+ contains=uniteCandidateAbbr,uniteStringSpecial,uniteCandidateInputKeyword oneline contained
 highlight default link uniteStringSpecial SpecialChar
 highlight default link uniteString String
 
@@ -69,11 +69,12 @@ highlight default link uniteSource__Buffer_NoFile Conditional
 highlight default link uniteNewFile uniteSource__Buffer_NoFile 
 
 syntax region uniteMarkedLine start=/^\*/ end='$' keepend
-syntax region uniteNonMarkedLine start=/^- / end='$' keepend contains=uniteCandidateMarker,uniteCandidateSourceName,uniteCandidateAbbr
-syntax match uniteCandidateMarker /^- / contained
+syntax match uniteCandidateSourceName /^-\? \+[[:alnum:]_\/-]\+/ contained
+syntax region uniteNonMarkedLine start=/^-\? \+/ end='$' keepend contains=uniteCandidateMarker,uniteCandidateSourceName,uniteCandidateAbbr
+syntax match uniteCandidateMarker /^-\? \+/ contained
 syntax match uniteQuickMatchTrigger /^.|/ contained
 syntax match uniteNumber '\<\d\+\>' contained containedin=uniteStatusLine,uniteSource__NeoBundleInstall_Progress
-syntax match uniteLineNumber '\(^-\? *+\? *\)\@<=\<\d\+\>' contained containedin=uniteSource__Line
+syntax match uniteLineNumber '\(^-\? \++\? *\)\@<=\<\d\+\>' contained containedin=uniteSource__Line
 highlight default link uniteNumber Number
 highlight default link uniteLineNumber LineNr
 highlight default link uniteMarkedLine Marked
@@ -84,17 +85,17 @@ highlight default link uniteCandidateInputKeyword Comment
 
 " vimshell history
 syntax match uniteSpecial '[|<>;&]' contained
-syntax match uniteCommand '\(^- vimshell/history \(\S\+\)\?\)\@<=\S\+' contained contains=uniteCandidateSourceName,uniteCandidateInputKeyword
+syntax match uniteCommand '\(^-\? \+vimshell/history\s\+\)\@<=\S\+' contained contains=uniteCandidateInputKeyword
 syntax match uniteCommand '[|;&]\s*\f\+' contains=uniteSpecial,uniteCandidateInputKeyword contained
 syntax match uniteArguments '\s-\=-[[:alnum:]-]\+' contained contains=uniteCandidateInputKeyword
-syntax match uniteVimshellHistory '.*' contains=uniteSpecial,uniteCommand,uniteString,GitHubCommand,uniteNumber,uniteArguments,uniteDotFiles contained containedin=uniteSource__VimshellHistory,uniteSource__VimShellHistoryVimshell
+syntax match uniteVimshellHistory '.*' contains=uniteSpecial,uniteCommand,uniteString,GitHubCommand,uniteNumber,uniteArguments,uniteDotFiles,uniteNonMarkedLine contained containedin=uniteSource__VimshellHistory,uniteSource__VimShellHistoryVimshell,uniteSource__VimShellExternalHistoryVimshell
 highlight default link uniteSpecial Special
 highlight default link uniteCommand Command
 highlight default link uniteArguments Arguments
 
 " neobundle/update
-syntax match uniteMessage /^- *\[.\{-}\].*$/ contains=uniteMessageSource,uniteNumber,uniteGitCommand,uniteBundleName
-syntax match uniteMessageSource /^- *\[.\{-}\]/ contained
+syntax match uniteMessage /^-\? \+\[.\{-}\].*$/ contains=uniteMessageSource,uniteNumber,uniteGitCommand,uniteBundleName
+syntax match uniteMessageSource /^-\? \+\[.\{-}\]/ contained
 highlight default link uniteSourceNames Constant
 highlight default link uniteMessage NONE
 highlight default link uniteMessageSource Constant
