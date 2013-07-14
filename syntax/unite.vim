@@ -88,7 +88,7 @@ syntax match uniteSpecial '[|<>;&]' contained
 syntax match uniteCommand '\(^-\? \+vimshell/history\s\+\)\@<=\S\+' contained contains=uniteCandidateInputKeyword
 syntax match uniteCommand '[|;&]\s*\f\+' contains=uniteSpecial,uniteCandidateInputKeyword contained
 syntax match uniteArguments '\s-\=-[[:alnum:]-]\+' contained contains=uniteCandidateInputKeyword
-syntax match uniteVimshellHistory '.*' contains=uniteSpecial,uniteCommand,uniteString,GitHubCommand,uniteNumber,uniteArguments,uniteDotFiles,uniteNonMarkedLine contained containedin=uniteSource__VimshellHistory,uniteSource__VimShellHistoryVimshell,uniteSource__VimShellExternalHistoryVimshell
+syntax match uniteVimshellHistory '.*' contains=uniteSpecial,uniteCommand,uniteString,GitHubCommand,uniteNumber,uniteArguments,uniteDotFiles,uniteCandidateSourceName contained containedin=uniteSource__VimshellHistory,uniteSource__VimShellHistoryVimshell,uniteSource__VimShellExternalHistoryVimshell
 highlight default link uniteSpecial Special
 highlight default link uniteCommand Command
 highlight default link uniteArguments Arguments
