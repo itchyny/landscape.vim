@@ -93,6 +93,9 @@ highlight default link uniteSpecial Special
 highlight default link uniteCommand Command
 highlight default link uniteArguments Arguments
 
+" file_mru
+syntax match uniteSource__FileMru_Time '(\d\{4}/\d\d/\d\d \d\d:\d\d:\d\d)' containedin=uniteFile,unitePath
+
 " neobundle/update
 syntax match uniteMessage /^-\? \+\[.\{-}\].*$/ contains=uniteMessageSource,uniteNumber,uniteGitCommand,uniteBundleName
 syntax match uniteMessageSource /^-\? \+\[.\{-}\]/ contained
