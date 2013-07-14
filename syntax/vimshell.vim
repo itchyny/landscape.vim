@@ -51,7 +51,9 @@ highlight default link vimshellUserPromptLine Preproc
 highlight default link vimshellUserPromptHidden Ignore
 
 " prompt
-let s:prompt = vimshell#escape_match(vimshell#get_prompt())
+let s:prompt = exists('g:vimshell_prompt_pattern') && g:vimshell_prompt_pattern != ''
+      \ ? g:vimshell_prompt_pattern  : vimshell#escape_match(vimshell#get_prompt())
+let s:prompt = substitute(s:prompt, '^\^\+', '', '')
 let s:secondary_prompt = vimshell#escape_match(vimshell#get_secondary_prompt())
 let s:str_prompt = string('^' . s:prompt)
 let s:str_secondary_prompt = string('^' . s:secondary_prompt)
@@ -135,6 +137,8 @@ syntax match vimshellPath '\(\/\|\.\.\?\)\(\([[:alpha:]_.][[:alnum:]_.-]*\)\/\)\
 highlight default link vimshellPath Path
 syntax match vimshellDotFiles '\%(^\|\s\)\@<=\.[[:alnum:]_.-]\+[[:blank:]\n]' contained
 highlight default link vimshellDotFiles Comment
+execute 'syntax match vimshellPrompt' s:str_prompt ' contained'
+execute 'syntax match vimshellCommand' string('^' . s:prompt . '\s*\\\?\f\+') ' contains=vimshellPrompt'
 
 execute 'syntax match vimshellPromptLine' string(s:str_prompt_both . '.*')
       \.' contains=vimshellPrompt,vimshellSecondPrompt,vimshellSpecial,vimshellCommand,'
