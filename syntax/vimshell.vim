@@ -342,7 +342,7 @@ syntax match vimshellPlusNegOperator '([+-])' contained
 highlight default link vimshellPlusNegOperator Operator
 syntax match vimshellBranch '\[[^\[\] ]* [a-z0-9]\+\]' contained
 highlight default link vimshellBranch Conditional
-execute 'syntax region vimshellGitRegion start=' string(s:command_match.git.'\|'.s:command_match.diff.'\|^diff -\|^@@ -\d') ' end=+\n\(' . s:prompt . '\)\@=+'
+execute 'syntax region vimshellGitRegion start=' string(s:command_match.git.'\|'.s:command_match.diff.'\|^diff -\|^@@ -\d') ' end="\n\(' . s:prompt . '\)\@="'
       \.' contains=vimshellPromptLine,vimshellUserPromptLine,vimshellTime,vimshellDate,'
       \.'vimshellDiffFile,vimshellDiffNewFile,vimshellDiffLine,vimshellError,vimshellNumber,'
       \.'vimshellPath,vimshellDiffGit,vimshellPath,vimshellDiffAdd,vimshellDiffDelete,'
