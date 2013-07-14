@@ -74,7 +74,7 @@ syntax region uniteNonMarkedLine start=/^-\? \+/ end='$' keepend contains=uniteC
 syntax match uniteCandidateMarker /^-\? \+/ contained
 syntax match uniteQuickMatchTrigger /^.|/ contained
 syntax match uniteNumber '\<\d\+\>' contained containedin=uniteStatusLine,uniteSource__NeoBundleInstall_Progress
-syntax match uniteLineNumber '\(^-\? \++\? *\)\@<=\<\d\+\>' contained containedin=uniteSource__Line
+syntax match uniteLineNumber '\(^-\? \++\? *\)\@<=\<\d\+\>' contained containedin=uniteSource__Line,uniteSource__LineFast
 highlight default link uniteNumber Number
 highlight default link uniteLineNumber LineNr
 highlight default link uniteMarkedLine Marked
