@@ -151,7 +151,7 @@ highlight default link System Comment
 highlight default link Text Constant
 highlight default link Link Constant
 highlight default link Exe Statement
-highlight default link Prompt Identifier
+highlight default link Prompt PreCondit
 highlight default link Icon LineNr
 highlight Time ctermfg=141 ctermbg=none gui=none guifg=#af87ff
 highlight Date ctermfg=140 ctermbg=none gui=none guifg=#af87df
