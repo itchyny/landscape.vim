@@ -90,7 +90,7 @@ colorscheme by following configurations.
 ==============================================================================
 Airline THEME					*landscape-airline*
 This plug-in also contains a theme for |airline|
-(https://github.com/Lokaltog/vim-airline). You can use the theme by following
+(https://github.com/bling/vim-airline). You can use the theme by following
 configurations.
 >
 	let g:airline_theme = 'landscape'
