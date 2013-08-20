@@ -106,14 +106,3 @@ let s:A2 = [ 'gray2', 'gray0' ]
 let s:A3 = [ 'gray0', 'gray0' ]
 let g:airline#themes#landscape#palette.inactive = s:map(s:A1, s:A2, s:A3, s:file)
 
-let g:airline_section_b = '%t'
-let g:airline_section_c = ''
-let s:sep = " %{get(g:, 'airline_right_alt_sep', '')} "
-let g:airline_section_x =
-      \ "%{strlen(&fileformat)?&fileformat:''}".s:sep.
-      \ "%{strlen(&fenc)?&fenc:strlen(&enc)?&enc:''}".s:sep.
-      \ "%{strlen(&filetype)?&filetype:'no ft'}"
-let g:airline_section_y = '%3p%%'
-let g:airline_section_z = get(g:, 'airline_linecolumn_prefix', '').'%3l:%3c'
-let g:airline_detect_whitespace = 0
-

@@ -12,6 +12,7 @@ Install					|landscape-install|
 Variables				|landscape-variables|
 Syntax Files				|landscape-syntax|
 Powerline Theme				|landscape-powerline|
+Airline Theme				|landscape-airline|
 
 ==============================================================================
 INTRODUCTION					*landscape-introduction*
@@ -85,6 +86,28 @@ colorscheme by following configurations.
 >
 	let g:Powerline_theme = 'landscape'
 	let g:Powerline_colorscheme = 'landscape'
+<
+==============================================================================
+Airline THEME					*landscape-airline*
+This plug-in also contains a theme for |airline|
+(https://github.com/Lokaltog/vim-airline). You can use the theme by following
+configurations.
+>
+	let g:airline_theme = 'landscape'
+<
+
+Also, the following settings will be nice.
+>
+	let g:airline_section_b = '%t'
+	let g:airline_section_c = ''
+	let s:sep = " %{get(g:, 'airline_right_alt_sep', '')} "
+	let g:airline_section_x =
+	    \ "%{strlen(&fileformat)?&fileformat:''}".s:sep.
+	    \ "%{strlen(&fenc)?&fenc:strlen(&enc)?&enc:''}".s:sep.
+	    \ "%{strlen(&filetype)?&filetype:'no ft'}"
+	let g:airline_section_y = '%3p%%'
+	let g:airline_section_z = get(g:, 'airline_linecolumn_prefix', '').'%3l:%3c'
+	let g:airline_detect_whitespace = 0
 <
 
 ==============================================================================
