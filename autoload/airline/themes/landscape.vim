@@ -99,10 +99,11 @@ let g:airline#themes#landscape#palette.visual = s:map(s:V1, s:V2, s:V3, s:file)
 let g:airline#themes#landscape#palette.replace = s:map(s:R1, s:R2, s:R3, s:file)
 
 " Inactive
-let s:lineinfo = [ 'gray2', 'gray4', '' ]
-let s:percent = [ 'gray0', 'gray2', '' ]
+let s:lineinfo = [ 'gray2', 'gray0', '' ]
+let s:percent = [ 'gray2', 'gray0', '' ]
+let s:fileformat = [ 'gray2', 'gray0', '' ]
 let s:A1 = [ 'gray2', 'gray0' ]
 let s:A2 = [ 'gray2', 'gray0' ]
-let s:A3 = [ 'gray0', 'gray0' ]
+let s:A3 = [ 'gray2', 'gray0' ]
 let g:airline#themes#landscape#palette.inactive = s:map(s:A1, s:A2, s:A3, s:file)
 
