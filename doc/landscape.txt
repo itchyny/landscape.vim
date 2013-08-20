@@ -98,6 +98,7 @@ configurations.
 
 Also, the following settings will be nice.
 >
+	let g:airline_enable_branch = 0
 	let g:airline_section_b = "%t%{&modified?' +':''}"
 	let g:airline_section_c = ''
 	let s:sep = " %{get(g:, 'airline_right_alt_sep', '')} "
