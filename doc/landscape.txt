@@ -103,15 +103,14 @@ you can use the landscape theme by the following configuration.
 ==============================================================================
 AIRLINE THEME					*landscape-airline*
 This plug-in also contains a theme for |airline|
-(https://github.com/bling/vim-airline). You can use the theme by following
-configurations.
+(https://github.com/bling/vim-airline). You can use the theme by the following
+setting.
 >
 	let g:airline_theme = 'landscape'
 <
 
 Also, the following settings will be nice.
 >
-	let g:airline_linecolumn_prefix = ''
 	let g:airline#extensions#hunks#non_zero_only = 1
 	let g:airline#extensions#whitespace#enabled = 0
 	let g:airline#extensions#branch#enabled = 0
