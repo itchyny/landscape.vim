@@ -91,8 +91,6 @@ endfunction
 let g:airline#themes#landscape#palette.normal = s:map(s:N1, s:N2, s:N3, s:file)
 
 let g:airline#themes#landscape#palette.insert = s:map(s:I1, s:I2, s:I3, s:file)
-" let g:airline#themes#landscape#palette.insert_replace = {
-"       \ 'airline_a': [ s:RE[0]  , s:I1[1]  , s:RE[1]  , s:I1[3]  , ''     ] }
 
 let g:airline#themes#landscape#palette.visual = s:map(s:V1, s:V2, s:V3, s:file)
 
