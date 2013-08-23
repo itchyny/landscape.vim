@@ -68,18 +68,18 @@ let s:file = copy(s:N3)
 
 let g:airline#themes#landscape#palette = {}
 
-let s:lineinfo = [ 'gray2', 'gray10', '' ]
-let s:percent = [ 'gray2', 'gray7', '' ]
-let s:fileformat = [ 'gray9', 'gray4', '' ]
+let s:airline_z = [ 'gray2', 'gray10', '' ]
+let s:airline_y = [ 'gray2', 'gray7', '' ]
+let s:airline_x = [ 'gray9', 'gray4', '' ]
 
 function! s:map(section1, section2, section3, file)
   return {
       \ 'airline_a':    [ s:c[a:section1[0]][1], s:c[a:section1[1]][1], s:c[a:section1[0]][0], s:c[a:section1[1]][0], get(a:section1, 2, 'bold') ],
       \ 'airline_b':    [ s:c[a:section2[0]][1], s:c[a:section2[1]][1], s:c[a:section2[0]][0], s:c[a:section2[1]][0], get(a:section2, 2, ''    ) ],
       \ 'airline_c':    [ s:c[a:section3[0]][1], s:c[a:section3[1]][1], s:c[a:section3[0]][0], s:c[a:section3[1]][0], get(a:section3, 2, ''    ) ],
-      \ 'airline_z':    s:color(s:lineinfo),
-      \ 'airline_y':    s:color(s:percent),
-      \ 'airline_x':    s:color(s:fileformat),
+      \ 'airline_z':    s:color(s:airline_z),
+      \ 'airline_y':    s:color(s:airline_y),
+      \ 'airline_x':    s:color(s:airline_x),
       \ 'airline_file': [ s:c[a:file[0]][1]    , s:c[a:file[1]][1]    , s:c[a:file[0]][0]    , s:c[a:file[1]][0]    , get(a:file    , 2, ''    ) ],
       \ }
 endfunction
@@ -97,9 +97,9 @@ let g:airline#themes#landscape#palette.visual = s:map(s:V1, s:V2, s:V3, s:file)
 let g:airline#themes#landscape#palette.replace = s:map(s:R1, s:R2, s:R3, s:file)
 
 " Inactive
-let s:lineinfo = [ 'gray2', 'gray0', '' ]
-let s:percent = [ 'gray2', 'gray0', '' ]
-let s:fileformat = [ 'gray2', 'gray0', '' ]
+let s:airline_z = [ 'gray2', 'gray0', '' ]
+let s:airline_y = [ 'gray2', 'gray0', '' ]
+let s:airline_x = [ 'gray2', 'gray0', '' ]
 let s:A1 = [ 'gray2', 'gray0' ]
 let s:A2 = [ 'gray2', 'gray0' ]
 let s:A3 = [ 'gray2', 'gray0' ]
