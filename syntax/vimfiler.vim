@@ -29,7 +29,7 @@ syntax match vimfilerPromptUnSafe '^! \[in\]: .*$' contains=vimfilerSpecial,vimf
 syntax match vimfilerSpecialUnSafe '^! ' contained
 syntax match vimfilerSpecial '\[in\]:' contained
 syntax match vimfilerCurrentDirectory '\s\zs.*$' contained contains=vimfilerMask
-syntax match vimfilerMask '\[[^\]]*\]' contained
+syntax match vimfilerMask '\[\(safe\|\.:\)\]' contained
 syntax match vimfilerFileLine '\[.*\]$' contained
 
 syntax region vimfilerTypeText start=' '
