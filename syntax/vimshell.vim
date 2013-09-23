@@ -342,11 +342,16 @@ syntax match vimshellPlusNegOperator '([+-])' contained
 highlight default link vimshellPlusNegOperator Operator
 syntax match vimshellBranch '\[[^\[\] ]* [a-z0-9]\+\]' contained
 highlight default link vimshellBranch Conditional
+syntax match vimshellFastFoward '|\s\+\d\+\s\+[+-]\+' contained contains=vimshellNumber,vimshellFastFowardPlus,vimshellFastFowardNeg
+syntax match vimshellFastFowardPlus '+\+' contained
+highlight default link vimshellFastFowardPlus DiffFile
+syntax match vimshellFastFowardNeg '-\+' contained
+highlight default link vimshellFastFowardNeg DiffNewFile
 execute 'syntax region vimshellGitRegion start=' string(s:command_match.git.'\|'.s:command_match.diff.'\|^diff -\|^@@ -\d\|\%(^-.*\n\)\++') ' end="\n\(' . s:prompt . '\)\@="'
       \.' contains=vimshellPromptLine,vimshellUserPromptLine,vimshellTime,vimshellDate,'
       \.'vimshellDiffFile,vimshellDiffNewFile,vimshellDiffLine,vimshellError,vimshellNumber,'
       \.'vimshellPath,vimshellDiffGit,vimshellPath,vimshellDiffAdd,vimshellDiffDelete,'
-      \.'vimshellPlusNeg,vimshellPlusNegOperator,GitHubCommand,vimshellGitArguments,vimshellGit,vimshellBranch'
+      \.'vimshellPlusNeg,vimshellPlusNegOperator,vimshellFastFoward,GitHubCommand,vimshellGitArguments,vimshellGit,vimshellBranch'
       \.' keepend'
 syntax match vimshellGit '\<git\>' contained
 highlight default link vimshellGit vimshellCommand
