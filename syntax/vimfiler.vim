@@ -33,28 +33,28 @@ syntax match vimfilerMask '\[\(safe\|\.:\)\]' contained
 syntax match vimfilerFileLine '\[.*\]$' contained
 
 syntax region vimfilerTypeText start=' '
-      \ end='\[T\]\|\.\(txt\|cfg\|ini\)$'
+      \ end='\[T\]\|\.\(txt\|cfg\|ini\)\s*$'
       \ contained oneline
 syntax region vimfilerTypeImage start=' '
-      \ end='\[I\]\|\.\(bmp\|png\|gif\|jpg\|jpeg\|jp2\|tif\|ico\|wdp\|cur\|ani\)$'
+      \ end='\[I\]\|\.\(bmp\|png\|gif\|jpg\|jpeg\|jp2\|tif\|ico\|wdp\|cur\|ani\)\s*$'
       \ contained oneline
 syntax region vimfilerTypeArchive start=' '
-      \ end='\[A\]\|\.\(lzh\|zip\|gz\|bz2\|cab\|rar\|7z\|tgz\|tar\)$'
+      \ end='\[A\]\|\.\(lzh\|zip\|gz\|bz2\|cab\|rar\|7z\|tgz\|tar\)\s*$'
       \ contained oneline
 syntax region vimfilerTypeExecute start=' '
-      \ end='\[X\]\|\.\(exe\)$'
+      \ end='\[X\]\|\.\(exe\)\s*$'
       \ contained oneline
 syntax region vimfilerTypeMultimedia start=' '
       \ end='\[M\]\|\.\(
       \.avi\|asf\|wmv\|flv\|swf\|divx\|mov\|m1a\|
       \.m2[ap]\|mpe\?g\|m[12]v\|mp2v\|mp[34a]\|qt\|ra\|rm\|ram\|
-      \.rmvb\|rpm\|smi\|mkv\|mid\|wav\|ogg\|wma\|au\|flac\)$'
+      \.rmvb\|rpm\|smi\|mkv\|mid\|wav\|ogg\|wma\|au\|flac\)\s*$'
       \ contained oneline
 syntax region vimfilerTypeDirectory start=' '
-      \ end='\[D\]\|/$'
+      \ end='\[D\]\|/\s*$'
       \ contained oneline
 syntax region vimfilerTypeSystem start=' '
-      \ end='\[S\]\|\.\(o\|hi\|inf\|sys\|reg\|dat\|spi\|a\|so\|lib\|dll\|log\)$'
+      \ end='\[S\]\|\.\(o\|hi\|inf\|sys\|reg\|dat\|spi\|a\|so\|lib\|dll\|log\)\s*$'
       \ contained oneline
 syntax region vimfilerTypeLink start=' ' end='\[L\]' contained oneline
 
