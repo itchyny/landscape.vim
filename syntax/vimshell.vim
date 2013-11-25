@@ -52,9 +52,9 @@ highlight default link vimshellUserPromptHidden Ignore
 
 " prompt
 let s:prompt = exists('g:vimshell_prompt_pattern') && g:vimshell_prompt_pattern != ''
-      \ ? g:vimshell_prompt_pattern  : vimshell#escape_match(vimshell#get_prompt())
+      \ ? g:vimshell_prompt_pattern  : exists('*vimshell#util#escape_match') ? vimshell#util#escape_match(vimshell#get_prompt()) : vimshell#escape_match(vimshell#get_prompt())
 let s:prompt = substitute(s:prompt, '^\^\+', '', '')
-let s:secondary_prompt = vimshell#escape_match(vimshell#get_secondary_prompt())
+let s:secondary_prompt = exists('*vimshell#util#escape_match') ? vimshell#util#escape_match(vimshell#get_secondary_prompt()) : vimshell#escape_match(vimshell#get_secondary_prompt())
 let s:str_prompt = string('^' . s:prompt)
 let s:str_secondary_prompt = string('^' . s:secondary_prompt)
 let s:str_prompt_both = '^\(' . s:prompt . '\|' . s:secondary_prompt . '\)'
