@@ -15,7 +15,7 @@ syntax match quickrunPath '\(\(\.\|\~\)\?\/\|\.\.\?\)\(\([[:alpha:]_.][[:alnum:]
 syntax match quickrunPath '[[:alnum:]]\@<!\.\?\/\([a-z][[:alnum:]_-]*\)\.\([a-z]*[[:alnum:]_-]\+\)'
 syntax match quickrunPath '\(^\|\s\)\(\(\.\|\~\)\?\/\|\.\.\?\)\?\(\([[:alnum:]_.][[:alnum:]_.-]*\)\/\)\+\(\([[:alnum:]_.][[:alnum:]_.-]\+\)\|.\)\?'
 syntax match quickrunPath '\(\/\|\.\.\?\)\(\([[:alpha:]_.][[:alnum:]_.-]*\)\/\)\+\(\([[:alnum:]_.][[:alnum:]_.-]\+\)\|.\)\?'
-syntax match quickrunImage '<\@<=[[:alnum:]]\@<!\.\?\/\?\([a-z][[:alnum:]_-]*\)\.\([a-z]*[[:alnum:]_-]\+\)>\@='
+syntax match quickrunImage '<\@<=[[:alnum:]]\@<!\.\?\/\?\([[:alnum:]_-]*\)\.\([a-z]*[[:alnum:]_-]\+\)>\@='
 syntax match quickrunStringSpecial '\\\([0-9]\+\|o[0-7]\+\|x[0-9a-fA-F]\+\|[\"\\'&\\abfnrtv]\|^[A-Z^_\[\\\]]\)'
       \ contains=quickrunFunction contained
 syntax region quickrunString start=+"+ end=+"+ contains=quickrunStringSpecial oneline
