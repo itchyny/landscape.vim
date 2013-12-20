@@ -46,7 +46,7 @@ highlight default link uniteStringSpecial SpecialChar
 highlight default link uniteString String
 
 " files
-syntax region uniteFile start='.' end='[^\s]\(\s\s\s\)\@=' contained containedin=uniteCandidateAbbr,uniteSource__FileMru contains=uniteCandidateInputKeyword
+syntax region uniteFile start='.' end='[^\s]\(\s\s\s\)\@=' contained containedin=uniteCandidateAbbr,uniteSource__File,uniteSource__FileMru contains=uniteCandidateInputKeyword
 syntax region unitePath start='.' end='/' oneline contained containedin=uniteFile contains=uniteCandidateInputKeyword
 syntax region unitePdfHtml start='.' end='\.\(pdf\|html\)\>\(\s\s\)\@=' oneline contained containedin=uniteFile contains=uniteCandidateInputKeyword,unitePath 
 syntax region uniteArchive start='.' end='\.\(lha\|lzh\|zip\|gz\|bz2\|cab\|rar\|7z\|tgz\|tar\)\>\(\s\s\)\@=' oneline contained containedin=uniteFile contains=uniteCandidateInputKeyword,unitePath 
