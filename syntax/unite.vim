@@ -47,6 +47,7 @@ highlight default link uniteString String
 
 " files
 syntax region uniteFile start='.' end='[^\s]\(\s\s\s\)\@=' contained containedin=uniteCandidateAbbr,uniteSource__VimfilerDrive,uniteSource__File,uniteSource__FileMru contains=uniteCandidateInputKeyword
+syntax match uniteGrepFile '\%(^- *\)\@<=[^:]*' contained containedin=uniteSource__GrepLine,uniteSource__Grep
 syntax region unitePath start='.' end='/' oneline contained containedin=uniteFile contains=uniteCandidateInputKeyword
 syntax region unitePdfHtml start='.' end='\.\(pdf\|html\)\>\(\s\s\)\@=' oneline contained containedin=uniteFile contains=uniteCandidateInputKeyword,unitePath 
 syntax region uniteArchive start='.' end='\.\(lha\|lzh\|zip\|gz\|bz2\|cab\|rar\|7z\|tgz\|tar\)\>\(\s\s\)\@=' oneline contained containedin=uniteFile contains=uniteCandidateInputKeyword,unitePath 
@@ -60,6 +61,7 @@ syntax match uniteTypeSystem '\(#\S\+#\|configure[\s$]\|aclocal\.m4\|[Mm]akefile
 syntax match uniteTypeSystem '\(y\.tab\.c\|y\.output\|lex\.yy\.c\|y\.tab\.h\)\s\@=' contained containedin=uniteFile contains=uniteCandidateInputKeyword,unitePath 
 syntax match uniteNewFile '\[new \(file\|directory\)\]' contained containedin=uniteFile,uniteSource__FileNew contains=uniteCandidateInputKeyword
 highlight default link unitePath Path
+highlight default link uniteGrepFile Path
 highlight default link unitePdfHtml PdfHtml
 highlight default link uniteArchive Archive
 highlight default link uniteImage Image
