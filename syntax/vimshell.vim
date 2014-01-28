@@ -110,7 +110,7 @@ syntax match vimshellTime '\<\d\d\=:\d\d\=:\d\d\=\>' contained
 syntax match vimshellDate '\<\d\+-\d\d\=-\d\+\>' contained
 syntax match vimshellDate '\<\d\+/\d\d\=/\d\+\>' contained
 syntax match vimshellDate '\<\d\d\?\s\+\d\d\?\s\+\d\d:\?\d\d\>' contained
-syntax match vimshellDate '\<[A-Z][a-z][a-z]\s\+\d\d\?\s\+\d\d:\?\d\d\>' contained
+syntax match vimshellDate '\<\%([A-Z][a-z][a-z]\s\+\)\?[A-Z][a-z][a-z]\s\+\d\d\?\s\+\d\d:\?\d\d\%(:\d\d \d\d\d\d\%( [-+]\d\+\)\?\)\?\>' contained
 command -nargs=1 DateToday execute 'syntax match vimshellDateToday ' string(s:formatdate(s:yesterday(s:today, <args>))) ' containedin=vimshellDate contained'
 DateToday 0
 DateToday 1
@@ -126,7 +126,7 @@ delcommand DateWeek
 highlight default link vimshellTime Time
 highlight default link vimshellDateToday DateToday
 highlight default link vimshellDateWeek DateWeek
-highlight default link vimshellDate DateOld
+highlight default link vimshellDate Time
 
 " file name
 syntax match vimshellPath '\(^\|\s\)\@<=\(\(\.\|\~\)\?\|\.\.\?\)\(\/\([[:alnum:]_.][[:alnum:]_.-]\+\)\)\+\/\?' contained
