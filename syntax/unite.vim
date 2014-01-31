@@ -48,7 +48,7 @@ highlight default link uniteString String
 " files
 syntax region uniteFile start='.' end='[^\s]\(\s\s\s\)\@=' contained containedin=uniteCandidateAbbr,uniteSource__VimfilerDrive,uniteSource__File,uniteSource__FileMru contains=uniteCandidateInputKeyword
 syntax match uniteGrepFile '\%(^- *\)\@<=[^:]*' contained containedin=uniteSource__GrepLine,uniteSource__Grep
-syntax region unitePath start='.' end='/' oneline contained containedin=uniteFile contains=uniteCandidateInputKeyword
+syntax match unitePath '.*/' oneline contained containedin=uniteFile contains=uniteCandidateInputKeyword
 syntax region unitePdfHtml start='.' end='\.\(pdf\|html\)\>\(\s\s\)\@=' oneline contained containedin=uniteFile contains=uniteCandidateInputKeyword,unitePath 
 syntax region uniteArchive start='.' end='\.\(lha\|lzh\|zip\|gz\|bz2\|cab\|rar\|7z\|tgz\|tar\)\>\(\s\s\)\@=' oneline contained containedin=uniteFile contains=uniteCandidateInputKeyword,unitePath 
 syntax region uniteImage start='.' end='\.\(eps\|bmp\|BMP\|png\|PNG\|gif\|GIF\|JPE\?G\|jpe\?g\|jp2\|tif\|ico\|wdp\|cur\|ani\)\>\(\s\s\)\@=' oneline contained containedin=uniteFile contains=uniteCandidateInputKeyword,unitePath 
