@@ -48,6 +48,8 @@ highlight default link uniteGitCommand GitCommand
 highlight default link uniteGitArg Arguments
 highlight default link uniteGit Command
 highlight default link uniteBundleName Identifier
+highlight link uniteSource__NeoBundleInstall_Source Normal
+highlight link uniteSource__NeoBundleInstall_Progress Normal
 
 " string
 syntax match uniteStringSpecial '\\\([0-9]\+\|o[0-7]\+\|x[0-9a-fA-F]\+\|[\"\\'&\\abfnrtv]\|^[A-Z^_\[\\\]]\)' contained
