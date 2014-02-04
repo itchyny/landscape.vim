@@ -8,6 +8,17 @@ elseif exists('b:current_syntax')
   finish
 endif
 
+try
+  if exists('*unite#view#_set_syntax')
+    call unite#view#_set_syntax()
+  elseif exists('*unite#view#_set_highlight')
+    call unite#view#_set_highlight()
+  else
+    call unite#set_highlight()
+  endif
+catch
+endtry
+
 " error
 syntax region uniteError start=+!!!+ end=+!!!+ contains=uniteErrorHidden oneline
 if has('conceal')
@@ -46,7 +57,7 @@ highlight default link uniteStringSpecial SpecialChar
 highlight default link uniteString String
 
 " files
-syntax region uniteFile start='.' end='[^\s]\(\s\s\s\)\@=' contained containedin=uniteCandidateAbbr,uniteSource__VimfilerDrive,uniteSource__File,uniteSource__FileMru contains=uniteCandidateInputKeyword
+syntax region uniteFile start='.' end='[^\s]\(\s\s\s\)\@=' contained containedin=uniteCandidateAbbr,uniteSource__VimfilerDrive,uniteSource__File,uniteSource__FileMru,uniteSource__File contains=uniteCandidateInputKeyword
 syntax match uniteGrepFile '\%(^- *\)\@<=[^:]*' contained containedin=uniteSource__GrepLine,uniteSource__Grep
 syntax match unitePath '.*/' oneline contained containedin=uniteFile contains=uniteCandidateInputKeyword
 syntax region unitePdfHtml start='.' end='\.\(pdf\|html\)\>\(\s\s\)\@=' oneline contained containedin=uniteFile contains=uniteCandidateInputKeyword,unitePath 
@@ -71,8 +82,7 @@ highlight default link uniteSource__Buffer_NoFile Conditional
 highlight default link uniteNewFile uniteSource__Buffer_NoFile 
 
 syntax region uniteMarkedLine start=/^\*/ end='$' keepend
-syntax match uniteCandidateSourceName /^-\? \+[[:alnum:]_\/-]\+/ contained
-syntax region uniteNonMarkedLine start=/^-\? \+/ end='$' keepend contains=uniteCandidateMarker,uniteCandidateSourceName,uniteCandidateAbbr
+syntax match uniteCandidateSourceName /\(^- \+\)\@<=[[:alnum:]_\/-]\+/ contained
 syntax match uniteCandidateMarker /^-\? \+/ contained
 syntax match uniteQuickMatchTrigger /^.|/ contained
 syntax match uniteNumber '\<\d\+\>' contained containedin=uniteStatusLine,uniteSource__NeoBundleInstall_Progress
@@ -118,18 +128,6 @@ highlight default link uniteSource__NeoBundleInstall_Source Normal
 highlight default link uniteInputPrompt Prompt
 highlight default link uniteInputPromptError Error
 highlight default link uniteInputSpecial Special
-
-" TODO: check what is done in this function
-" TODO: 全面的に書きなおす
-" TODO: あらゆるソースでうまくいくように
-try
-  if exists('*unite#view#_set_highlight')
-    call unite#view#_set_highlight()
-  else
-    call unite#set_highlight()
-  endif
-catch
-endtry
 
 let b:current_syntax = 'unite'
 
