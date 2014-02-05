@@ -15,7 +15,7 @@
 itchyny (https://github.com/itchyny)
 
 ## License
-MIT License
+This software is released under the MIT License, see LICENSE.
 
 ## Installation
 ### Manually
