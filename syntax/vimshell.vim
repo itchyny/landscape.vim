@@ -110,6 +110,7 @@ syntax match vimshellTime '\<\d\d\=:\d\d\=:\d\d\=\>' contained
 syntax match vimshellDate '\<\d\+-\d\d\=-\d\+\>' contained
 syntax match vimshellDate '\<\d\+/\d\d\=/\d\+\>' contained
 syntax match vimshellDate '\<\d\d\?\s\+\d\d\?\s\+\d\d:\?\d\d\>' contained
+syntax match vimshellDate '\<\d\d\?月\s\+\d\d\?\s\+\d\d:\?\d\d\>' contained
 syntax match vimshellDate '\<\%([A-Z][a-z][a-z]\s\+\)\?[A-Z][a-z][a-z]\s\+\d\d\?\s\+\d\d:\?\d\d\%(:\d\d \d\d\d\d\%( [-+]\d\+\)\?\)\?\>' contained
 command -nargs=1 DateToday execute 'syntax match vimshellDateToday ' string(s:formatdate(s:yesterday(s:today, <args>))) ' containedin=vimshellDate contained'
 DateToday 0
@@ -181,11 +182,11 @@ highlight default link vimshellLinkFrom String
 syntax match vimshellLinkFromDest '.*@ ->.*' contains=vimshellLinkFrom,vimshellDotPathLsal,vimshellPathLsal contained
 execute 'syntax match vimshellPermission' string(s:permission) 'contained'
 execute 'syntax match vimshellLsalLinePart' string(s:permission
-      \.'\s\+\d\+\s\+\f\+\s\+\f\+\s\+\d\+\s\+\(\(\d\+\|[A-Z][a-z][a-z]\)\s\+\d\+\s\+\d\+\(:\d\+\)\?\|\d\d\d\d-\d\d-\d\d\s\+\d\+:\d\+\)')
+      \.'\s\+\d\+\s\+\f\+\s\+\f\+\s\+\d\+\s\+\(\(\d\d\?月\?\|[A-Z][a-z][a-z]\)\s\+\d\+\s\+\d\+\(:\d\+\)\?\|\d\d\d\d-\d\d-\d\d\s\+\d\+:\d\+\)')
   \'contains=vimshellPermission,vimshellNumber,vimshellDate,vimshellTime contained'
 highlight default link vimshellPermission Constant
 execute 'syntax match vimshellLsalLine' string(s:permission
-      \.'\s\+\d\+\s\+\f\+\s\+\f\+\s\+\d\+\s\+\(\(\d\+\|[A-Z][a-z][a-z]\)\s\+\d\+\s\+\d\+\(:\d\+\)\?\|\d\d\d\d-\d\d-\d\d\s\+\d\+:\d\+\).*$')
+      \.'\s\+\d\+\s\+\f\+\s\+\f\+\s\+\d\+\s\+\(\(\d\d\?月\?\|[A-Z][a-z][a-z]\)\s\+\d\+\s\+\d\+\(:\d\+\)\?\|\d\d\d\d-\d\d-\d\d\s\+\d\+:\d\+\).*$')
   \' contains=vimshellLsalLinePart,vimshellPdfHtml,vimshellArchive,vimshellImage,'
   \.'vimshellTypeText,vimshellTypeMultimedia,vimshellTypeSystem,vimshellTypeExe,'
   \.'vimshellPathLsal,vimshellDotPathLsal,vimshellLinkFromDest'
