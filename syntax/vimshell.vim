@@ -112,18 +112,18 @@ syntax match vimshellDate '\<\d\+/\d\d\=/\d\+\>' contained
 syntax match vimshellDate '\<\d\d\?\s\+\d\d\?\s\+\d\d:\?\d\d\>' contained
 syntax match vimshellDate '\<\d\d\?月\s\+\d\d\?\s\+\d\d:\?\d\d\>' contained
 syntax match vimshellDate '\<\%([A-Z][a-z][a-z]\s\+\)\?[A-Z][a-z][a-z]\s\+\d\d\?\s\+\d\d:\?\d\d\%(:\d\d \d\d\d\d\%( [-+]\d\+\)\?\)\?\>' contained
-command -nargs=1 DateToday execute 'syntax match vimshellDateToday ' string(s:formatdate(s:yesterday(s:today, <args>))) ' containedin=vimshellDate contained'
-DateToday 0
-DateToday 1
-delcommand DateToday
-command -nargs=1 DateWeek execute 'syntax match vimshellDateWeek ' string(s:formatdate(s:yesterday(s:today, <args>))) ' containedin=vimshellDate contained'
-DateWeek 2
-DateWeek 3
-DateWeek 4
-DateWeek 5
-DateWeek 6
-DateWeek 7
-delcommand DateWeek
+command -nargs=1 LandscapeDateToday execute 'syntax match vimshellDateToday ' string(s:formatdate(s:yesterday(s:today, <args>))) ' containedin=vimshellDate contained'
+LandscapeDateToday 0
+LandscapeDateToday 1
+delcommand LandscapeDateToday
+command -nargs=1 LandscapeDateWeek execute 'syntax match vimshellDateWeek ' string(s:formatdate(s:yesterday(s:today, <args>))) ' containedin=vimshellDate contained'
+LandscapeDateWeek 2
+LandscapeDateWeek 3
+LandscapeDateWeek 4
+LandscapeDateWeek 5
+LandscapeDateWeek 6
+LandscapeDateWeek 7
+delcommand LandscapeDateWeek
 highlight default link vimshellTime Time
 highlight default link vimshellDateToday DateToday
 highlight default link vimshellDateWeek DateWeek
