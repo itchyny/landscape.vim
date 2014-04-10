@@ -268,12 +268,6 @@ execute 'syntax match vimshellStatement ' string('\('.s:hsprompt.'.*\<let\>\s\+[
 execute 'syntax match vimshellGhcError ' string('\('.s:hsprompt.'.*\)\@<=\(\<if\>\(.*\<then\>.*\<else\>\)\@!\|\(\<if\>.*\)\@<=\<then\>\(.*\<else\>\)\@!\|\(\<if\>.*\)\@<!\<then\>\(.*\<else\>\)\@=\|\(\<if\>.*\<then\>.*\)\@<!\<else\>\)') 'contained'
 syntax match vimshellConditional '\(\<if\>\(.*\<then\>.*\<else\>\)\@=\|\(\<if\>.*\)\@<=\<then\>\(.*\<else\>\)\@=\|\(\<if\>.*\<then\>.*\)\@<=\<else\>\)' contained
 execute 'syntax match vimshellComment ' string('--.*\(Defined in\)') ' oneline contains=vimshellString,vimshellURL,haskellType contained'
-" execute 'syntax region vimshellGhci start=' string(s:command_match.ghc.'\|'.s:command_match.ghci) ' end=+^\[%\].*+'
-"       \.' contains=vimshellPromptLine,vimshellUserPromptLine,vimshellLsalLine,'
-"       \.'vimshellHsPrompt,vimshellHsCommand,vimshellHsLoading,vimshellHsLoadingPackage,haskellType,haskellFunction,vimshellOperator,'
-"       \.'vimshellCompilername,vimshellStatement,vimshellComment,vimshellNumber,vimshellFloat,vimshellString,vimshellBoolean,vimshellConditional,'
-"       \.'vimshellError,vimshellGhcError'
-"       \.' keepend'
 execute 'syntax region vimshellGhci start=' string(s:command_match.ghc.'\|'.s:command_match.ghci.'\|'.s:hsprompt) ' end=+\n\(' . s:prompt . '\)\@=+'
       \.' contains='
       \.'vimshellPromptLine,vimshellUserPromptLine,vimshellLsalLine,'
