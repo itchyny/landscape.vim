@@ -16,12 +16,12 @@ let s:marked_file_icon = vimfiler#util#escape_pattern(g:vimfiler_marked_file_ico
 let s:ro_file_icon = vimfiler#util#escape_pattern(g:vimfiler_readonly_file_icon)
 
 syntax match vimfilerNonMarkedFile '.*'
- \ contains=vimfilerNonMark,vimfilerTypeText,vimfilerTypeImage,vimfilerTypeArchive,
- \vimfilerTypeExecute,vimfilerTypeMultimedia,vimfilerTypeDirectory,vimfilerTypeSystem,vimfilerTypeLink,
- \vimfilerSize,vimfilerDateWeek,vimfilerDate,vimfilerDateToday
+      \ contains=vimfilerNonMark,vimfilerTypeText,vimfilerTypeImage,vimfilerTypeArchive,
+      \vimfilerTypeExecute,vimfilerTypeMultimedia,vimfilerTypeDirectory,vimfilerTypeSystem,vimfilerTypeLink,
+      \vimfilerSize,vimfilerDateWeek,vimfilerDate,vimfilerDateToday
 execute 'syntax match vimfilerMarkedFile' '''^\s*\%(' . s:leaf_icon .'\)\?'
- \ . s:marked_file_icon . ' .*$'''
- \ 'contains=vimfilerDateWeek,vimfilerDate,vimfilerDateToday'
+      \ . s:marked_file_icon . ' .*$'''
+      \ 'contains=vimfilerDateWeek,vimfilerDate,vimfilerDateToday'
 syntax match vimfilerDirectory '^..$'
 
 syntax match vimfilerPrompt '^\[in\]: .*$' contains=vimfilerSpecial,vimfilerCurrentDirectory
@@ -61,19 +61,19 @@ syntax region vimfilerTypeLink start=' ' end='\[L\]' contained oneline
 syntax match vimfilerSize '\s\zs[[:digit:].]\+[GMKB]' contained
 
 execute 'syntax match vimfilerNonMark'
- \ '''^\s*\%('. s:leaf_icon .'\)\?\%('. s:opened_icon . '\|'
- \ . s:closed_icon . '\|' . s:ro_file_icon . '\|' . s:file_icon .'\)\s\@='' contained'
+      \ '''^\s*\%('. s:leaf_icon .'\)\?\%('. s:opened_icon . '\|'
+      \ . s:closed_icon . '\|' . s:ro_file_icon . '\|' . s:file_icon .'\)\s\@='' contained'
 
 syntax match vimfilerDateWeek '\s\zs#[^#]\+$' contains=vimfilerDateIgnore contained
 syntax match vimfilerDate '\s\zs\~[^~]\+$' contains=vimfilerDateIgnore contained
 syntax match vimfilerDateToday '\s\zs![^!]\+$' contains=vimfilerDateIgnore contained
 if has('conceal')
- " Supported conceal features.
- syntax match vimfilerDateIgnore '[#~!]' contained conceal
- syntax match vimfilerMarker '[~!@#$%^&]$' contained conceal
+  " Supported conceal features.
+  syntax match vimfilerDateIgnore '[#~!]' contained conceal
+  syntax match vimfilerMarker '[~!@#$%^&]$' contained conceal
 else
- syntax match vimfilerDateIgnore '[#~!]' contained
- syntax match vimfilerMarker '[~!@#$%^&]$' contained
+  syntax match vimfilerDateIgnore '[#~!]' contained
+  syntax match vimfilerMarker '[~!@#$%^&]$' contained
 endif
 
 highlight default link vimfilerCurrentDirectory Path
