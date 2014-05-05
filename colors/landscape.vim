@@ -109,12 +109,12 @@ function! s:newmatch()
           \ (!has_key(g:landscape_highlight_url_filetype, &l:filetype) ||
           \ g:landscape_highlight_url_filetype[&l:filetype])
       call matchadd('URL',
-            \'\(https\?\|ftp\|git\):\/\/\('
+            \'\%(\%(h\?ttps\?\|ftp\|git\):\/\/\|git@github.com:\)\%('
             \.'[&:#*@~%_\-=?/.0-9A-Za-z]*'
-            \.'\(([&:#*@~%_\-=?/.0-9A-Za-z]*)\)\?'
-            \.'\({\([&:#*@~%_\-=?/.0-9A-Za-z]*\|{[&:#*@~%_\-=?/.0-9A-Za-z]*}\)}\)\?'
-            \.'\(\[[&:#*@~%_\-=?/.0-9A-Za-z]*\]\)\?'
-            \.'\)*[/0-9A-Za-z]*\(:\d\d*\/\?\)\?', -1)
+            \.'\%(([&:#*@~%_\-=?/.0-9A-Za-z]*)\)\?'
+            \.'\%({\%([&:#*@~%_\-=?/.0-9A-Za-z]*\|{[&:#*@~%_\-=?/.0-9A-Za-z]*}\)}\)\?'
+            \.'\%(\[[&:#*@~%_\-=?/.0-9A-Za-z]*\]\)\?'
+            \.'\)*[/0-9A-Za-z]*\%(:\d\d*\/\?\)\?', -1)
     endif
     if g:landscape_highlight_todo
       call matchadd('Todo', '\<\([tT]odo\|TODO\)\>', -1)
