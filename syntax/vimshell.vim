@@ -279,7 +279,7 @@ execute 'syntax region vimshellGhci start=' string(s:command_match.ghc.'\|'.s:co
 " haddock, cabal
 syntax match vimshellHaddockCoverage '^\s*\d\d\=% (\s\+\d\+ /\s\+\d\+) in .*$' contains=vimshellString,vimshellNumber contained
 execute 'syntax region vimshellHaddock start=' string(s:command_match.haddock.'\|'.s:command_match.cabal) ' end=+\n\(' . s:prompt . '\)\@=+'
-      \.' contains=vimshellPromptLine,vimshellUserPromptLine,'
+      \.' contains=vimshellPromptLine,vimshellUserPromptLine,vimshellPath,'
       \.'vimshellHaddockCoverage,vimshellError,vimshellString,vimshellNumber,haskellType'
       \.' keepend'
 
