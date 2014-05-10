@@ -109,7 +109,7 @@ function! s:newmatch()
           \ (!has_key(g:landscape_highlight_url_filetype, &l:filetype) ||
           \ g:landscape_highlight_url_filetype[&l:filetype])
       call matchadd('URL',
-            \'\%(\%(h\?ttps\?\|ftp\|git\):\/\/\|git@github.com:\)\%('
+            \'\%(\%(h\?ttps\?\|ftp\):\/\/\|git@github.com:\)\%('
             \.'[&:#*@~%_\-=?/.0-9A-Za-z]*'
             \.'\%(([&:#*@~%_\-=?/.0-9A-Za-z]*)\)\?'
             \.'\%({\%([&:#*@~%_\-=?/.0-9A-Za-z]*\|{[&:#*@~%_\-=?/.0-9A-Za-z]*}\)}\)\?'
