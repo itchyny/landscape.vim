@@ -1,15 +1,15 @@
 # landscape.vim
 ## editor be colorful, life be joyful
 
-![shell script](https://raw.github.com/wiki/itchyny/landscape.vim/image/1.png)
+![shell script](https://raw.githubusercontent.com/wiki/itchyny/landscape.vim/image/1.png)
 
-![vimfiler](https://raw.github.com/wiki/itchyny/landscape.vim/image/2.png)
+![vimfiler](https://raw.githubusercontent.com/wiki/itchyny/landscape.vim/image/2.png)
 
-![C source](https://raw.github.com/wiki/itchyny/landscape.vim/image/3.png)
+![C source](https://raw.githubusercontent.com/wiki/itchyny/landscape.vim/image/3.png)
 
-![GHCi in vimshell](https://raw.github.com/wiki/itchyny/landscape.vim/image/4.png)
+![GHCi in vimshell](https://raw.githubusercontent.com/wiki/itchyny/landscape.vim/image/4.png)
 
-![vimfiler and vimshell](https://raw.github.com/wiki/itchyny/landscape.vim/image/5.png)
+![vimfiler and vimshell](https://raw.githubusercontent.com/wiki/itchyny/landscape.vim/image/5.png)
 
 ## Author
 itchyny (https://github.com/itchyny)
