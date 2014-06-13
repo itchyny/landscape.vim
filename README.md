@@ -24,12 +24,12 @@ This software is released under the MIT License, see LICENSE.
 3. Put doc/landscape.txt to $VIM/doc/.
 4. Put colors/landscape.vim to $VIM/colors/.
 
-### Vundle (https://github.com/gmarik/vundle)
+### Vundle (https://github.com/gmarik/Vundle.vim)
 1. Add the following configuration to your .vimrc.
 
-        Bundle 'itchyny/landscape.vim'
+        Plugin 'itchyny/landscape.vim'
 
-2. Install with `:BundleInstall`.
+2. Install with `:PluginInstall`.
 
 ### NeoBundle (https://github.com/Shougo/neobundle.vim)
 1. Add the following configuration to your .vimrc.

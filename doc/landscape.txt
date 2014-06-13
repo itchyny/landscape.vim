@@ -23,6 +23,12 @@ It also provides some syntax files.
 
 ==============================================================================
 INSTALL						*landscape-install*
+If you are using |Vundle|, add
+>
+	Plugin 'itchyny/landscape.vim'
+<
+to your .vimrc. And then execute |:PluginInstall|.
+
 If you are using |neobundle|, add
 >
 	NeoBundle 'itchyny/landscape.vim'
