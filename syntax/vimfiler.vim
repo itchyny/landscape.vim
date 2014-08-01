@@ -17,7 +17,7 @@ let s:ro_file_icon = vimfiler#util#escape_pattern(g:vimfiler_readonly_file_icon)
 
 syntax match vimfilerNonMarkedFile '.*'
       \ contains=vimfilerNonMark,vimfilerTypeText,vimfilerTypeImage,vimfilerTypeArchive,
-      \vimfilerTypeExecute,vimfilerTypeMultimedia,vimfilerTypeDirectory,vimfilerTypeSystem,vimfilerTypeLink,
+      \vimfilerTypeExecute,vimfilerTypeMultimedia,vimfilerTypeDirectory,vimfilerTypeSystem,vimfilerTypeLink,vimfilerImportant,
       \vimfilerSize,vimfilerDateWeek,vimfilerDate,vimfilerDateToday
 execute 'syntax match vimfilerMarkedFile' '''^\s*\%(' . s:leaf_icon .'\)\?'
       \ . s:marked_file_icon . ' .*$'''
@@ -52,11 +52,14 @@ syntax region vimfilerTypeMultimedia start=' '
       \ contained oneline
 syntax region vimfilerTypeDirectory start=' '
       \ end='\[D\]\|/\s*$'
-      \ contained oneline
+      \ contained oneline contains=vimfilerImportant
 syntax region vimfilerTypeSystem start=' '
       \ end='\[S\]\|\.\(o\|hi\|inf\|sys\|reg\|dat\|spi\|a\|so\|lib\|dll\|log\)\s*$'
       \ contained oneline
 syntax region vimfilerTypeLink start=' ' end='\[L\]' contained oneline
+if has_key(g:, 'landscape_vimfiler_important')
+  exec "syntax match vimfilerImportant " . string(g:landscape_vimfiler_important) . " contained oneline"
+endif
 
 syntax match vimfilerSize '\s\zs[[:digit:].]\+[GMKB]' contained
 
@@ -92,15 +95,16 @@ highlight default link vimfilerDateWeek DateWeek
 highlight default link vimfilerDateIgnore Ignore
 highlight default link vimfilerDate DateOld
 
-execute 'syntax match vimfilerPdfHtml ' string('^ *'.g:vimfiler_file_icon.' .*\.\(pdf\|html\)[ \n]') ' contains=vimfilerIcon'
-execute 'syntax match vimfilerTypeImage ' string('^ *'.g:vimfiler_file_icon.' .*\.\(eps\|EPS\)[ \n]') ' contains=vimfilerIcon'
+execute 'syntax match vimfilerPdfHtml ' string('^ *'.g:vimfiler_file_icon.' .*\.\(pdf\|html\)[ \n]') ' contains=vimfilerIcon,vimfilerImportant'
+execute 'syntax match vimfilerTypeImage ' string('^ *'.g:vimfiler_file_icon.' .*\.\(eps\|EPS\)[ \n]') ' contains=vimfilerIcon,vimfilerImportant'
 execute "syntax match vimfilerIcon '^ *".g:vimfiler_file_icon." ' contained"
-execute 'syntax match vimfilerTypeSystem ' string('^ *'.g:vimfiler_file_icon.' \(#\S\+#\|Makefile\.in\|configure\|aclocal\.m4\|Makefile\|stamp-h1\|config\.status\|config\.h\|config\.h\.in\~\?\|output\.[0-9]\S\?\|requests\|traces\.[0-9]\S\?\)[ \n]') ' contains=vimfilerIcon'
-execute 'syntax match vimfilerTypeSystem ' string('^ *'.g:vimfiler_file_icon.' \(y\.tab\.c\|y\.output\|lex\.yy\.c\|y\.tab\.h\)[ \n]') ' contains=vimfilerIcon'
-execute 'syntax match vimfilerTypeSystem ' string('^ *'.g:vimfiler_file_icon.' \([A-Za-z0-9_-]*\(\.o\|\.hi\)\)[ \n]') ' contains=vimfilerIcon'
+execute 'syntax match vimfilerTypeSystem ' string('^ *'.g:vimfiler_file_icon.' \(#\S\+#\|Makefile\.in\|configure\|aclocal\.m4\|Makefile\|stamp-h1\|config\.status\|config\.h\|config\.h\.in\~\?\|output\.[0-9]\S\?\|requests\|traces\.[0-9]\S\?\)[ \n]') ' contains=vimfilerIcon,vimfilerImportant'
+execute 'syntax match vimfilerTypeSystem ' string('^ *'.g:vimfiler_file_icon.' \(y\.tab\.c\|y\.output\|lex\.yy\.c\|y\.tab\.h\)[ \n]') ' contains=vimfilerIcon,vimfilerImportant'
+execute 'syntax match vimfilerTypeSystem ' string('^ *'.g:vimfiler_file_icon.' \([A-Za-z0-9_-]*\(\.o\|\.hi\)\)[ \n]') ' contains=vimfilerIcon,vimfilerImportant'
 
 highlight default link vimfilerTypeText Text
 highlight default link vimfilerTypeDirectory Path
+highlight default link vimfilerImportant SpecialChar
 highlight default link vimfilerMarker Ignore
 highlight default link vimfilerDateIgnore Ignore
 highlight default link vimfilerPdfHtml PdfHtml
