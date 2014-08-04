@@ -51,6 +51,7 @@ highlight Visual term=none ctermbg=241 guibg=#606060
 highlight default link VisualNOS Visual
 highlight Underlined term=underline ctermfg=45 gui=underline guifg=#00dfff
 highlight default link URL Underlined
+highlight URLCursor term=underline cterm=underline ctermfg=45 ctermbg=235 gui=underline guifg=#00dfff guibg=#262626
 highlight Error term=none ctermfg=15 ctermbg=124 gui=none guifg=#ffffff guibg=#af0000
 highlight WarningMsg term=none ctermfg=7 ctermbg=0 gui=none guifg=#c0c0c0 guibg=#000000
 highlight Todo cterm=reverse ctermfg=185 ctermbg=16 gui=reverse guifg=#dfdf5f guibg=#000000
@@ -90,8 +91,15 @@ endif
 highlight Search cterm=reverse ctermfg=220 ctermbg=234 gui=reverse guifg=#ffdf00 guibg=#1c1c1c
 highlight IncSearch cterm=reverse ctermfg=136 ctermbg=236 gui=reverse guifg=#af8700 guibg=#303030
 
+let s:urlpattern = 
+      \'\%(\%(h\?ttps\?\|ftp\):\/\/\|git@github.com:\)\%('
+      \.'[&:#*@~%_\-=?/.0-9A-Za-z]*'
+      \.'\%(([&:#*@~%_\-=?/.0-9A-Za-z]*)\)\?'
+      \.'\%({\%([&:#*@~%_\-=?/.0-9A-Za-z]*\|{[&:#*@~%_\-=?/.0-9A-Za-z]*}\)}\)\?'
+      \.'\%(\[[&:#*@~%_\-=?/.0-9A-Za-z]*\]\)\?'
+      \.'\)*[/0-9A-Za-z]*\%(:\d\d*\/\?\)\?'
+
 function! s:newmatch()
-  try
   if g:landscape_highlight_url ||
    \ g:landscape_highlight_todo ||
    \ g:landscape_highlight_full_space ||
@@ -99,6 +107,7 @@ function! s:newmatch()
     if exists("b:landscape_match")
       for m in getmatches()
         if m.group == 'URL' ||
+         \ m.group == 'URLCursor' ||
          \ m.group == 'Todo' ||
          \ m.group == 'FullSpace'
           call matchdelete(m.id)
@@ -108,28 +117,54 @@ function! s:newmatch()
     if g:landscape_highlight_url &&
           \ (!has_key(g:landscape_highlight_url_filetype, &l:filetype) ||
           \ g:landscape_highlight_url_filetype[&l:filetype])
-      call matchadd('URL',
-            \'\%(\%(h\?ttps\?\|ftp\):\/\/\|git@github.com:\)\%('
-            \.'[&:#*@~%_\-=?/.0-9A-Za-z]*'
-            \.'\%(([&:#*@~%_\-=?/.0-9A-Za-z]*)\)\?'
-            \.'\%({\%([&:#*@~%_\-=?/.0-9A-Za-z]*\|{[&:#*@~%_\-=?/.0-9A-Za-z]*}\)}\)\?'
-            \.'\%(\[[&:#*@~%_\-=?/.0-9A-Za-z]*\]\)\?'
-            \.'\)*[/0-9A-Za-z]*\%(:\d\d*\/\?\)\?', -1)
+      call matchadd('URL', s:urlpattern, 10)
+      exec "augroup MatchAddURL" . bufnr('')
+        autocmd!
+        autocmd CursorMoved,CursorMovedI <buffer> call s:urlcursormatch()
+      augroup END
     endif
     if g:landscape_highlight_todo
-      call matchadd('Todo', '\<\([tT]odo\|TODO\)\>', -1)
+      call matchadd('Todo', '\<\([tT]odo\|TODO\)\>', 10)
     endif
     if g:landscape_highlight_full_space
-      call matchadd('FullSpace', '　', -1)
+      call matchadd('FullSpace', '　', 10)
     endif
     let b:landscape_match = 1
   endif
-  catch
-  endtry
 endfunction
+
+function! s:urlcursorhighlight()
+  let [cbg, gbg] = ['', '']
+  if &l:cursorline
+    redir => out
+      silent! highlight CursorLine
+    redir END
+    let outstrs = split(out, '\n')
+    if len(outstrs)
+      let [cbg, gbg] = [matchstr(outstrs[0], 'ctermbg=\S\+'), matchstr(outstrs[0], 'guibg=\S\+')]
+    endif
+  endif
+  silent! highlight clear URLCursor
+  exec 'highlight URLCursor cterm=underline ctermfg=45' cbg 'gui=underline guifg=#00dfff' gbg
+endfunction
+
+function! s:urlcursormatch()
+  if get(b:, 'landscape_cursorline') == line('.')
+    return
+  endif
+  let b:landscape_cursorline = line('.')
+  for m in getmatches()
+    if m.group == 'URLCursor'
+      call matchdelete(m.id)
+    endif
+  endfor
+  call matchadd('URLCursor', '\%' . line('.') . 'l' . s:urlpattern, 20)
+endfunction
+
 augroup MatchAdd
   autocmd!
   autocmd BufCreate,BufNew,WinEnter,FileType * call s:newmatch()
+  autocmd FileType,ColorScheme,BufEnter,BufWinEnter * call s:urlcursorhighlight()
 augroup END
 
 highlight SpellBad term=none cterm=none ctermbg=52 gui=none guibg=#5f0000
