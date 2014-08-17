@@ -149,16 +149,14 @@ function! s:urlcursorhighlight()
 endfunction
 
 function! s:urlcursormatch()
-  if get(b:, 'landscape_cursorline') == line('.')
+  if get(w:, 'landscape_cursorline') == line('.')
     return
   endif
-  let b:landscape_cursorline = line('.')
-  for m in getmatches()
-    if m.group == 'URLCursor'
-      call matchdelete(m.id)
-    endif
-  endfor
-  call matchadd('URLCursor', '\%' . line('.') . 'l' . s:urlpattern, 20)
+  let w:landscape_cursorline = line('.')
+  if has_key(w:, 'landscape_cursorline_id')
+    silent! call matchdelete(w:landscape_cursorline_id)
+  endif
+  let w:landscape_cursorline_id = matchadd('URLCursor', '\%' . line('.') . 'l' . s:urlpattern, 20)
 endfunction
 
 augroup MatchAdd
