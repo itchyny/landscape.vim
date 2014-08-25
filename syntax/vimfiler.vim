@@ -98,7 +98,7 @@ highlight default link vimfilerDate DateOld
 execute 'syntax match vimfilerPdfHtml ' string('^ *'.g:vimfiler_file_icon.' .*\.\(pdf\|html\)[ \n]') ' contains=vimfilerIcon,vimfilerImportant'
 execute 'syntax match vimfilerTypeImage ' string('^ *'.g:vimfiler_file_icon.' .*\.\(eps\|EPS\)[ \n]') ' contains=vimfilerIcon,vimfilerImportant'
 execute "syntax match vimfilerIcon '^ *".g:vimfiler_file_icon." ' contained"
-execute 'syntax match vimfilerTypeSystem ' string('^ *'.g:vimfiler_file_icon.' \(#\S\+#\|Makefile\.in\|configure\|aclocal\.m4\|Makefile\|stamp-h1\|config\.status\|config\.h\|config\.h\.in\~\?\|output\.[0-9]\S\?\|requests\|traces\.[0-9]\S\?\)[ \n]') ' contains=vimfilerIcon,vimfilerImportant'
+execute 'syntax match vimfilerTypeSystem ' string('^ *'.g:vimfiler_file_icon.' \(#\S\+#\|Makefile\.in\|configure\|aclocal\.m4\|Makefile\|stamp-h1\|config\.\(status\|log\)\|config\.h\|config\.h\.in\~\?\|output\.[0-9]\S\?\|requests\|traces\.[0-9]\S\?\|install-sh\|missing\|compile\|depcomp\|ar-lib\|mdate-sh\|mkinstalldirs\|config\.guess\|py-compile\|test-driver\|ylwrap\|config.sub\)[ \n]') ' contains=vimfilerIcon,vimfilerImportant'
 execute 'syntax match vimfilerTypeSystem ' string('^ *'.g:vimfiler_file_icon.' \(y\.tab\.c\|y\.output\|lex\.yy\.c\|y\.tab\.h\)[ \n]') ' contains=vimfilerIcon,vimfilerImportant'
 execute 'syntax match vimfilerTypeSystem ' string('^ *'.g:vimfiler_file_icon.' \([A-Za-z0-9_-]*\(\.o\|\.hi\)\)[ \n]') ' contains=vimfilerIcon,vimfilerImportant'
 
