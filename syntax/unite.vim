@@ -88,7 +88,7 @@ syntax match uniteCandidateSourceName /\(^- \+\)\@<=[[:alnum:]_\/-]\+/ contained
 syntax match uniteCandidateMarker /^-\? \+/ contained
 syntax match uniteQuickMatchTrigger /^.|/ contained
 syntax match uniteNumber '\<\d\+\>' contained containedin=uniteStatusLine,uniteSource__NeoBundleInstall_Progress
-syntax match uniteLineNumber '\(^-\? \++\? *\%(\f\+:\)\?\)\@<=\<\d\+\>' contained containedin=uniteSource__Line,uniteSource__LineFast,uniteSource__Grep
+syntax match uniteLineNumber '\(^-\? \++\? *\%(\f\+:\)\?\)\@<=\<\d\+\>' contained containedin=uniteSource__Line,uniteSource__LineFast,uniteSource__Grep contains=uniteGrepFile
 highlight default link uniteNumber Number
 highlight default link uniteLineNumber LineNr
 highlight default link uniteMarkedLine Marked
