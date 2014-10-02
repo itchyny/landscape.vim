@@ -120,7 +120,9 @@ function! s:newmatch()
       call matchadd('URL', s:urlpattern, 10)
       exec "augroup MatchAddURL" . bufnr('')
         autocmd!
-        autocmd CursorMoved,CursorMovedI <buffer> call s:urlcursormatch()
+        autocmd BufEnter,WinEnter,BufWinEnter <buffer> call s:urlcursormatch(1)
+        autocmd CursorMoved,CursorMovedI <buffer> call s:urlcursormatch(0)
+        call s:urlcursormatch(1)
       augroup END
     endif
     if g:landscape_highlight_todo
@@ -148,21 +150,21 @@ function! s:urlcursorhighlight()
   exec 'highlight URLCursor cterm=underline ctermfg=45' cbg 'gui=underline guifg=#00dfff' gbg
 endfunction
 
-function! s:urlcursormatch()
-  if get(w:, 'landscape_cursorline') == line('.')
+function! s:urlcursormatch(force)
+  if get(b:, 'landscape_cursorline') == line('.') && !a:force
     return
   endif
-  let w:landscape_cursorline = line('.')
-  if has_key(w:, 'landscape_cursorline_id')
-    silent! call matchdelete(w:landscape_cursorline_id)
+  let b:landscape_cursorline = line('.')
+  if has_key(b:, 'landscape_cursorline_id')
+    silent! call matchdelete(b:landscape_cursorline_id)
   endif
-  let w:landscape_cursorline_id = matchadd('URLCursor', '\%' . line('.') . 'l' . s:urlpattern, 20)
+  let b:landscape_cursorline_id = matchadd('URLCursor', '\%' . line('.') . 'l' . s:urlpattern, 20)
 endfunction
 
-augroup MatchAdd
+augroup LandscapeMatch
   autocmd!
-  autocmd BufCreate,BufNew,WinEnter,FileType * call s:newmatch()
-  autocmd FileType,ColorScheme,BufEnter,BufWinEnter * call s:urlcursorhighlight()
+  autocmd BufNew,WinEnter,FileType,BufReadPost * call s:newmatch()
+  autocmd FileType,ColorScheme,BufEnter * call s:urlcursorhighlight()
 augroup END
 
 highlight SpellBad term=none cterm=none ctermbg=52 gui=none guibg=#5f0000
