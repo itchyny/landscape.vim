@@ -79,6 +79,7 @@ highlight StatusLineNC term=none gui=none guifg=black guibg=darkgray gui=none ct
 if version >= 700
   highlight CursorLine term=none cterm=none ctermbg=235 gui=none guibg=#262626
   highlight ColorColumn term=none cterm=none ctermbg=239 gui=none guibg=#4e4e4e
+  highlight Cursor term=reverse cterm=reverse gui=reverse
   highlight CursorColumn term=none cterm=none ctermbg=235 gui=none guibg=#262626
   highlight LineNr term=none ctermfg=58 ctermbg=none guifg=#5f5f00 guibg=bg
   highlight CursorLineNr term=underline cterm=bold ctermfg=148 ctermbg=235 gui=bold guifg=#afdf00 guibg=#262626
