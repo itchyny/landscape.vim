@@ -73,7 +73,7 @@ highlight VertSplit term=none gui=none guifg=black guibg=darkgray gui=none cterm
 highlight Folded term=none ctermfg=247 ctermbg=235 guifg=#9e9e9e guibg=#262626
 highlight FoldColumn term=none ctermfg=247 ctermbg=235 guifg=#9e9e9e guibg=#262626
 highlight SignColumn term=none ctermfg=247 ctermbg=235 guifg=#9e9e9e guibg=#262626
-highlight SpecialKey term=underline ctermfg=darkgray gui=none guifg=darkgray
+highlight SpecialKey term=underline ctermfg=237 gui=none guifg=darkgray
 highlight NonText term=none ctermfg=black gui=none guifg=black
 highlight StatusLineNC term=none gui=none guifg=black guibg=darkgray gui=none ctermfg=black ctermbg=darkgray cterm=none gui=none
 if version >= 700
