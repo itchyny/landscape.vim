@@ -8,6 +8,9 @@ elseif exists('b:current_syntax')
   finish
 endif
 
+let s:save_cpo = &cpo
+set cpo&vim
+
 try
   if exists('*unite#view#_set_syntax')
     call unite#view#_set_syntax()
@@ -133,3 +136,5 @@ highlight default link uniteInputSpecial Special
 
 let b:current_syntax = 'unite'
 
+let &cpo = s:save_cpo
+unlet s:save_cpo

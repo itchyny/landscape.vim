@@ -8,6 +8,9 @@ elseif exists("b:current_syntax")
   finish
 endif
 
+let s:save_cpo = &cpo
+set cpo&vim
+
 " get alias commands
 let s:alias_table = exists('b:vimshell') ? b:vimshell.alias_table : {}
 let s:commands = split('git,ls,python,diff,ghc,ghci,haddock,cabal,man,make', ',')
@@ -423,3 +426,5 @@ syntax region vimshellError start=+!!!+ end=+!!!+ contains=vimshellErrorHidden o
 
 let b:current_syntax = 'vimshell'
 
+let &cpo = s:save_cpo
+unlet s:save_cpo

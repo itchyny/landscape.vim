@@ -8,6 +8,9 @@ elseif exists("b:current_syntax")
   finish
 endif
 
+let s:save_cpo = &cpo
+set cpo&vim
+
 syntax keyword Error Error ERROR error warning Warning WARNING Overfull
 syntax match Error '^!.*'
 syntax match quickrunPath '\(^\|\s\)\(\(\.\|\~\)\?\|\.\.\?\)\(\/\([[:alnum:]_.][[:alnum:]_.-]\+\)\)\+\/\?'
@@ -40,3 +43,5 @@ highlight default link quickrunDate Date
 
 let b:current_syntax = 'quickrun'
 
+let &cpo = s:save_cpo
+unlet s:save_cpo

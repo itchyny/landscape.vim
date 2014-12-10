@@ -8,6 +8,9 @@ elseif exists("b:current_syntax")
   finish
 endif
 
+let s:save_cpo = &cpo
+set cpo&vim
+
 let s:leaf_icon = vimfiler#util#escape_pattern(g:vimfiler_tree_leaf_icon)
 let s:opened_icon = vimfiler#util#escape_pattern(g:vimfiler_tree_opened_icon)
 let s:closed_icon = vimfiler#util#escape_pattern(g:vimfiler_tree_closed_icon)
@@ -124,3 +127,5 @@ unlet s:marked_file_icon
 
 let b:current_syntax = 'vimfiler'
 
+let &cpo = s:save_cpo
+unlet s:save_cpo
