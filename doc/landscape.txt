@@ -42,10 +42,6 @@ For example, place plugin/landscape.vim at $VIM/plugin/.
 ==============================================================================
 VARIABLES					*landscape-variables*
 
-g:landscape_highlight_url			*g:landscape_highlight_url*
-		If this variable is 1, URLs are colored anywhere.
-		The default value is 0.
-
 g:landscape_highlight_todo			*g:landscape_highlight_todo*
 		If this variable is 1, the words TODO, todo and Todo are
 		colored anywhere. The default value is 0.
