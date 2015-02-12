@@ -72,7 +72,7 @@ let s:airline_z = [ 'gray2', 'gray10', '' ]
 let s:airline_y = [ 'gray2', 'gray7', '' ]
 let s:airline_x = [ 'gray9', 'gray4', '' ]
 
-function! s:map(section1, section2, section3, file)
+function! s:map(section1, section2, section3, file) abort
   return {
       \ 'airline_a':    [ s:c[a:section1[0]][1], s:c[a:section1[1]][1], s:c[a:section1[0]][0], s:c[a:section1[1]][0], get(a:section1, 2, 'bold') ],
       \ 'airline_b':    [ s:c[a:section2[0]][1], s:c[a:section2[1]][1], s:c[a:section2[0]][0], s:c[a:section2[1]][0], get(a:section2, 2, ''    ) ],
@@ -84,7 +84,7 @@ function! s:map(section1, section2, section3, file)
       \ }
 endfunction
 
-function! s:color(name)
+function! s:color(name) abort
   return [ s:c[a:name[0]][1], s:c[a:name[1]][1], s:c[a:name[0]][0], s:c[a:name[1]][0], a:name[2] ]
 endfunction
 
