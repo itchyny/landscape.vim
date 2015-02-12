@@ -4,7 +4,7 @@ endif
 
 if version < 700
   syntax clear
-elseif exists("b:current_syntax")
+elseif exists('b:current_syntax')
   finish
 endif
 
