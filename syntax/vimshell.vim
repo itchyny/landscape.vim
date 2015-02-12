@@ -1,3 +1,4 @@
+scriptencoding utf-8
 if exists('g:landscape_syntax_vimshell') && g:landscape_syntax_vimshell == 0
   finish
 endif
