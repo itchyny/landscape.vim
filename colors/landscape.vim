@@ -110,7 +110,7 @@ if exists('*getmatches')
       call matchadd('Todo', '\c\<todo\>', 10)
     endif
     if get(g:, 'landscape_highlight_full_space', 0)
-      call matchadd('FullSpace', '　', 10)
+      call matchadd('FullSpace', "\u3000", 10)
     endif
   endfunction
 
