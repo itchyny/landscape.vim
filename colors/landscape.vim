@@ -116,7 +116,7 @@ if exists('*getmatches')
 
   augroup landscape-newmatch
     autocmd!
-    autocmd BufNew,WinEnter,FileType,BufReadPost * call s:newmatch()
+    autocmd VimEnter,BufNew,WinEnter,FileType,BufReadPost * call s:newmatch()
   augroup END
 
 endif
