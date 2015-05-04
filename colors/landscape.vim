@@ -97,7 +97,7 @@ highlight IncSearch cterm=reverse ctermfg=136 ctermbg=236 gui=reverse guifg=#af8
 
 if exists('*getmatches')
 
-  function! s:newmatch()
+  function! s:newmatch() abort
     if !get(g:, 'landscape_highlight_todo', 0) && !get(g:, 'landscape_highlight_full_space', 0)
       return
     endif
