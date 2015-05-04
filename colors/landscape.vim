@@ -46,12 +46,13 @@ highlight Debug term=none ctermfg=183 gui=none guifg=violet
 
 highlight TabLine ctermfg=253 ctermbg=241 guifg=#dadada guibg=#606060
 highlight TabLineFill ctermfg=253 ctermbg=241 guifg=#dadada guibg=#606060
-highlight TabLineSel cterm=bold ctermfg=253 guifg=#dadada
+highlight TabLineSel cterm=bold ctermfg=253 guifg=#dadada 
 highlight Visual term=none ctermbg=240 guibg=#585858
 highlight default link VisualNOS Visual
 highlight Underlined term=underline ctermfg=45 gui=underline guifg=#00dfff
 highlight Error term=none ctermfg=15 ctermbg=124 gui=none guifg=#ffffff guibg=#af0000
 highlight WarningMsg term=none ctermfg=7 ctermbg=0 gui=none guifg=#c0c0c0 guibg=#000000
+highlight WildMenu guibg=#ffaf00 ctermbg=214
 highlight Todo cterm=reverse ctermfg=185 ctermbg=16 gui=reverse guifg=#dfdf5f guibg=#000000
 highlight DiffAdd term=none cterm=none ctermfg=none ctermbg=22 guifg=fg guibg=#005f00
 highlight DiffChange term=none cterm=none ctermfg=none ctermbg=52 guifg=fg guibg=#5f0000
@@ -73,7 +74,8 @@ highlight FoldColumn term=none ctermfg=247 ctermbg=235 guifg=#9e9e9e guibg=#2626
 highlight SignColumn term=none ctermfg=247 ctermbg=235 guifg=#9e9e9e guibg=#262626
 highlight SpecialKey term=underline ctermfg=237 gui=none guifg=darkgray
 highlight NonText term=none ctermfg=black gui=none guifg=black
-highlight StatusLineNC term=none gui=none guifg=black guibg=darkgray gui=none ctermfg=black ctermbg=darkgray cterm=none gui=none
+highlight StatusLine term=none gui=none guifg=#1c1c1c guibg=#eeeeee gui=none ctermfg=234 ctermbg=255 cterm=none
+highlight StatusLineNC term=none gui=none guifg=#262626 guibg=#585858 gui=none ctermfg=235 ctermbg=240 cterm=none
 if version >= 700
   if get(g:, 'landscape_cursorline', 1)
     highlight CursorLine term=none cterm=none ctermbg=235 gui=none guibg=#262626
@@ -157,5 +159,3 @@ highlight default link Title Identifier
 " ModeMsg
 " MoreMsg
 " Question
-" StatusLine
-" WildMenu
