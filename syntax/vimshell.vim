@@ -14,16 +14,16 @@ set cpo&vim
 
 " get alias commands
 let s:alias_table = exists('b:vimshell') ? b:vimshell.alias_table : {}
-let s:commands = split('git,ls,python,diff,ghc,ghci,haddock,cabal,man,make', ',')
+let s:commands = split('git,hub,ls,python,diff,ghc,ghci,haddock,cabal,man,make', ',')
 let s:command_match = {}
 for s:i in s:commands
   let s:command_match[s:i] = s:i
-  let s:command_match[s:i] .= '\|sudo\s\+'.s:i
+  let s:command_match[s:i] .= '\|\%(sudo\s\|;\|&&\|||\)\s*'.s:i
 endfor
 for s:j in keys(s:alias_table)
   for s:i in s:commands
     if s:alias_table[s:j] =~ '\<'.s:i.'\>'
-      let s:command_match[s:i] .= '\|'.s:j
+      let s:command_match[s:i] .= '\|\%(.*\%(;\|&&\|||\)\s*\)\?'.s:j
     endif
   endfor
 endfor
@@ -97,7 +97,7 @@ syntax match vimshellOperator '(\(:\|+\|-\|/\|*\|!\|&\||\|>\|<\|=\|\^\|\$\|\.\)\
 highlight default link vimshellOperator Operator
 
 " date
-function! s:formatdate(time)
+function! s:formatdate(time) abort
   let year = strftime('\(%Y\|%y\)', a:time)
   let month = substitute(strftime('\(%m\|%b\)', a:time), ' ', '', '')
   let day = substitute(substitute(strftime('%d', a:time), '^0', '0\\=', ''), ' ', '', '')
@@ -105,7 +105,7 @@ function! s:formatdate(time)
         \.'\|'.year.'-'.month.'-'.day
         \.'\|'.month.'\s\+'.day.'\s\+\d\d:\?\d\d\)\>'
 endfunction
-function! s:yesterday(time, days)
+function! s:yesterday(time, days) abort
   return a:time - 86400 * a:days
 endfunction
 let s:today = localtime()
@@ -311,6 +311,7 @@ syntax keyword GitHubCommand
       \ citool            fast-import              instaweb           mv               remote-ftps     show-ref           write-tree
       \ clean             fetch                    log                name-rev         remote-http     stage
       \ clone             fetch-pack               lost-found         notes            remote-https    stash
+      \ pull-request      fork                     create             browse           compare         release            issue                ci-status
       \ contained
 highlight default link GitHubCommand GitCommand
 syntax region vimshellDiffAdd start=/^+/ end=+$+ oneline contained keepend
@@ -346,7 +347,7 @@ syntax match vimshellFastFowardPlus '+\+' contained
 highlight default link vimshellFastFowardPlus DiffFile
 syntax match vimshellFastFowardNeg '-\+' contained
 highlight default link vimshellFastFowardNeg DiffNewFile
-execute 'syntax region vimshellGitRegion start=' string(s:command_match.git.'\|'.s:command_match.diff.'\|^diff -\|^@@ -\d\|\%(^-.*\n\)\++') ' end="\n\(' . s:prompt . '\)\@="'
+execute 'syntax region vimshellGitRegion start=' string(s:command_match.git.'\|'.s:command_match.hub.'\|'.s:command_match.diff.'\|^diff -\|^@@ -\d\|\%(^-.*\n\)\++') ' end="\n\(' . s:prompt . '\)\@="'
       \.' contains=vimshellPromptLine,vimshellUserPromptLine,vimshellTime,vimshellDate,'
       \.'vimshellDiffFile,vimshellDiffNewFile,vimshellDiffLine,vimshellError,vimshellNumber,'
       \.'vimshellPath,vimshellDiffGit,vimshellPath,vimshellDiffAdd,vimshellDiffDelete,'
