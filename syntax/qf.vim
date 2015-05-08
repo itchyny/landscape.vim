@@ -16,6 +16,6 @@ highlight default link qfLineNr LineNr
 highlight default link qfError Error
 highlight default link PathIgnore qfDirectory
 
-setlocal conceallevel=3
+setlocal conceallevel=3 nowrap
 
 let b:current_syntax = 'qf'
