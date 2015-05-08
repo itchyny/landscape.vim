@@ -2,7 +2,7 @@ if exists('b:current_syntax')
  finish
 endif
 
-syntax match PathIgnore '^\/.\{-}Documents\/[^/]\+\/' containedin=qfDirectory conceal
+execute 'syntax match PathIgnore' string((exists('*qffrom#git_root') ? escape(qffrom#git_root(), '*~\.^$[]') . '/\|' : '') . escape(expand('~'), '*~\.^$[]') . '/[^/]\+/') 'containedin=qfDirectory conceal'
 
 syntax match qfDirectory '^[^|]*' nextgroup=qfSeparator
 syntax match qfFileName '[^/|]\+\ze|' contained containedin=qfDirectory
