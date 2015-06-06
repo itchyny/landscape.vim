@@ -340,7 +340,7 @@ highlight default link vimshellPlus vimshellDiffFile
 " highlight default link vimshellPlusNeg vimshellDiffNewFile
 syntax match vimshellPlusNegOperator '([+-])' contained
 highlight default link vimshellPlusNegOperator Operator
-syntax match vimshellBranch '\[[^\[\] ]* [a-z0-9]\+\]' contained
+syntax match vimshellBranch '\[[^\[\] ]* \(([^ ]*) \)\?[a-z0-9]\+\]' contained
 highlight default link vimshellBranch Conditional
 syntax match vimshellFastFoward '|\s\+\d\+\s\+[+-]\+' contained contains=vimshellNumber,vimshellFastFowardPlus,vimshellFastFowardNeg
 syntax match vimshellFastFowardPlus '+\+' contained
