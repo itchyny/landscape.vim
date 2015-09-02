@@ -87,6 +87,7 @@ highlight default link uniteTypeMultimedia Multimedia
 highlight default link uniteTypeSystem System
 highlight default link uniteSource__Buffer_NoFile Conditional
 highlight default link uniteNewFile uniteSource__Buffer_NoFile
+highlight link uniteSource__GrepFile Path
 
 syntax region uniteMarkedLine start=/^\*/ end='$' keepend
 execute 'syntax match uniteCandidateSourceName /\(^' . s:candidate_icon . ' \+\)\@<=[[:alnum:]_\/-]\+/ contained'
@@ -94,7 +95,7 @@ execute 'syntax match uniteCandidateMarker /^' . s:candidate_icon . '\? \+/ cont
 syntax match uniteCandidateMarkerWhite / \zs \+/ contained containedin=uniteCandidateMarker conceal
 syntax match uniteQuickMatchTrigger /^.|/ contained
 syntax match uniteNumber '\<\d\+\>' contained containedin=uniteStatusLine,uniteSource__NeoBundleInstall_Progress
-execute 'syntax match uniteLineNumber ''\(^' . s:candidate_icon . '\? \++\? *\%(\f\+:\)\?\)\@<=\<\d\+\>'' contained containedin=uniteSource__Line,uniteSource__LineFast,uniteSource__Grep contains=uniteGrepFile'
+execute 'syntax match uniteLineNumber ''\(^' . s:candidate_icon . '\? \++\? *\%(\f\+:\)\?\)\@<=\<\d\+\>'' contained containedin=uniteSource__Line,uniteSource__LineFast,uniteSource__Grep'
 highlight default link uniteNumber Number
 highlight default link uniteLineNumber LineNr
 highlight default link uniteMarkedLine Marked
