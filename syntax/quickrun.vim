@@ -1,3 +1,5 @@
+scriptencoding utf-8
+
 if exists('g:landscape_syntax_quickrun') && g:landscape_syntax_quickrun == 0
   finish
 endif
