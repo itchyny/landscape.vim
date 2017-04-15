@@ -11,30 +11,11 @@
 
 ![vimfiler and vimshell](https://raw.githubusercontent.com/wiki/itchyny/landscape.vim/image/5.png)
 
+## Installation
+Install with your favorite plugin manager.
+
 ## Author
 itchyny (https://github.com/itchyny)
 
 ## License
 This software is released under the MIT License, see LICENSE.
-
-## Installation
-### Manually
-1. Put plugin/landscape.vim to $VIM/plugin/.
-2. Put syntax/\* to $VIM/syntax/.
-3. Put doc/landscape.txt to $VIM/doc/.
-4. Put colors/landscape.vim to $VIM/colors/.
-
-### Vundle (https://github.com/gmarik/Vundle.vim)
-1. Add the following configuration to your .vimrc.
-
-        Plugin 'itchyny/landscape.vim'
-
-2. Install with `:PluginInstall`.
-
-### NeoBundle (https://github.com/Shougo/neobundle.vim)
-1. Add the following configuration to your .vimrc.
-
-        NeoBundle 'itchyny/landscape.vim'
-
-2. Install with `:NeoBundleInstall`.
-
