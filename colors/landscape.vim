@@ -53,7 +53,7 @@ highlight Underlined term=underline ctermfg=45 gui=underline guifg=#00dfff
 highlight Error term=none ctermfg=15 ctermbg=124 gui=none guifg=#ffffff guibg=#af0000
 highlight WarningMsg term=none ctermfg=7 ctermbg=0 gui=none guifg=#c0c0c0 guibg=#000000
 highlight WildMenu guibg=#ffaf00 ctermbg=214
-highlight Todo cterm=reverse ctermfg=185 ctermbg=16 gui=reverse guifg=#dfdf5f guibg=#000000
+highlight Todo cterm=none ctermfg=185 ctermbg=none gui=none guifg=#dfdf5f guibg=NONE
 highlight DiffAdd term=none cterm=none ctermfg=none ctermbg=22 guifg=fg guibg=#005f00
 highlight DiffChange term=none cterm=none ctermfg=none ctermbg=52 guifg=fg guibg=#5f0000
 highlight DiffDelete term=none cterm=none ctermfg=none ctermbg=88 guifg=fg guibg=#870000
