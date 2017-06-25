@@ -94,7 +94,7 @@ if version >= 700
   highlight PmenuSbar ctermfg=233 ctermbg=244 gui=none guifg=#121212 guibg=#808080
   highlight PmenuThumb ctermfg=233 ctermbg=239 gui=none guifg=#121212 guibg=#4e4e4e
 endif
-highlight Search cterm=reverse ctermfg=220 ctermbg=234 gui=reverse guifg=#ffdf00 guibg=#1c1c1c
+highlight Search cterm=reverse ctermfg=178 ctermbg=236 gui=reverse guifg=#dfaf00 guibg=#303030
 highlight IncSearch cterm=reverse ctermfg=136 ctermbg=236 gui=reverse guifg=#af8700 guibg=#303030
 highlight QuickFixLine cterm=bold ctermfg=none ctermbg=none gui=reverse guifg=fg guibg=bg
 
