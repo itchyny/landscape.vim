@@ -96,7 +96,7 @@ if version >= 700
 endif
 highlight Search cterm=reverse ctermfg=178 ctermbg=236 gui=reverse guifg=#dfaf00 guibg=#303030
 highlight IncSearch cterm=reverse ctermfg=136 ctermbg=236 gui=reverse guifg=#af8700 guibg=#303030
-highlight QuickFixLine cterm=bold ctermfg=none ctermbg=none gui=reverse guifg=fg guibg=bg
+highlight QuickFixLine cterm=bold ctermfg=none ctermbg=none gui=bold guifg=NONE guibg=NONE
 
 if exists('*getmatches')
 
