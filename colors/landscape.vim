@@ -154,6 +154,15 @@ highlight default link Path Preproc
 highlight default link Marked StorageClass
 highlight default link Title Identifier
 
+if exists('##CmdlineEnter')
+  highlight IncSearch cterm=reverse ctermfg=178 ctermbg=236 gui=reverse guifg=#dfaf00 guibg=#303030
+  augroup landscape-highlight-search
+    autocmd!
+    autocmd CmdlineEnter /,\? :highlight Search cterm=reverse ctermfg=100 ctermbg=236 gui=reverse guifg=#878700 guibg=#303030
+    autocmd CmdlineLeave /,\? :highlight Search cterm=reverse ctermfg=178 ctermbg=236 gui=reverse guifg=#dfaf00 guibg=#303030
+  augroup END
+endif
+
 " Conceal
 " CursorIM
 " Directory
