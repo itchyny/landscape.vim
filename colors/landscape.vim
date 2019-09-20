@@ -82,7 +82,7 @@ if version >= 700
     highlight CursorLineNr term=underline cterm=bold ctermfg=148 ctermbg=235 gui=bold guifg=#afdf00 guibg=#262626
   else
     highlight clear CursorLine
-    highlight CursorLineNr term=NONE ctermbg=NONE guibg=NONE
+    highlight CursorLineNr term=none cterm=none ctermbg=none gui=none guibg=NONE
   endif
   highlight ColorColumn term=none cterm=none ctermbg=239 gui=none guibg=#4e4e4e
   highlight Cursor term=reverse cterm=reverse gui=reverse guifg=NONE guibg=NONE
