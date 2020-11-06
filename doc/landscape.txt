@@ -33,11 +33,7 @@ If you are using |neobundle|, add
 >
 	NeoBundle 'itchyny/landscape.vim'
 <
-to your .vimrc. Note that write this configuration before any of unite.vim,
-vimfiler.vim and vimshell.vim.
-
-Otherwise, download scripts to corresponding directory under $VIM.
-For example, place plugin/landscape.vim at $VIM/plugin/.
+to your .vimrc.
 
 ==============================================================================
 VARIABLES					*landscape-variables*
@@ -50,36 +46,6 @@ g:landscape_highlight_full_space		*g:landscape_highlight_full_space*
 		If this variable is 1, full-size spaces are colored anywhere.
 		The default value is 0.
 
-g:landscape_syntax_vimfiler			*g:landscape_syntax_vimfiler*
-g:landscape_syntax_vimshell			*g:landscape_syntax_vimshell*
-g:landscape_syntax_unite			*g:landscape_syntax_unite*
-g:landscape_syntax_quickrun			*g:landscape_syntax_quickrun*
-		If these variable is set to 0, corresponding syntax file of
-		|landscape| will not be loaded. In default, none of these
-		variables is set.
-
-==============================================================================
-SYNTAX FILES					*landscape-syntax*
-
-This plug-in contains following syntax files.
-
-	|vimfiler|.vim (https://github.com/Shougo/vimfiler)
-	|vimshell|.vim (https://github.com/Shougo/vimshell)
-	|unite|.vim (https://github.com/Shougo/unite.vim)
-	|quickrun|.vim (https://github.com/thinca/vim-quickrun)
-
-If you do not want to disable these syntax files, add following configuration
-to .vimrc.
->
-	let g:landscape_syntax_vimfiler = 0
-	let g:landscape_syntax_vimshell = 0
-	let g:landscape_syntax_unite = 0
-	let g:landscape_syntax_quickrun = 0
-<
-I highly recommend following configuration for |unite.vim|.
->
-	let g:unite_cursor_line_highlight = 'CursorLine'
-<
 ==============================================================================
 VIM POWERLINE THEME				*landscape-vim-powerline*
 This plug-in contains a theme and colorscheme for |vim-powerline|. Note that it is
