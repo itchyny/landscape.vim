@@ -7,7 +7,6 @@ Repository: https://github.com/itchyny/landscape.vim
 CONTENTS					*landscape-contents*
 
 Introduction				|landscape-introduction|
-Install					|landscape-install|
 Variables				|landscape-variables|
 Airline Theme				|landscape-airline|
 
@@ -16,20 +15,6 @@ INTRODUCTION					*landscape-introduction*
 
 The *landscape* plug-in is a colorscheme plug-in for Vim.
 It also provides some syntax files.
-
-==============================================================================
-INSTALL						*landscape-install*
-If you are using |Vundle|, add
->
-	Plugin 'itchyny/landscape.vim'
-<
-to your .vimrc. And then execute |:PluginInstall|.
-
-If you are using |neobundle|, add
->
-	NeoBundle 'itchyny/landscape.vim'
-<
-to your .vimrc.
 
 ==============================================================================
 VARIABLES					*landscape-variables*
@@ -50,7 +35,6 @@ setting.
 >
 	let g:airline_theme = 'landscape'
 <
-
 Also, the following settings will be nice.
 >
 	let g:airline#extensions#hunks#non_zero_only = 1
