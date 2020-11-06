@@ -10,9 +10,6 @@ CONTENTS					*landscape-contents*
 Introduction				|landscape-introduction|
 Install					|landscape-install|
 Variables				|landscape-variables|
-Syntax Files				|landscape-syntax|
-Vim-Powerline Theme			|landscape-vim-powerline|
-Powerline Theme				|landscape-powerline|
 Airline Theme				|landscape-airline|
 
 ==============================================================================
@@ -46,28 +43,6 @@ g:landscape_highlight_full_space		*g:landscape_highlight_full_space*
 		If this variable is 1, full-size spaces are colored anywhere.
 		The default value is 0.
 
-==============================================================================
-VIM POWERLINE THEME				*landscape-vim-powerline*
-This plug-in contains a theme and colorscheme for |vim-powerline|. Note that it is
-for vim-powerline (https://github.com/Lokaltog/vim-powerline), not for
-Powerline (https://github.com/Lokaltog/powerline). You can use the theme and
-colorscheme by the following configurations.
->
-	let g:Powerline_theme = 'landscape'
-	let g:Powerline_colorscheme = 'landscape'
-<
-==============================================================================
-POWERLINE THEME					*landscape-powerline*
-This plug-in contains a theme and colorscheme for |powerline|.
-(https://github.com/Lokaltog/powerline). After copying the
-powerline/colorschemes/vim/landscape.json to the appropreate directory,
-you can use the landscape theme by the following configuration.
->
-	{
-	"ext": {
-		"vim": {
-			"colorscheme": "landscape", ...
-<
 ==============================================================================
 AIRLINE THEME					*landscape-airline*
 This plug-in also contains a theme for |airline|
