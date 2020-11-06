@@ -13,7 +13,7 @@ Airline Theme				|landscape-airline|
 ==============================================================================
 INTRODUCTION					*landscape-introduction*
 
-The *landscape* plug-in is a colorscheme plug-in for Vim.
+*landscape* is a colorscheme plugin for Vim.
 It also provides some syntax files.
 
 ==============================================================================
@@ -29,7 +29,7 @@ g:landscape_highlight_full_space		*g:landscape_highlight_full_space*
 
 ==============================================================================
 AIRLINE THEME					*landscape-airline*
-This plug-in also contains a theme for |airline|
+This plugin also contains a theme for |airline|
 (https://github.com/bling/vim-airline). You can use the theme by the following
 setting.
 >
