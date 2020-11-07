@@ -127,8 +127,6 @@ highlight default link SpellCap SpellBad
 highlight default link SpellLocal SpellBad
 highlight default link SpellRare SpellBad
 
-highlight default link vimCmplxRepeat Normal
-
 if exists('##CmdlineEnter')
   highlight IncSearch cterm=reverse ctermfg=178 ctermbg=236 gui=reverse guifg=#dfaf00 guibg=#303030
   augroup landscape-highlight-search
