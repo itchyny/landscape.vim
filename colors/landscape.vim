@@ -64,7 +64,6 @@ highlight default link DiffRemoved DiffDelete
 highlight DiffLine term=none cterm=none ctermfg=129 ctermbg=none guifg=#af00ff guibg=bg
 highlight default link DiffAdded DiffAdd
 highlight default link ErrorMsg Error
-highlight default link FullSpace Error
 highlight Ignore ctermbg=none gui=none guifg=bg
 highlight ModeMsg ctermfg=none guifg=bg guibg=bg
 
@@ -95,33 +94,6 @@ highlight PmenuThumb ctermfg=233 ctermbg=239 gui=none guifg=#121212 guibg=#4e4e4
 highlight Search cterm=reverse ctermfg=178 ctermbg=236 gui=reverse guifg=#dfaf00 guibg=#303030
 highlight IncSearch cterm=reverse ctermfg=136 ctermbg=236 gui=reverse guifg=#af8700 guibg=#303030
 highlight QuickFixLine cterm=bold ctermfg=none ctermbg=none gui=bold guifg=NONE guibg=NONE
-
-if exists('*getmatches')
-
-  function! s:newmatch() abort
-    if !get(g:, 'landscape_highlight_todo', 0) && !get(g:, 'landscape_highlight_full_space', 0)
-      return
-    endif
-    for m in getmatches()
-      if m.group ==# 'Todo' || m.group ==# 'FullSpace'
-        silent! call matchdelete(m.id)
-      endif
-    endfor
-    if get(g:, 'landscape_highlight_todo', 0)
-      call matchadd('Todo', '\c\<todo\>', 10)
-    endif
-    if get(g:, 'landscape_highlight_full_space', 0)
-      call matchadd('FullSpace', "\u3000", 10)
-    endif
-  endfunction
-
-  augroup landscape-newmatch
-    autocmd!
-    autocmd VimEnter,BufNew,WinEnter,FileType,BufReadPost * call s:newmatch()
-  augroup END
-
-endif
-
 highlight SpellBad term=none cterm=none ctermbg=52 gui=none guibg=#5f0000
 highlight default link SpellCap SpellBad
 highlight default link SpellLocal SpellBad

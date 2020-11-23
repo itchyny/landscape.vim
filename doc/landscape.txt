@@ -7,7 +7,6 @@ Repository: https://github.com/itchyny/landscape.vim
 CONTENTS					*landscape-contents*
 
 Introduction				|landscape-introduction|
-Variables				|landscape-variables|
 Airline Theme				|landscape-airline|
 
 ==============================================================================
@@ -15,17 +14,6 @@ INTRODUCTION					*landscape-introduction*
 
 *landscape* is a colorscheme plugin for Vim.
 It also provides some syntax files.
-
-==============================================================================
-VARIABLES					*landscape-variables*
-
-g:landscape_highlight_todo			*g:landscape_highlight_todo*
-		If this variable is 1, the words TODO, todo and Todo are
-		colored anywhere. The default value is 0.
-
-g:landscape_highlight_full_space		*g:landscape_highlight_full_space*
-		If this variable is 1, full-size spaces are colored anywhere.
-		The default value is 0.
 
 ==============================================================================
 AIRLINE THEME					*landscape-airline*
